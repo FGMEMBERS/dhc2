@@ -1,0 +1,780 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+<path>dhc2f.ac</path>
+ 
+ 
+ 
+ <animation>
+  <type>select</type>
+  <object-name>cabin</object-name>
+  <condition>
+   <equals>
+    <property>/sim/current-view/view-number</property>
+    <value>0</value>
+   </equals>
+  </condition>
+ </animation>
+ 
+ <animation>
+  <type>select</type>
+  <object-name>Cargo</object-name>
+  <condition>
+   <greater-than>
+    <property>/yasim/cargo</property>
+    <value>0.000</value>
+   </greater-than>
+  </condition>
+ </animation>
+
+  <animation>
+  <type>select</type>
+  <object-name>Fastprop</object-name>
+  <condition>
+   <greater-than>
+    <property>/engines/engine[0]/rpm</property>
+    <value>1200</value>
+   </greater-than>
+  </condition>
+ </animation>
+
+ <animation>
+  <type>select</type>
+  <object-name>Slowprop</object-name>
+  <condition>
+   <less-than>
+    <property>/engines/engine/rpm</property>
+    <value>1201</value>
+   </less-than>
+   <greater-than>
+    <property>/engines/engine/rpm</property>
+    <value>500</value>
+   </greater-than>
+  </condition>
+ </animation>
+
+ <animation>
+  <type>select</type>
+  <object-name>Prop</object-name>
+  <condition>
+   <less-than>
+    <property>/engines/engine/rpm</property>
+    <value>501</value>
+   </less-than>
+  </condition>
+ </animation>
+ 
+ <animation>
+  <type>spin</type>
+  <object-name>Prop</object-name>
+  <property>/engines/engine/rpm</property>
+  <center>
+  <x-m>2.559</x-m>
+   <y-m>0.0</y-m>
+   <z-m>-0.027</z-m>
+  </center>
+  <axis>
+   <x>-1.0</x>
+   <y>0.0</y>
+   <z>0.0</z>
+  </axis>
+ </animation>
+ 
+ <animation>
+  <type>spin</type>
+  <object-name>Slowprop</object-name>
+  <property>/engines/engine/rpm</property>
+  <factor>0.5</factor>
+  <center>
+  <x-m>2.559</x-m>
+   <y-m>0.0</y-m>
+   <z-m>-0.027</z-m>
+  </center>
+  <axis>
+   <x>-1.0</x>
+   <y>0.0</y>
+   <z>0.0</z>
+  </axis>
+ </animation>
+ 
+ <animation>
+  <type>rotate</type>
+  <object-name>Rudder</object-name>
+  <property>/controls/flight/rudder</property>
+  <factor>30</factor>
+  <center>
+   <x-m>5.668</x-m>
+   <y-m>0</y-m>
+   <z-m>1.108</z-m>
+  </center>
+  <axis>
+   <x>0</x>
+   <y>0</y>
+   <z>1</z>
+  </axis>
+ </animation>
+ 
+ <animation>
+  <type>rotate</type>
+  <object-name>Elevator</object-name>
+  <property>/surface-positions/elevator-pos-norm</property>
+  <factor>30</factor>
+  <center>
+   <x-m>6.053</x-m>
+   <y-m>0.0</y-m>
+   <z-m>0.148</z-m>
+  </center>
+  <axis>
+   <x>0.0</x>
+   <y>1.0</y>
+   <z>0.0</z>
+  </axis>
+ </animation>
+ 
+ <animation>
+  <type>rotate</type>
+  <object-name>LHflap</object-name>
+  <property>/surface-positions/flap-pos-norm</property>
+  <factor>30</factor>
+  <center>
+   <x-m>0.476</x-m>
+   <y-m>-2.272</y-m>
+   <z-m>1.004</z-m>
+  </center>
+  <axis>
+   <x>0.0</x>
+   <y>0.970</y>
+   <z>-0.030</z>
+  </axis>
+ </animation>
+ 
+ <animation>
+  <type>rotate</type>
+  <object-name>RHflap</object-name>
+  <property>/surface-positions/flap-pos-norm</property>
+  <factor>30</factor>
+  <center>
+   <x-m>0.476</x-m>
+   <y-m>2.272</y-m>
+   <z-m>1.004</z-m>
+  </center>
+  <axis>
+   <x>0.0</x>
+   <y>0.970</y>
+   <z>0.030</z>
+  </axis>
+ </animation>
+ 
+ <animation>
+  <type>rotate</type>
+  <object-name>LHaileron</object-name>
+  <property>/surface-positions/left-aileron-pos-norm</property>
+  <factor>15</factor>
+  <center>
+   <x-m>0.477</x-m>
+   <y-m>-5.455</y-m>
+   <z-m>1.125</z-m>
+  </center>
+  <axis>
+   <x>0.0</x>
+   <y>0.975</y>
+   <z>-0.025</z>
+  </axis>
+ </animation>
+ 
+ <animation>
+  <type>rotate</type>
+  <object-name>RHaileron</object-name>
+  <property>/surface-positions/right-aileron-pos-norm</property>
+  <factor>15</factor>
+  <center>
+   <x-m>0.477</x-m>
+   <y-m>5.455</y-m>
+   <z-m>1.125</z-m>
+  </center>
+  <axis>
+   <x>0.0</x>
+   <y>0.975</y>
+   <z>0.025</z>
+  </axis>
+ </animation>
+ 
+ 
+ <!--   __________________________INSTRUMENTS_______________________________________     -->
+ 
+
+       <animation>
+    <type>rotate</type>
+    <object-name>AIneedle</object-name>
+    <property>/instrumentation/attitude-indicator/indicated-roll-deg</property>
+    <factor>-1</factor>
+    <axis>
+   <x>-0.904</x>
+   <y>0.0</y>
+   <z>-0.096</z>
+    </axis>
+  <center>
+   <x-m>-1.205</x-m>
+   <y-m>-0.299</y-m>
+   <z-m>0.397</z-m>
+  </center>
+  </animation>
+
+ <animation>
+   <type>translate</type>
+    <object-name>AIneedle</object-name>
+    <property>/instrumentation/attitude-indicator/indicated-pitch-deg</property>
+    <factor>-0.00035</factor>
+    <min-m>-0.01575</min-m>
+    <max-m>0.01575</max-m>
+    <axis>
+      <x>-0.087</x>
+      <y>0.0</y>
+      <z>1.0</z>
+    </axis>
+  <center>
+   <x-m>-1.205</x-m>
+   <y-m>-0.299</y-m>
+   <z-m>0.397</z-m>
+  </center>
+  </animation>
+ 
+    
+  <animation>
+    <type>texrotate</type>
+    <object-name>AIface</object-name>
+    <property>/instrumentation/attitude-indicator/indicated-roll-deg</property>
+    <axis>
+   <x>0.0</x>
+   <y>0.0</y>
+   <z>-1.0</z>
+    </axis>
+  <center>
+   <x>0.875</x>
+   <y>0.375</y>
+  </center>
+  </animation>
+  
+  <animation>
+    <type>texrotate</type>
+    <object-name>AIring</object-name>
+    <property>/instrumentation/attitude-indicator/indicated-roll-deg</property>
+    <axis>
+   <x>0.0</x>
+   <y>0.0</y>
+   <z>-1.0</z>
+    </axis>
+  <center>
+   <x>0.625</x>
+   <y>0.375</y>
+  </center>
+  </animation>
+     
+ <animation>
+  <type>rotate</type>
+  <object-name>VACneedle</object-name>
+  <property>/systems/vacuum/suction-inhg</property>
+  <interpolation>
+   <entry><ind>  0.0</ind><dep>0.0</dep></entry>     
+   <entry><ind> 10.0</ind><dep>295.0</dep></entry>     
+  </interpolation>
+  <axis>
+   <x>-0.862</x>
+   <y>0.0</y>
+   <z>-0.138</z>
+  </axis>
+  <center>
+   <x-m>-1.201</x-m>
+   <y-m>-0.507</y-m>
+   <z-m>0.369</z-m>
+  </center>
+ </animation>
+ 
+ <animation>
+  <type>rotate</type>
+  <object-name>RPMneedle</object-name>
+  <property>/engines/engine/rpm</property>
+  <interpolation>
+   <entry><ind>  0.0</ind><dep>0.0</dep></entry>     
+   <entry><ind>  500.0</ind><dep>35.0</dep></entry>     
+   <entry><ind> 1000.0</ind><dep>68.0</dep></entry>     
+   <entry><ind> 1500.0</ind><dep>104.0</dep></entry>     
+   <entry><ind> 2000.0</ind><dep>140.0</dep></entry>     
+   <entry><ind> 2500.0</ind><dep>175.0</dep></entry>     
+   <entry><ind> 3000.0</ind><dep>211.0</dep></entry>     
+   <entry><ind> 3500.0</ind><dep>245.0</dep></entry>     
+  </interpolation>
+  <axis>
+   <x>-1.0</x>
+   <y>0.0</y>
+   <z>-0.1</z>
+  </axis>
+  <center>
+   <x-m>-1.290</x-m>
+   <y-m>0.054</y-m>
+   <z-m>0.547</z-m>
+  </center>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>MANneedle</object-name>
+  <property>/engines/engine/mp-osi</property>
+  <interpolation>
+   <entry><ind>  0.0</ind><dep>0.0</dep></entry>     
+   <entry><ind>  10.0</ind><dep>20.0</dep></entry>     
+   <entry><ind> 30.0</ind><dep>180.0</dep></entry>     
+   <entry><ind> 50.0</ind><dep>337.0</dep></entry>     
+  </interpolation>
+  <axis>
+   <x>-1.0</x>
+   <y>0.0</y>
+   <z>-0.2</z>
+  </axis>
+  <center>
+   <x-m>-1.291</x-m>
+   <y-m>-0.049</y-m>
+   <z-m>0.549</z-m>
+  </center>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>ASIneedle</object-name>
+  <property>/instrumentation/airspeed-indicator/indicated-speed-kt</property>
+  <interpolation>
+   <entry><ind>  0.0</ind><dep>0.0</dep></entry>     
+   <entry><ind>  35.0</ind><dep>38.0</dep></entry>     
+   <entry><ind> 52.0</ind><dep>72.0</dep></entry>     
+   <entry><ind> 70.0</ind><dep>107.0</dep></entry>     
+   <entry><ind> 87.0</ind><dep>142.0</dep></entry>     
+   <entry><ind> 104.0</ind><dep>180.0</dep></entry>     
+   <entry><ind> 122.0</ind><dep>214.0</dep></entry>     
+   <entry><ind> 139.0</ind><dep>250.0</dep></entry>     
+   <entry><ind> 156.0</ind><dep>287.0</dep></entry>     
+   <entry><ind> 174.0</ind><dep>324.0</dep></entry>     
+  </interpolation>
+  <axis>
+   <x>-1.0</x>
+   <y>0.0</y>
+   <z>-0.15</z>
+  </axis>
+  <center>
+   <x-m>-1.204</x-m>
+   <y-m>-0.404</y-m>
+   <z-m>0.397</z-m>
+  </center>
+ </animation>
+ 
+ <animation>
+  <type>rotate</type>
+  <object-name>TURNneedle</object-name>
+  <property>/instrumentation/turn-indicator/indicated-turn-rate</property>
+  <factor>20.0</factor>
+  <axis>
+   <x>-1.0</x>
+   <y>0.0</y>
+   <z>-0.1</z>
+  </axis>
+  <center>
+   <x-m>-1.188</x-m>
+   <y-m>-0.298</y-m>
+   <z-m>0.291</z-m>
+  </center>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>PropPitch</object-name>
+  <property>/controls/engines/engine/propeller-pitch</property>
+  <factor>70</factor>
+  <center>
+   <x-m>-1.259</x-m>
+   <y-m>-0.067</y-m>
+   <z-m>0.414</z-m>
+  </center>
+  <axis>
+   <x>0</x>
+   <y>-1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>Mixture</object-name>
+  <property>/controls/engines/engine/mixture</property>
+  <factor>70</factor>
+  <center>
+   <x-m>-1.259</x-m>
+   <y-m>-0.067</y-m>
+   <z-m>0.414</z-m>
+  </center>
+  <axis>
+   <x>0</x>
+   <y>-1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>Throttle</object-name>
+  <property>/controls/engines/engine/throttle</property>
+  <factor>70</factor>
+  <center>
+   <x-m>-1.259</x-m>
+   <y-m>-0.067</y-m>
+   <z-m>0.414</z-m>
+  </center>
+  <axis>
+   <x>0</x>
+   <y>-1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+  <animation>
+  <type>translate</type>
+  <object-name>FLAPneedle</object-name>
+  <property>/surface-positions/flap-pos-norm</property>
+  <factor>0.05</factor>
+  <axis>
+   <x>0</x>
+   <y>-1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+ 
+  <animation>
+  <type>rotate</type>
+  <object-name>VSIneedle</object-name>
+  <property>/instrumentation/vertical-speed-indicator/indicated-speed-fpm</property>
+  <interpolation>
+   <entry><ind>  -2000.0</ind><dep>-173.0</dep></entry>
+   <entry><ind>  -1500.0</ind><dep>-126.0</dep></entry>
+   <entry><ind>  -1000.0</ind><dep> -84.0</dep></entry>
+   <entry><ind>   -500.0</ind><dep> -41.5</dep></entry>
+   <entry><ind>      0.0</ind><dep>   0.0</dep></entry>
+   <entry><ind>    500.0</ind><dep>  41.5</dep></entry>
+   <entry><ind>   1000.0</ind><dep>  84.0</dep></entry>
+   <entry><ind>   1500.0</ind><dep> 126.0</dep></entry>
+   <entry><ind>   2000.0</ind><dep> 173.0</dep></entry>
+  </interpolation>     
+  <axis>
+   <x>-1.0</x>
+   <y>0.0</y>
+   <z>-0.2</z>
+  </axis>
+  <center>
+   <x-m>-1.188</x-m>
+   <y-m>-0.196</y-m>
+   <z-m>0.292</z-m>
+  </center>
+ </animation>
+ 
+  <animation>
+  <type>texrotate</type>
+  <object-name>HDGneedle</object-name>
+  <property>/instrumentation/heading-indicator/indicated-heading-deg</property>
+  <axis>
+   <x>0.0</x>
+   <y>0.0</y>
+   <z>-1.0</z>
+  </axis>
+  <center>
+   <x>0.875</x>
+   <y>0.625</y>
+  </center>
+ </animation>
+
+ 
+ <animation>
+  <type>rotate</type>
+  <object-name>FFneedle</object-name>
+  <property>/consumables/fuel/tank/level-gal_us</property>
+  <interpolation>
+   <entry><ind> 0</ind><dep> 0</dep></entry>
+   <entry><ind> 4</ind><dep> 22</dep></entry>
+   <entry><ind> 8</ind><dep> 57</dep></entry>
+   <entry><ind> 12</ind><dep> 114</dep></entry>
+   <entry><ind> 16</ind><dep> 174</dep></entry>
+   <entry><ind> 20</ind><dep> 235</dep></entry>
+   <entry><ind> 24</ind><dep> 274</dep></entry>
+   <entry><ind> 28</ind><dep> 295</dep></entry>
+  </interpolation>
+  <axis>
+   <x>-0.862</x>
+   <y>0.0</y>
+   <z>-0.138</z>
+  </axis>
+  <center>
+   <x-m>-1.183</x-m>
+   <y-m>-0.524</y-m>
+   <z-m>0.250</z-m>
+  </center>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>CFneedle</object-name>
+  <property>/consumables/fuel/tank[1]/level-gal_us</property>
+  <interpolation>
+   <entry><ind> 0</ind><dep> 0</dep></entry>
+   <entry><ind> 4</ind><dep> 22</dep></entry>
+   <entry><ind> 8</ind><dep> 57</dep></entry>
+   <entry><ind> 12</ind><dep> 114</dep></entry>
+   <entry><ind> 16</ind><dep> 174</dep></entry>
+   <entry><ind> 20</ind><dep> 235</dep></entry>
+   <entry><ind> 24</ind><dep> 274</dep></entry>
+   <entry><ind> 28</ind><dep> 295</dep></entry>
+  </interpolation>
+  <axis>
+   <x>-0.862</x>
+   <y>0.0</y>
+   <z>-0.138</z>
+  </axis>
+  <center>
+   <x-m>-1.183</x-m>
+   <y-m>-0.487</y-m>
+   <z-m>0.250</z-m>
+  </center>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>RFneedle</object-name>
+  <property>/consumables/fuel/tank[2]/level-gal_us</property>
+  <interpolation>
+   <entry><ind> 0</ind><dep> 0</dep></entry>
+   <entry><ind> 4</ind><dep> 33</dep></entry>
+   <entry><ind> 8</ind><dep> 98</dep></entry>
+   <entry><ind> 12</ind><dep> 180</dep></entry>
+   <entry><ind> 16</ind><dep> 242</dep></entry>
+   <entry><ind> 20</ind><dep> 292</dep></entry>
+   <entry><ind> 30</ind><dep> 274</dep></entry>
+  </interpolation>
+  <axis>
+   <x>-0.862</x>
+   <y>0.0</y>
+   <z>-0.138</z>
+  </axis>
+  <center>
+   <x-m>-1.187</x-m>
+   <y-m>-0.507</y-m>
+   <z-m>0.283</z-m>
+  </center>
+ </animation>
+ 
+ 
+  <animation>
+  <type>rotate</type>
+  <object-name>ALT100</object-name>
+  <property>/instrumentation/altimeter/indicated-altitude-ft</property>
+  <factor>0.36</factor>
+  <axis>
+   <x>-0.862</x>
+   <y>0.0</y>
+   <z>-0.138</z>
+  </axis>
+  <center>
+   <x-m>-1.205</x-m>
+   <y-m>-0.196</y-m>
+   <z-m>0.396</z-m>
+  </center>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>ALT1000</object-name>
+  <property>/instrumentation/altimeter/indicated-altitude-ft</property>
+  <factor>0.036</factor>
+  <axis>
+   <x>-0.862</x>
+   <y>0.0</y>
+   <z>-0.138</z>
+  </axis>
+  <center>
+   <x-m>-1.205</x-m>
+   <y-m>-0.196</y-m>
+   <z-m>0.396</z-m>
+  </center>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>Magnetos</object-name>
+  <property>/controls/engines/engine/magnetos</property>
+  <interpolation>
+   <entry><ind> 0</ind><dep> 0</dep></entry>
+   <entry><ind> 1</ind><dep> 27</dep></entry>
+   <entry><ind> 2</ind><dep> 58</dep></entry>
+   <entry><ind> 3</ind><dep> 82</dep></entry>
+  </interpolation>
+  <axis>
+   <x>-1.0</x>
+   <y>0.0</y>
+   <z>-0.0</z>
+  </axis>
+  <center>
+ <x-m>-1.159</x-m>
+   <y-m>-0.384</y-m>
+   <z-m>0.110</z-m>  
+</center>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>StarterToggle</object-name>
+  <property>/controls/engines/engine/starter</property>
+  <factor>40</factor>
+  <axis>
+   <x>0.0</x>
+   <y>-1.0</y>
+   <z>-0.0</z>
+  </axis>
+<center>
+ <x-m>-1.143</x-m>
+   <y-m>-0.384</y-m>
+   <z-m>0.019</z-m>
+</center>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>AltToggle</object-name>
+  <property>/controls/engines/engine/master-alt</property>
+  <factor>40</factor>
+  <axis>
+   <x>0.0</x>
+   <y>-1.0</y>
+   <z>-0.0</z>
+  </axis>
+<center>
+ <x-m>-1.143</x-m>
+   <y-m>-0.344</y-m>
+   <z-m>0.019</z-m>
+</center>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>BattToggle</object-name>
+  <property>/controls/engines/engine/master-bat</property>
+  <factor>40</factor>
+  <axis>
+   <x>0.0</x>
+   <y>-1.0</y>
+   <z>0.0</z>
+  </axis>
+<center>
+ <x-m>-1.143</x-m>
+   <y-m>-0.424</y-m>
+   <z-m>0.019</z-m>
+</center>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>PumpToggle</object-name>
+  <property>/controls/engines/engine/fuel-pump</property>
+  <factor>40</factor>
+  <axis>
+   <x>0.0</x>
+   <y>-1.0</y>
+   <z>0.0</z>
+  </axis>
+<center>
+ <x-m>-1.143</x-m>
+   <y-m>-0.304</y-m>
+   <z-m>0.019</z-m>
+</center>
+ </animation>
+
+<animation>
+<type>rotate</type>
+  <object-name>FuelSelect</object-name>
+  <property>/controls/fuel/switch-position</property>
+<factor>90.0</factor>
+  <axis>
+   <x>-1.0</x>
+   <y>0.0</y>
+   <z>0.0</z>
+  </axis>
+  <center>
+   <x-m>-1.149</x-m>
+   <y-m>-0.502</y-m>
+   <z-m>0.094</z-m>
+  </center>
+</animation>
+
+
+<animation>
+<type>select</type>
+  <object-name>stall-on</object-name>
+ <condition>
+    <less-than>
+  <property>/instrumentation/airspeed-indicator/indicated-speed-kt</property>
+    <value>70.000</value>
+  </less-than>
+  </condition>
+</animation>
+
+ <!--         __________________________Shadow Map____________________________________     -->
+<!-- pitch -->
+ <animation>
+  <type>rotate</type>
+  <object-name>ShadowMap</object-name>
+  <property>/orientation/pitch-deg</property>
+  <factor>-1.0</factor>
+  <center>
+   <x-m>0</x-m>
+   <y-m>0</y-m>
+   <z-m>0</z-m>
+  </center>
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+<!-- roll -->
+ <animation>
+  <type>rotate</type>
+  <object-name>ShadowMap</object-name>
+  <property>/orientation/roll-deg</property>
+  <factor>1.0</factor>
+  <center>
+   <x-m>0</x-m>
+   <y-m>0</y-m>
+   <z-m>0</z-m>
+  </center>
+  <axis>
+   <x>1</x>
+   <y>0</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+<!-- Translate to ground level -->
+ <animation>
+  <type>translate</type>
+  <object-name>ShadowMap</object-name>
+  <property>/position/altitude-agl-ft</property>
+  <factor>-0.3</factor>
+  <center>
+   <x-m>0</x-m>
+   <y-m>0</y-m>
+   <z-m>0</z-m>
+  </center>
+  <axis>
+   <x>0</x>
+   <y>0</y>
+   <z>1</z>
+  </axis>
+ </animation>
+
+
+</PropertyList>

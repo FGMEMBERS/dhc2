@@ -1,0 +1,200 @@
+<?xml version="1.0"?>
+<!--
+************************************************************************
+Dehavallind Beaver
+
+July 2004 Syd Adams
+
+Work in progress ! :)
+************************************************************************
+-->
+
+<PropertyList>
+ <sim>
+
+  <description>Dehavallind Beaver</description>
+
+  <flight-model>yasim</flight-model>
+  <aero>dhc2F</aero>
+  <fuel-fraction>0.92</fuel-fraction>
+  
+  <startup>
+   <splash-texture>Aircraft/dhc2/dhc-2.rgb</splash-texture>
+  </startup>
+
+  
+  <systems>
+   <electrical>
+    <path>Aircraft/dhc2/dhc2-electrical.xml</path>
+   </electrical>
+  </systems> 
+
+  <sound>
+   <path>Aircraft/dhc2/dhc2-sound.xml</path>
+  </sound>
+
+  <panel>
+   <path>Aircraft/c310/c310-vfr-panel.xml</path>
+   <visibility>false</visibility>
+  </panel>
+  <panel_2>
+   <path>Aircraft/c310/c310-mini-panel.xml</path>
+  </panel_2>
+
+  <model>
+   <path>Aircraft/dhc2/Models/dhc2floats.xml</path>
+  </model> 
+
+  <virtual-cockpit archive="y">true</virtual-cockpit>
+  <allow-toggle-cockpit archive="y">true</allow-toggle-cockpit>
+
+  <view>
+   <internal archive="y">true</internal>
+   <config>
+     <!-- x/y/z == right/up/back -->
+     <x-offset-m archive="y">-0.25</x-offset-m>
+     <y-offset-m archive="y">0.65</y-offset-m>
+     <z-offset-m archive="y">-0.65</z-offset-m>
+     <pitch-offset-deg>-15</pitch-offset-deg>
+     <default-field-of-view-deg type="double">60.0</default-field-of-view-deg>
+     </config>
+  </view>
+
+  <chase-distance-m type="double" archive="y">-20.0</chase-distance-m>
+  
+    <flaps>
+   <setting>0.000</setting> <!-- Cruise -->
+   <setting>0.2</setting> <!-- Climb -->
+   <setting>0.4</setting> <!--  -->
+   <setting>0.6</setting> <!--  -->
+   <setting>0.8</setting> <!--  -->
+   <setting>1.0</setting> <!-- Full -->
+  </flaps>
+
+  <alarms>
+  	<stall-warning type="double">0.000</stall-warning>
+  </alarms>
+  
+</sim>
+
+  <engines>
+   <engine>
+   <rpm type="double">700</rpm>
+    <magnetos>3</magnetos>
+    <running>false</running>
+  </engine>
+  </engines>
+  
+ <controls> 
+<fuel>
+<switch-position type = "int">0</switch-position>
+ <tank n="0">
+ <fuel_selector>true</fuel_selector>
+ </tank>
+ <tank n="1">
+ <fuel_selector>true</fuel_selector>
+ </tank>
+ <tank n="2">
+ <fuel_selector>true</fuel_selector>
+ </tank>
+</fuel>
+ </controls> 
+
+ 
+   
+ <input>
+  <keyboard>
+    <key n="102">
+  <name>f</name>
+  <desc>fuel tank select</desc>
+  <binding>
+   <command>nasal</command>
+   <script>
+node = props.globals.getNode("/consumables/fuel/tank[0]/selected",0);
+node.setBoolValue(0);
+node = props.globals.getNode("/consumables/fuel/tank[1]/selected",0);
+node.setBoolValue(0);
+node = props.globals.getNode("/consumables/fuel/tank[2]/selected",0);
+node.setBoolValue(0);
+
+val = getprop("/controls/fuel/switch-position");
+      test = 1 + val;
+      if(test > 3){test=0};
+setprop("/controls/fuel/switch-position",test);
+if(test == 1){
+node = props.globals.getNode("/consumables/fuel/tank[0]/selected",0);
+node.setBoolValue(1);
+if(getprop("/consumables/fuel/tank[0]/level-gal_us")>0.01){
+node = props.globals.getNode("/engines/engine/out-of-fuel",0);
+node.setBoolValue(0);
+	} 
+ }
+if(test == 2){
+node = props.globals.getNode("/consumables/fuel/tank[1]/selected",0);
+node.setBoolValue(1);
+if(getprop("/consumables/fuel/tank[1]/level-gal_us")>0.01){
+node = props.globals.getNode("/engines/engine/out-of-fuel",0);
+node.setBoolValue(0);
+	} 
+ }
+if(test == 3){
+node = props.globals.getNode("/consumables/fuel/tank[2]/selected",0);
+node.setBoolValue(1);
+if(getprop("/consumables/fuel/tank[2]/level-gal_us")>0.01){
+node = props.globals.getNode("/engines/engine/out-of-fuel",0);
+node.setBoolValue(0);
+	} 
+ };
+</script>
+  </binding>
+  </key> 
+
+  <key n="33">
+  <name>!</name>
+  <desc>Toggle Battery Switch</desc>
+  <binding>
+   <command>nasal</command>
+   <script>
+toggle=getprop("/controls/engines/engine/master-bat");
+toggle=1-toggle;
+setprop("/controls/engines/engine/master-bat",toggle);
+   </script>
+  </binding>
+  </key> 
+
+  <key n="64">
+  <name>@</name>
+  <desc>Toggle Alternator Switch</desc>
+  <binding>
+   <command>nasal</command>
+   <script>
+toggle=getprop("/controls/engines/engine/master-alt");
+toggle=1-toggle;
+setprop("/controls/engines/engine/master-alt",toggle);
+
+   </script>
+  </binding>
+  </key> 
+
+  <key n="35">
+  <name>#</name>
+  <desc>Toggle Fuel Pump</desc>
+  <binding>
+   <command>nasal</command>
+   <script>
+toggle=getprop("/controls/engines/engine/fuel-pump");
+toggle=1-toggle;
+setprop("/controls/engines/engine/fuel-pump",toggle);
+</script>
+  </binding>
+  </key> 
+</keyboard> 
+</input> 
+
+<yasim> 
+     <pilot-lb type="double">180</pilot-lb>
+     <copilot-lb type="double">190</copilot-lb>
+     <cargo type="double">1000</cargo>
+</yasim>
+
+</PropertyList>

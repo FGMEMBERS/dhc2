@@ -1,0 +1,7 @@
+ 
+Keys for 3D cockpit switches:
+ 
+ f :fuel tank select switch
+ ! (shift 1): Battery switch
+ @ (shift 2): Alternator switch
+ # (shift 3): Fuel pump switch

@@ -1,0 +1,83 @@
+<!--  DHC-2 Beaver           
+2004 Syd Adams --><airplane mass="2850" >
+  <approach speed="50" aoa="13" >
+    <control-setting value="0.5" axis="/controls/engines/engine[0]/throttle" />
+    <control-setting value="1.0" axis="/controls/engines/engine[0]/mixture" />
+    <control-setting value="0.6" axis="/controls/engines/engine[0]/propeller-pitch" />
+    <control-setting value="0.8" axis="/controls/flight/flaps" />
+  </approach>
+  <cruise speed="110" alt="15000" >
+    <control-setting value="1.0" axis="/controls/engines/engine[0]/throttle" />
+    <control-setting value="1.0" axis="/controls/engines/engine[0]/mixture" />
+    <control-setting value="1.0" axis="/controls/engines/engine[0]/propeller-pitch" />
+    <control-setting value="0.0" axis="/controls/flight/flaps" />
+  </cruise>
+  <cockpit x="-0.825" y="-0.26" z="0.70" />
+  <fuselage width="1.4" bx="-1.0" by="0" ax="1.0" bz="0" ay="0" taper="0.80" az="0" midpoint="0.5" />
+  <fuselage width="1.0" bx="1.0" by="0" ax="2.5" bz="0" ay="0" taper="1.0" az="0" midpoint="0.0" />
+  <fuselage width="1.4" bx="-6.0" by="0" ax="-1.0" bz="0.2" ay="0" taper="0.0" az="0" midpoint="0.0" />
+<!--  floats -->  <fuselage width="0.6" bx="-3.3" by="-1.5" ax="3.275" bz="-1.54" ay="-1.5" taper="0.3" az="-1.80" midpoint="0.3" />
+  <fuselage width="0.6" bx="-3.3" by="1.5" ax="3.275" bz="-1.54" ay="1.5" taper="0.3" az="-1.80" midpoint="0.3" />
+  
+  <wing camber="0.15" x="0.0" y="-0.6" z="0.6" chord="1.8" taper="1.0" length="7.0" dihedral="5" >
+    <stall width="6" aoa="15" peak="1.5" />
+    <flap0 drag="1.4" end="0.58" lift="1.3" start="0.04" />
+    <flap1 drag="1.2" end="0.97" lift="1.2" start="0.58" />
+    <control-input control="FLAP0" axis="/controls/flight/flaps" />
+    <control-input split="true" control="FLAP1" axis="/controls/flight/aileron" />
+    <control-input split="true" control="FLAP1" axis="/controls/flight/aileron-trim" />
+    <control-output prop="/surface-positions/flap-pos-norm" control="FLAP0" />
+    <control-output prop="/surface-positions/left-aileron-pos-norm" side="left" control="FLAP1" />
+    <control-output prop="/surface-positions/right-aileron-pos-norm" side="right" control="FLAP1" />
+    <control-speed transition-time="8" control="FLAP0" />
+  </wing>
+  
+  <hstab x="-6.0" y="0.2" z="0.2" effectiveness="1.4" chord="1.2" taper=".7" length="2.5" >
+    <stall width="4" aoa="16" peak="1.5" />
+    <flap0 drag="1.2" end="1" lift="1.5" start="0" />
+    <control-input control="FLAP0" axis="/controls/flight/elevator" />
+    <control-input control="FLAP0" axis="/controls/flight/elevator-trim" />
+    <control-output prop="/surface-positions/elevator-pos-norm" control="FLAP0" />
+  </hstab>
+  
+  <vstab x="-5.5" y="0" z="0.2" sweep="15" effectiveness="1.3" chord="3.0" taper=".2" length="2.0" >
+    <stall width="3" aoa="14" peak="1.5" />
+    <flap0 drag="1.2" end="1" lift="1.5" start="0" />
+    <control-input invert="true" control="FLAP0" axis="/controls/flight/rudder" />
+    <control-input invert="true" control="FLAP0" axis="/controls/flight/rudder-trim" />
+    <control-output prop="/surface-positions/rudder-pos-norm" control="FLAP0" />
+  </vstab>
+  
+  <propeller moment="16" x="2.0" y="0.0" z="0.0" mass="500" radius="1.4"
+   cruise-power="430" cruise-alt="12000" min-rpm="1400" max-rpm="2300" cruise-speed="130" cruise-rpm="1900">
+    <piston-engine eng-rpm="2300" alt="12000" eng-power="450" displacement="109.5" compression="6.7"/>
+    <actionpt x="2.5" y="0.0" z="0.0" />
+    <control-input control="THROTTLE" axis="/controls/engines/engine[0]/throttle" />
+    <control-input control="STARTER" axis="/controls/engines/engine[0]/starter" />
+    <control-input control="MAGNETOS" axis="/controls/engines/engine[0]/magnetos" />
+    <control-input control="MIXTURE" axis="/controls/engines/engine[0]/mixture" />
+    <control-input control="ADVANCE" axis="/controls/engines/engine[0]/propeller-pitch"/>
+  </propeller>
+  
+  <gear damp="0.5" x="-3.309" y="-1.5" z="-1.641" compression="0.5" spring="1.5" >
+    <control-input src1="1.0" dst0="0.3" dst1="-0.3" src0="-1.0" control="STEER" axis="/controls/flight/rudder" />
+  </gear>
+  <gear damp="0.5" x="-3.309" y="1.5" z="-1.641" compression="0.5" spring="1.5" >
+    <control-input src1="1.0" dst0="0.3" dst1="-0.3" src0="-1.0" control="STEER" axis="/controls/flight/rudder" />
+  </gear>
+  <gear damp="0.5" x="2.5" y="-1.5" z="-2.172" compression="0.5" spring="1.5" >
+    <control-input control="BRAKE" axis="/controls/gear/brake-parking" />
+    <control-input control="BRAKE" axis="/controls/gear/brake-left" />
+  </gear>
+  <gear damp="0.5" x="2.5" y="1.5" z="-2.172" compression="0.5" spring="1.5" >
+    <control-input control="BRAKE" axis="/controls/gear/brake-parking" />
+    <control-input control="BRAKE" axis="/controls/gear/brake-right" />
+  </gear>
+<!-- Fuel  -->  <tank x="1.5" y="0" z="-0.7" capacity="210" />
+  <tank x="0.0" y="0" z="-0.7" capacity="210" />
+  <tank x="-1.0" y="0" z="-0.7" capacity="156" />
+  <ballast x="0.0" y="0.0" z="-0.5" mass="500" />
+<!-- move CG forward -->  <weight x="0.75" y="-0.35" z="0.15" mass-prop="/yasim/pilot-lb" />
+  <weight x="0.75" y="0.35" z="0.15" mass-prop="/yasim/copilot-lb" />
+  <weight x="-1.0" y="0" z="-0.3" mass-prop="/yasim/cargo" />
+</airplane>
