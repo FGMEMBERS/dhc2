@@ -166,6 +166,7 @@
     <output>Cabin Lights Power</output>
     <switch>
       <prop>/controls/circuit-breakers/cabin-lights-pwr</prop>
+      <initial-state>off</initial-state>
     </switch>
   </connector>
 
@@ -174,6 +175,7 @@
     <output>Instrument Power</output>
     <switch>
       <prop>/controls/circuit-breakers/instr-ignition-switch</prop>
+      <initial-state>off</initial-state>
     </switch>
   </connector>
 
@@ -191,6 +193,7 @@
     <output>Landing Light Power</output>
     <switch>
       <prop>/controls/switches/landing-light</prop>
+      <initial-state>off</initial-state>
     </switch>
   </connector>
 
@@ -199,6 +202,7 @@
     <output>Beacon Power</output>
     <switch>
       <prop>/controls/switches/flashing-beacon</prop>
+      <initial-state>off</initial-state>
     </switch>
   </connector>
 
@@ -207,6 +211,7 @@
     <output>Flaps Power</output>
     <switch>
       <prop>/controls/circuit-breakers/flaps</prop>
+      <initial-state>off</initial-state>
     </switch>
   </connector>
 
@@ -223,6 +228,7 @@
     <output>Map Lights Power</output>
     <switch>
       <prop>/controls/switches/nav-lights</prop>
+      <initial-state>off</initial-state>
     </switch>
   </connector>
 
@@ -231,6 +237,7 @@
     <output>Instrument Lights Power</output>
     <switch>
       <prop>/controls/circuit-breakers/instrument-lights</prop>
+      <initial-state>off</initial-state>
     </switch>
   </connector>
 
@@ -239,6 +246,7 @@
     <output>Strobe Lights Power</output>
     <switch>
       <prop>/controls/switches/strobe-lights</prop>
+      <initial-state>off</initial-state>
     </switch>
   </connector>
 
@@ -247,6 +255,7 @@
     <output>Taxi Lights Power</output>
     <switch>
       <prop>/controls/switches/taxi-lights</prop>
+      <initial-state>off</initial-state>
     </switch>
   </connector>
 
@@ -255,6 +264,7 @@
     <output>Pitot Heat Power</output>
     <switch>
       <prop>/controls/switches/pitot-heat</prop>
+      <initial-state>off</initial-state>
     </switch>
   </connector>
 

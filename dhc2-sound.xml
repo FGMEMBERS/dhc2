@@ -13,12 +13,12 @@
     </not>
    </condition>
    <volume>
-    <offset>0.5</offset>
+    <offset>1.0</offset>
    </volume>
    <pitch>
     <property>/engines/engine/cranking</property>
-    <factor>0.5</factor>
-    <offset>0.5</offset>
+    <factor>0.8</factor>
+    <offset>0.0</offset>
    </pitch>
   </crank>
   
@@ -34,15 +34,15 @@
   <engine>
    <name>enginerun</name>
    <mode>looped</mode>
-   <path>Sounds/wasp.wav</path>
+   <path>Aircraft/dhc2/Sound/waspjr.wav</path>
    <condition>
     <property>/engines/engine/running</property>
    </condition>
    <volume>
     <property>/engines/engine/mp-osi</property>    
-    <factor>0.05</factor>
-    <min>0.5</min>
-    <max>1.5</max>
+    <factor>0.04</factor>
+    <min>0.4</min>
+    <max>1.0</max>
     <offset>0.0</offset>
    </volume>
    <pitch>
@@ -313,7 +313,80 @@
           <factor>1.0</factor>
         </volume>
       </click>
-  
+
+            <click> 
+        <name>Pitot Heat On</name>
+        <path>Aircraft/dhc2/Sound/click.wav</path>
+        <condition>
+	 <property>controls/switches/pitot-heat</property>
+	  </condition>
+        <volume> 
+          <factor>1.0</factor>
+        </volume>
+      </click>
+ 
+            <click> 
+        <name>Pitot Heat Off</name>
+        <path>Aircraft/dhc2/Sound/click.wav</path>
+        <condition>
+	 <not>
+	 <property>controls/switches/pitot-heat</property>
+	  </not>
+	  </condition>
+        <volume> 
+          <factor>1.0</factor>
+        </volume>
+      </click>
+ 
+            <click> 
+        <name>Landing Light On</name>
+        <path>Aircraft/dhc2/Sound/click.wav</path>
+        <condition>
+	 <property>controls/switches/landing-light</property>
+	  </condition>
+        <volume> 
+          <factor>1.0</factor>
+        </volume>
+      </click>
+
+                  <click> 
+        <name>Landing Light Off</name>
+        <path>Aircraft/dhc2/Sound/click.wav</path>
+        <condition>
+	 <not>
+	 <property>controls/switches/landing-light</property>
+	  </not>
+	  </condition>
+        <volume> 
+          <factor>1.0</factor>
+        </volume>
+      </click>
+ 
+            <click> 
+        <name>Nav Light On</name>
+        <path>Aircraft/dhc2/Sound/click.wav</path>
+        <condition>
+	 <property>controls/switches/nav-lights</property>
+	  </condition>
+        <volume> 
+          <factor>1.0</factor>
+        </volume>
+      </click>
+
+                  <click> 
+        <name>Nav Light Off</name>
+        <path>Aircraft/dhc2/Sound/click.wav</path>
+        <condition>
+	 <not>
+	 <property>controls/switches/nav-lights</property>
+	  </not>
+	  </condition>
+        <volume> 
+          <factor>1.0</factor>
+        </volume>
+      </click>
+ 
+        
 </fx>
  
 </PropertyList>

@@ -16,13 +16,17 @@ Work in progress ! :)
 
   <flight-model>yasim</flight-model>
   <aero>dhc2F</aero>
-  <fuel-fraction>0.92</fuel-fraction>
+  <fuel-fraction>0.75</fuel-fraction>
   
   <startup>
    <splash-texture>Aircraft/dhc2/dhc-2.rgb</splash-texture>
   </startup>
 
-  
+    <panel>
+   <path>Aircraft/c172/Panels/c172-vfr-panel.xml</path>
+  <visibility archive="y">false</visibility>
+  </panel>
+
   <systems>
    <electrical>
     <path>Aircraft/dhc2/dhc2-electrical.xml</path>
@@ -54,8 +58,8 @@ Work in progress ! :)
      <!-- x/y/z == right/up/back -->
      <x-offset-m archive="y">-0.25</x-offset-m>
      <y-offset-m archive="y">0.65</y-offset-m>
-     <z-offset-m archive="y">-0.65</z-offset-m>
-     <pitch-offset-deg>-15</pitch-offset-deg>
+     <z-offset-m archive="y">-0.60</z-offset-m>
+     <pitch-offset-deg>-12</pitch-offset-deg>
      <default-field-of-view-deg type="double">60.0</default-field-of-view-deg>
      </config>
   </view>
@@ -70,11 +74,6 @@ Work in progress ! :)
    <setting>0.8</setting> <!--  -->
    <setting>1.0</setting> <!-- Full -->
   </flaps>
-
-  <alarms>
-  	<stall-warning type="double">0.000</stall-warning>
-  </alarms>
-  
 </sim>
 
   <engines>
@@ -109,43 +108,7 @@ Work in progress ! :)
   <desc>fuel tank select</desc>
   <binding>
    <command>nasal</command>
-   <script>
-node = props.globals.getNode("/consumables/fuel/tank[0]/selected",0);
-node.setBoolValue(0);
-node = props.globals.getNode("/consumables/fuel/tank[1]/selected",0);
-node.setBoolValue(0);
-node = props.globals.getNode("/consumables/fuel/tank[2]/selected",0);
-node.setBoolValue(0);
-
-val = getprop("/controls/fuel/switch-position");
-      test = 1 + val;
-      if(test > 3){test=0};
-setprop("/controls/fuel/switch-position",test);
-if(test == 1){
-node = props.globals.getNode("/consumables/fuel/tank[0]/selected",0);
-node.setBoolValue(1);
-if(getprop("/consumables/fuel/tank[0]/level-gal_us")>0.01){
-node = props.globals.getNode("/engines/engine/out-of-fuel",0);
-node.setBoolValue(0);
-	} 
- }
-if(test == 2){
-node = props.globals.getNode("/consumables/fuel/tank[1]/selected",0);
-node.setBoolValue(1);
-if(getprop("/consumables/fuel/tank[1]/level-gal_us")>0.01){
-node = props.globals.getNode("/engines/engine/out-of-fuel",0);
-node.setBoolValue(0);
-	} 
- }
-if(test == 3){
-node = props.globals.getNode("/consumables/fuel/tank[2]/selected",0);
-node.setBoolValue(1);
-if(getprop("/consumables/fuel/tank[2]/level-gal_us")>0.01){
-node = props.globals.getNode("/engines/engine/out-of-fuel",0);
-node.setBoolValue(0);
-	} 
- };
-</script>
+   <script>dhc2.fuel_switch()</script>
   </binding>
   </key> 
 
@@ -154,11 +117,7 @@ node.setBoolValue(0);
   <desc>Toggle Battery Switch</desc>
   <binding>
    <command>nasal</command>
-   <script>
-toggle=getprop("/controls/engines/engine/master-bat");
-toggle=1-toggle;
-setprop("/controls/engines/engine/master-bat",toggle);
-   </script>
+   <script>dhc2.batt_switch()</script>
   </binding>
   </key> 
 
@@ -167,12 +126,7 @@ setprop("/controls/engines/engine/master-bat",toggle);
   <desc>Toggle Alternator Switch</desc>
   <binding>
    <command>nasal</command>
-   <script>
-toggle=getprop("/controls/engines/engine/master-alt");
-toggle=1-toggle;
-setprop("/controls/engines/engine/master-alt",toggle);
-
-   </script>
+   <script>dhc2.alt_switch()</script>
   </binding>
   </key> 
 
@@ -181,20 +135,70 @@ setprop("/controls/engines/engine/master-alt",toggle);
   <desc>Toggle Fuel Pump</desc>
   <binding>
    <command>nasal</command>
-   <script>
-toggle=getprop("/controls/engines/engine/fuel-pump");
-toggle=1-toggle;
-setprop("/controls/engines/engine/fuel-pump",toggle);
-</script>
+   <script>dhc2.f_pump_switch()</script>
   </binding>
   </key> 
+
+  <key n="36">
+  <name>$</name>
+  <desc>Toggle Pitot Heat</desc>
+  <binding>
+   <command>nasal</command>
+   <script>dhc2.pitot_heat_switch()</script>
+  </binding>
+  </key> 
+
+  <key n="37">
+  <name>#</name>
+  <desc>Toggle Landing Light</desc>
+  <binding>
+   <command>nasal</command>
+   <script>dhc2.landing_light_switch()</script>
+</binding>
+  </key> 
+
+    <key n="94">
+  <name>^</name>
+  <desc>Toggle Nav Lights</desc>
+  <binding>
+   <command>nasal</command>
+   <script>dhc2.nav_light_switch()</script>
+</binding>
+  </key> 
 </keyboard> 
+
+<joysticks>
+<js>
+ <button n="6">
+  <repeatable>true</repeatable>
+  <binding>
+<command>nasal</command>
+<script>dhc2.PropIncrease</script>
+  </binding>
+ </button>
+
+ <button n="7">
+  <repeatable>true</repeatable>
+  <binding>
+<command>nasal</command>
+<script>dhc2.PropDecrease</script>
+  </binding>
+ </button>
+ </js>
+ </joysticks>
 </input> 
+
+
 
 <yasim> 
      <pilot-lb type="double">180</pilot-lb>
      <copilot-lb type="double">190</copilot-lb>
-     <cargo type="double">1000</cargo>
+     <cargo type="double">0</cargo>
 </yasim>
 
+<nasal>
+	<dhc2>
+		<file>Aircraft/dhc2/Models/dhc2.nas</file>
+	</dhc2>
+</nasal>
 </PropertyList>

@@ -5,3 +5,9 @@ Keys for 3D cockpit switches:
  ! (shift 1): Battery switch
  @ (shift 2): Alternator switch
  # (shift 3): Fuel pump switch
+ $ (shift 4 ): Pitot Heat 
+ % (shift 5 ): Landing Light
+ ^ (shift 6 ) : Ext lights
+ 
+ Cargo weight can be adjusted in the internal properties /yasim/cargo
+  
