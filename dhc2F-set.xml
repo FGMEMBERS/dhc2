@@ -13,6 +13,7 @@ Work in progress ! :)
  <sim>
 
   <description>de Havilland Beaver</description>
+  <author>Syd Adams</author>
 
   <flight-model>yasim</flight-model>
   <aero>dhc2F</aero>
