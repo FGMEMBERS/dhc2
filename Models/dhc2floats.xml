@@ -41,7 +41,7 @@
   <condition>
    <greater-than>
     <property>/engines/engine[0]/rpm</property>
-    <value>1200</value>
+    <value>1500</value>
    </greater-than>
   </condition>
  </animation>
@@ -52,7 +52,7 @@
   <condition>
    <less-than>
     <property>/engines/engine/rpm</property>
-    <value>1201</value>
+    <value>1501</value>
    </less-than>
    <greater-than>
     <property>/engines/engine/rpm</property>
@@ -240,6 +240,7 @@
  <!--   __________________________INSTRUMENTS_______________________________________     -->
  
 
+ 
  <animation>
    <type>translate</type>
     <object-name>AIneedle</object-name>
@@ -248,34 +249,33 @@
     <min-m>-0.01575</min-m>
     <max-m>0.01575</max-m>
     <axis>
-      <x>-0.148</x>
+      <x>-0.174</x>
       <y>0.0</y>
-      <z>0.989</z>
+      <z>0.985</z>
     </axis>
   <center>
-   <x-m>-1.205</x-m>
-   <y-m>-0.299</y-m>
-   <z-m>0.397</z-m>
+   <x-m>-1.200</x-m>
+   <y-m>-0.294</y-m>
+   <z-m>0.385</z-m>
   </center>
   </animation>
- 
-<animation>
+
+  <animation>
     <type>rotate</type>
     <object-name>AIneedle</object-name>
     <property>/instrumentation/attitude-indicator/indicated-roll-deg</property>
     <factor>-1</factor>
   <axis>
-   <x>-0.989</x>
+   <x>-0.985</x>
    <y>0.0</y>
-   <z>-0.148</z>
+   <z>-0.174</z>
   </axis>
   <center>
-   <x-m>-1.205</x-m>
-   <y-m>-0.299</y-m>
-   <z-m>0.397</z-m>
+   <x-m>-1.200</x-m>
+   <y-m>-0.294</y-m>
+   <z-m>0.385</z-m>
   </center>
   </animation>
-
       
   <animation>
     <type>texrotate</type>
@@ -316,14 +316,14 @@
    <entry><ind> 10.0</ind><dep>295.0</dep></entry>     
   </interpolation>
   <axis>
-   <x>-0.989</x>
+   <x>-0.985</x>
    <y>0.0</y>
-   <z>-0.148</z>
+   <z>-0.174</z>
   </axis>
   <center>
-   <x-m>-1.198</x-m>
-   <y-m>-0.519</y-m>
-   <z-m>0.352</z-m>
+   <x-m>-1.195</x-m>
+   <y-m>-0.517</y-m>
+   <z-m>0.347</z-m>
   </center>
  </animation>
  
@@ -342,13 +342,13 @@
    <entry><ind> 3500.0</ind><dep>245.0</dep></entry>     
   </interpolation>
   <axis>
-   <x>-0.938</x>
+   <x>-0.940</x>
    <y>0.0</y>
-   <z>-0.347</z>
+   <z>-0.342</z>
   </axis>
   <center>
-   <x-m>-1.290</x-m>
-   <y-m>0.043</y-m>
+   <x-m>-1.293</x-m>
+   <y-m>0.048</y-m>
    <z-m>0.552</z-m>
   </center>
  </animation>
@@ -364,14 +364,14 @@
    <entry><ind> 50.0</ind><dep>337.0</dep></entry>     
   </interpolation>
   <axis>
-   <x>-0.938</x>
+   <x>-0.940</x>
    <y>0.0</y>
-   <z>-0.347</z>
+   <z>-0.342</z>
   </axis>
   <center>
-   <x-m>-1.290</x-m>
-   <y-m>-0.046</y-m>
-   <z-m>0.551</z-m>
+   <x-m>-1.293</x-m>
+   <y-m>-0.043</y-m>
+   <z-m>0.552</z-m>
   </center>
  </animation>
 
@@ -392,14 +392,14 @@
    <entry><ind> 173.8</ind><dep>324.0</dep></entry>     
   </interpolation>
   <axis>
-   <x>-0.989</x>
+   <x>-0.985</x>
    <y>0.0</y>
-   <z>-0.148</z>
+   <z>-0.174</z>
   </axis>
   <center>
-   <x-m>-1.202</x-m>
-   <y-m>-0.409</y-m>
-   <z-m>0.389</z-m>
+   <x-m>-1.201</x-m>
+   <y-m>-0.406</y-m>
+   <z-m>0.386</z-m>
   </center>
  </animation>
  
@@ -409,14 +409,14 @@
   <property>/instrumentation/turn-indicator/indicated-turn-rate</property>
   <factor>20.0</factor>
   <axis>
-   <x>-0.989</x>
+   <x>-0.985</x>
    <y>0.0</y>
-   <z>-0.148</z>
+   <z>-0.174</z>
   </axis>
   <center>
-   <x-m>-1.186</x-m>
-   <y-m>-0.300</y-m>
-   <z-m>0.281</z-m>
+   <x-m>-1.183</x-m>
+   <y-m>-0.295</y-m>
+   <z-m>0.275</z-m>
   </center>
  </animation>
 
@@ -436,14 +436,14 @@
    <entry><ind>   2000.0</ind><dep> 173.0</dep></entry>
   </interpolation>     
   <axis>
-   <x>-0.989</x>
+   <x>-0.985</x>
    <y>0.0</y>
-   <z>-0.148</z>
+   <z>-0.174</z>
   </axis>
   <center>
-   <x-m>-1.187</x-m>
-   <y-m>-0.190</y-m>
-   <z-m>0.281</z-m>
+   <x-m>-1.184</x-m>
+   <y-m>-0.184</y-m>
+   <z-m>0.274</z-m>
   </center>
  </animation>
  
@@ -462,6 +462,21 @@
   </center>
  </animation>
 
+  <animation>
+  <type>rotate</type>
+  <object-name>cmpsrose</object-name>
+  <property>/instrumentation/magnetic-compass/indicated-heading-deg</property>
+  <axis>
+   <x>0.0</x>
+   <y>0.0</y>
+   <z>1.0</z>
+  </axis>
+  <center>
+   <x-m>-1.144</x-m>
+   <y-m>0.001</y-m>
+   <z-m>0.694</z-m>
+  </center>
+ </animation>
  
  <animation>
   <type>rotate</type>
@@ -478,14 +493,14 @@
    <entry><ind> 28</ind><dep> 300</dep></entry>
   </interpolation>
   <axis>
-   <x>-0.989</x>
+   <x>-0.985</x>
    <y>0.0</y>
-   <z>-0.148</z>
+   <z>-0.174</z>
   </axis>
   <center>
-   <x-m>-1.181</x-m>
-   <y-m>-0.536</y-m>
-   <z-m>0.244</z-m>
+   <x-m>-1.178</x-m>
+   <y-m>-0.535</y-m>
+   <z-m>0.235</z-m>
   </center>
  </animation>
 
@@ -504,14 +519,14 @@
    <entry><ind> 28</ind><dep> 300</dep></entry>
   </interpolation>
   <axis>
-   <x>-0.989</x>
+   <x>-0.985</x>
    <y>0.0</y>
-   <z>-0.148</z>
+   <z>-0.174</z>
   </axis>
   <center>
-   <x-m>-1.181</x-m>
-   <y-m>-0.503</y-m>
-   <z-m>0.244</z-m>
+   <x-m>-1.178</x-m>
+   <y-m>-0.498</y-m>
+   <z-m>0.235</z-m>
   </center>
  </animation>
 
@@ -528,14 +543,14 @@
    <entry><ind> 20</ind><dep> 300</dep></entry>
   </interpolation>
   <axis>
-   <x>-0.989</x>
+   <x>-0.985</x>
    <y>0.0</y>
-   <z>-0.148</z>
+   <z>-0.174</z>
   </axis>
   <center>
-   <x-m>-1.185</x-m>
-   <y-m>-0.520</y-m>
-   <z-m>0.272</z-m>
+   <x-m>-1.183</x-m>
+   <y-m>-0.516</y-m>
+   <z-m>0.267</z-m>
   </center>
  </animation>
  
@@ -546,14 +561,14 @@
   <property>/instrumentation/altimeter/indicated-altitude-ft</property>
   <factor>0.36</factor>
   <axis>
-   <x>-0.989</x>
+   <x>-0.985</x>
    <y>0.0</y>
-   <z>-0.148</z>
+   <z>-0.174</z>
   </axis>
   <center>
-   <x-m>-1.202</x-m>
-   <y-m>-0.190</y-m>
-   <z-m>0.389</z-m>
+   <x-m>-1.201</x-m>
+   <y-m>-0.184</y-m>
+   <z-m>0.385</z-m>
   </center>
  </animation>
 
@@ -563,14 +578,14 @@
   <property>/instrumentation/altimeter/indicated-altitude-ft</property>
   <factor>0.036</factor>
   <axis>
-   <x>-0.989</x>
+   <x>-0.985</x>
    <y>0.0</y>
-   <z>-0.148</z>
+   <z>-0.174</z>
   </axis>
   <center>
-   <x-m>-1.202</x-m>
-   <y-m>-0.190</y-m>
-   <z-m>0.389</z-m>
+   <x-m>-1.201</x-m>
+   <y-m>-0.184</y-m>
+   <z-m>0.385</z-m>
   </center>
  </animation>
 
@@ -613,7 +628,7 @@
    <z>-0.148</z>
   </axis>
   <center>
-   <x-m>-1.186</x-m>
+   <x-m>-1.174</x-m>
    <y-m>0.049</y-m>
    <z-m>0.275</z-m>
   </center>
@@ -630,7 +645,7 @@
    <z>-0.148</z>
   </axis>
   <center>
-   <x-m>-1.186</x-m>
+   <x-m>-1.174</x-m>
    <y-m>0.049</y-m>
    <z-m>0.275</z-m>
   </center>
@@ -647,8 +662,8 @@
    <z>-0.148</z>
   </axis>
   <center>
-   <x-m>-1.186</x-m>
-   <y-m>-0.048</y-m>
+   <x-m>-1.173</x-m>
+   <y-m>-0.049</y-m>
    <z-m>0.275</z-m>
   </center>
 </animation>
@@ -664,9 +679,9 @@
    <z>-0.148</z>
   </axis>
   <center>
-   <x-m>-1.184</x-m>
+   <x-m>-1.171</x-m>
    <y-m>-0.053</y-m>
-   <z-m>0.260</z-m>
+   <z-m>0.258</z-m>
   </center>
 </animation>
 
@@ -681,9 +696,9 @@
    <z>-0.148</z>
   </axis>
   <center>
-   <x-m>-1.184</x-m>
+   <x-m>-1.171</x-m>
    <y-m>-0.043</y-m>
-   <z-m>0.260</z-m>
+   <z-m>0.258</z-m>
   </center>
 </animation>
 
@@ -723,7 +738,7 @@
    <z>-0.148</z>
   </axis>
  <center>
-   <x-m>-1.161</x-m>
+   <x-m>-1.157</x-m>
    <y-m>0.049x</y-m>
    <z-m>0.165</z-m>
   </center>
@@ -758,9 +773,9 @@
    <z>-0.148</z>
   </axis>
   <center>
- <x-m>-1.159</x-m>
-   <y-m>-0.428</y-m>
-   <z-m>0.111</z-m>  
+ <x-m>-1.160</x-m>
+   <y-m>-0.440</y-m>
+   <z-m>0.116</z-m>  
 </center>
  </animation>
 
@@ -895,9 +910,9 @@
    <z>-0.148</z>
   </axis>
   <center>
-   <x-m>-1.149</x-m>
-   <y-m>-0.525</y-m>
-   <z-m>0.097</z-m>
+   <x-m>-1.162</x-m>
+   <y-m>-0.531</y-m>
+   <z-m>0.103</z-m>
   </center>
 </animation>
 

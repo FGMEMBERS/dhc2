@@ -21,8 +21,8 @@
   
 <!--   floats    -->
 
- <fuselage width="0.8" ax="3.5" ay="-1.5" az="-1.5" bx="-3.0" by="-1.5" bz="-1.2" taper="0.5" midpoint="0.3"/>
- <fuselage width="0.8" ax="3.5" ay="1.5" az="-1.5" bx="-3.0" by="1.5" bz="-1.2" taper="0.5" midpoint="0.3"/>
+ <fuselage width="0.8" ax="3.5" ay="-2.0" az="-1.6" bx="-3.0" by="-2.0" bz="-1.4" taper="0.5" midpoint="0.3"/>
+ <fuselage width="0.8" ax="3.5" ay="2.0" az="-1.6" bx="-3.0" by="2.0" bz="-1.4" taper="0.5" midpoint="0.3"/>
 
   <wing x="0.0" y="-0.6" z="0.6" chord="1.8" taper="1.0" length="6.8"
    dihedral="3" incidence="-3.0" camber="0.0">
@@ -66,23 +66,23 @@
     <control-input control="ADVANCE" axis="/controls/engines/engine[0]/propeller-pitch"/>
   </propeller>
   
-  <gear x="-3.309" y="-1.5" z="-1.641" compression="0.4" spring="1.6" damp="0.7">
+  <gear x="-3.309" y="-2.0" z="-1.75" compression="0.3" spring="1" damp="2">
     <control-input src1="1.0" dst0="0.3" dst1="-0.3" src0="-1.0" control="STEER" axis="/controls/flight/rudder" />
   </gear>
-  <gear x="-3.309" y="1.5" z="-1.641" compression="0.4" spring="1.6" damp="0.7">
+  <gear x="-3.309" y="2.0" z="-1.75" compression="0.3" spring="1" damp="2">
     <control-input src1="1.0" dst0="0.3" dst1="-0.3" src0="-1.0" control="STEER" axis="/controls/flight/rudder" />
   </gear>
-  <gear x="2.5" y="-1.5" z="-2.172" compression="0.5" spring="1.6" damp="0.7">
+  <gear x="2.5" y="-2.0" z="-2.3" compression="0.4" spring="1" damp="2">
     <control-input control="BRAKE" axis="/controls/gear/brake-parking" />
     <control-input control="BRAKE" axis="/controls/gear/brake-left" />
   </gear>
-  <gear x="2.5" y="1.5" z="-2.172" compression="0.5" spring="1.6" damp="0.7">
+  <gear x="2.5" y="2.0" z="-2.3" compression="0.4" spring="1" damp="2">
     <control-input control="BRAKE" axis="/controls/gear/brake-parking" />
     <control-input control="BRAKE" axis="/controls/gear/brake-right" />
   </gear>
 <!-- Fuel  -->  <tank x="1.5" y="0" z="-0.7" capacity="210" />
   <tank x="0.0" y="0" z="-0.7" capacity="210" />
-  <tank x="-1.0" y="0" z="-0.7" capacity="156" />
+  <tank x="-1.5" y="0" z="-0.7" capacity="156" />
   <ballast x="2.0" y="0.0" z="0.0" mass="-50" />
 
  <weight x="0.75" y="-0.35" z="0.15" mass-prop="/yasim/pilot-lb" />

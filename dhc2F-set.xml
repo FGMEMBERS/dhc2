@@ -12,14 +12,14 @@ Work in progress ! :)
 <PropertyList>
  <sim>
 
-  <description>Dehavallind Beaver</description>
+  <description>de Havilland Beaver</description>
 
   <flight-model>yasim</flight-model>
   <aero>dhc2F</aero>
   <fuel-fraction>0.75</fuel-fraction>
   
   <startup>
-   <splash-texture>Aircraft/dhc2/dhc-2.rgb</splash-texture>
+   <splash-texture>Aircraft/dhc2/dhc-2splash.rgb</splash-texture>
   </startup>
 
     <panel>
@@ -67,11 +67,16 @@ Work in progress ! :)
   <chase-distance-m type="double" archive="y">-20.0</chase-distance-m>
   
     <flaps>
-   <setting>0.000</setting> <!-- Cruise -->
-   <setting>0.2</setting> <!-- Climb -->
-   <setting>0.4</setting> <!--  -->
-   <setting>0.6</setting> <!--  -->
-   <setting>0.8</setting> <!--  -->
+   <setting>0.00</setting> <!-- Cruise -->
+   <setting>0.10</setting> <!--  -->
+   <setting>0.20</setting> <!-- Climb -->
+   <setting>0.30</setting> <!--  -->
+   <setting>0.40</setting> <!--  -->
+   <setting>0.50</setting> <!--  -->
+   <setting>0.60</setting> <!--  -->
+   <setting>0.70</setting> <!--  -->
+   <setting>0.80</setting> <!--  -->
+   <setting>0.90</setting> <!--  -->
    <setting>1.0</setting> <!-- Full -->
   </flaps>
 </sim>
