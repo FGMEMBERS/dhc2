@@ -24,7 +24,7 @@ Work in progress ! :)
   </startup>
 
     <panel>
-   <path>Aircraft/c172/Panels/c172-vfr-panel.xml</path>
+   <path>Aircraft/c172p/Panels/c172-vfr-panel.xml</path>
   <visibility archive="y">false</visibility>
   </panel>
 
@@ -80,6 +80,37 @@ Work in progress ! :)
    <setting>0.90</setting> <!--  -->
    <setting>1.0</setting> <!-- Full -->
   </flaps>
+
+  <help>
+   <key>
+    <name>f</name>
+    <desc>fuel tank select</desc>
+   </key>
+   <key>
+    <name>!</name>
+    <desc>toggle battery switch</desc>
+   </key>
+   <key>
+    <name>@</name>
+    <desc>toggle alternator switch</desc>
+   </key>
+   <key>
+    <name>#</name>
+    <desc>toggle fuel pump</desc>
+   </key>
+   <key>
+    <name>$</name>
+    <desc>toggle pitot heat</desc>
+   </key>
+   <key>
+    <name>%</name>
+    <desc>toggle landing light</desc>
+   </key>
+   <key>
+    <name>^</name>
+    <desc>toggle nav lights</desc>
+   </key>
+  </help>
 </sim>
 
   <engines>
@@ -155,7 +186,7 @@ Work in progress ! :)
   </key> 
 
   <key n="37">
-  <name>#</name>
+  <name>%</name>
   <desc>Toggle Landing Light</desc>
   <binding>
    <command>nasal</command>
