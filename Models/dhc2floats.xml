@@ -3,21 +3,60 @@
 <PropertyList>
 
 <path>dhc2f.ac</path>
- 
- 
-  <animation>
- <type>select</type>
- <object-name>navlightson</object-name>
+
+<panel>
+  <path>Aircraft/dhc2/Panel/dhc2-panel.xml</path>
+  <bottom-left>
+    <x-m>-1.139</x-m>
+    <y-m>-0.600</y-m>
+    <z-m>0.026</z-m>
+  </bottom-left>
+  <bottom-right>
+    <x-m>-1.139</x-m>
+    <y-m>0.598</y-m>
+    <z-m>0.026</z-m>
+  </bottom-right>
+  <top-left>
+    <x-m>-1.288</x-m>
+    <y-m>-0.600</y-m>
+    <z-m>0.912</z-m>
+  </top-left>
+</panel>
+
+
+
+
+
+
+
+<animation>
+  <type>noshadow</type>
+  <object-name>navlightsoff</object-name>
+  <object-name>navlightson</object-name>
+  <object-name>LndLight</object-name>
+  <object-name>Fastprop</object-name>
+  <object-name>Slowprop</object-name>
+  <object-name>SideLogo</object-name>
+  <object-name>cabin</object-name>
+</animation>
+
+
+<animation>
+  <type>select</type>
+  <object-name>navlightson</object-name>
   <condition>
-<property>/systems/electrical/outputs/map-lights</property>
-</condition>
+    <greater-than>
+    <property>/systems/electrical/outputs/map-lights</property>
+    <value>0</value>
+  </greater-than>
+  </condition>
 </animation>
 
  <animation>
   <type>select</type>
   <object-name>cabin</object-name>
   <condition>
-   <equals>
+    <equals>
     <property>/sim/current-view/view-number</property>
     <value>0</value>
    </equals>
@@ -211,36 +250,15 @@
  <type>select</type>
  <object-name>LndLight</object-name>
   <condition>
-<property>/systems/electrical/outputs/landing-light</property>
+<greater-than>
+    <property>/systems/electrical/outputs/landing-light</property>
+    <value>0</value>
+  </greater-than>
   </condition>
 </animation>
- 
-   <animation>
-    <type>translate</type>
-    <object-name>LndLight</object-name>
-     <offset-m>3.947</offset-m>      
-<axis>
-<x>-0.209</x>
-<y>-0.940</y>
-<z>0.271</z>
-</axis>
-  </animation>
-   
-  <animation>
-    <type>billboard</type>
-    <object-name>LndLight</object-name>
-  <spherical>true</spherical>
-  </animation>
 
- 
- 
- 
- 
- 
  <!--   __________________________INSTRUMENTS_______________________________________     -->
- 
 
- 
  <animation>
    <type>translate</type>
     <object-name>AIneedle</object-name>
@@ -979,60 +997,6 @@
   </axis>
  </animation>
 
- <!--         __________________________Shadow Map____________________________________     -->
-<!-- pitch -->
- <animation>
-  <type>rotate</type>
-  <object-name>ShadowMap</object-name>
-  <property>/orientation/pitch-deg</property>
-  <factor>-1.0</factor>
-  <center>
-   <x-m>0</x-m>
-   <y-m>0</y-m>
-   <z-m>0</z-m>
-  </center>
-  <axis>
-   <x>0</x>
-   <y>1</y>
-   <z>0</z>
-  </axis>
- </animation>
-
-<!-- roll -->
- <animation>
-  <type>rotate</type>
-  <object-name>ShadowMap</object-name>
-  <property>/orientation/roll-deg</property>
-  <factor>1.0</factor>
-  <center>
-   <x-m>0</x-m>
-   <y-m>0</y-m>
-   <z-m>0</z-m>
-  </center>
-  <axis>
-   <x>1</x>
-   <y>0</y>
-   <z>0</z>
-  </axis>
- </animation>
-
-<!-- Translate to ground level -->
- <animation>
-  <type>translate</type>
-  <object-name>ShadowMap</object-name>
-  <property>/position/altitude-agl-ft</property>
-  <factor>-0.3</factor>
-  <center>
-   <x-m>0</x-m>
-   <y-m>0</y-m>
-   <z-m>0</z-m>
-  </center>
-  <axis>
-   <x>0</x>
-   <y>0</y>
-   <z>1</z>
-  </axis>
- </animation>
 
 
 </PropertyList>

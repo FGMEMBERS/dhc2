@@ -54,7 +54,7 @@
     <control-output prop="/surface-positions/rudder-pos-norm" control="FLAP0" />
   </vstab>
   <!--  Pratt & Whitney R-985 Wasp Junior  -->
-  <propeller moment="24" x="2.0" y="0.0" z="0.0" mass="700" radius="1.2"
+  <propeller moment="18" x="2.0" y="0.0" z="0.0" mass="700" radius="1.2"
    cruise-power="300" cruise-alt="12000" min-rpm="1400" max-rpm="2200" cruise-speed="110" cruise-rpm="1900">
     <piston-engine eng-rpm="2200" alt="9000" eng-power="450"
      displacement="109.5" compression="6.7"/>
@@ -72,11 +72,11 @@
   <gear x="-3.309" y="2.0" z="-1.75" compression="0.3" spring="1" damp="2">
     <control-input src1="1.0" dst0="0.3" dst1="-0.3" src0="-1.0" control="STEER" axis="/controls/flight/rudder" />
   </gear>
-  <gear x="2.5" y="-2.0" z="-2.3" compression="0.4" spring="1" damp="2">
+  <gear x="2.5" y="-2.0" z="-2.3" compression="0.3" spring="1" damp="2">
     <control-input control="BRAKE" axis="/controls/gear/brake-parking" />
     <control-input control="BRAKE" axis="/controls/gear/brake-left" />
   </gear>
-  <gear x="2.5" y="2.0" z="-2.3" compression="0.4" spring="1" damp="2">
+  <gear x="2.5" y="2.0" z="-2.3" compression="0.3" spring="1" damp="2">
     <control-input control="BRAKE" axis="/controls/gear/brake-parking" />
     <control-input control="BRAKE" axis="/controls/gear/brake-right" />
   </gear>

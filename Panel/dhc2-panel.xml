@@ -1,0 +1,323 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE PropertyList SYSTEM "panel.dtd">
+
+<PropertyList>
+
+ <name>DHC2 Panel</name>
+ <background>Aircraft/dhc2/Panel/transparent-bg.rgb</background>
+ <w>1024</w>
+ <h>768</h>
+
+<instruments>
+
+<instrument>
+  <name>panel hotspots</name>
+  <x>512</x>
+  <y>384</y>
+  <w>1024</w>
+  <h>768</h>
+  <w-base>1024</w-base>
+  <h-base>768</h-base>
+
+ <actions> 
+
+   
+   <action>
+     <name>Fuelselect-CW</name>
+     <button>0</button>
+     <x>-480</x>
+     <y>-340</y>
+     <w>60</w>
+     <h>60</h>
+     <binding>
+  <command>nasal</command>
+   <script>dhc2.fuel_switch()</script>
+     </binding>
+   </action>
+
+   <action>
+     <name>magneto increase</name>
+     <button>0</button>
+     <x>-396</x>
+     <y>-330</y>
+     <w>20</w>
+     <h>40</h>
+     <binding>
+  <command>property-adjust</command>
+  <property>controls/engines/engine[0]/magnetos</property>
+  <step>1</step>
+  <min>0</min>
+  <max>4</max>
+  <wrap>0</wrap>
+  </binding>
+ </action>
+
+   <action>
+     <name>magneto decrease</name>
+     <button>0</button>
+     <x>-376</x>
+     <y>-330</y>
+     <w>20</w>
+     <h>40</h>
+     <binding>
+  <command>property-adjust</command>
+  <property>controls/engines/engine[0]/magnetos</property>
+  <step>-1</step>
+  <min>0</min>
+  <max>4</max>
+  <wrap>0</wrap>
+  </binding>
+ </action>
+
+
+   
+   <action>
+     <name>battery switch</name>
+     <button>0</button>
+     <x>-334</x>
+     <y>-374</y>
+     <w>16</w>
+     <h>16</h>
+     <binding>
+   <command>nasal</command>
+   <script>dhc2.batt_switch()</script>
+     </binding>
+   </action>
+   
+   <action>
+     <name>starter</name>
+     <button>0</button>
+     <x>-300</x>
+     <y>-374</y>
+     <w>16</w>
+     <h>16</h>
+     <binding>
+       <command>nasal</command>
+       <script>controls.startEngine()</script>
+     </binding>
+     <mod-up>
+       <binding>
+         <command>nasal</command>
+         <script>props.setAll("/controls/engines/engine", "starter", 0)</script>
+       </binding>
+  </mod-up>
+   </action>
+
+   <action>
+     <name>alternator</name>
+     <button>0</button>
+     <x>-266</x>
+     <y>-374</y>
+     <w>16</w>
+     <h>16</h>
+     <binding>
+   <command>nasal</command>
+   <script>dhc2.alt_switch()</script>
+     </binding>
+   </action>
+
+   <action>
+     <name>fuel pump</name>
+     <button>0</button>
+     <x>-232</x>
+     <y>-374</y>
+     <w>16</w>
+     <h>16</h>
+     <binding>
+   <command>nasal</command>
+   <script>dhc2.f_pump_switch()</script>
+     </binding>
+   </action>
+
+   <action>
+     <name>pitot heat</name>
+     <button>0</button>
+     <x>-198</x>
+     <y>-374</y>
+     <w>16</w>
+     <h>16</h>
+     <binding>
+   <command>nasal</command>
+   <script>dhc2.pitot_heat_switch()</script>
+     </binding>
+   </action>
+
+   <action>
+     <name>landing light</name>
+     <button>0</button>
+     <x>-146</x>
+     <y>-374</y>
+     <w>16</w>
+     <h>16</h>
+     <binding>
+   <command>nasal</command>
+   <script>dhc2.landing_light_switch()</script>
+     </binding>
+   </action>   
+
+
+   <action>
+     <name>nav lights</name>
+     <button>0</button>
+     <x>-112</x>
+     <y>-374</y>
+     <w>16</w>
+     <h>16</h>
+     <binding>
+   <command>nasal</command>
+   <script>dhc2.nav_light_switch()</script>
+     </binding>
+   </action>   
+
+   <!--             Heading              -->
+   <action>
+     <name>small decrease</name>
+     <button>0</button>
+     <x>-392</x>
+     <y>-214</y>
+     <w>10</w>
+     <h>12</h>
+     <binding>
+       <command>property-adjust</command>
+       <property>/instrumentation/heading-indicator/offset-deg</property>
+       <step>-1</step>
+       <min>0</min>
+       <max>360</max>
+       <wrap>1</wrap>
+     </binding>
+   </action>
+   
+   <action>
+     <name>large decrease</name>
+     <button>1</button>
+     <x>-392</x>
+     <y>-214</y>
+     <w>10</w>
+     <h>12</h>
+     <binding>
+       <command>property-adjust</command>
+       <property>/instrumentation/heading-indicator/offset-deg</property>
+       <step>-5</step>
+       <min>0</min>
+       <max>360</max>
+       <wrap>1</wrap>
+     </binding>
+   </action>
+   
+   <action>
+     <name>small increase</name>
+     <button>0</button>
+     <x>-382</x>
+     <y>-214</y>
+     <w>10</w>
+     <h>12</h>
+     <binding>
+       <command>property-adjust</command>
+       <property>/instrumentation/heading-indicator/offset-deg</property>
+       <step>1</step>
+       <min>0</min>
+       <max>360</max>
+       <wrap>1</wrap>
+     </binding>
+   </action>
+   
+   <action>
+     <name>large increase</name>
+     <button>1</button>
+     <x>-382</x>
+     <y>-214</y>
+     <w>10</w>
+     <h>12</h>
+     <binding>
+       <command>property-adjust</command>
+       <property>/instrumentation/heading-indicator/offset-deg</property>
+       <step>5</step>
+       <min>0</min>
+       <max>360</max>
+       <wrap>1</wrap>
+     </binding>
+   </action>
+
+   
+  <!--             Altimeter              -->  
+  
+<action>
+  <name>calibrate fine</name>
+  <button>0</button>
+  <x>-200</x>
+  <y>-112</y>
+  <w>8</w>
+  <h>12</h>
+  <binding>
+    <command>property-adjust</command>
+    <property>/instrumentation/altimeter/setting-inhg</property>
+    <step>-0.01</step>
+    <min>26.0</min>
+    <max>33.0</max>
+    <wrap>false</wrap>
+  </binding>
+</action>
+
+<action>
+  <name>calibrate coarse</name>
+  <button>1</button>
+  <x>-200</x>
+  <y>-112</y>
+  <w>8</w>
+  <h>12</h>
+  <binding>
+    <command>property-adjust</command>
+    <property>/instrumentation/altimeter/setting-inhg</property>
+    <step>-0.1</step>
+    <min>26.0</min>
+    <max>33.0</max>
+    <wrap>false</wrap>
+  </binding>
+</action>
+
+<action>
+  <name>calibrate fine</name>
+  <button>0</button>
+  <x>-192</x>
+  <y>-112</y>
+  <w>8</w>
+  <h>12</h>
+  <binding>
+    <command>property-adjust</command>
+    <property>/instrumentation/altimeter/setting-inhg</property>
+    <step>0.01</step>
+    <min>26.0</min>
+    <max>33.0</max>
+    <wrap>false</wrap>
+  </binding>
+</action>
+
+<action>
+  <name>calibrate coarse</name>
+  <button>1</button>
+  <x>-192</x>
+  <y>-112</y>
+  <w>8</w>
+  <h>12</h>
+  <binding>
+    <command>property-adjust</command>
+    <property>/instrumentation/altimeter/setting-inhg</property>
+    <step>0.1</step>
+    <min>26.0</min>
+    <max>33.0</max>
+    <wrap>false</wrap>
+  </binding>
+</action>
+  
+
+
+  
+
+</actions>
+
+</instrument>
+
+</instruments>
+
+</PropertyList>

@@ -204,26 +204,7 @@ Work in progress ! :)
   </key> 
 </keyboard> 
 
-<joysticks>
-<js>
- <button n="6">
-  <repeatable>true</repeatable>
-  <binding>
-<command>nasal</command>
-<script>dhc2.PropIncrease</script>
-  </binding>
- </button>
-
- <button n="7">
-  <repeatable>true</repeatable>
-  <binding>
-<command>nasal</command>
-<script>dhc2.PropDecrease</script>
-  </binding>
- </button>
- </js>
- </joysticks>
-</input> 
+</input>
 
 
 
