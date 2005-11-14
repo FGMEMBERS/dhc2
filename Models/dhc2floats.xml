@@ -2,7 +2,7 @@
 
 <PropertyList>
 
-<path>dhc2f.ac</path>
+<path>dhc2F.ac</path>
 
 <panel>
   <path>Aircraft/dhc2/Panel/dhc2-panel.xml</path>
@@ -46,7 +46,7 @@
   <object-name>navlightson</object-name>
   <condition>
     <greater-than>
-    <property>/systems/electrical/outputs/map-lights</property>
+    <property>/systems/electrical/outputs/nav-lights</property>
     <value>0</value>
   </greater-than>
   </condition>
@@ -490,7 +490,7 @@
    <z>1.0</z>
   </axis>
   <center>
-   <x-m>-1.144</x-m>
+   <x-m>-1.264</x-m>
    <y-m>0.001</y-m>
    <z-m>0.694</z-m>
   </center>
@@ -744,11 +744,11 @@
 <animation>
 <type>rotate</type>
   <object-name>CARBneedle</object-name>
-  <property>/environment/temperature-degc</property>
+  <property>/engines/engine/oil-temperature-degf</property>
   <interpolation>
    <entry><ind> -30.0</ind><dep>0</dep></entry>
    <entry><ind> 0</ind><dep>118</dep></entry>
-   <entry><ind>40</ind><dep>270</dep></entry>
+   <entry><ind>500</ind><dep>270</dep></entry>
   </interpolation>
   <axis>
    <x>-0.989</x>
@@ -767,9 +767,12 @@
   <object-name>stall-on</object-name>
  <condition>
     <less-than>
-  <property>/instrumentation/airspeed-indicator/indicated-speed-kt</property>
+      <property>/instrumentation/airspeed-indicator/indicated-speed-kt</property>
     <value>55.000</value>
   </less-than>
+  <not>
+    <property>/gear/gear/wow</property>
+  </not>
   </condition>
 </animation>
 
@@ -817,7 +820,7 @@
  <animation>
   <type>rotate</type>
   <object-name>AltToggle</object-name>
-  <property>/controls/engines/engine/master-alt</property>
+  <property>/controls/electric/engine/generator</property>
   <factor>40</factor>
   <axis>
    <x>0.0</x>
@@ -834,7 +837,7 @@
  <animation>
   <type>rotate</type>
   <object-name>BattToggle</object-name>
-  <property>/controls/engines/engine/master-bat</property>
+  <property>/controls/electric/battery-switch</property>
   <factor>40</factor>
   <axis>
    <x>0.0</x>
@@ -868,7 +871,7 @@
  <animation>
   <type>rotate</type>
   <object-name>PitotToggle</object-name>
-  <property>/controls/switches/pitot-heat</property>
+  <property>/controls/anti-ice/pitot-heat</property>
   <factor>40</factor>
   <axis>
    <x>0.0</x>
@@ -916,6 +919,22 @@
 </center>
  </animation>
 
+ <animation>
+   <type>rotate</type>
+   <object-name>Instr_Toggle</object-name>
+   <property>/controls/switches/instr-lights</property>
+   <factor>40</factor>
+   <axis>
+     <x>0.0</x>
+     <y>-1.0</y>
+     <z>0.0</z>
+   </axis>
+   <center>
+     <x-m>-1.144</x-m>
+     <y-m>-0.203</y-m>
+     <z-m>0.048</z-m>
+   </center>
+ </animation>
  
 <animation>
 <type>rotate</type>
@@ -997,6 +1016,36 @@
   </axis>
  </animation>
 
-
+ <animation>
+   <type>material</type>
+   <object-name>RPMgauge.001</object-name>
+   <global type="bool">true</global>
+   <property-base>/sim/model/material/instruments</property-base>
+   <diffuse>
+     <red-prop>diffuse/red</red-prop>
+     <green-prop>diffuse/green</green-prop>
+     <blue-prop>diffuse/blue</blue-prop>
+   </diffuse>
+   <ambient>
+     <red-prop>ambient/red</red-prop>
+     <green-prop>ambient/green</green-prop>
+     <blue-prop>ambient/blue</blue-prop>
+   </ambient>
+   <specular>
+     <red-prop>specular/red</red-prop>
+     <green-prop>specular/green</green-prop>
+     <blue-prop>specular/blue</blue-prop>
+   </specular>
+   <emission>
+     <red-prop>emission/red</red-prop>
+     <green-prop>emission/green</green-prop>
+     <blue-prop>emission/blue</blue-prop>
+     <factor-prop>factor</factor-prop>
+   </emission>
+   <transparency>
+     <alpha-prop>transparency/alpha</alpha-prop>
+   </transparency>
+   <shininess-prop>shininess</shininess-prop>
+  </animation>
 
 </PropertyList>

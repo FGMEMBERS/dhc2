@@ -40,15 +40,15 @@ node.setBoolValue(0);}
 
 
 batt_switch = func {
-toggle=getprop("/controls/engines/engine/master-bat");
+toggle=getprop("/controls/electric/battery-switch");
 toggle=1-toggle;
-setprop("/controls/engines/engine/master-bat",toggle);
+setprop("/controls/electric/battery-switch",toggle);
 }
 
 alt_switch = func {
-toggle=getprop("/controls/engines/engine/master-alt");
+toggle=getprop("/controls/electric/engine/generator");
 toggle=1-toggle;
-setprop("/controls/engines/engine/master-alt",toggle);
+setprop("/controls/electric/engine/generator",toggle);
 }
 
 f_pump_switch = func {
@@ -58,9 +58,8 @@ setprop("/controls/engines/engine/fuel-pump",toggle);
 }
 
 pitot_heat_switch = func {
-toggle=getprop("/controls/switches/pitot-heat");
+toggle=getprop("/controls/anti-ice/pitot-heat");
 toggle=1-toggle;
-setprop("/controls/switches/pitot-heat",toggle);
 setprop("/controls/anti-ice/pitot-heat",toggle);
 }
 
@@ -68,6 +67,12 @@ landing_light_switch = func {
 toggle=getprop("/controls/switches/landing-light");
 toggle=1-toggle;
 setprop("/controls/switches/landing-light",toggle);
+}
+
+instr_light_switch = func {
+toggle1=getprop("/controls/switches/instr-lights");
+toggle1=1-toggle1;
+setprop("/controls/switches/instr-lights",toggle1);
 }
 
 nav_light_switch = func {
@@ -88,3 +93,22 @@ if(val > 0.00){val = val - 0.02;
 setprop("/controls/engines/engine[0]/propeller-pitch",val);
    }
 }
+
+
+gforce = func{
+rock = -0.25;
+    force = getprop("/accelerations/pilot-g");
+    sideslip = getprop("/orientation/side-slip-rad");
+if(force == nil) {force = 1.0;}
+if(sideslip == nil) {sideslip = 0.0;}
+eyepoint = (0.66 - (force * 0.01));
+
+if(getprop("/gear/gear/wow") == 0){
+rock = (-0.25 - (sideslip * 0.1));}
+if(getprop("/sim/current-view/view-number") < 1){
+setprop("/sim/current-view/y-offset-m",eyepoint);
+setprop("/sim/current-view/x-offset-m",rock);
+  }
+settimer(gforce, 0);
+}
+settimer(gforce, 0);

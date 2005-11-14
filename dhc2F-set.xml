@@ -12,7 +12,7 @@ Work in progress ! :)
 <PropertyList>
  <sim>
 
-  <description>de Havilland Beaver</description>
+  <description>de Havilland Beaver (YASim) 3D cockpit</description>
   <author>Syd Adams</author>
 
   <flight-model>yasim</flight-model>
@@ -24,13 +24,12 @@ Work in progress ! :)
   </startup>
 
     <panel>
-   <path>Aircraft/c172p/Panels/c172-vfr-panel.xml</path>
-  <visibility archive="y">false</visibility>
+   <path></path>
   </panel>
 
   <systems>
    <electrical>
-    <path>Aircraft/dhc2/dhc2-electrical.xml</path>
+    <path></path>
    </electrical>
   </systems> 
 
@@ -38,17 +37,39 @@ Work in progress ! :)
    <path>Aircraft/dhc2/dhc2-sound.xml</path>
   </sound>
 
-  <panel>
-   <path>Aircraft/c310/c310-vfr-panel.xml</path>
-   <visibility>false</visibility>
-  </panel>
-  <panel_2>
-   <path>Aircraft/c310/c310-mini-panel.xml</path>
-  </panel_2>
 
   <model>
    <path>Aircraft/dhc2/Models/dhc2floats.xml</path>
-  </model> 
+   <material>
+     <instruments>
+       <diffuse>
+         <red type="string">1.0</red>
+         <green type="string">1.0</green>
+         <blue type="string">1.0</blue>
+       </diffuse>
+       <ambient>
+         <red type="string">0.2</red>
+         <green type="string">0.2</green>
+         <blue type="string">0.2</blue>
+       </ambient>
+       <specular>
+         <red type="string">0.0</red>
+         <green type="string">0.0</green>
+         <blue type="string">0.0</blue>
+       </specular>
+       <emission>
+         <red type="string">0.9</red>
+         <green type="string">0.5</green>
+         <blue type="string">0.2</blue>
+       </emission>
+       <transparency>
+         <alpha>1.0</alpha>
+       </transparency>
+       <shininess>0</shininess>
+       <factor>0.0</factor>
+         </instruments>
+       </material>
+       </model>
 
   <virtual-cockpit archive="y">true</virtual-cockpit>
   <allow-toggle-cockpit archive="y">true</allow-toggle-cockpit>
@@ -65,6 +86,10 @@ Work in progress ! :)
      </config>
   </view>
 
+  <current-view>
+    <field-of-view>60.0</field-of-view>
+  </current-view>
+  
   <chase-distance-m type="double" archive="y">-20.0</chase-distance-m>
   
     <flaps>
@@ -136,7 +161,11 @@ Work in progress ! :)
 </fuel>
  </controls> 
 
- 
+ <environment>
+   <turbulence>
+     <use-cloud-turbulence>true</use-cloud-turbulence>
+   </turbulence>
+ </environment>
    
  <input>
   <keyboard>
@@ -216,7 +245,8 @@ Work in progress ! :)
 
 <nasal>
 	<dhc2>
-		<file>Aircraft/dhc2/Models/dhc2.nas</file>
+          <file>Aircraft/dhc2/Models/dhc2.nas</file>
+          <file>Aircraft/dhc2/dhc2-electrical.nas</file>
 	</dhc2>
 </nasal>
 </PropertyList>

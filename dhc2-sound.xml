@@ -174,7 +174,7 @@
         <name>Battery on</name>
         <path>Aircraft/dhc2/Sound/click.wav</path>
         <condition> 
-          <property>controls/engines/engine/master-bat</property>
+          <property>controls/electric/battery-switch</property>
         </condition>
         <volume> 
           <factor>1.0</factor>
@@ -185,7 +185,7 @@
         <path>Aircraft/dhc2/Sound/click.wav</path>
         <condition> 
           <not> 
-            <property>controls/engines/engine/master-bat</property>
+            <property>controls/electric/battery-switch</property>
           </not>
         </condition>
         <volume> 
@@ -197,7 +197,7 @@
         <name>Alternator on</name>
         <path>Aircraft/dhc2/Sound/click.wav</path>
         <condition> 
-          <property>controls/engines/engine/master-alt</property>
+          <property>controls/electric/engine/generator</property>
         </condition>
         <volume> 
           <factor>1.0</factor>
@@ -208,7 +208,7 @@
         <path>Aircraft/dhc2/Sound/click.wav</path>
         <condition> 
           <not> 
-            <property>controls/engines/engine/master-alt</property>
+            <property>controls/electric/engine/generator</property>
           </not>
         </condition>
         <volume> 
@@ -318,7 +318,7 @@
         <name>Pitot Heat On</name>
         <path>Aircraft/dhc2/Sound/click.wav</path>
         <condition>
-	 <property>controls/switches/pitot-heat</property>
+          <property>controls/anti-ice/pitot-heat</property>
 	  </condition>
         <volume> 
           <factor>1.0</factor>
@@ -330,7 +330,7 @@
         <path>Aircraft/dhc2/Sound/click.wav</path>
         <condition>
 	 <not>
-	 <property>controls/switches/pitot-heat</property>
+           <property>controls/anti-ice/pitot-heat</property>
 	  </not>
 	  </condition>
         <volume> 
@@ -338,26 +338,26 @@
         </volume>
       </click>
  
-            <click> 
+      <click>
         <name>Landing Light On</name>
         <path>Aircraft/dhc2/Sound/click.wav</path>
         <condition>
-	 <property>controls/switches/landing-light</property>
-	  </condition>
-        <volume> 
+          <property>controls/switches/landing-light</property>
+        </condition>
+        <volume>
           <factor>1.0</factor>
         </volume>
       </click>
-
-                  <click> 
+      
+      <click>
         <name>Landing Light Off</name>
         <path>Aircraft/dhc2/Sound/click.wav</path>
         <condition>
-	 <not>
-	 <property>controls/switches/landing-light</property>
-	  </not>
-	  </condition>
-        <volume> 
+          <not>
+            <property>controls/switches/landing-light</property>
+          </not>
+        </condition>
+        <volume>
           <factor>1.0</factor>
         </volume>
       </click>
@@ -386,6 +386,29 @@
         </volume>
       </click>
  
+      <click>
+        <name>Instrument Lights On</name>
+        <path>Aircraft/dhc2/Sound/click.wav</path>
+        <condition>
+          <property>controls/switches/instr-lights</property>
+        </condition>
+        <volume>
+          <factor>1.0</factor>
+        </volume>
+      </click>
+      
+      <click>
+        <name>Instrument Lights Off</name>
+        <path>Aircraft/dhc2/Sound/click.wav</path>
+        <condition>
+          <not>
+            <property>controls/switches/instr-lights</property>
+          </not>
+        </condition>
+        <volume>
+          <factor>1.0</factor>
+        </volume>
+      </click>
         
 </fx>
  

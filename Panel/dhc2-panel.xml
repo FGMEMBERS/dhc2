@@ -75,7 +75,7 @@
    <action>
      <name>battery switch</name>
      <button>0</button>
-     <x>-334</x>
+     <x>-362</x>
      <y>-374</y>
      <w>16</w>
      <h>16</h>
@@ -88,7 +88,7 @@
    <action>
      <name>starter</name>
      <button>0</button>
-     <x>-300</x>
+     <x>-328</x>
      <y>-374</y>
      <w>16</w>
      <h>16</h>
@@ -107,7 +107,7 @@
    <action>
      <name>alternator</name>
      <button>0</button>
-     <x>-266</x>
+     <x>-294</x>
      <y>-374</y>
      <w>16</w>
      <h>16</h>
@@ -120,7 +120,7 @@
    <action>
      <name>fuel pump</name>
      <button>0</button>
-     <x>-232</x>
+     <x>-260</x>
      <y>-374</y>
      <w>16</w>
      <h>16</h>
@@ -133,13 +133,26 @@
    <action>
      <name>pitot heat</name>
      <button>0</button>
-     <x>-198</x>
+     <x>-226</x>
      <y>-374</y>
      <w>16</w>
      <h>16</h>
      <binding>
    <command>nasal</command>
    <script>dhc2.pitot_heat_switch()</script>
+     </binding>
+   </action>
+
+   <action>
+     <name>instr light</name>
+     <button>0</button>
+     <x>-180</x>
+     <y>-374</y>
+     <w>16</w>
+     <h>16</h>
+     <binding>
+       <command>nasal</command>
+       <script>dhc2.instr_light_switch()</script>
      </binding>
    </action>
 
@@ -151,10 +164,10 @@
      <w>16</w>
      <h>16</h>
      <binding>
-   <command>nasal</command>
-   <script>dhc2.landing_light_switch()</script>
+       <command>nasal</command>
+       <script>dhc2.landing_light_switch()</script>
      </binding>
-   </action>   
+   </action>
 
 
    <action>
