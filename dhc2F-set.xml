@@ -23,9 +23,6 @@ Work in progress ! :)
    <splash-texture>Aircraft/dhc2/dhc-2splash.rgb</splash-texture>
   </startup>
 
-    <panel>
-   <path></path>
-  </panel>
 
   <systems>
    <electrical>
@@ -48,9 +45,9 @@ Work in progress ! :)
          <blue type="string">1.0</blue>
        </diffuse>
        <ambient>
-         <red type="string">0.2</red>
-         <green type="string">0.2</green>
-         <blue type="string">0.2</blue>
+         <red type="string">1.0</red>
+         <green type="string">1.0</green>
+         <blue type="string">1.0</blue>
        </ambient>
        <specular>
          <red type="string">0.0</red>
@@ -58,9 +55,9 @@ Work in progress ! :)
          <blue type="string">0.0</blue>
        </specular>
        <emission>
-         <red type="string">0.9</red>
-         <green type="string">0.5</green>
-         <blue type="string">0.2</blue>
+         <red type="string">0.5</red>
+         <green type="string">0.1</green>
+         <blue type="string">0.0</blue>
        </emission>
        <transparency>
          <alpha>1.0</alpha>

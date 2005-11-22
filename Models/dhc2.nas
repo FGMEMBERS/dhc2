@@ -70,8 +70,8 @@ setprop("/controls/switches/landing-light",toggle);
 }
 
 instr_light_switch = func {
-toggle1=getprop("/controls/switches/instr-lights");
-toggle1=1-toggle1;
+toggle = getprop("/controls/switches/instr-lights");
+toggle1=1-toggle;
 setprop("/controls/switches/instr-lights",toggle1);
 }
 
@@ -103,7 +103,7 @@ if(force == nil) {force = 1.0;}
 if(sideslip == nil) {sideslip = 0.0;}
 eyepoint = (0.66 - (force * 0.01));
 
-if(getprop("/gear/gear/wow") == 0){
+if(getprop("/gear/gear[2]/wow") == 0){
 rock = (-0.25 - (sideslip * 0.1));}
 if(getprop("/sim/current-view/view-number") < 1){
 setprop("/sim/current-view/y-offset-m",eyepoint);
