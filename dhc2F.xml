@@ -25,7 +25,7 @@
  <fuselage width="0.8" ax="3.5" ay="2.0" az="-1.6" bx="-3.0" by="2.0" bz="-1.4" taper="0.5" midpoint="0.3"/>
 
   <wing x="0.0" y="-0.6" z="0.6" chord="1.8" taper="1.0" length="6.8"
-   dihedral="3" incidence="-3.0" camber="0.0">
+   dihedral="3" incidence="3.0" twist="-2.5" camber="0.0">
     <stall width="4" aoa="16" peak="1.5" />
     <flap0 drag="1.6" end="0.58" lift="1.4" start="0.02" />
     <flap1 drag="1.1" end="0.97" lift="1.2" start="0.58" />
