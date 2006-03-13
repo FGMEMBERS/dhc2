@@ -80,7 +80,7 @@
   <condition>
    <greater-than>
     <property>/engines/engine[0]/rpm</property>
-    <value>1500</value>
+    <value>9999</value>
    </greater-than>
   </condition>
  </animation>
@@ -672,8 +672,8 @@
 <animation>
 <type>rotate</type>
   <object-name>Oiltempneedle</object-name>
-  <property>/engines/engine/egt-degf</property>
-<factor>0.1</factor>
+  <property>/engines/engine/oil-temperature-degf</property>
+<factor>0.01</factor>
   <axis>
    <x>-0.989</x>
    <y>0.0</y>

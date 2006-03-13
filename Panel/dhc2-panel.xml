@@ -323,8 +323,114 @@
   </binding>
 </action>
   
+  
+<action>
+  <name>increase throttle</name>
+  <button>0</button>
+  <x>-65</x>
+  <y>20</y>
+  <w>20</w>
+  <h>20</h>
+  <binding>
+    <command>property-adjust</command>
+    <property>controls/engines/engine[0]/throttle</property>
+    <step>0.05</step>
+    <min>0.0</min>
+    <max>1.0</max>
+    <wrap>false</wrap>
+  </binding>
+</action>
+  
 
+<action>
+  <name>decrease throttle</name>
+  <button>0</button>
+  <x>-48</x>
+  <y>-60</y>
+  <w>20</w>
+  <h>20</h>
+  <binding>
+    <command>property-adjust</command>
+    <property>controls/engines/engine[0]/throttle</property>
+    <step>-0.05</step>
+    <min>0.0</min>
+    <max>1.0</max>
+    <wrap>false</wrap>
+  </binding>
+</action>
+  
+  
+<action>
+  <name>increase prop</name>
+  <button>0</button>
+  <x>-20</x>
+  <y>20</y>
+  <w>20</w>
+  <h>20</h>
+  <binding>
+    <command>property-adjust</command>
+    <property>controls/engines/engine[0]/propeller-pitch</property>
+    <step>0.05</step>
+    <min>0.0</min>
+    <max>1.0</max>
+    <wrap>false</wrap>
+  </binding>
+</action>
+  
 
+<action>
+  <name>decrease prop</name>
+  <button>0</button>
+  <x>05</x>
+  <y>-60</y>
+  <w>20</w>
+  <h>20</h>
+  <binding>
+    <command>property-adjust</command>
+    <property>controls/engines/engine[0]/propeller-pitch</property>
+    <step>-0.05</step>
+    <min>0.0</min>
+    <max>1.0</max>
+    <wrap>false</wrap>
+  </binding>
+</action>
+  
+  
+<action>
+  <name>increase mixture</name>
+  <button>0</button>
+  <x>28</x>
+  <y>20</y>
+  <w>20</w>
+  <h>20</h>
+  <binding>
+    <command>property-adjust</command>
+    <property>controls/engines/engine[0]/mixture</property>
+    <step>0.05</step>
+    <min>0.0</min>
+    <max>1.0</max>
+    <wrap>false</wrap>
+  </binding>
+</action>
+  
+
+<action>
+  <name>decrease mixture</name>
+  <button>0</button>
+  <x>55</x>
+  <y>-60</y>
+  <w>20</w>
+  <h>20</h>
+  <binding>
+    <command>property-adjust</command>
+    <property>controls/engines/engine[0]/mixture</property>
+    <step>-0.05</step>
+    <min>0.0</min>
+    <max>1.0</max>
+    <wrap>false</wrap>
+  </binding>
+</action>
+  
   
 
 </actions>
