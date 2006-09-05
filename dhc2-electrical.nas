@@ -285,12 +285,10 @@ electrical_bus_2 = func() {
     # Instrument Lights Power
     if ( getprop("/controls/switches/instr-lights" ) ) {
     setprop("/systems/electrical/outputs/instrument-lights", bus_volts);
-    setprop("/sim/model/material/instruments/factor", bus_volts * 0.035715);
 } else {
     setprop("/systems/electrical/outputs/instrument-lights", 0.0);
-    setprop("/sim/model/material/instruments/factor", 0.0);
     }
-
+    setprop("/controls/lighting/instruments-norm", getprop("/systems/electrical/outputs/instrument-lights") * 0.041666);
 
 
 
@@ -350,19 +348,13 @@ avionics_bus_2 = func() {
         bus_volts = ebus2_volts;
     load = 0.0;
 
-    # Nav 2 Power
-    setprop("/systems/electrical/outputs/nav[1]", bus_volts);
     # Com 2 Power
     setprop("/systems/electrical/outputs/comm[1]", bus_volts);
-
 
     # Transponder Power
     setprop("/systems/electrical/outputs/transponder", bus_volts);
 
-    # Autopilot Power
-    setprop("/systems/electrical/outputs/autopilot", bus_volts);
-
-    # ADF Power
+     # ADF Power
     setprop("/systems/electrical/outputs/adf", bus_volts);
 
     # return cumulative load

@@ -26,7 +26,7 @@
    <action>
      <name>Fuelselect-CW</name>
      <button>0</button>
-     <x>-480</x>
+     <x>-470</x>
      <y>-340</y>
      <w>60</w>
      <h>60</h>
@@ -34,13 +34,17 @@
   <command>nasal</command>
    <script>dhc2.fuel_switch()</script>
      </binding>
+         <binding>
+       <command>property-toggle</command>
+	<property>/sim/sound/switch</property>
+     </binding>
    </action>
 
    <action>
      <name>magneto increase</name>
      <button>0</button>
-     <x>-396</x>
-     <y>-330</y>
+     <x>-375</x>
+     <y>-320</y>
      <w>20</w>
      <h>40</h>
      <binding>
@@ -51,13 +55,17 @@
   <max>4</max>
   <wrap>0</wrap>
   </binding>
+      <binding>
+       <command>property-toggle</command>
+	<property>/sim/sound/switch</property>
+     </binding>
  </action>
 
    <action>
      <name>magneto decrease</name>
      <button>0</button>
-     <x>-376</x>
-     <y>-330</y>
+     <x>-355</x>
+     <y>-320</y>
      <w>20</w>
      <h>40</h>
      <binding>
@@ -68,6 +76,10 @@
   <max>4</max>
   <wrap>0</wrap>
   </binding>
+      <binding>
+       <command>property-toggle</command>
+	<property>/sim/sound/switch</property>
+     </binding>
  </action>
 
 
@@ -80,8 +92,12 @@
      <w>16</w>
      <h>16</h>
      <binding>
-   <command>nasal</command>
-   <script>dhc2.batt_switch()</script>
+   <command>property-toggle</command>
+   <property>/controls/electric/battery-switch</property>
+     </binding>
+         <binding>
+       <command>property-toggle</command>
+	<property>/sim/sound/switch</property>
      </binding>
    </action>
    
@@ -94,12 +110,12 @@
      <h>16</h>
      <binding>
        <command>nasal</command>
-       <script>controls.startEngine()</script>
+       <script>dhc2.starter(1)</script>
      </binding>
      <mod-up>
        <binding>
          <command>nasal</command>
-         <script>props.setAll("/controls/engines/engine", "starter", 0)</script>
+         <script>dhc2.starter(0)</script>
        </binding>
   </mod-up>
    </action>
@@ -112,8 +128,12 @@
      <w>16</w>
      <h>16</h>
      <binding>
-   <command>nasal</command>
-   <script>dhc2.alt_switch()</script>
+    <command>property-toggle</command>
+   <property>/controls/electric/engine/generator</property>
+      </binding>
+          <binding>
+       <command>property-toggle</command>
+	<property>/sim/sound/switch</property>
      </binding>
    </action>
 
@@ -125,8 +145,12 @@
      <w>16</w>
      <h>16</h>
      <binding>
-   <command>nasal</command>
-   <script>dhc2.f_pump_switch()</script>
+    <command>property-toggle</command>
+   <property>/controls/engines/engine/fuel-pump</property>
+     </binding>
+         <binding>
+       <command>property-toggle</command>
+	<property>/sim/sound/switch</property>
      </binding>
    </action>
 
@@ -141,6 +165,10 @@
    <command>nasal</command>
    <script>dhc2.pitot_heat_switch()</script>
      </binding>
+         <binding>
+       <command>property-toggle</command>
+	<property>/sim/sound/switch</property>
+     </binding>
    </action>
 
    <action>
@@ -151,8 +179,12 @@
      <w>16</w>
      <h>16</h>
      <binding>
-       <command>nasal</command>
-       <script>dhc2.instr_light_switch()</script>
+     <command>property-toggle</command>
+   <property>/controls/switches/instr-lights</property>
+     </binding>
+         <binding>
+       <command>property-toggle</command>
+	<property>/sim/sound/switch</property>
      </binding>
    </action>
 
@@ -167,6 +199,10 @@
        <command>nasal</command>
        <script>dhc2.landing_light_switch()</script>
      </binding>
+         <binding>
+       <command>property-toggle</command>
+	<property>/sim/sound/switch</property>
+     </binding>
    </action>
 
 
@@ -180,6 +216,10 @@
      <binding>
    <command>nasal</command>
    <script>dhc2.nav_light_switch()</script>
+     </binding>
+         <binding>
+       <command>property-toggle</command>
+	<property>/sim/sound/switch</property>
      </binding>
    </action>   
 

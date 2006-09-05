@@ -16,11 +16,11 @@ Work in progress ! :)
   <author>Syd Adams</author>
 
   <flight-model>yasim</flight-model>
-  <aero>dhc2F</aero>
+  <aero>dhc2W</aero>
   <fuel-fraction>0.75</fuel-fraction>
   
   <startup>
-   <splash-texture>Aircraft/dhc2/dhc-2splash.rgb</splash-texture>
+   <splash-texture>Aircraft/dhc2/dhc-2splashW.rgb</splash-texture>
   </startup>
 
 
@@ -34,9 +34,10 @@ Work in progress ! :)
    <path>Aircraft/dhc2/dhc2-sound.xml</path>
   </sound>
 
- <model>
-   <path>Aircraft/dhc2/Models/dhc2floats.xml</path>
-</model>
+
+  <model>
+   <path>Aircraft/dhc2/Models/dhc2wheels.xml</path>
+    </model>
 
   <virtual-cockpit archive="y">true</virtual-cockpit>
   <allow-toggle-cockpit archive="y">true</allow-toggle-cockpit>
@@ -57,7 +58,7 @@ Work in progress ! :)
     <field-of-view>60.0</field-of-view>
   </current-view>
   
-  <chase-distance-m type="double" archive="y">-18.0</chase-distance-m>
+  <chase-distance-m type="double" archive="y">-20.0</chase-distance-m>
   
     <flaps>
    <setting>0.00</setting> <!-- Cruise -->
@@ -103,14 +104,9 @@ Work in progress ! :)
     <desc>toggle nav lights</desc>
    </key>
   </help>
-
-  <submodels>
-   <serviceable>true</serviceable>
-   <path>Aircraft/dhc2/Models/submodels.xml</path>
-  </submodels>
-
 </sim>
 
+ 
   <engines>
    <engine>
    <rpm type="double">0</rpm>
@@ -120,11 +116,8 @@ Work in progress ! :)
   </engines>
   
  <controls> 
- <lighting>
- <instruments-norm>0.0</instruments-norm>
- </lighting>
 <fuel>
-<switch-position type = "int">-1</switch-position>
+<switch-position type = "int">0</switch-position>
  <tank n="0">
  <fuel_selector>true</fuel_selector>
  </tank>
@@ -210,21 +203,6 @@ Work in progress ! :)
    <script>dhc2.nav_light_switch()</script>
 </binding>
   </key> 
-  
-  <key n="32">
-  <name>SPACE</name>
-  <binding>
-   <command>nasal</command>
-   <script>dhc2.starter(1)</script>
-  </binding>
-  <mod-up>
-   <binding>
-    <command>nasal</command>
-    <script>dhc2.starter(0)</script>
-   </binding>
-  </mod-up>
- </key> 
-  
 </keyboard> 
 
 </input>
