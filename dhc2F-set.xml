@@ -108,13 +108,35 @@ Work in progress ! :)
    <serviceable>true</serviceable>
    <path>Aircraft/dhc2/Models/submodels.xml</path>
   </submodels>
+  
+        <weight n="0">
+        <name>Crew</name>
+        <weight-lb>180</weight-lb> 
+        <max-lb>400</max-lb>
+       <min-lb>180</min-lb>
+        </weight>
+
+        <weight n="1">
+        <name>Cargo</name>
+        <weight-lb>700</weight-lb> 
+        <max-lb>1500</max-lb>
+        <min-lb>0</min-lb>      
+        </weight>
+
+        <replay>
+        <disable>1</disable>
+        </replay>
+
+        <multiplay>
+        <chat_display>1</chat_display>
+        </multiplay>
 
 </sim>
 
   <engines>
    <engine>
    <rpm type="double">0</rpm>
-    <magnetos>3</magnetos>
+    <magnetos>0</magnetos>
     <running>false</running>
   </engine>
   </engines>
@@ -125,15 +147,6 @@ Work in progress ! :)
  </lighting>
 <fuel>
 <switch-position type = "int">-1</switch-position>
- <tank n="0">
- <fuel_selector>true</fuel_selector>
- </tank>
- <tank n="1">
- <fuel_selector>true</fuel_selector>
- </tank>
- <tank n="2">
- <fuel_selector>true</fuel_selector>
- </tank>
 </fuel>
 <gear>
 <brake-parking type="double">1.0</brake-parking>
@@ -152,67 +165,44 @@ Work in progress ! :)
   <name>f</name>
   <desc>fuel tank select</desc>
   <binding>
-   <command>nasal</command>
-   <script>dhc2.fuel_switch()</script>
+  <command>property-adjust</command>
+   <property>controls/fuel/switch-position</property>
+   <step>1</step>
+   <min>-1</min>
+   <max>3</max>
+   <wrap>1</wrap>
   </binding>
   </key> 
 
   <key n="33">
   <name>!</name>
   <desc>Toggle Battery Switch</desc>
-  <binding>
-   <command>nasal</command>
-   <script>dhc2.batt_switch()</script>
-  </binding>
+    <binding>
+   <command>property-toggle</command>
+   <property>/controls/electric/battery-switch</property>
+     </binding>
+         <binding>
+       <command>property-toggle</command>
+	<property>/sim/sound/switch</property>
+     </binding>
   </key> 
 
   <key n="64">
   <name>@</name>
   <desc>Toggle Alternator Switch</desc>
-  <binding>
-   <command>nasal</command>
-   <script>dhc2.alt_switch()</script>
-  </binding>
+    <binding>
+    <command>property-toggle</command>
+   <property>/controls/electric/engine/generator</property>
+      </binding>
+          <binding>
+       <command>property-toggle</command>
+	<property>/sim/sound/switch</property>
+     </binding>
   </key> 
-
-  <key n="35">
-  <name>#</name>
-  <desc>Toggle Fuel Pump</desc>
-  <binding>
-   <command>nasal</command>
-   <script>dhc2.f_pump_switch()</script>
-  </binding>
-  </key> 
-
-  <key n="36">
-  <name>$</name>
-  <desc>Toggle Pitot Heat</desc>
-  <binding>
-   <command>nasal</command>
-   <script>dhc2.pitot_heat_switch()</script>
-  </binding>
-  </key> 
-
-  <key n="37">
-  <name>%</name>
-  <desc>Toggle Landing Light</desc>
-  <binding>
-   <command>nasal</command>
-   <script>dhc2.landing_light_switch()</script>
-</binding>
-  </key> 
-
-    <key n="94">
-  <name>^</name>
-  <desc>Toggle Nav Lights</desc>
-  <binding>
-   <command>nasal</command>
-   <script>dhc2.nav_light_switch()</script>
-</binding>
-  </key> 
-  
-  <key n="32">
+ 
+ <key n="32">
   <name>SPACE</name>
+  <desc>Starter</desc>
   <binding>
    <command>nasal</command>
    <script>dhc2.starter(1)</script>
@@ -224,23 +214,67 @@ Work in progress ! :)
    </binding>
   </mod-up>
  </key> 
-  
+ 
+  <key n="35">
+  <name>#</name>
+  <desc>Toggle Fuel Pump</desc>
+    <binding>
+    <command>property-toggle</command>
+   <property>/controls/engines/engine/fuel-pump</property>
+     </binding>
+         <binding>
+       <command>property-toggle</command>
+	<property>/sim/sound/switch</property>
+     </binding>
+  </key> 
+
+  <key n="36">
+  <name>$</name>
+  <desc>Toggle Carb Heat</desc>
+     <binding>
+   <command>property-toggle</command> 
+     <property>/controls/anti-ice/engine/carb-heat</property>
+     </binding>
+         <binding>
+       <command>property-toggle</command>
+	<property>/sim/sound/switch</property>
+     </binding>
+  </key> 
+
+  <key n="37">
+  <name>%</name>
+  <desc>Toggle Landing Light</desc>
+     <binding>
+       <command>property-toggle</command>
+       <property>/controls/switches/landing-light</property>
+     </binding>
+         <binding>
+       <command>property-toggle</command>
+	<property>/sim/sound/switch</property>
+     </binding>
+  </key> 
+
+    <key n="94">
+  <name>^</name>
+  <desc>Toggle Nav Lights</desc>
+     <binding>
+       <command>property-toggle</command>
+       <property>/controls/switches/nav-lights</property>
+     </binding>
+         <binding>
+       <command>property-toggle</command>
+	<property>/sim/sound/switch</property>
+     </binding>
+  </key> 
 </keyboard> 
 
 </input>
 
 
-
-<yasim> 
-     <pilot-lb type="double">180</pilot-lb>
-     <copilot-lb type="double">190</copilot-lb>
-     <cargo type="double">0</cargo>
-</yasim>
-
 <nasal>
 	<dhc2>
-          <file>Aircraft/dhc2/Models/dhc2.nas</file>
-          <file>Aircraft/dhc2/dhc2-electrical.nas</file>
+          <file>Aircraft/dhc2/Nasal/dhc2.nas</file>
+          <file>Aircraft/dhc2/Nasal/dhc2-electrical.nas</file>
 	</dhc2>
 </nasal>
 </PropertyList>

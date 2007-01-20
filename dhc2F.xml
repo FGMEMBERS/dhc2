@@ -7,12 +7,16 @@
     <control-setting axis="/controls/engines/engine[0]/mixture" value="1.0"/>
     <control-setting axis="/controls/engines/engine[0]/propeller-pitch" value="1.0"/>
     <control-setting axis="/controls/flight/flaps" value="1.0"/>
+    <solve-weight idx="0" weight="180"/>	
+    <solve-weight idx="1" weight="0"/>	
   </approach>
   <cruise speed="112" alt="15000" >
     <control-setting value="0.75" axis="/controls/engines/engine[0]/throttle" />
     <control-setting value="0.5" axis="/controls/engines/engine[0]/mixture" />
     <control-setting value="1.0" axis="/controls/engines/engine[0]/propeller-pitch" />
     <control-setting value="0.0" axis="/controls/flight/flaps" />
+    <solve-weight idx="0" weight="180"/>	
+    <solve-weight idx="1" weight="0"/>	
   </cruise>
   <cockpit x="-0.825" y="-0.26" z="0.70" />
   
@@ -25,7 +29,7 @@
 --> 
 
   <wing x="0.0" y="0.6" z="0.6" chord="1.8" taper="1.0" length="6.8"
-   dihedral="4" incidence="2.0">
+   dihedral="4" incidence="2.2" camber="0.05">
     <stall width="4" aoa="16" peak="1.5" />
     <flap0 drag="1.6" end="0.58" lift="1.5" start="0.02" />
     <flap1 drag="1.1" end="0.97" lift="1.2" start="0.58" />
@@ -40,7 +44,7 @@
   
   <hstab x="-6.0" y="0.2" z="0.2"  chord="1.2" taper=".7" length="2.5" >
     <stall width="4" aoa="16" peak="1.5" />
-    <flap0 drag="1.3" end="1" lift="1.4" start="0" />
+    <flap0 drag="1.3" end="1" lift="1.5" start="0" />
     <control-input control="FLAP0" axis="/controls/flight/elevator" />
     <control-input control="FLAP0" axis="/controls/flight/elevator-trim" />
     <control-output prop="/surface-positions/elevator-pos-norm" control="FLAP0" />
@@ -68,65 +72,116 @@
 
  <!-- Floats--> 
 
-  <gear x="3.28" y="1.5" z="-2.06" compression="0.2" spring = "2" sfric = "2.5">
-    <control-input control="BRAKE" axis="/controls/gear/brake-parking" />
-    <control-input control="BRAKE" axis="/controls/gear/brake-left" />
+  <gear x="3.52" y="1.5" z="-2.4" compression="0.7" spring = "5" sfric = "0.8" dfric = "0.6" ignored-by-solver="1"
+		on-water="1" on-solid="0" reduce-friction-by-extension="1.25"
+		speed-planing="15" spring-factor-not-planing="0.15">
   </gear>
   
-  <gear x="3.28" y="-1.5" z="-2.06" compression="0.2" spring = "2" sfric = "2.5">
-    <control-input control="BRAKE" axis="/controls/gear/brake-parking" />
-    <control-input control="BRAKE" axis="/controls/gear/brake-right" />
+  <gear x="3.52" y="-1.5" z="-2.4" compression="0.7" spring = "5" sfric = "0.8" dfric = "0.6" ignored-by-solver="1"
+		on-water="1" on-solid="0" reduce-friction-by-extension="1.25"
+		speed-planing="15" spring-factor-not-planing="0.15">
   </gear>
   
-  <gear x="-3.25" y="1.5" z="-1.6" compression="0.2" spring = "2" sfric = "2.5">
-    <control-input axis="/controls/flight/rudder" control="STEER"  
-invert="true"  square="true"/>
+  <gear x="0.0" y="1.5" z="-2.1" compression="0.7" spring = "5" sfric = "0.8" dfric = "0.6" ignored-by-solver="1"
+		on-water="1" on-solid="0" reduce-friction-by-extension="1.25"
+		speed-planing="25" spring-factor-not-planing="0.15">
   </gear>
   
-  <gear x="-3.25" y="-1.5" z="-1.6" compression="0.2" spring = "2" sfric = "2.5">
-    <control-input axis="/controls/flight/rudder" control="STEER" 
-invert="true" square="true"/>
+  <gear x="0.0" y="-1.5" z="-2.1" compression="0.7" spring = "5" sfric = "0.8" dfric = "0.6" ignored-by-solver="1"
+		on-water="1" on-solid="0" reduce-friction-by-extension="1.25" 
+		speed-planing="25" spring-factor-not-planing="0.15">
   </gear>
-  
-   <!-- Retractable wheels--> 
-  <gear x="3.52" y="1.5" z="-2.57" compression="0.2"  spring = "3" sfric = "2.5" retract-time="4">
+
+	<!-- Retractable wheels--> 
+
+  <gear x="3.52" y="1.5" z="-2.57" compression="0.2"  spring = "2" sfric = "0.5" dfric=".45" retract-time="4" initial-load="0" damp="0.6">
     <control-input control="STEER" axis="/controls/flight/rudder" square="true"/>
   <control-input axis="/controls/gear/gear-down" control="EXTEND"/>
   <control-output control="EXTEND" prop="/gear/gear[4]/position-norm"/>
   <control-speed control="EXTEND" transition-time="4"/>
   </gear>
   
-  <gear x="3.52" y="-1.5" z="-2.57" compression="0.2" spring = "3" sfric = "2.5"  retract-time="4">
+  <gear x="3.52" y="-1.5" z="-2.57" compression="0.2" spring = "2" sfric = "0.5" dfric=".45" retract-time="4" initial-load="0" damp="0.6">
     <control-input control="STEER" axis="/controls/flight/rudder" square="true"/>
   <control-input axis="/controls/gear/gear-down" control="EXTEND"/>
     <control-output control="EXTEND" prop="/gear/gear[5]/position-norm"/>
   <control-speed control="EXTEND" transition-time="4"/>
   </gear>
   
-  <gear x="-0.22" y="1.5" z="-2.57" compression="0.2" spring = "3" sfric = "2.5" retract-time="4">
-    <control-input control="BRAKE" axis="/controls/gear/brake-parking" />
-    <control-input control="BRAKE" axis="/controls/gear/brake-left" />
-  <control-input axis="/controls/gear/gear-down" control="EXTEND"/>
-    <control-output control="EXTEND" prop="/gear/gear[6]/position-norm"/>
-  <control-speed control="EXTEND" transition-time="4"/>
+  <gear x="-0.22" y="1.5" z="-2.57" compression="0.2" spring = "3.5" sfric = "0.5" dfric=".45" retract-time="4" initial-load="1" damp="10.1">
+	  <control-input control="BRAKE" axis="/controls/gear/brake-parking" />
+	  <control-input control="BRAKE" axis="/controls/gear/brake-left" />
+	  <control-input axis="/controls/gear/gear-down" control="EXTEND"/>
+	  <control-output control="EXTEND" prop="/gear/gear[6]/position-norm"/>
+	  <control-speed control="EXTEND" transition-time="4"/>
   </gear>
-  
-  <gear x="-0.22" y="-1.5" z="-2.57" compression="0.2" spring = "3" sfric = "2.5" retract-time="4">
+
+  <gear x="-0.22" y="-1.5" z="-2.57" compression="0.2" spring = "3.5" sfric = "0.5" dfric=".45" retract-time="4" initial-load="1" damp="10.1">
     <control-input control="BRAKE" axis="/controls/gear/brake-parking" />
     <control-input control="BRAKE" axis="/controls/gear/brake-right" />
   <control-input axis="/controls/gear/gear-down" control="EXTEND"/>
     <control-output control="EXTEND" prop="/gear/gear[7]/position-norm"/>
   <control-speed control="EXTEND" transition-time="4"/>
   </gear>
-  
-<!-- Fuel  -->  <tank x="1.5" y="0" z="-0.7" capacity="210" />
+
+
+<!-- 2 more Floats, need to be at this position in the file to do not brake the animation
+	"reduce-friction-by-extension" is reduced to get steering control-->
+
+  <gear x="-3.22" y="1.5" z="-2.0" compression="0.7" spring = "10" sfric = "0.8" dfric = "0.6" ignored-by-solver="1"
+			on-water="1" on-solid="0" reduce-friction-by-extension="0.9"
+			speed-planing="25" spring-factor-not-planing="0.15">
+		<control-input axis="/controls/flight/rudder" control="STEER"  
+	invert ="true" square="true"/>
+  </gear>
+  <gear x="-3.22" y="-1.5" z="-2.0" compression="0.7" spring = "10" sfric = "0.8" dfric = "0.6" ignored-by-solver="1"
+			on-water="1" on-solid="0" reduce-friction-by-extension="0.9"
+			speed-planing="25" spring-factor-not-planing="0.15">
+		<control-input axis="/controls/flight/rudder" control="STEER" 
+	invert="true" square="true"/>
+  </gear>
+
+
+	<!-- The Floats on solid ground-->
+
+	<gear x="3.52" y="1.5" z="-2.4" compression="0.4" spring = "10" sfric = "1.5" dfric = "1.3" skid="1" ignored-by-solver="1">
+	</gear>
+
+	<gear x="3.52" y="-1.5" z="-2.4" compression="0.4" spring = "10" sfric = "1.5" dfric = "1.3" skid="1" ignored-by-solver="1">
+	</gear>
+
+	<gear x="0.0" y="1.5" z="-2.1" compression="0.2" spring = "10" sfric = "1.5" dfric = "1.3" skid="1" ignored-by-solver="1">
+	</gear>
+
+	<gear x="0.0" y="-1.5" z="-2.1" compression="0.2" spring = "10" sfric = "1.5" dfric = "1.3" skid="1" ignored-by-solver="1">
+	</gear>
+
+	<gear x="-3.22" y="1.5" z="-2.0" compression="0.2" spring = "10" sfric = "1.5" dfric = "1.3" skid="1" ignored-by-solver="1">
+	</gear>
+
+	<gear x="-3.22" y="-1.5" z="-2.0" compression="0.2" spring = "10" sfric = "1.5" dfric = "1.3" skid="1" ignored-by-solver="1">
+	</gear>
+
+
+	<!-- Retractable wheels on water-->
+	<gear x="-0.22" y="1.5" z="-2.57" compression="0.2" spring = "0.1" sfric = "1" dfric="1" retract-time="4" on-water="1" on-solid="0" ignored-by-solver="1" reduce-friction-by-extension="0.9">
+		<control-input axis="/controls/gear/gear-down" control="EXTEND"/>
+		<control-speed control="EXTEND" transition-time="4"/>
+	</gear>
+
+	<gear x="-0.22" y="-1.5" z="-2.57" compression="0.2" spring = "0.1" sfric = "1" dfric ="1" retract-time="4" on-water="1" on-solid="0" ignored-by-solver="1" reduce-friction-by-extension="0.9">
+		<control-input axis="/controls/gear/gear-down" control="EXTEND"/>
+		<control-speed control="EXTEND" transition-time="4"/>
+	</gear>
+
+
+	<!-- Fuel  -->  <tank x="1.5" y="0" z="-0.7" capacity="210" />
   <tank x="0.0" y="0" z="-0.7" capacity="210" />
   <tank x="-1.5" y="0" z="-0.7" capacity="156" />
   
-  <ballast x="2.0" y="0.0" z="0.0" mass="450" />
- <ballast x="-5.0" y="0.0" z="0.0" mass="-300" />
+  <ballast x="2.0" y="0.0" z="-0.5" mass="500" />
  
- <weight x="0.75" y="-0.35" z="0.15" mass-prop="/yasim/pilot-lb" />
-  <weight x="0.75" y="0.35" z="0.15" mass-prop="/yasim/copilot-lb" />
-  <weight x="-1.0" y="0" z="-0.3" mass-prop="/yasim/cargo" />
+  <weight x="0.75" y="0.0" z="-0.5" mass-prop="/sim/weight[0]/weight-lb"/>
+  <weight x="-1.0" y="0" z="-0.5" mass-prop="/sim/weight[0]/weight-lb"/>
+
 </airplane>

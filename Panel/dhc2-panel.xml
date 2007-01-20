@@ -31,8 +31,12 @@
      <w>60</w>
      <h>60</h>
      <binding>
-  <command>nasal</command>
-   <script>dhc2.fuel_switch()</script>
+  <command>property-adjust</command>
+   <property>controls/fuel/switch-position</property>
+   <step>1</step>
+   <min>-1</min>
+   <max>3</max>
+   <wrap>1</wrap>
      </binding>
          <binding>
        <command>property-toggle</command>
@@ -108,15 +112,15 @@
      <y>-374</y>
      <w>16</w>
      <h>16</h>
-     <binding>
-       <command>nasal</command>
-       <script>dhc2.starter(1)</script>
-     </binding>
-     <mod-up>
-       <binding>
-         <command>nasal</command>
-         <script>dhc2.starter(0)</script>
-       </binding>
+  <binding>
+   <command>nasal</command>
+   <script>dhc2.starter(1)</script>
+  </binding>
+  <mod-up>
+   <binding>
+    <command>nasal</command>
+    <script>dhc2.starter(0)</script>
+   </binding>
   </mod-up>
    </action>
 
@@ -155,15 +159,15 @@
    </action>
 
    <action>
-     <name>pitot heat</name>
+     <name>carb heat</name>
      <button>0</button>
      <x>-226</x>
      <y>-374</y>
      <w>16</w>
      <h>16</h>
      <binding>
-   <command>nasal</command>
-   <script>dhc2.pitot_heat_switch()</script>
+   <command>property-toggle</command> 
+     <property>/controls/anti-ice/engine/carb-heat</property>
      </binding>
          <binding>
        <command>property-toggle</command>
@@ -196,8 +200,8 @@
      <w>16</w>
      <h>16</h>
      <binding>
-       <command>nasal</command>
-       <script>dhc2.landing_light_switch()</script>
+       <command>property-toggle</command>
+       <property>/controls/switches/landing-light</property>
      </binding>
          <binding>
        <command>property-toggle</command>
@@ -214,8 +218,8 @@
      <w>16</w>
      <h>16</h>
      <binding>
-   <command>nasal</command>
-   <script>dhc2.nav_light_switch()</script>
+       <command>property-toggle</command>
+       <property>/controls/switches/nav-lights</property>
      </binding>
          <binding>
        <command>property-toggle</command>
@@ -374,7 +378,7 @@
   <binding>
     <command>property-adjust</command>
     <property>controls/engines/engine[0]/throttle</property>
-    <step>0.05</step>
+    <step>0.1</step>
     <min>0.0</min>
     <max>1.0</max>
     <wrap>false</wrap>
@@ -392,7 +396,7 @@
   <binding>
     <command>property-adjust</command>
     <property>controls/engines/engine[0]/throttle</property>
-    <step>-0.05</step>
+    <step>-0.1</step>
     <min>0.0</min>
     <max>1.0</max>
     <wrap>false</wrap>
@@ -410,7 +414,7 @@
   <binding>
     <command>property-adjust</command>
     <property>controls/engines/engine[0]/propeller-pitch</property>
-    <step>0.05</step>
+    <step>0.1</step>
     <min>0.0</min>
     <max>1.0</max>
     <wrap>false</wrap>
@@ -428,7 +432,7 @@
   <binding>
     <command>property-adjust</command>
     <property>controls/engines/engine[0]/propeller-pitch</property>
-    <step>-0.05</step>
+    <step>-0.1</step>
     <min>0.0</min>
     <max>1.0</max>
     <wrap>false</wrap>
@@ -446,7 +450,7 @@
   <binding>
     <command>property-adjust</command>
     <property>controls/engines/engine[0]/mixture</property>
-    <step>0.05</step>
+    <step>0.1</step>
     <min>0.0</min>
     <max>1.0</max>
     <wrap>false</wrap>
@@ -464,7 +468,7 @@
   <binding>
     <command>property-adjust</command>
     <property>controls/engines/engine[0]/mixture</property>
-    <step>-0.05</step>
+    <step>-0.1</step>
     <min>0.0</min>
     <max>1.0</max>
     <wrap>false</wrap>

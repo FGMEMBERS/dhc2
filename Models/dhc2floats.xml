@@ -468,20 +468,7 @@
 
  <!--   __________________________INSTRUMENTS_______________________________________     -->
 
-
-     
-
-
-
-
- 
-
-
-
- 
-
-
-  <animation>
+<animation>
   <type>rotate</type>
   <object-name>cmpsrose</object-name>
   <property>/instrumentation/magnetic-compass/indicated-heading-deg</property>
@@ -498,17 +485,6 @@
  </animation>
  
 
-
-<!--
-
-
-
-
-
-
-
--->
-
 <animation>
 <type>select</type>
   <object-name>stall-on</object-name>
@@ -524,8 +500,6 @@
 </animation>
 
  <!--         __________________________Controls____________________________________     -->
-
-
 
  <animation>
   <type>rotate</type>
@@ -598,7 +572,7 @@
  <animation>
   <type>rotate</type>
   <object-name>PitotToggle</object-name>
-  <property>/controls/anti-ice/pitot-heat</property>
+  <property>/controls/anti-ice/engine/carb-heat</property>
   <factor>40</factor>
   <axis>
    <x>0.0</x>
