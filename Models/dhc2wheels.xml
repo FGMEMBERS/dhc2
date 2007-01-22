@@ -203,8 +203,6 @@
 </panel>
 
 
-
-
 <animation>
   <type>noshadow</type>
   <object-name>navlightsoff</object-name>
@@ -212,15 +210,18 @@
   <object-name>LndLight</object-name>
   <object-name>Fastprop</object-name>
   <object-name>Slowprop</object-name>
+  <object-name>SideLogo</object-name>
   </animation>
 
  <animation>
 	<type>shader</type>
     <shader>chrome</shader>
 	<texture>Aircraft/dhc2/Models/chrome.rgb</texture>
+	<object-name>Spinner</object-name>
 	<object-name>Throttle.001</object-name>
 	<object-name>PropPitch.001</object-name>
-	<object-name>Mixture.001</object-name>	
+	<object-name>Mixture.001</object-name>
+	<object-name>Ant</object-name>	
 </animation>
 
 <animation>
@@ -240,23 +241,10 @@
   <object-name>Glass</object-name>
   <object-name>RHFdoor.glass</object-name>
   <object-name>LHFdoor.glass</object-name>
-  <object-name>RRglass</object-name>
-  <object-name>LRglass</object-name>
   <condition>
     <greater-than>
     <property>/sim/current-view/view-number</property>
     <value>0</value>
-   </greater-than>
-  </condition>
- </animation>
-
- <animation>
-  <type>select</type>
-  <object-name>Cargo</object-name>
-  <condition>
-   <greater-than>
-    <property>/yasim/cargo</property>
-    <value>0.000</value>
    </greater-than>
   </condition>
  </animation>
@@ -452,7 +440,7 @@
 
  <!--   __________________________INSTRUMENTS_______________________________________     -->
 
-  <animation>
+<animation>
   <type>rotate</type>
   <object-name>cmpsrose</object-name>
   <property>/instrumentation/magnetic-compass/indicated-heading-deg</property>
@@ -467,6 +455,7 @@
    <z-m>0.694</z-m>
   </center>
  </animation>
+ 
 
 <animation>
 <type>select</type>
@@ -555,7 +544,7 @@
  <animation>
   <type>rotate</type>
   <object-name>PitotToggle</object-name>
-  <property>/controls/anti-ice/pitot-heat</property>
+  <property>/controls/anti-ice/engine/carb-heat</property>
   <factor>40</factor>
   <axis>
    <x>0.0</x>
@@ -687,43 +676,48 @@
    <z>0</z>
   </axis>
  </animation>
-
-
-<!--       Gear       -->
-
- <animation>
-  <type>rotate</type>
-  <object-name>Lstrut</object-name>
-  <object-name>Lwheel</object-name>
-  <property>/gear/gear[0]/compression-m</property>
-  <factor>50</factor>
-  <center>
-   <x-m>-0.831</x-m>
-   <y-m>-0.682</y-m>
-   <z-m>-0.758</z-m>
-  </center>
-  <axis>
-   <x>-1</x>
-   <y>0</y>
-   <z>0</z>
-  </axis>
+ 
+ <!--  Gear Animation-->
+  <animation>
+   <type>rotate</type>
+   <object-name>Lwheel</object-name>
+   <object-name>Lstrut</object-name>
+   <property>gear/gear[0]/compression-m</property>
+   <interpolation>
+    <entry><ind>0.0</ind><dep>0.0</dep></entry>
+    <entry><ind>0.2</ind><dep>14.0</dep></entry>
+  </interpolation>
+   <center>
+     <x-m>-0.834</x-m>
+     <y-m>-0.650</y-m>
+     <z-m>-0.820</z-m>
+   </center>
+   <axis>
+     <x>-1</x>
+     <y>0</y>
+     <z>0</z>
+   </axis>
  </animation>
 
- <animation>
-  <type>rotate</type>
-  <object-name>Rstrut</object-name>
-  <object-name>Rwheel</object-name>
-  <property>/gear/gear[1]/compression-m</property>
-  <factor>50</factor>
-  <center>
-   <x-m>-0.831</x-m>
-   <y-m>0.682</y-m>
-   <z-m>-0.758</z-m>
-  </center>
-  <axis>
-   <x>1</x>
-   <y>0</y>
-   <z>0</z>
-  </axis>
+  <animation>
+   <type>rotate</type>
+   <object-name>Rwheel</object-name>
+   <object-name>Rstrut</object-name>
+   <property>gear/gear[1]/compression-m</property>
+   <interpolation>
+    <entry><ind>0.0</ind><dep>0.0</dep></entry>
+    <entry><ind>0.2</ind><dep>14.0</dep></entry>
+  </interpolation>
+   <center>
+     <x-m>-0.834</x-m>
+     <y-m>0.650</y-m>
+     <z-m>-0.820</z-m>
+   </center>
+   <axis>
+     <x>1</x>
+     <y>0</y>
+     <z>0</z>
+   </axis>
  </animation>
+
 </PropertyList>

@@ -102,15 +102,14 @@
    <property>/velocities/airspeed-kt</property>
    <volume>
      <property>/velocities/airspeed-kt</property>
-     <factor>0.0025</factor>
-     <min>0.00</min>
-     <max>0.5</max>
+     <factor>0.01</factor>
+     <min>0.0</min>
+     <max>0.7</max>
    </volume>
    <pitch>
     <property>/velocities/airspeed-kt</property>
     <factor>0.001</factor>
-    <offset>0.5</offset>
-    <max>1.0</max>
+    <offset>0.7</offset>
    </pitch>
   </wind>
  
