@@ -65,27 +65,28 @@
     <control-input control="ADVANCE" axis="/controls/engines/engine[0]/propeller-pitch"/>
   </propeller>
 
- <!-- Floats--> 
+ <!-- Floats-->
 
-  <gear x="2.86" y="1.5" z="-2.37" compression="1.0" spring = "0.5" sfric = "0.8" dfric = "0.6" ignored-by-solver="1"
-		on-water="1" on-solid="0" reduce-friction-by-extension="0.7"
-		speed-planing="0.5" spring-factor-not-planing="1.0">
-  </gear>
-  
-  <gear x="2.86" y="-1.5" z="-2.37" compression="1.0" spring = "0.5" sfric = "0.8" dfric = "0.6" ignored-by-solver="1"
-		on-water="1" on-solid="0" reduce-friction-by-extension="0.7"
-		speed-planing="0.5" spring-factor-not-planing="1.0">
-  </gear>
-  
-  <gear x="-3.30" y="1.5" z="-1.87" compression="1.0" spring = "0.5" sfric = "0.8" dfric = "0.6" ignored-by-solver="1"
-		on-water="1" on-solid="0" reduce-friction-by-extension="0.7"
-		speed-planing="0.5" spring-factor-not-planing="1.0">
-  </gear>
-  
-  <gear x="-3.3" y="-1.5" z="-1.87" compression="1.0" spring = "0.5" sfric = "0.8" dfric = "0.6" ignored-by-solver="1"
-		on-water="1" on-solid="0" reduce-friction-by-extension="0.7" 
-		speed-planing="0.5" spring-factor-not-planing="1.0">
-  </gear>
+<gear x="3.52" y="1.5" z="-2.4" compression="1.3" spring = "15" sfric = "0.8" dfric = "0.6" ignored-by-solver="1"
+	  on-water="1" on-solid="0" reduce-friction-by-extension="1.25"
+	  speed-planing="15" spring-factor-not-planing="0.25">
+</gear>
+
+<gear x="3.52" y="-1.5" z="-2.4" compression="1.3" spring = "15" sfric = "0.8" dfric = "0.6" ignored-by-solver="1"
+	  on-water="1" on-solid="0" reduce-friction-by-extension="1.25"
+	  speed-planing="15" spring-factor-not-planing="0.25">
+</gear>
+
+<gear x="0.0" y="1.5" z="-2.1" compression="1.3" spring = "15" sfric = "0.8" dfric = "0.6" ignored-by-solver="1"
+	  on-water="1" on-solid="0" reduce-friction-by-extension="1.25"
+	  speed-planing="25" spring-factor-not-planing="0.25">
+</gear>
+
+<gear x="0.0" y="-1.5" z="-2.1" compression="1.3" spring = "15" sfric = "0.8" dfric = "0.6" ignored-by-solver="1"
+	  on-water="1" on-solid="0" reduce-friction-by-extension="1.25" 
+	  speed-planing="25" spring-factor-not-planing="0.25">
+</gear>
+
 
 	<!-- Retractable wheels--> 
 
@@ -123,15 +124,15 @@
 <!-- 2 more Floats, need to be at this position in the file to do not brake the animation
 	"reduce-friction-by-extension" is reduced to get steering control-->
 
-  <gear x="-3.22" y="1.5" z="-2.0" compression="0.7" spring = "10" sfric = "0.8" dfric = "0.6" ignored-by-solver="1"
+  <gear x="-3.22" y="1.5" z="-2.0" compression="1.3" spring = "8" sfric = "0.8" dfric = "0.6" ignored-by-solver="1"
 			on-water="1" on-solid="0" reduce-friction-by-extension="0.9"
-			speed-planing="25" spring-factor-not-planing="0.15">
+			speed-planing="25" spring-factor-not-planing="3">
 		<control-input axis="/controls/flight/rudder" control="STEER"  
 	invert ="true" square="true"/>
   </gear>
-  <gear x="-3.22" y="-1.5" z="-2.0" compression="0.7" spring = "10" sfric = "0.8" dfric = "0.6" ignored-by-solver="1"
+  <gear x="-3.22" y="-1.5" z="-2.0" compression="1.3" spring = "8" sfric = "0.8" dfric = "0.6" ignored-by-solver="1"
 			on-water="1" on-solid="0" reduce-friction-by-extension="0.9"
-			speed-planing="25" spring-factor-not-planing="0.15">
+			speed-planing="25" spring-factor-not-planing="3">
 		<control-input axis="/controls/flight/rudder" control="STEER" 
 	invert="true" square="true"/>
   </gear>
@@ -178,5 +179,16 @@
  
   <weight x="0.75" y="0.0" z="-0.5" mass-prop="/sim/weight[0]/weight-lb"/>
   <weight x="-1.0" y="0" z="-0.5" mass-prop="/sim/weight[1]/weight-lb"/>
+
+
+  <hitch name="aerotow" x="-6.2" y="0" z="-0.12"  force-is-calculated-by-other="1">
+    <tow length="60" weight-per-meter="0.035" elastic-constant="9000" break-force="10000" mp-auto-connect-period="1.0"/>
+    <winch max-tow-length="1000" min-tow-length="60" initial-tow-length="60"/>
+  </hitch>
+  <hitch name="anchor" x="3.0" y="1.5" z="-2.0">
+    <tow length="4" weight-per-meter="0.1" elastic-constant="9000"  break-force="10000"/>
+    <winch max-tow-length="40" min-tow-length="1" initial-tow-length="4" max-winch-speed="4" power="5" max-force="600" />
+    <control-input axis="/controls/winch/place" control="PLACEWINCH"/>
+  </hitch>
 
 </airplane>

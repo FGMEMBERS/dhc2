@@ -94,7 +94,6 @@
   <hitch name="aerotow" x="-6.2" y="0" z="-0.12"  force-is-calculated-by-other="1">
   <tow length="60" weight-per-meter="0.035" elastic-constant="9000" break-force="10000" mp-auto-connect-period="1.0"/>
   <winch max-tow-length="1000" min-tow-length="60" initial-tow-length="60"/>
-  <control-input axis="/controls/aerotow/find-aircraft" control="FINDAITOW"/>
 </hitch>
  
 
