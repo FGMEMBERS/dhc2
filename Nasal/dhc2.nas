@@ -3,6 +3,7 @@ pump_on = 0;
 
   setlistener("/sim/signals/fdm-initialized", func {
      setprop("/controls/fuel/switch-position",-1);
+     setprop("/controls/gear/water-rudder-down",0);
      setprop("/consumables/fuel/tank[0]/selected",0);
      setprop("/consumables/fuel/tank[1]/selected",0);
      setprop("/consumables/fuel/tank[2]/selected",0);
@@ -26,6 +27,13 @@ setlistener("/sim/crashed", func {
         };    
     }, 1);
 
+water_rudder = func{
+    if (getprop("/controls/gear/water-rudder-down")!=1){
+    interpolate("/controls/gear/water-rudder-down",1,1);
+    }else{
+    interpolate("/controls/gear/water-rudder-down",0,1);
+       }
+    }
 
 starter = func{
     engage = arg[0];
@@ -34,6 +42,26 @@ starter = func{
     }
 }
 
+update = func {
+    gforce();
+    steering();
+
+pump_on = getprop("/controls/engines/engine[0]/fuel-pump");
+testfuel = getprop("/controls/fuel/switch-position");
+if(pump_on == 0){setprop("/engines/engine/out-of-fuel",1);
+}else{
+if(testfuel > -1){
+if(getprop("/consumables/fuel/tank[" ~ testfuel ~ "]/level-gal_us") > 0.01){
+setprop("/engines/engine/out-of-fuel",0);} 
+   }
+}
+
+oil_psi = getprop("/engines/engine/rpm") * 0.001;
+if(oil_psi > 1.0){oil_psi = 1.0};
+setprop("/engines/engine/oil-pressure-psi",oil_psi);
+
+registerTimer();
+}
 
 gforce = func{
     force = getprop("/accelerations/pilot-g");
@@ -42,24 +70,17 @@ gforce = func{
     eyepoint -= (force * 0.02);
 if(getprop("/sim/current-view/view-number") < 1){
 setprop("/sim/current-view/y-offset-m",eyepoint);
+     }
 }
 
-
-
-pump_on = getprop("/controls/engines/engine[0]/fuel-pump");
-testfuel = getprop("/controls/fuel/switch-position");
-if(pump_on == 0){setprop("/engines/engine/out-of-fuel",1)}else{
-if(testfuel > -1){
-if(getprop("/consumables/fuel/tank[" ~ testfuel ~ "]/level-gal_us") > 0.01){
-setprop("/engines/engine/out-of-fuel",0);} 
-}}
-
-oil_psi = getprop("/engines/engine/rpm") * 0.001;
-if(oil_psi > 1.0){oil_psi = 1.0};
-setprop("/engines/engine/oil-pressure-psi",oil_psi);
-
-
-
-settimer(gforce, 0);
+steering = func{
+if(getprop("/controls/gear/water-rudder-down") >= 0.9){
+    setprop("/controls/gear/water-rudder-pos",getprop("/controls/flight/rudder"));
+    }else{
+    setprop("/controls/gear/water-rudder-pos",0);}
 }
-settimer(gforce, 0);
+
+registerTimer = func {
+    settimer(update, 0);
+}
+registerTimer();

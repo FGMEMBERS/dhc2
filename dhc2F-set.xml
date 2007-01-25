@@ -2,10 +2,7 @@
 <!--
 ************************************************************************
 Dehavallind Beaver
-
 July 2004 Syd Adams
-
-Work in progress ! :)
 ************************************************************************
 -->
 
@@ -99,6 +96,10 @@ Work in progress ! :)
   </flaps>
 
   <help>
+     <key>
+    <name>l</name>
+    <desc>toggle water rudders</desc>
+   </key>
    <key>
     <name>f</name>
     <desc>fuel tank select</desc>
@@ -129,11 +130,11 @@ Work in progress ! :)
    </key>
     <key>
       <name>Ctrl-w</name>
-      <desc>throw anchor</desc>
+      <desc>tie up</desc>
     </key>
     <key>
       <name>W</name>
-      <desc>release anchor</desc>
+      <desc>untie</desc>
     </key>
     <key>
       <name>o</name>
@@ -191,6 +192,8 @@ Work in progress ! :)
 </fuel>
 <gear>
 <brake-parking type="double">1.0</brake-parking>
+<water-rudder-down type="double">0</water-rudder-down>
+<water-rudder-pos type="double">0</water-rudder-pos>
 </gear>
   <winch>
     <place type="bool">false</place>
@@ -209,6 +212,16 @@ Work in progress ! :)
    
  <input>
   <keyboard>
+  
+   <key n="108">
+  <name>l</name>
+  <desc>Toggle water rudders</desc>
+  <binding>
+   <command>nasal</command>
+   <script>dhc2.water_rudder()</script>
+  </binding>
+ </key>
+ 
     <key n="102">
   <name>f</name>
   <desc>fuel tank select</desc>

@@ -229,7 +229,7 @@
   <object-name>navlightson</object-name>
   <condition>
     <greater-than>
-    <property>/systems/electrical/outputs/nav-lights</property>
+    <property>systems/electrical/outputs/nav-lights</property>
     <value>0</value>
   </greater-than>
   </condition>
@@ -243,7 +243,7 @@
   <object-name>LHFdoor.glass</object-name>
   <condition>
     <greater-than>
-    <property>/sim/current-view/view-number</property>
+    <property>sim/current-view/view-number</property>
     <value>0</value>
    </greater-than>
   </condition>
@@ -255,11 +255,11 @@
   <condition>
   <and>
    <greater-than>
-    <property>/engines/engine[0]/rpm</property>
+    <property>engines/engine[0]/rpm</property>
     <value>1500</value>
    </greater-than>
    <greater-than>
-    <property>/sim/current-view/view-number</property>
+    <property>sim/current-view/view-number</property>
     <value>0</value>
    </greater-than>
    </and>
@@ -271,11 +271,11 @@
   <object-name>Slowprop</object-name>
   <condition>
    <less-than>
-    <property>/engines/engine/rpm</property>
+    <property>engines/engine/rpm</property>
     <value>1501</value>
    </less-than>
    <greater-than>
-    <property>/engines/engine/rpm</property>
+    <property>engines/engine/rpm</property>
     <value>500</value>
    </greater-than>
   </condition>
@@ -286,7 +286,7 @@
   <object-name>Prop</object-name>
   <condition>
    <less-than>
-    <property>/engines/engine/rpm</property>
+    <property>engines/engine/rpm</property>
     <value>501</value>
    </less-than>
   </condition>
@@ -295,7 +295,7 @@
  <animation>
   <type>spin</type>
   <object-name>Prop</object-name>
-  <property>/engines/engine/rpm</property>
+  <property>engines/engine/rpm</property>
   <center>
   <x-m>2.623</x-m>
    <y-m>0.0</y-m>
@@ -311,7 +311,7 @@
  <animation>
   <type>spin</type>
   <object-name>Slowprop</object-name>
-  <property>/engines/engine/rpm</property>
+  <property>engines/engine/rpm</property>
   <factor>0.5</factor>
   <center>
   <x-m>2.623</x-m>
@@ -328,7 +328,7 @@
  <animation>
   <type>rotate</type>
   <object-name>Rudder</object-name>
-  <property>/controls/flight/rudder</property>
+  <property>controls/flight/rudder</property>
   <factor>30</factor>
   <center>
    <x-m>5.668</x-m>
@@ -345,7 +345,7 @@
  <animation>
   <type>rotate</type>
   <object-name>Elevator</object-name>
-  <property>/surface-positions/elevator-pos-norm</property>
+  <property>surface-positions/elevator-pos-norm</property>
   <factor>30</factor>
   <center>
    <x-m>6.053</x-m>
@@ -362,7 +362,7 @@
  <animation>
   <type>rotate</type>
   <object-name>LHflap</object-name>
-  <property>/surface-positions/flap-pos-norm</property>
+  <property>surface-positions/flap-pos-norm</property>
   <factor>30</factor>
   <center>
    <x-m>0.476</x-m>
@@ -379,7 +379,7 @@
  <animation>
   <type>rotate</type>
   <object-name>RHflap</object-name>
-  <property>/surface-positions/flap-pos-norm</property>
+  <property>surface-positions/flap-pos-norm</property>
   <factor>30</factor>
   <center>
    <x-m>0.476</x-m>
@@ -396,7 +396,7 @@
  <animation>
   <type>rotate</type>
   <object-name>LHaileron</object-name>
-  <property>/surface-positions/left-aileron-pos-norm</property>
+  <property>surface-positions/left-aileron-pos-norm</property>
   <factor>15</factor>
   <center>
    <x-m>0.477</x-m>
@@ -413,7 +413,7 @@
  <animation>
   <type>rotate</type>
   <object-name>RHaileron</object-name>
-  <property>/surface-positions/right-aileron-pos-norm</property>
+  <property>surface-positions/right-aileron-pos-norm</property>
   <factor>15</factor>
   <center>
    <x-m>0.477</x-m>
@@ -432,7 +432,7 @@
  <object-name>LndLight</object-name>
   <condition>
 <greater-than>
-    <property>/systems/electrical/outputs/landing-light</property>
+    <property>systems/electrical/outputs/landing-light</property>
     <value>0</value>
   </greater-than>
   </condition>
@@ -443,7 +443,7 @@
 <animation>
   <type>rotate</type>
   <object-name>cmpsrose</object-name>
-  <property>/instrumentation/magnetic-compass/indicated-heading-deg</property>
+  <property>instrumentation/magnetic-compass/indicated-heading-deg</property>
   <axis>
    <x>0.0</x>
    <y>0.0</y>
@@ -462,11 +462,11 @@
   <object-name>stall-on</object-name>
  <condition>
     <less-than>
-      <property>/instrumentation/airspeed-indicator/indicated-speed-kt</property>
+      <property>instrumentation/airspeed-indicator/indicated-speed-kt</property>
     <value>55.000</value>
   </less-than>
   <not>
-    <property>/gear/gear/wow</property>
+    <property>gear/gear/wow</property>
   </not>
   </condition>
 </animation>
@@ -476,7 +476,7 @@
  <animation>
   <type>rotate</type>
   <object-name>StarterToggle</object-name>
-  <property>/controls/engines/engine/starter</property>
+  <property>controls/engines/engine/starter</property>
   <factor>40</factor>
   <axis>
    <x>0.0</x>
@@ -493,7 +493,7 @@
  <animation>
   <type>rotate</type>
   <object-name>AltToggle</object-name>
-  <property>/controls/electric/engine/generator</property>
+  <property>controls/electric/engine/generator</property>
   <factor>40</factor>
   <axis>
    <x>0.0</x>
@@ -510,7 +510,7 @@
  <animation>
   <type>rotate</type>
   <object-name>BattToggle</object-name>
-  <property>/controls/electric/battery-switch</property>
+  <property>controls/electric/battery-switch</property>
   <factor>40</factor>
   <axis>
    <x>0.0</x>
@@ -527,7 +527,7 @@
  <animation>
   <type>rotate</type>
   <object-name>PumpToggle</object-name>
-  <property>/controls/engines/engine/fuel-pump</property>
+  <property>controls/engines/engine/fuel-pump</property>
   <factor>40</factor>
   <axis>
    <x>0.0</x>
@@ -544,7 +544,7 @@
  <animation>
   <type>rotate</type>
   <object-name>PitotToggle</object-name>
-  <property>/controls/anti-ice/engine/carb-heat</property>
+  <property>controls/anti-ice/engine/carb-heat</property>
   <factor>40</factor>
   <axis>
    <x>0.0</x>
@@ -561,7 +561,7 @@
   <animation>
   <type>rotate</type>
   <object-name>L_lightToggle</object-name>
-  <property>/controls/switches/landing-light</property>
+  <property>controls/switches/landing-light</property>
   <factor>40</factor>
   <axis>
    <x>0.0</x>
@@ -578,7 +578,7 @@
    <animation>
   <type>rotate</type>
   <object-name>N_lightToggle</object-name>
-  <property>/controls/switches/nav-lights</property>
+  <property>controls/switches/nav-lights</property>
   <factor>40</factor>
   <axis>
    <x>0.0</x>
@@ -595,7 +595,7 @@
  <animation>
    <type>rotate</type>
    <object-name>Instr_Toggle</object-name>
-   <property>/controls/switches/instr-lights</property>
+   <property>controls/switches/instr-lights</property>
    <factor>40</factor>
    <axis>
      <x>0.0</x>
@@ -615,7 +615,7 @@
   <type>rotate</type>
   <object-name>PropPitch</object-name>
   <object-name>PropPitch.001</object-name>
-  <property>/controls/engines/engine/propeller-pitch</property>
+  <property>controls/engines/engine/propeller-pitch</property>
   <factor>70</factor>
   <center>
    <x-m>-1.342</x-m>
@@ -633,7 +633,7 @@
   <type>rotate</type>
   <object-name>Mixture</object-name>
   <object-name>Mixture.001</object-name>
-  <property>/controls/engines/engine/mixture</property>
+  <property>controls/engines/engine/mixture</property>
   <factor>70</factor>
   <center>
    <x-m>-1.342</x-m>
@@ -651,7 +651,7 @@
   <type>rotate</type>
   <object-name>Throttle</object-name>
 <object-name>Throttle.001</object-name>
-  <property>/controls/engines/engine/throttle</property>
+  <property>controls/engines/engine/throttle</property>
   <factor>70</factor>
   <center>
    <x-m>-1.342</x-m>
@@ -668,7 +668,7 @@
   <animation>
   <type>translate</type>
   <object-name>FLAPneedle</object-name>
-  <property>/surface-positions/flap-pos-norm</property>
+  <property>surface-positions/flap-pos-norm</property>
   <factor>0.0610</factor>
   <axis>
    <x>0</x>
@@ -718,6 +718,19 @@
      <y>0</y>
      <z>0</z>
    </axis>
+ </animation>
+
+  <animation>
+  <type>translate</type>
+  <object-name>Rearwheel.strut</object-name>
+  <object-name>Rearwheel</object-name>
+  <property>gear/gear[2]/compression-m</property>
+  <factor>1.0</factor>
+  <axis>
+   <x>0.217</x>
+   <y>0</y>
+   <z>0.976</z>
+  </axis>
  </animation>
 
 </PropertyList>
