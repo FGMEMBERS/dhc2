@@ -1,4 +1,7 @@
-pump_on = 0;
+var pump_on = 0;
+var rud_swingtime = 2;  # how long complete movement should last
+var rud_target = 1;
+var rud_prop = props.globals.getNode("/controls/gear/water-rudder-down", 1);
 
 
   setlistener("/sim/signals/fdm-initialized", func {
@@ -28,12 +31,10 @@ setlistener("/sim/crashed", func {
     }, 1);
 
 water_rudder = func{
-    if (getprop("/controls/gear/water-rudder-down")!=1){
-    interpolate("/controls/gear/water-rudder-down",1,1);
-    }else{
-    interpolate("/controls/gear/water-rudder-down",0,1);
-       }
-    }
+    var time = abs(rud_prop.getValue() - rud_target) * rud_swingtime;
+    interpolate(rud_prop, rud_target, time);
+    rud_target = !rud_target;
+}
 
 starter = func{
     engage = arg[0];
