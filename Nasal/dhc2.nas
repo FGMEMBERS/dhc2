@@ -2,8 +2,12 @@ var pump_on = 0;
 var rud_swingtime = 2;  # how long complete movement should last
 var rud_target = 1;
 var rud_prop = props.globals.getNode("/controls/gear/water-rudder-down", 1);
-wake1 = nil;
-wake2 = nil;
+var wake1 = props.globals.getNode("/ai/submodels/wake[0]", 1);
+var wake2 = props.globals.getNode("/ai/submodels/wake[1]", 1);
+var gear_roll = props.globals.getNode("/gear/gear[0]/rollspeed-ms", 1);
+
+    wake1.setBoolValue(0);
+    wake2.setBoolValue(0);
 
 setlistener("/sim/signals/fdm-initialized", func {
      setprop("/controls/fuel/switch-position",-1);
@@ -12,10 +16,8 @@ setlistener("/sim/signals/fdm-initialized", func {
      setprop("/consumables/fuel/tank[0]/selected",0);
      setprop("/consumables/fuel/tank[1]/selected",0);
      setprop("/consumables/fuel/tank[2]/selected",0);
-    wake1 = props.globals.getNode("/ai/submodels/wake[0]",1).setBoolValue(0);
-	wake2 = props.globals.getNode("/ai/submodels/wake[1]",1).setBoolValue(0);
      setprop("/consumables/fuel/tank[0]/selected",0);
-     }, 1);
+     });
  
 setlistener("/controls/fuel/switch-position", func {
     position=cmdarg().getValue();
@@ -84,9 +86,7 @@ setprop("/engines/engine/oil-pressure-psi",oil_psi);
 update_wake = func{
 var wk1 = 0;
 var wk2 = 0;
-wake1 = props.globals.getNode("/ai/submodels/wake[0]");
-wake2 = props.globals.getNode("/ai/submodels/wake[1]");
-var wlspd = getprop("/gear/gear[0]/rollspeed-ms");
+var wlspd = gear_roll.getValue();
 if(wlspd == nil){wlspd = 0.0;}
 if(wlspd > 3.0){
   if(getprop("/gear/gear[0]/wow")){wk1 = 1;}
