@@ -9,7 +9,6 @@
   <type>material</type>
     <object-name>VSIgauge.001</object-name>
     <object-name>VSIneedle</object-name>
-    <global type="bool">true</global>
   <emission>
     <red>0.5</red>
     <green>0.2</green>

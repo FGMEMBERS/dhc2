@@ -9,7 +9,6 @@
   <type>material</type>
     <object-name>VACface</object-name>
     <object-name>VACneedle</object-name>
-    <global type="bool">true</global>
   <emission>
     <red>0.5</red>
     <green>0.2</green>

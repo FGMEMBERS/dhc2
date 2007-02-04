@@ -41,25 +41,50 @@
    <path>Sounds/rumble.wav</path>
    <condition>
     <or>
-     <property>/gear/gear[0]/wow</property>
-     <property>/gear/gear[1]/wow</property>
-     <property>/gear/gear[2]/wow</property>
+     <property>/gear/gear[6]/wow</property>
+     <property>/gear/gear[7]/wow</property>
     </or>
    </condition>
    <volume>
     <property>/velocities/airspeed-kt</property>
     <type>log</type>
-    <factor>0.2</factor>
+    <factor>0.4</factor>
    </volume>
   </rumble>
+
+  <splash>
+   <name>splash</name>
+   <mode>looped</mode>
+   <path>Sounds/rumble.wav</path>
+   <condition>
+    <or>
+     <property>/gear/gear[0]/wow</property>
+     <property>/gear/gear[1]/wow</property>
+    </or>
+   </condition>
+   <volume>
+    <property>/velocities/airspeed-kt</property>
+    <offset>0.0</offset>
+	<factor>0.02</factor>
+	<min>0.4</min>
+	<max>0.9</max>
+   </volume>
+   <pitch>
+    <property>/velocities/airspeed-kt</property>
+    <factor>0.01</factor>
+    <offset>1.2</offset>
+   <max>1.5</max> 
+   </pitch>
+  </splash>
+
 
   <squeal>
    <name>squeal</name>
    <path>Sounds/squeal.wav</path>
    <condition>
     <or>
-     <property>/gear/gear[0]/wow</property>
-     <property>/gear/gear[1]/wow</property>
+     <property>/gear/gear[6]/wow</property>
+     <property>/gear/gear[7]/wow</property>
     </or>
    </condition>
    <volume>
@@ -123,6 +148,29 @@
     <max>1.0</max>
    </volume>
   </stall>
+
+    <gear>
+      <name>gear</name>
+      <mode>in-transit</mode>
+      <path>Sounds/gear.wav</path>
+      <property>gear/gear[6]/position-norm</property>
+      <pitch>
+        <internal>dt_play</internal>
+        <offset>1.0</offset>
+        <factor>-0.001</factor>
+      </pitch>
+    </gear>
+
+    <gear>
+      <name>gear-lock</name>
+      <path>Sounds/gear-lck.wav</path>
+      <condition>
+        <equals>
+          <property>gear/gear[6]/position-norm</property>
+          <value>0</value>
+        </equals>
+      </condition>
+    </gear>
  
       
       
