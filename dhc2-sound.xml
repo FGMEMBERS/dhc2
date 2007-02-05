@@ -129,12 +129,14 @@
      <property>/velocities/airspeed-kt</property>
      <factor>0.01</factor>
      <min>0.0</min>
-     <max>0.7</max>
+     <max>0.5</max>
    </volume>
    <pitch>
     <property>/velocities/airspeed-kt</property>
     <factor>0.001</factor>
-    <offset>0.7</offset>
+    <offset>0.5</offset>
+     <min>0.5</min>
+     <max>1.0</max>
    </pitch>
   </wind>
  
@@ -181,10 +183,10 @@
    <mode>once</mode>
          <path>Aircraft/dhc2/Sound/click.wav</path>
    <condition>
-<property>/sim/sound/switch</property>
+<property>sim/sound/switch</property>
 </condition>
    <volume>
-    <factor>0.45</factor>
+    <offset>0.7</offset>
    </volume>
   </switch>
 
@@ -194,11 +196,11 @@
         <path>Aircraft/dhc2/Sound/click.wav</path>
    <condition>
    <not>
-<property>/sim/sound/switch</property>
+<property>sim/sound/switch</property>
 </not>
 </condition>
    <volume>
-    <factor>0.45</factor>
+    <offset>0.7</offset>
    </volume>
   </switch>
 

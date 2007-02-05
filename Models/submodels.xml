@@ -9,7 +9,7 @@
     <repeat>true</repeat>
     <delay>0.1</delay>
     <count>-1</count>
-    <x-offset>6.0</x-offset>
+    <x-offset>4.0</x-offset>
     <y-offset>-4.5</y-offset>
     <z-offset>-6.3</z-offset>
 	<buoyancy>32</buoyancy>
@@ -26,7 +26,7 @@
     <repeat>true</repeat>
     <delay>0.1</delay>
     <count>-1</count>
-    <x-offset>6</x-offset>
+    <x-offset>4</x-offset>
     <y-offset>4.5</y-offset>
     <z-offset>-6.3</z-offset>
 	<buoyancy>32</buoyancy>

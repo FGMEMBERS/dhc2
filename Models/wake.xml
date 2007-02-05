@@ -12,7 +12,7 @@
   <x-min>0.1</x-min>
   <y-min>0.1</y-min>
   <z-min>0.1</z-min>
-  <x-factor>0.7</x-factor>
+  <x-factor>0.0</x-factor>
   <y-factor>0.7</y-factor>
   <z-factor>0</z-factor>
  </animation>

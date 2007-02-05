@@ -5,9 +5,9 @@ var rud_prop = props.globals.getNode("/controls/gear/water-rudder-down", 1);
 var wake1 = props.globals.getNode("/ai/submodels/wake[0]", 1);
 var wake2 = props.globals.getNode("/ai/submodels/wake[1]", 1);
 var gear_roll = props.globals.getNode("/gear/gear[0]/rollspeed-ms", 1);
-
-    wake1.setBoolValue(0);
-    wake2.setBoolValue(0);
+var CRASHED =0;
+wake1.setBoolValue(0);
+wake2.setBoolValue(0);
 
 setlistener("/sim/signals/fdm-initialized", func {
      setprop("/controls/fuel/switch-position",-1);
@@ -28,6 +28,19 @@ setlistener("/controls/fuel/switch-position", func {
     setprop("/consumables/fuel/tank[" ~ position ~ "]/selected",1);
         };    
     }, 1);
+
+setlistener("sim/crashed", func {
+		if (cmdarg().getBoolValue()) {
+		crash(CRASHED = 1);
+		}
+	});
+
+crash = func {
+	if (arg[0]) {
+		setprop("engines/engine/running", 0);
+                setprop("engines/engine/rpm", 0);
+	}
+}
 
 water_rudder = func{
     var time = abs(rud_prop.getValue() - rud_target) * rud_swingtime;
