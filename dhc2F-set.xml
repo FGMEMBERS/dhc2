@@ -20,6 +20,10 @@ July 2004 Syd Adams
    <splash-texture>Aircraft/dhc2/dhc-2splash.rgb</splash-texture>
   </startup>
 
+  <!-- this is to start offshore at KSFO / set to false for runway start -->
+  <presets>
+	  <start-in-water type="bool">true</start-in-water> 
+  </presets>
 
   <systems>
    <electrical>
@@ -173,7 +177,8 @@ July 2004 Syd Adams
         <chat_display>1</chat_display>
         </multiplay>
 
-</sim>
+	</sim>
+
 
   <engines>
    <engine>

@@ -186,7 +186,7 @@
   </hitch>
   <hitch name="anchor" x="3.0" y="1.5" z="-2.0">
     <tow length="4" weight-per-meter="0.1" elastic-constant="9000"  break-force="10000"/>
-    <winch max-tow-length="40" min-tow-length="1" initial-tow-length="4" max-winch-speed="4" power="5" max-force="600" />
+    <winch max-tow-length="5" min-tow-length="5" initial-tow-length="5" max-winch-speed="4" power="5" max-force="600" />
     <control-input axis="/controls/winch/place" control="PLACEWINCH"/>
   </hitch>
 </airplane>
