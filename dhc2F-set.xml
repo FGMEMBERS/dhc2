@@ -140,14 +140,6 @@ July 2004 Syd Adams
       <name>W</name>
       <desc>untie</desc>
     </key>
-    <key>
-      <name>o</name>
-      <desc>locks aerotow hook</desc>
-    </key>
-    <key>
-      <name>O</name>
-      <desc>release aerotow hook</desc>
-    </key>
   </help>
 
   <submodels>
@@ -203,10 +195,6 @@ July 2004 Syd Adams
   <winch>
     <place type="bool">false</place>
   </winch>
-  <aerotow>
-   <find-aircraft type="bool">false</find-aircraft>
-  </aerotow>
-
  </controls> 
 
  <environment>
@@ -354,24 +342,6 @@ July 2004 Syd Adams
     <binding>
       <command>property-assign</command>
         <property>/sim/hitches/anchor/open</property>
-      <value type="bool">true</value>
-    </binding>
-  </key>
-  <key n="111">
-    <name>o</name>
-    <desc>locks aerotow hook</desc>
-    <binding>
-      <command>property-assign</command>
-      <property>/sim/hitches/aerotow/open</property>
-      <value type="bool">false</value>
-    </binding>
-  </key>
-  <key n="79">
-    <name>O</name>
-    <desc>opens aerotow hook</desc>
-    <binding>
-      <command>property-assign</command>
-      <property>/sim/hitches/aerotow/open</property>
       <value type="bool">true</value>
     </binding>
   </key>

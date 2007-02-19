@@ -17,11 +17,13 @@ setlistener("/sim/signals/fdm-initialized", func {
      setprop("/consumables/fuel/tank[1]/selected",0);
      setprop("/consumables/fuel/tank[2]/selected",0);
      setprop("/consumables/fuel/tank[0]/selected",0);
-	if(getprop("/sim/presets/start-in-water")){setup_start();} 
+	 setup_start(); 
      });
 
-setlistener("/sim/signals/reset", func {
-if(getprop("/sim/presets/start-in-water")){setup_start();}
+setlistener("/sim/signals/reinit", func {
+    if(cmdarg().getValue()==0){
+    setup_start();
+	}
 });	 
  
 setlistener("/controls/fuel/switch-position", func {
@@ -102,19 +104,22 @@ setprop("/engines/engine/oil-pressure-psi",oil_psi);
 }
 
 setup_start = func{
+if(getprop("/sim/presets/start-in-water")== 0){
+    setprop("/controls/gear/gear-down",1);
+    setprop("/sim/hitches/anchor/open",1);
+    setprop("/controls/gear/water-rudder-down",0);
+    return;
+}
 if(getprop("/sim/presets/airport-id")=="KSFO"){
    setprop("/sim/presets/heading-deg",110);
-   setprop("/sim/presets/latitude-deg",37.61087926);
-   setprop("/sim/presets/longitude-deg",-122.3620087);
-   setprop("/position/latitude-deg",37.61087926);
-   setprop("/position/longitude-deg",-122.3620087);}
-   
-   
-   if(!getprop("/gear/gear/ground-is-solid")){setprop("/controls/gear/gear-down",0);
+   setprop("/sim/presets/latitude-deg",37.6158881);
+   setprop("/sim/presets/longitude-deg",-122.357962);
+   setprop("/position/latitude-deg",37.6158881);
+   setprop("/position/longitude-deg",-122.357962);
+   setprop("/controls/gear/gear-down",0);
    setprop("/controls/winch/place",1);
    setprop("/controls/gear/water-rudder-down",1);
    }
-   
 }
 
 update_wake = func{

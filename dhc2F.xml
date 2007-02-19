@@ -68,22 +68,22 @@
  <!-- Floats-->
 
 <gear x="3.52" y="1.5" z="-2.4" compression="1.2" spring = "15" sfric = "0.8" dfric = "0.7" ignored-by-solver="1"
-	  on-water="1" on-solid="0" reduce-friction-by-extension="1.25"
+	  on-water="1" on-solid="0" reduce-friction-by-extension="0.95"
 	  speed-planing="15" spring-factor-not-planing="0.7">
 </gear>
 
 <gear x="3.52" y="-1.5" z="-2.4" compression="1.2" spring = "15" sfric = "0.8" dfric = "0.7" ignored-by-solver="1"
-	  on-water="1" on-solid="0" reduce-friction-by-extension="1.25"
+	  on-water="1" on-solid="0" reduce-friction-by-extension="0.95"
 	  speed-planing="15" spring-factor-not-planing="0.7">
 </gear>
 
 <gear x="-1.0" y="1.5" z="-2.0" compression="1.5" spring = "15" sfric = "0.85" dfric = "0.75" ignored-by-solver="1"
-	  on-water="1" on-solid="0" reduce-friction-by-extension="1.25"
+	  on-water="1" on-solid="0" reduce-friction-by-extension="0.95"
 	  speed-planing="25" spring-factor-not-planing="0.25">
 </gear>
 
 <gear x="-1.0" y="-1.5" z="-2.0" compression="1.5" spring = "15" sfric = "0.85" dfric = "0.75" ignored-by-solver="1"
-	  on-water="1" on-solid="0" reduce-friction-by-extension="1.25" 
+	  on-water="1" on-solid="0" reduce-friction-by-extension="0.95" 
 	  speed-planing="25" spring-factor-not-planing="0.25">
 </gear>
 
@@ -180,13 +180,9 @@
   <weight x="0.75" y="0.0" z="-0.5" mass-prop="/sim/weight[0]/weight-lb"/>
   <weight x="-1.0" y="0" z="-0.5" mass-prop="/sim/weight[1]/weight-lb"/>
 
-  <hitch name="aerotow" x="-6.2" y="0" z="-0.12"  force-is-calculated-by-other="1">
-    <tow length="60" weight-per-meter="0.035" elastic-constant="9000" break-force="10000" mp-auto-connect-period="1.0"/>
-    <winch max-tow-length="1000" min-tow-length="60" initial-tow-length="60"/>
-  </hitch>
-  <hitch name="anchor" x="3.0" y="1.5" z="-2.0">
-    <tow length="4" weight-per-meter="0.1" elastic-constant="9000"  break-force="10000"/>
-    <winch max-tow-length="5" min-tow-length="5" initial-tow-length="5" max-winch-speed="4" power="5" max-force="600" />
+  <hitch name="anchor" x="3.0" y="0" z="-2.0">
+    <tow length="20" weight-per-meter="0.1" elastic-constant="9000"  break-force="10000"/>
+    <winch max-tow-length="1000" min-tow-length="20" initial-tow-length="20" max-winch-speed="4" power="5" max-force="600" />
     <control-input axis="/controls/winch/place" control="PLACEWINCH"/>
   </hitch>
 </airplane>
