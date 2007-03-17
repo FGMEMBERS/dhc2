@@ -10,15 +10,14 @@ wake1.setBoolValue(0);
 wake2.setBoolValue(0);
 
 setlistener("/sim/signals/fdm-initialized", func {
-     setprop("/controls/fuel/switch-position",-1);
-     setprop("/engines/engine/oil-temp-norm",0.0);
-     setprop("/controls/gear/water-rudder-down",0);
-     setprop("/consumables/fuel/tank[0]/selected",0);
-     setprop("/consumables/fuel/tank[1]/selected",0);
-     setprop("/consumables/fuel/tank[2]/selected",0);
-     setprop("/consumables/fuel/tank[0]/selected",0);
-	 setup_start(); 
-     });
+    setprop("/controls/fuel/switch-position",-1);
+    setprop("/engines/engine/oil-temp-norm",0.0);
+    setprop("/consumables/fuel/tank[0]/selected",0);
+    setprop("/consumables/fuel/tank[1]/selected",0);
+    setprop("/consumables/fuel/tank[2]/selected",0);
+    setprop("/consumables/fuel/tank[0]/selected",0);
+	setup_start(); 
+    });
 
 setlistener("/sim/signals/reinit", func {
     if(cmdarg().getValue()==0){
@@ -27,121 +26,123 @@ setlistener("/sim/signals/reinit", func {
 });	 
  
 setlistener("/controls/fuel/switch-position", func {
-    position=cmdarg().getValue();
+	position=cmdarg().getValue();
     setprop("/consumables/fuel/tank[0]/selected",0);
     setprop("/consumables/fuel/tank[1]/selected",0);
     setprop("/consumables/fuel/tank[2]/selected",0);
     if(position >= 0.0){
-    setprop("/consumables/fuel/tank[" ~ position ~ "]/selected",1);
+		setprop("/consumables/fuel/tank[" ~ position ~ "]/selected",1);
         };    
-    }, 1);
+    },1);
 
 setlistener("sim/crashed", func {
-		if (cmdarg().getBoolValue()) {
-		crash(CRASHED = 1);
-		}
-	});
+	if (cmdarg().getBoolValue()) {
+	crash(CRASHED = 1);
+	}
+});
 
 crash = func {
 	if (arg[0]) {
 		setprop("engines/engine/running", 0);
-                setprop("engines/engine/rpm", 0);
-	}
+        setprop("engines/engine/rpm", 0);
+		}
 }
 
 water_rudder = func{
-    var time = abs(rud_prop.getValue() - rud_target) * rud_swingtime;
+	var time = abs(rud_prop.getValue() - rud_target) * rud_swingtime;
     interpolate(rud_prop, rud_target, time);
     rud_target = !rud_target;
 }
 
 starter = func{
-    engage = arg[0];
+	engage = arg[0];
     if (getprop("/controls/electric/battery-switch")!=0){
-    setprop("/controls/engines/engine/starter",engage);
-    }
+		setprop("/controls/engines/engine/starter",engage);
+		}
 }
 
-
 gforce = func{
-    force = getprop("/accelerations/pilot-g");
+	force = getprop("/accelerations/pilot-g");
     if(force == nil) {force = 1.0;}
     eyepoint = getprop("sim/view/config/y-offset-m") +0.02;
     eyepoint -= (force * 0.02);
-if(getprop("/sim/current-view/view-number") < 1){
-setprop("/sim/current-view/y-offset-m",eyepoint);
-     }
+	if(getprop("/sim/current-view/view-number") < 1){
+		setprop("/sim/current-view/y-offset-m",eyepoint);
+		}
 }
 
 steering = func{
-if(getprop("/controls/gear/water-rudder-down") >= 0.9){
-    setprop("/controls/gear/water-rudder-pos",getprop("/controls/flight/rudder"));
-    }else{
-    setprop("/controls/gear/water-rudder-pos",0);}
+	if(getprop("/controls/gear/water-rudder-down") >= 0.9){
+		setprop("/controls/gear/water-rudder-pos",getprop("/controls/flight/rudder"));
+		}else{
+			setprop("/controls/gear/water-rudder-pos",0);
+			}
 }
 
 oil_temp = func{
-if(getprop("/engines/engine/running") != 0){
-    interpolate("/engines/engine/oil-temp-norm", 0.7 + (getprop("/controls/engines/engine/throttle")* 0.3), 300);
-    }else{
-    interpolate("/engines/engine/oil-temp-norm", 0.0, 1000);
-    }
+	if(getprop("/engines/engine/running") != 0){
+		interpolate("/engines/engine/oil-temp-norm", 0.7 + (getprop("/controls/engines/engine/throttle")* 0.3), 300);
+		}else{
+		interpolate("/engines/engine/oil-temp-norm", 0.0, 1000);
+		}
 }
 
 fluids_update = func{
-var pump_on = getprop("/controls/engines/engine[0]/fuel-pump");
-var testfuel = getprop("/controls/fuel/switch-position");
-if(pump_on == 0){setprop("/engines/engine/out-of-fuel",1);
-}else{
-if(testfuel > -1){
-if(getprop("/consumables/fuel/tank[" ~ testfuel ~ "]/level-gal_us") > 0.01){
-setprop("/engines/engine/out-of-fuel",0);} 
-       }
-    }
-oil_psi = getprop("/engines/engine/rpm") * 0.002;
-if(oil_psi > 1.0){oil_psi = 1.0};
-setprop("/engines/engine/oil-pressure-psi",oil_psi);
+	var pump_on = getprop("/controls/engines/engine[0]/fuel-pump");
+	var testfuel = getprop("/controls/fuel/switch-position");
+	if(pump_on == 0){setprop("/engines/engine/out-of-fuel",1);
+		}else{
+		if(testfuel > -1){
+			if(getprop("/consumables/fuel/tank[" ~ testfuel ~ "]/level-gal_us") > 0.01){
+				setprop("/engines/engine/out-of-fuel",0);} 
+				}
+			}
+	oil_psi = getprop("/engines/engine/rpm") * 0.002;
+	if(oil_psi > 1.0){oil_psi = 1.0};
+	setprop("/engines/engine/oil-pressure-psi",oil_psi);
 }
 
 setup_start = func{
-if(getprop("/sim/presets/start-in-water")== 0){
-    setprop("/controls/gear/gear-down",1);
-    setprop("/sim/hitches/anchor/open",1);
-    setprop("/controls/gear/water-rudder-down",0);
-    return;
-}
-if(getprop("/sim/presets/airport-id")=="KSFO"){
-   setprop("/sim/presets/heading-deg",110);
-   setprop("/sim/presets/latitude-deg",37.6158881);
-   setprop("/sim/presets/longitude-deg",-122.357962);
-   setprop("/position/latitude-deg",37.6158881);
-   setprop("/position/longitude-deg",-122.357962);
-   setprop("/controls/gear/gear-down",0);
-   setprop("/controls/winch/place",1);
-   setprop("/controls/gear/water-rudder-down",1);
-   }
+	if(getprop("/sim/presets/start-in-water")!= 0){
+		if(getprop("/sim/presets/airport-id")=="KSFO"){
+		setprop("/sim/presets/heading-deg",110);
+		setprop("/sim/presets/latitude-deg",37.6158881);
+		setprop("/sim/presets/longitude-deg",-122.357962);
+		setprop("/position/latitude-deg",37.6158881);
+		setprop("/position/longitude-deg",-122.357962);
+		}
+	}
+	if(getprop("/gear/gear/ground-is-solid")){
+		setprop("/controls/gear/gear-down",1);
+		setprop("/controls/winch/place",0);
+		rud_prop.setValue(0);
+		}else{
+			setprop("/controls/gear/gear-down",0);
+			setprop("/controls/winch/place",1);
+			rud_prop.setValue(1);
+			}
 }
 
 update_wake = func{
-var wk1 = 0;
-var wk2 = 0;
-var wlspd = gear_roll.getValue();
-if(wlspd == nil){wlspd = 0.0;}
-if(wlspd > 3.0){
-  if(getprop("/gear/gear[0]/wow")){wk1 = 1;}
-  if(getprop("/gear/gear[1]/wow")){wk2 = 1;}
-  }
-wake1.setBoolValue(wk1);
-wake2.setBoolValue(wk2);
+	var wk1 = 0;
+	var wk2 = 0;
+	var wlspd = gear_roll.getValue();
+	if(wlspd == nil){wlspd = 0.0;}
+	if(wlspd > 3.0){
+		if(getprop("/gear/gear[0]/wow")){wk1 = 1;}
+		if(getprop("/gear/gear[1]/wow")){wk2 = 1;}
+		}
+	wake1.setBoolValue(wk1);
+	wake2.setBoolValue(wk2);
 }
 
 update = func {
-    gforce();
+	gforce();
     steering();
     oil_temp();
 	fluids_update();
    	update_wake();
 	settimer(update,0);
 }
-
 settimer(update, 0);
+
