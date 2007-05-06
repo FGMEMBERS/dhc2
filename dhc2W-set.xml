@@ -2,295 +2,302 @@
 <!--
 ************************************************************************
 Dehavallind Beaver
-
 July 2004 Syd Adams
-
-Work in progress ! :)
 ************************************************************************
 -->
-
 <PropertyList>
- <sim>
 
-  <description>de Havilland Beaver (YASim) 3D cockpit</description>
-  <author>Syd Adams</author>
+<sim>
 
-  <flight-model>yasim</flight-model>
-  <aero>dhc2W</aero>
-  <fuel-fraction>0.75</fuel-fraction>
-  
-  <startup>
-   <splash-texture>Aircraft/dhc2/dhc-2splashW.rgb</splash-texture>
-  </startup>
+    <description>de Havilland Beaver (YASim) 3D cockpit</description>
+    <author>Syd Adams</author>
+    <flight-model>yasim</flight-model>
+    <aero>dhc2W</aero>
+    <fuel-fraction>0.75</fuel-fraction>
+    <startup>
+        <splash-texture>Aircraft/dhc2/dhc-2splashW.rgb</splash-texture>
+    </startup>
 
+        <presets>
+        <start-in-water type="bool">false</start-in-water> 
+    </presets>
 
-  <systems>
-   <electrical>
-    <path></path>
-   </electrical>
-  </systems> 
+    <systems>
+        <electrical>
+            <path></path>
+        </electrical>
+    </systems>
 
-  <sound>
-   <path>Aircraft/dhc2/dhc2-sound.xml</path>
-  </sound>
+    <sound>
+        <path>Aircraft/dhc2/dhc2-sound.xml</path>
+    </sound>
 
-
-  <model>
-   <path>Aircraft/dhc2/Models/dhc2wheels.xml</path>
+    <model>
+        <path>Aircraft/dhc2/Models/dhc2wheels.xml</path>
     </model>
 
-  <virtual-cockpit archive="y">true</virtual-cockpit>
-  <allow-toggle-cockpit archive="y">true</allow-toggle-cockpit>
+    <virtual-cockpit archive="y">true</virtual-cockpit>
+    <allow-toggle-cockpit archive="y">true</allow-toggle-cockpit>
 
-  <view>
-   <internal archive="y">true</internal>
-   <config>
-     <!-- x/y/z == right/up/back -->
-     <x-offset-m archive="y">-0.28</x-offset-m>
-     <y-offset-m archive="y">0.65</y-offset-m>
-     <z-offset-m archive="y">-0.64</z-offset-m>
-     <pitch-offset-deg>-12</pitch-offset-deg>
-     <default-field-of-view-deg type="double">60.0</default-field-of-view-deg>
-     </config>
-  </view>
+    <view>
+        <internal archive="y">true</internal>
+        <config>
+        <!-- x/y/z == right/up/back -->
+            <x-offset-m archive="y">-0.28</x-offset-m>
+            <y-offset-m archive="y">0.65</y-offset-m>
+            <z-offset-m archive="y">-0.64</z-offset-m>
+            <pitch-offset-deg>-12</pitch-offset-deg>
+            <default-field-of-view-deg type="double">60.0</default-field-of-view-deg>
+        </config>
+    </view>
 
-  <current-view>
-    <field-of-view>60.0</field-of-view>
-  </current-view>
-  
-  <chase-distance-m type="double" archive="y">-20.0</chase-distance-m>
-  
+    <current-view>
+        <field-of-view>60.0</field-of-view>
+    </current-view>
+
+    <chase-distance-m type="double" archive="y">-20.0</chase-distance-m>
+
     <flaps>
-   <setting>0.00</setting> <!-- Cruise -->
-   <setting>0.10</setting> <!--  -->
-   <setting>0.20</setting> <!-- Climb -->
-   <setting>0.30</setting> <!--  -->
-   <setting>0.40</setting> <!--  -->
-   <setting>0.50</setting> <!--  -->
-   <setting>0.60</setting> <!--  -->
-   <setting>0.70</setting> <!--  -->
-   <setting>0.80</setting> <!--  -->
-   <setting>0.90</setting> <!--  -->
-   <setting>1.0</setting> <!-- Full -->
-  </flaps>
+        <setting>0.00</setting> <!-- Cruise -->
+        <setting>0.10</setting> <!--  -->
+        <setting>0.20</setting> <!-- Climb -->
+        <setting>0.30</setting> <!--  -->
+        <setting>0.40</setting> <!--  -->
+        <setting>0.50</setting> <!--  -->
+        <setting>0.60</setting> <!--  -->
+        <setting>0.70</setting> <!--  -->
+        <setting>0.80</setting> <!--  -->
+        <setting>0.90</setting> <!--  -->
+        <setting>1.0</setting> <!-- Full -->
+    </flaps>
 
-  <help>
-	  <title>De Havilland "Beaver"</title>
-	  <line></line> 
-   <key>
-    <name>f</name>
-    <desc>fuel tank select</desc>
-   </key>
-   <key>
-    <name>!</name>
-    <desc>toggle battery switch</desc>
-   </key>
-   <key>
-    <name>@</name>
-    <desc>toggle alternator switch</desc>
-   </key>
-   <key>
-    <name>#</name>
-    <desc>toggle fuel pump</desc>
-   </key>
-   <key>
-    <name>$</name>
-    <desc>toggle pitot heat</desc>
-   </key>
-   <key>
-    <name>%</name>
-    <desc>toggle landing light</desc>
-   </key>
-   <key>
-    <name>^</name>
-    <desc>toggle nav lights</desc>
-   </key>
-  </help>
-  
-  <hitches>
-   <!-- make sure some properties do exist, when the list for multiplayer transfere is defined-->
-   <!-- they need to be in the same value, as they are initilized in the FDM, to get the same values after reset
-    should fix this somehow-->
-   <aerotow>
-    <tow>
-     <length type="float">60</length>
-     <elastic-constant type="float">10000</elastic-constant>
-     <weight-per-m-kg-m type="float">1</weight-per-m-kg-m>
-     <dist type="float">1</dist>
-     <connected-to-property-node type="bool"></connected-to-property-node>
-     <brake-force type="float">100000</brake-force>
-     <connected-to-ai-or-mp-callsign type ="string">*</connected-to-ai-or-mp-callsign>
-     <end-force-x type ="float">0</end-force-x>
-     <end-force-y type ="float">0</end-force-y>
-     <end-force-z type ="float">0</end-force-z>
-    </tow>
-    <speed-in-tow-direction type="float">0</speed-in-tow-direction>
-    <open type="bool">true</open>
-    <local-pos-x type="float">0</local-pos-x>
-    <local-pos-y type="float">0</local-pos-y>
-    <local-pos-z type="float">0</local-pos-z>
-    <is-slave type="bool">false</is-slave>
-   </aerotow>
-  </hitches>
-   
-           <weight n="0">
+    <help>
+        <title>De Havilland "Beaver"</title>
+        <line></line>
+        <key>
+            <name>f</name>
+            <desc>fuel tank select</desc>
+        </key>
+        <key>
+            <name>!</name>
+            <desc>toggle battery switch</desc>
+        </key>
+        <key>
+            <name>@</name>
+            <desc>toggle alternator switch</desc>
+        </key>
+        <key>
+            <name>#</name>
+            <desc>toggle fuel pump</desc>
+        </key>
+        <key>
+            <name>$</name>
+            <desc>toggle pitot heat</desc>
+        </key>
+        <key>
+            <name>%</name>
+            <desc>toggle landing light</desc>
+        </key>
+        <key>
+            <name>^</name>
+            <desc>toggle nav lights</desc>
+        </key>
+            <key>
+            <name>o</name>
+            <desc>connect tow cable</desc>
+        </key>
+        <key>
+            <name>O</name>
+            <desc>disconnect tow cable</desc>
+        </key>
+        <line>   Startup Procedure</line>
+        <line>1:Set magneto switch to ' both '</line>
+        <line>2:Set fuel tank switch to ' Rear Tank '</line>
+        <line>3:Engage battery switch</line>
+        <line>4:Engage fuel pump switch</line>
+        <line>5:Engage starter switch</line>
+        <line>6:Once engine is running,</line>
+        <line>  engage alternator switch</line>
+    </help>
+
+    <hitches>
+<!-- make sure some properties do exist, when the list for multiplayer transfere is defined-->
+<!-- they need to be in the same value, as they are initilized in the FDM, to get the same values after reset
+should fix this somehow-->
+        <aerotow>
+            <tow>
+                <length type="float">60</length>
+                <elastic-constant type="float">10000</elastic-constant>
+                <weight-per-m-kg-m type="float">1</weight-per-m-kg-m>
+                <dist type="float">1</dist>
+                <connected-to-property-node type="bool"></connected-to-property-node>
+                <brake-force type="float">100000</brake-force>
+                <connected-to-ai-or-mp-callsign type ="string">*</connected-to-ai-or-mp-callsign>
+                <end-force-x type ="float">0</end-force-x>
+                <end-force-y type ="float">0</end-force-y>
+                <end-force-z type ="float">0</end-force-z>
+            </tow>
+            <speed-in-tow-direction type="float">0</speed-in-tow-direction>
+            <open type="bool">true</open>
+            <local-pos-x type="float">0</local-pos-x>
+            <local-pos-y type="float">0</local-pos-y>
+            <local-pos-z type="float">0</local-pos-z>
+            <is-slave type="bool">false</is-slave>
+        </aerotow>
+    </hitches>
+
+    <weight n="0">
         <name>Crew</name>
-        <weight-lb>180</weight-lb> 
+        <weight-lb>180</weight-lb>
         <max-lb>400</max-lb>
-       <min-lb>180</min-lb>
-        </weight>
+        <min-lb>180</min-lb>
+    </weight>
 
-        <weight n="1">
+    <weight n="1">
         <name>Cargo</name>
-        <weight-lb>700</weight-lb> 
+        <weight-lb>700</weight-lb>
         <max-lb>1500</max-lb>
-        <min-lb>0</min-lb>      
-        </weight>
+        <min-lb>0</min-lb>
+    </weight>
 
-        <replay>
+    <replay>
         <disable>1</disable>
-        </replay>
+    </replay>
 
-        <multiplay>
+    <multiplay>
         <chat_display>1</chat_display>
-        </multiplay>
-  
+    </multiplay>
+
 </sim>
 
- 
-  <engines>
-   <engine>
-   <rpm type="double">0</rpm>
-    <running>false</running>
-  </engine>
-  </engines>
-  
- <controls> 
-<fuel>
-<switch-position type = "int">-1</switch-position>
-</fuel>
-<gear>
-<brake-parking type="double">1.0</brake-parking>
-</gear>
 <engines>
-   <engine>
-   <magnetos>0</magnetos>
-   </engine>
+    <engine>
+        <rpm type="double">0</rpm>
+        <running>false</running>
+    </engine>
 </engines>
- </controls> 
 
- <environment>
-   <turbulence>
-     <use-cloud-turbulence>true</use-cloud-turbulence>
-   </turbulence>
- </environment>
-   
- <input>
-  <keyboard>
-  
-    <key n="102">
-  <name>f</name>
-  <desc>fuel tank select</desc>
-  <binding>
-   <command>nasal</command>
-   <script>dhc2.fuel_switch()</script>
-  </binding>
-  </key> 
-  
-   <key n="32">
-  <name>SPACE</name>
-  <desc>Starter</desc>
-  <binding>
-   <command>nasal</command>
-   <script>dhc2.starter(1)</script>
-  </binding>
-  <mod-up>
-   <binding>
-    <command>nasal</command>
-    <script>dhc2.starter(0)</script>
-   </binding>
-  </mod-up>
- </key> 
+<controls>
+    <lighting>
+        <instruments-norm>1.0</instruments-norm>
+    </lighting>
+    <fuel>
+        <switch-position type = "int">-1</switch-position>
+    </fuel>
+    <gear>
+        <brake-parking type="double">1.0</brake-parking>
+    </gear>
+    <engines>
+        <engine>
+            <magnetos>0</magnetos>
+        </engine>
+    </engines>
+</controls>
 
-  <key n="33">
-  <name>!</name>
-  <desc>Toggle Battery Switch</desc>
-  <binding>
-   <command>nasal</command>
-   <script>dhc2.batt_switch()</script>
-  </binding>
-  </key> 
+<environment>
+    <turbulence>
+        <use-cloud-turbulence>true</use-cloud-turbulence>
+    </turbulence>
+</environment>
 
-  <key n="64">
-  <name>@</name>
-  <desc>Toggle Alternator Switch</desc>
-  <binding>
-   <command>nasal</command>
-   <script>dhc2.alt_switch()</script>
-  </binding>
-  </key> 
-
-  <key n="35">
-  <name>#</name>
-  <desc>Toggle Fuel Pump</desc>
-  <binding>
-   <command>nasal</command>
-   <script>dhc2.f_pump_switch()</script>
-  </binding>
-  </key> 
-
-  <key n="36">
-  <name>$</name>
-  <desc>Toggle Pitot Heat</desc>
-  <binding>
-   <command>nasal</command>
-   <script>dhc2.pitot_heat_switch()</script>
-  </binding>
-  </key> 
-
-  <key n="37">
-  <name>%</name>
-  <desc>Toggle Landing Light</desc>
-  <binding>
-   <command>nasal</command>
-   <script>dhc2.landing_light_switch()</script>
-</binding>
-  </key> 
-
-    <key n="94">
-  <name>^</name>
-  <desc>Toggle Nav Lights</desc>
-  <binding>
-   <command>nasal</command>
-   <script>dhc2.nav_light_switch()</script>
-</binding>
-  </key> 
-   <key n="79">
-    <name>O</name>
-    <desc>Open aerotow hook</desc>
-    <binding>
-     <command>property-assign</command>
-     <property>/sim/hitches/aerotow/open</property>
-     <value type="bool">true</value>
-    </binding>
-   </key>
-   <key n="111">
-    <name>o</name>
-    <desc>Lock aerotow hook</desc>
-     <binding>
-      <command>property-assign</command>
-      <property>/sim/hitches/aerotow/open</property>
-      <value type="bool">false</value>
-    </binding>
-   </key>
-</keyboard> 
-
+<input>
+    <keyboard>
+        <key n="102">
+            <name>f</name>
+            <desc>fuel tank select</desc>
+            <binding>
+                <command>nasal</command>
+                <script>dhc2.fuel_switch()</script>
+            </binding>
+        </key>
+        <key n="32">
+            <name>SPACE</name>
+            <desc>Starter</desc>
+            <binding>
+                <command>nasal</command>
+                <script>dhc2.starter(1)</script>
+            </binding>
+            <mod-up>
+                <binding>
+                    <command>nasal</command>
+                    <script>dhc2.starter(0)</script>
+                </binding>
+            </mod-up>
+        </key>
+        <key n="33">
+            <name>!</name>
+            <desc>Toggle Battery Switch</desc>
+            <binding>
+                <command>nasal</command>
+                <script>dhc2.batt_switch()</script>
+            </binding>
+        </key>
+        <key n="64">
+            <name>@</name>
+            <desc>Toggle Alternator Switch</desc>
+            <binding>
+                <command>nasal</command>
+                <script>dhc2.alt_switch()</script>
+            </binding>
+        </key>
+        <key n="35">
+            <name>#</name>
+            <desc>Toggle Fuel Pump</desc>
+            <binding>
+                <command>nasal</command>
+                <script>dhc2.f_pump_switch()</script>
+            </binding>
+        </key>
+        <key n="36">
+            <name>$</name>
+            <desc>Toggle Pitot Heat</desc>
+            <binding>
+                <command>nasal</command>
+                <script>dhc2.pitot_heat_switch()</script>
+            </binding>
+        </key>
+        <key n="37">
+            <name>%</name>
+            <desc>Toggle Landing Light</desc>
+            <binding>
+                <command>nasal</command>
+                <script>dhc2.landing_light_switch()</script>
+            </binding>
+        </key>
+        <key n="94">
+            <name>^</name>
+            <desc>Toggle Nav Lights</desc>
+            <binding>
+                <command>nasal</command>
+                <script>dhc2.nav_light_switch()</script>
+            </binding>
+        </key>
+        <key n="79">
+            <name>O</name>
+            <desc>Open aerotow hook</desc>
+            <binding>
+                <command>property-assign</command>
+                <property>/sim/hitches/aerotow/open</property>
+                <value type="bool">true</value>
+            </binding>
+        </key>
+        <key n="111">
+            <name>o</name>
+            <desc>Lock aerotow hook</desc>
+            <binding>
+                <command>property-assign</command>
+                <property>/sim/hitches/aerotow/open</property>
+                <value type="bool">false</value>
+            </binding>
+        </key>
+    </keyboard>
 </input>
 
 <nasal>
-	<dhc2>
-          <file>Aircraft/dhc2/Nasal/dhc2.nas</file>
-          <file>Aircraft/dhc2/Nasal/dhc2-electrical.nas</file>
-	</dhc2>
+    <dhc2>
+        <file>Aircraft/dhc2/Nasal/dhc2.nas</file>
+        <file>Aircraft/dhc2/Nasal/Electrical.nas</file>
+    </dhc2>
 </nasal>
+
 </PropertyList>
