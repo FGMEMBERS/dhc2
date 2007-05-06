@@ -7,355 +7,369 @@ July 2004 Syd Adams
 -->
 
 <PropertyList>
- <sim>
+<sim>
 
-  <description>de Havilland Beaver (YASim) 3D cockpit</description>
-  <author>Syd Adams</author>
+    <description>de Havilland Beaver (YASim) 3D cockpit</description>
+    <author>Syd Adams</author>
+    <flight-model>yasim</flight-model>
+    <aero>dhc2F</aero>
+    <fuel-fraction>0.75</fuel-fraction>
+    <startup>
+        <splash-texture>Aircraft/dhc2/dhc-2splash.rgb</splash-texture>
+    </startup>
 
-  <flight-model>yasim</flight-model>
-  <aero>dhc2F</aero>
-  <fuel-fraction>0.75</fuel-fraction>
-  
-  <startup>
-   <splash-texture>Aircraft/dhc2/dhc-2splash.rgb</splash-texture>
-  </startup>
+<!-- this is to start offshore at KSFO / set to false for runway start -->
 
-  <!-- this is to start offshore at KSFO / set to false for runway start -->
-  <presets>
-	  <start-in-water type="bool">true</start-in-water> 
-  </presets>
+    <presets>
+        <start-in-water type="bool">true</start-in-water> 
+    </presets>
 
-  <systems>
-   <electrical>
-    <path></path>
-   </electrical>
-  </systems> 
+    <systems>
+        <electrical>
+            <path></path>
+        </electrical>
+    </systems>
+    <sound>
+        <path>Aircraft/dhc2/dhc2-sound.xml</path>
+    </sound>
 
-  <sound>
-   <path>Aircraft/dhc2/dhc2-sound.xml</path>
-  </sound>
+    <model>
+        <path>Aircraft/dhc2/Models/dhc2floats.xml</path>
+    </model>
 
- <model>
-   <path>Aircraft/dhc2/Models/dhc2floats.xml</path>
-</model>
-
-  <virtual-cockpit archive="y">true</virtual-cockpit>
-  <allow-toggle-cockpit archive="y">true</allow-toggle-cockpit>
-  <hitches>
+    <virtual-cockpit archive="y">true</virtual-cockpit>
+    <allow-toggle-cockpit archive="y">true</allow-toggle-cockpit>
+    <hitches>
     <!-- make sure some properties do exist, when the list for multiplayer transfere is defined-->
     <!-- they need to be in the same value, as they are initilized in the FDM, to get the same values after reset
     should fix this somehow-->
-    <aerotow>
-      <tow>
-        <length type="float">60</length>
-        <elastic-constant type="float">10000</elastic-constant>
-        <weight-per-m-kg-m type="float">1</weight-per-m-kg-m>
-        <dist type="float">1</dist>
-        <connected-to-property-node type="bool"></connected-to-property-node>
-        <brake-force type="float">100000</brake-force>
-        <connected-to-ai-or-mp-callsign type ="string">*</connected-to-ai-or-mp-callsign>
-        <end-force-x type ="float">0</end-force-x>
-        <end-force-y type ="float">0</end-force-y>
-        <end-force-z type ="float">0</end-force-z>
-      </tow>
-      <speed-in-tow-direction type="float">0</speed-in-tow-direction>
-      <open type="bool">true</open>
-      <local-pos-x type="float">0</local-pos-x>
-      <local-pos-y type="float">0</local-pos-y>
-      <local-pos-z type="float">0</local-pos-z>
-      <is-slave type="bool">false</is-slave>
-    </aerotow>
-  </hitches>
+        <aerotow>
+            <tow>
+                <length type="float">60</length>
+                <elastic-constant type="float">10000</elastic-constant>
+                <weight-per-m-kg-m type="float">1</weight-per-m-kg-m>
+                <dist type="float">1</dist>
+                <connected-to-property-node type="bool"></connected-to-property-node>
+                <brake-force type="float">100000</brake-force>
+                <connected-to-ai-or-mp-callsign type ="string">*</connected-to-ai-or-mp-callsign>
+                <end-force-x type ="float">0</end-force-x>
+                <end-force-y type ="float">0</end-force-y>
+                <end-force-z type ="float">0</end-force-z>
+            </tow>
+            <speed-in-tow-direction type="float">0</speed-in-tow-direction>
+            <open type="bool">true</open>
+            <local-pos-x type="float">0</local-pos-x>
+            <local-pos-y type="float">0</local-pos-y>
+            <local-pos-z type="float">0</local-pos-z>
+            <is-slave type="bool">false</is-slave>
+        </aerotow>
+    </hitches>
 
-  <view>
-   <internal archive="y">true</internal>
-   <config>
-     <!-- x/y/z == right/up/back -->
-     <x-offset-m archive="y">-0.28</x-offset-m>
-     <y-offset-m archive="y">0.65</y-offset-m>
-     <z-offset-m archive="y">-0.64</z-offset-m>
-     <pitch-offset-deg>-12</pitch-offset-deg>
-     <default-field-of-view-deg type="double">60.0</default-field-of-view-deg>
-     </config>
-  </view>
+    <view>
+        <internal archive="y">true</internal>
+        <config><!-- x/y/z == right/up/back -->
+            <x-offset-m archive="y">-0.28</x-offset-m>
+            <y-offset-m archive="y">0.65</y-offset-m>
+            <z-offset-m archive="y">-0.64</z-offset-m>
+            <pitch-offset-deg>-12</pitch-offset-deg>
+            <default-field-of-view-deg type="double">60.0</default-field-of-view-deg>
+        </config>
+    </view>
 
-  <current-view>
-    <field-of-view>60.0</field-of-view>
-  </current-view>
-  
-  <chase-distance-m type="double" archive="y">-18.0</chase-distance-m>
-  
+    <current-view>
+        <field-of-view>60.0</field-of-view>
+    </current-view>
+
+    <chase-distance-m type="double" archive="y">-18.0</chase-distance-m>
+
     <flaps>
-   <setting>0.00</setting> <!-- Cruise -->
-   <setting>0.10</setting> <!--  -->
-   <setting>0.20</setting> <!-- Climb -->
-   <setting>0.30</setting> <!--  -->
-   <setting>0.40</setting> <!--  -->
-   <setting>0.50</setting> <!--  -->
-   <setting>0.60</setting> <!--  -->
-   <setting>0.70</setting> <!--  -->
-   <setting>0.80</setting> <!--  -->
-   <setting>0.90</setting> <!--  -->
-   <setting>1.0</setting> <!-- Full -->
-  </flaps>
+        <setting>0.00</setting> <!-- Cruise -->
+        <setting>0.10</setting> <!--  -->
+        <setting>0.20</setting> <!-- Climb -->
+        <setting>0.30</setting> <!--  -->
+        <setting>0.40</setting> <!--  -->
+        <setting>0.50</setting> <!--  -->
+        <setting>0.60</setting> <!--  -->
+        <setting>0.70</setting> <!--  -->
+        <setting>0.80</setting> <!--  -->
+        <setting>0.90</setting> <!--  -->
+        <setting>1.0</setting> <!-- Full -->
+    </flaps>
 
-  <help>
-	  <title>De Havilland "Beaver"</title>
-	  <line></line> 
-     <key>
-    <name>l</name>
-    <desc>toggle water rudders</desc>
-   </key>
-   <key>
-    <name>f</name>
-    <desc>fuel tank select</desc>
-   </key>
-   <key>
-    <name>!</name>
-    <desc>toggle battery switch</desc>
-   </key>
-   <key>
-    <name>@</name>
-    <desc>toggle alternator switch</desc>
-   </key>
-   <key>
-    <name>#</name>
-    <desc>toggle fuel pump</desc>
-   </key>
-   <key>
-    <name>$</name>
-    <desc>toggle pitot heat</desc>
-   </key>
-   <key>
-    <name>%</name>
-    <desc>toggle landing light</desc>
-   </key>
-   <key>
-    <name>^</name>
-    <desc>toggle nav lights</desc>
-   </key>
-    <key>
-      <name>Ctrl-w</name>
-      <desc>tie up</desc>
-    </key>
-    <key>
-      <name>W</name>
-      <desc>untie</desc>
-    </key>
-  </help>
+    <help>
+        <title>De Havilland "Beaver"</title>
+        <line></line> 
+        <key>
+            <name>l</name>
+            <desc>toggle water rudders</desc>
+        </key>
+        <key>
+            <name>f</name>
+            <desc>fuel tank select</desc>
+        </key>
+        <key>
+            <name>!</name>
+            <desc>toggle battery switch</desc>
+        </key>
+        <key>
+            <name>@</name>
+            <desc>toggle alternator switch</desc>
+        </key>
+        <key>
+            <name>#</name>
+            <desc>toggle fuel pump</desc>
+        </key>
+        <key>
+            <name>$</name>
+            <desc>toggle pitot heat</desc>
+        </key>
+        <key>
+            <name>%</name>
+            <desc>toggle landing light</desc>
+        </key>
+        <key>
+            <name>^</name>
+            <desc>toggle nav lights</desc>
+        </key>
+        <key>
+            <name>Ctrl-w</name>
+            <desc>tie up</desc>
+        </key>
+        <key>
+            <name>W</name>
+            <desc>untie</desc>
+        </key>
+        <line>   Startup Procedure</line>
+        <line>1:Set magneto switch to ' both '</line>
+        <line>2:Set fuel tank switch to ' Rear Tank '</line>
+        <line>3:Engage battery switch</line>
+        <line>4:Engage fuel pump switch</line>
+        <line>5:Engage starter switch</line>
+        <line>6:Once engine is running,</line>
+        <line>  engage alternator switch</line>
+    </help>
 
-  <submodels>
-   <serviceable>true</serviceable>
-   <path>Aircraft/dhc2/Models/submodels.xml</path>
-  </submodels>
-  
-        <weight n="0">
+    <submodels>
+        <serviceable type="bool">true</serviceable>
+        <path>Aircraft/dhc2/Models/submodels.xml</path>
+    </submodels>
+
+    <weight n="0">
         <name>Crew</name>
         <weight-lb>180</weight-lb> 
         <max-lb>400</max-lb>
        <min-lb>180</min-lb>
-        </weight>
+    </weight>
 
-        <weight n="1">
+    <weight n="1">
         <name>Cargo</name>
         <weight-lb>700</weight-lb> 
         <max-lb>1500</max-lb>
         <min-lb>0</min-lb>      
-        </weight>
+    </weight>
 
-        <replay>
+    <replay>
         <disable>1</disable>
-        </replay>
+    </replay>
 
-        <multiplay>
+    <multiplay>
         <chat_display>1</chat_display>
-        </multiplay>
+    </multiplay>
 
-	</sim>
+</sim>
 
-
-  <engines>
-   <engine>
-   <rpm type="double">0</rpm>
-    <magnetos>0</magnetos>
-    <running>false</running>
-  </engine>
-  </engines>
-  
- <controls> 
- <lighting>
- <instruments-norm>0.0</instruments-norm>
- </lighting>
-<fuel>
-<switch-position type = "int">-1</switch-position>
-</fuel>
 <gear>
-<brake-parking type="double">1.0</brake-parking>
-<water-rudder-down type="double">0</water-rudder-down>
-<water-rudder-pos type="double">0</water-rudder-pos>
+    <gear n="2">
+        <wake type="bool">false</wake>
+    </gear>
+    <gear n="3">
+        <wake type="bool">false</wake>
+    </gear>
 </gear>
-  <winch>
-    <place type="bool">false</place>
-  </winch>
- </controls> 
 
- <environment>
-   <turbulence>
-     <use-cloud-turbulence>true</use-cloud-turbulence>
-   </turbulence>
- </environment>
-   
- <input>
-  <keyboard>
-  
-   <key n="108">
-  <name>l</name>
-  <desc>Toggle water rudders</desc>
-  <binding>
-   <command>nasal</command>
-   <script>dhc2.water_rudder()</script>
-  </binding>
- </key>
- 
-    <key n="102">
-  <name>f</name>
-  <desc>fuel tank select</desc>
-  <binding>
-  <command>property-adjust</command>
-   <property>controls/fuel/switch-position</property>
-   <step>1</step>
-   <min>-1</min>
-   <max>3</max>
-   <wrap>1</wrap>
-  </binding>
-  </key> 
+<engines>
+    <engine>
+        <rpm type="double">0</rpm>
+        <magnetos>0</magnetos>
+        <running>false</running>
+    </engine>
+</engines>
 
-  <key n="33">
-  <name>!</name>
-  <desc>Toggle Battery Switch</desc>
-    <binding>
-   <command>property-toggle</command>
-   <property>/controls/electric/battery-switch</property>
-     </binding>
-         <binding>
-       <command>property-toggle</command>
-	<property>/sim/sound/switch</property>
-     </binding>
-  </key> 
+<controls>
+    <lighting>
+        <instruments-norm>1.0</instruments-norm>
+    </lighting>
+    <fuel>
+        <switch-position type = "int">-1</switch-position>
+    </fuel>
+    <gear>
+        <brake-parking type="double">1.0</brake-parking>
+        <water-rudder-down type="double">0</water-rudder-down>
+        <water-rudder-pos type="double">0</water-rudder-pos>
+    </gear>
+    <winch>
+        <place type="bool">false</place>
+    </winch>
+</controls>
 
-  <key n="64">
-  <name>@</name>
-  <desc>Toggle Alternator Switch</desc>
-    <binding>
-    <command>property-toggle</command>
-   <property>/controls/electric/engine/generator</property>
-      </binding>
-          <binding>
-       <command>property-toggle</command>
-	<property>/sim/sound/switch</property>
-     </binding>
-  </key> 
- 
- <key n="32">
-  <name>SPACE</name>
-  <desc>Starter</desc>
-  <binding>
-   <command>nasal</command>
-   <script>dhc2.starter(1)</script>
-  </binding>
-  <mod-up>
-   <binding>
-    <command>nasal</command>
-    <script>dhc2.starter(0)</script>
-   </binding>
-  </mod-up>
- </key> 
- 
-  <key n="35">
-  <name>#</name>
-  <desc>Toggle Fuel Pump</desc>
-    <binding>
-    <command>property-toggle</command>
-   <property>/controls/engines/engine/fuel-pump</property>
-     </binding>
-         <binding>
-       <command>property-toggle</command>
-	<property>/sim/sound/switch</property>
-     </binding>
-  </key> 
+<environment>
+    <turbulence>
+        <use-cloud-turbulence>true</use-cloud-turbulence>
+    </turbulence>
+</environment>
 
-  <key n="36">
-  <name>$</name>
-  <desc>Toggle Carb Heat</desc>
-     <binding>
-   <command>property-toggle</command> 
-     <property>/controls/anti-ice/engine/carb-heat</property>
-     </binding>
-         <binding>
-       <command>property-toggle</command>
-	<property>/sim/sound/switch</property>
-     </binding>
-  </key> 
+<input>
+    <keyboard>
+        <key n="108">
+            <name>l</name>
+            <desc>Toggle water rudders</desc>
+            <binding>
+                <command>nasal</command>
+                <script>dhc2.water_rudder()</script>
+            </binding>
+        </key>
 
-  <key n="37">
-  <name>%</name>
-  <desc>Toggle Landing Light</desc>
-     <binding>
-       <command>property-toggle</command>
-       <property>/controls/switches/landing-light</property>
-     </binding>
-         <binding>
-       <command>property-toggle</command>
-	<property>/sim/sound/switch</property>
-     </binding>
-  </key> 
+        <key n="102">
+            <name>f</name>
+            <desc>fuel tank select</desc>
+            <binding>
+                <command>property-adjust</command>
+                <property>controls/fuel/switch-position</property>
+                <step>1</step>
+                <min>-1</min>
+                <max>3</max>
+                <wrap>1</wrap>
+            </binding>
+        </key>
 
-    <key n="94">
-  <name>^</name>
-  <desc>Toggle Nav Lights</desc>
-     <binding>
-       <command>property-toggle</command>
-       <property>/controls/switches/nav-lights</property>
-     </binding>
-         <binding>
-       <command>property-toggle</command>
-	<property>/sim/sound/switch</property>
-     </binding>
-  </key>
-  <key n="23">
-    <name>Ctrl-w</name>
-    <desc>Throw anchor</desc>
-    <binding>
-      <command>property-assign</command>
-      <property>/controls/winch/place</property>
-      <value type="bool">true</value>
-    </binding>
-    <mod-up>
-      <binding>
-        <command>property-assign</command>
-        <property>/controls/winch/place</property>
-        <value type="bool">false</value>
-      </binding>
-    </mod-up>
-  </key>
-  <key n="87">
-    <name>W</name>
-    <desc>release anchor</desc>
-    <binding>
-      <command>property-assign</command>
-        <property>/sim/hitches/anchor/open</property>
-      <value type="bool">true</value>
-    </binding>
-  </key>
-</keyboard> 
+        <key n="33">
+            <name>!</name>
+            <desc>Toggle Battery Switch</desc>
+            <binding>
+                <command>property-toggle</command>
+                <property>/controls/electric/battery-switch</property>
+            </binding>
+            <binding>
+                <command>property-toggle</command>
+                <property>/sim/sound/switch</property>
+            </binding>
+        </key>
 
+        <key n="64">
+            <name>@</name>
+            <desc>Toggle Alternator Switch</desc>
+            <binding>
+                <command>property-toggle</command>
+                <property>/controls/electric/engine/generator</property>
+            </binding>
+            <binding>
+                <command>property-toggle</command>
+                <property>/sim/sound/switch</property>
+            </binding>
+        </key>
+
+        <key n="32">
+            <name>SPACE</name>
+            <desc>Starter</desc>
+            <binding>
+                <command>nasal</command>
+                <script>dhc2.starter(1)</script>
+            </binding>
+            <mod-up>
+                <binding>
+                    <command>nasal</command>
+                    <script>dhc2.starter(0)</script>
+                </binding>
+            </mod-up>
+        </key>
+
+        <key n="35">
+            <name>#</name>
+            <desc>Toggle Fuel Pump</desc>
+            <binding>
+                <command>property-toggle</command>
+                <property>/controls/engines/engine/fuel-pump</property>
+            </binding>
+            <binding>
+                <command>property-toggle</command>
+                <property>/sim/sound/switch</property>
+            </binding>
+        </key>
+
+        <key n="36">
+            <name>$</name>
+            <desc>Toggle Carb Heat</desc>
+            <binding>
+                <command>property-toggle</command> 
+                <property>/controls/anti-ice/engine/carb-heat</property>
+            </binding>
+            <binding>
+                <command>property-toggle</command>
+                <property>/sim/sound/switch</property>
+            </binding>
+        </key>
+
+        <key n="37">
+            <name>%</name>
+            <desc>Toggle Landing Light</desc>
+            <binding>
+                <command>property-toggle</command>
+                <property>/controls/lighting/landing-lights[0]</property>
+            </binding>
+            <binding>
+                <command>property-toggle</command>
+                <property>/sim/sound/switch</property>
+            </binding>
+        </key>
+
+        <key n="94">
+            <name>^</name>
+            <desc>Toggle Nav Lights</desc>
+            <binding>
+                <command>property-toggle</command>
+                <property>/controls/lighting/nav-lights</property>
+            </binding>
+            <binding>
+                <command>property-toggle</command>
+                <property>/sim/sound/switch</property>
+            </binding>
+        </key>
+
+        <key n="23">
+            <name>Ctrl-w</name>
+            <desc>Throw anchor</desc>
+            <binding>
+                <command>property-assign</command>
+                <property>/controls/winch/place</property>
+                <value type="bool">true</value>
+            </binding>
+            <mod-up>
+                <binding>
+                    <command>property-assign</command>
+                    <property>/controls/winch/place</property>
+                    <value type="bool">false</value>
+                </binding>
+            </mod-up>
+        </key>
+
+        <key n="87">
+            <name>W</name>
+            <desc>release anchor</desc>
+            <binding>
+                <command>property-assign</command>
+                <property>/sim/hitches/anchor/open</property>
+                <value type="bool">true</value>
+            </binding>
+        </key>
+    </keyboard>
 </input>
 
 
 <nasal>
-	<dhc2>
-          <file>Aircraft/dhc2/Nasal/dhc2.nas</file>
-          <file>Aircraft/dhc2/Nasal/dhc2-electrical.nas</file>
-	</dhc2>
+    <dhc2>
+        <file>Aircraft/dhc2/Nasal/dhc2.nas</file>
+        <file>Aircraft/dhc2/Nasal/Electrical.nas</file>
+    </dhc2>
 </nasal>
+
 </PropertyList>

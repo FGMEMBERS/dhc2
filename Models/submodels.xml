@@ -1,10 +1,10 @@
 <?xml version="1.0"?>
 <PropertyList>
 
-   <submodel>
+<submodel>
     <name>LHwake</name>
     <model>Aircraft/dhc2/Models/wake.xml</model>
-	<trigger>ai/submodels/wake[0]</trigger>
+    <trigger>/gear/gear[2]/wake</trigger>
     <speed>0</speed>
     <repeat>true</repeat>
     <delay>0.1</delay>
@@ -12,16 +12,16 @@
     <x-offset>4.0</x-offset>
     <y-offset>-4.5</y-offset>
     <z-offset>-6.3</z-offset>
-	<buoyancy>32</buoyancy>
+    <buoyancy>32</buoyancy>
     <life>5.0</life>
-	<wind>false</wind>
-	<eda>100</eda>
-  </submodel>
+    <wind>false</wind>
+    <eda>100</eda>
+</submodel>
 
-    <submodel>
+<submodel>
     <name>RHwake</name>
     <model>Aircraft/dhc2/Models/wake.xml</model>
-    <trigger>ai/submodels/wake[1]</trigger>
+    <trigger>/gear/gear[3]/wake</trigger>
     <speed>0</speed>
     <repeat>true</repeat>
     <delay>0.1</delay>
@@ -29,11 +29,10 @@
     <x-offset>4</x-offset>
     <y-offset>4.5</y-offset>
     <z-offset>-6.3</z-offset>
-	<buoyancy>32</buoyancy>
+    <buoyancy>32</buoyancy>
     <life>5.0</life>
-	<wind>false</wind>
-	<eda>100</eda>
-  </submodel>
-
+    <wind>false</wind>
+    <eda>100</eda>
+</submodel>
 
 </PropertyList>

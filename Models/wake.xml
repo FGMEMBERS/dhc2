@@ -1,27 +1,28 @@
 <?xml version="1.0"?>
 
 <PropertyList>
+
 <path>wake.ac</path>
 
+    <animation>
+        <type>blend</type>
+        <object-name>wake</object-name>
+        <property>sim/time/elapsed-sec</property>
+        <factor>0.3</factor>
+        <min>0.0</min>
+    </animation>
 
- <animation>
-  <type>scale</type>
-  <object-name>wake</object-name>
-  <property>sim/time/elapsed-sec</property>
-  <offset>1</offset>
-  <x-min>0.1</x-min>
-  <y-min>0.1</y-min>
-  <z-min>0.1</z-min>
-  <x-factor>0.0</x-factor>
-  <y-factor>0.7</y-factor>
-  <z-factor>0</z-factor>
- </animation>
+    <animation>
+        <type>scale</type>
+        <object-name>wake</object-name>
+        <property>sim/time/elapsed-sec</property>
+        <offset>1</offset>
+        <x-min>0.1</x-min>
+        <y-min>0.1</y-min>
+        <z-min>0.1</z-min>
+        <x-factor>0.0</x-factor>
+        <y-factor>0.7</y-factor>
+        <z-factor>0</z-factor>
+    </animation>
 
- <animation>
-  <type>blend</type>
-  <object-name>wake</object-name>
-  <property>sim/time/elapsed-sec</property>
-  <factor>0.3</factor>
-  <min>0.0</min>
- </animation>
 </PropertyList>
