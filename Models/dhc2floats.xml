@@ -379,7 +379,7 @@
     <animation>
         <type>rotate</type>
         <object-name>Rudder</object-name>
-        <property>controls/flight/rudder</property>
+        <property>surface-positions/rudder-pos-norm</property>
         <factor>30</factor>
         <center>
             <x-m>5.668</x-m>
