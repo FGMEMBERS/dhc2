@@ -15,7 +15,6 @@ var Oil_Temp = props.globals.getNode("/engines/engine/oil-temp-norm",1);
 var E_state = props.globals.getNode("/engines/engine",1);
 var E_control = props.globals.getNode("/controls/engines/engine",1);
 var FDM=0;
-var Force = props.globals.getNode("/accelerations/pilot-g",1);
 wake1.setBoolValue(0);
 wake2.setBoolValue(0);
 
@@ -35,7 +34,7 @@ setlistener("/sim/signals/fdm-initialized", func {
     setprop("/consumables/fuel/tank[1]/selected",0);
     setprop("/consumables/fuel/tank[2]/selected",0);
     setprop("/consumables/fuel/tank[0]/selected",0);
-    setup_start(); 
+    setup_start();
     FDM=1;
     update();
 });
@@ -93,16 +92,6 @@ starter = func{
     }
 }
 
-gforce = func{
-    force = Force.getValue();
-    if(force == nil) {force = 1.0;}
-    eyepoint = EyePoint +0.02;
-    eyepoint -= (force * 0.02);
-    if(ViewNum == 0){
-        props.globals.getNode("/sim/current-view/y-offset-m").setValue(eyepoint);
-    }
-}
-
 steering = func{
     if(getprop("/controls/gear/water-rudder-down") >= 0.9){
         setprop("/controls/gear/water-rudder-pos",getprop("/controls/flight/rudder"));
@@ -126,7 +115,7 @@ fluids_update = func{
     }else{
         if(testfuel > -1){
             if(getprop("/consumables/fuel/tank[" ~ testfuel ~ "]/level-gal_us") > 0.01){
-            setprop("/engines/engine/out-of-fuel",0);} 
+            setprop("/engines/engine/out-of-fuel",0);}
         }
     }
     oil_psi = getprop("/engines/engine/rpm") * 0.002;
@@ -169,7 +158,6 @@ update_wake = func{
 }
 
 update = func {
-    gforce();
     steering();
     oil_temp();
     fluids_update();
