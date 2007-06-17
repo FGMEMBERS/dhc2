@@ -16,7 +16,9 @@
         <type>scale</type>
         <object-name>wake</object-name>
         <property>sim/time/elapsed-sec</property>
-        <offset>1</offset>
+        <x-offset>1</x-offset>
+        <y-offset>1</y-offset>
+        <z-offset>1</z-offset>
         <x-min>0.1</x-min>
         <y-min>0.1</y-min>
         <z-min>0.1</z-min>
