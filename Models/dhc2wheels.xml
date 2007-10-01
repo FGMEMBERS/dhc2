@@ -23,6 +23,17 @@
         </top-left>
     </panel>
 
+   <animation>
+        <type>shader</type>
+        <shader>chrome</shader>
+        <texture>Aircraft/dhc2/Models/chrome1.rgb</texture>
+        <object-name>LHFdoor.glass</object-name>
+        <object-name>RLHFdoor.glass</object-name>
+        <object-name>RRglass</object-name>
+        <object-name>LRglass</object-name>
+        <object-name>Glass</object-name>
+    </animation>
+
     <model>
         <name>Airspeed MPH</name>
         <path>Aircraft/dhc2/Instruments/asi.xml</path>

@@ -34,6 +34,7 @@ July 2004 Syd Adams
 
     <model>
         <path>Aircraft/dhc2/Models/dhc2wheels.xml</path>
+        <variant type="int">0</variant>
     </model>
 
     <virtual-cockpit archive="y">true</virtual-cockpit>
