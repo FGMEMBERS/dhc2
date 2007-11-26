@@ -9,7 +9,7 @@ July 2004 Syd Adams
 <PropertyList>
 <sim>
 
-    <description>de Havilland Beaver (YASim) 3D cockpit</description>
+    <description>de Havilland Beaver - Floats</description>
     <author>Syd Adams</author>
     <flight-model>yasim</flight-model>
     <aero>dhc2F</aero>

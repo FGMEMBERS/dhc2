@@ -9,7 +9,7 @@ July 2004 Syd Adams
 
 <sim>
 
-    <description>de Havilland Beaver (YASim) 3D cockpit</description>
+    <description>de Havilland Beaver - Wheels</description>
     <author>Syd Adams</author>
     <flight-model>yasim</flight-model>
     <aero>dhc2W</aero>
