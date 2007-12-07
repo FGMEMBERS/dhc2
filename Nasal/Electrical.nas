@@ -99,14 +99,11 @@ var alternator1 = Alternator.new("/engines/engine[0]/rpm",500.0,24.0,30.0);
 
 #####################################
 setlistener("/sim/signals/fdm-initialized", func {
-    props.globals.getNode("/controls/electric/external-power",1).setBoolValue(0);
     props.globals.getNode("/controls/electric/battery-switch",1).setBoolValue(1); 
     props.globals.getNode("/controls/electric/engine[0]/generator",1).setBoolValue(1);
-    props.globals.getNode("/controls/electric/engine[1]/generator",1).setBoolValue(1);
     props.globals.getNode("/controls/anti-ice/prop-heat",1).setBoolValue(0);
     props.globals.getNode("/controls/anti-ice/pitot-heat",1).setBoolValue(0);
     props.globals.getNode("/controls/lighting/landing-lights[0]",1).setBoolValue(0);
-    props.globals.getNode("/controls/lighting/landing-lights[1]",1).setBoolValue(0);
     props.globals.getNode("/controls/lighting/beacon",1).setBoolValue(0);
     props.globals.getNode("/controls/lighting/nav-lights",1).setBoolValue(0);
     props.globals.getNode("/controls/lighting/cabin-lights",1).setBoolValue(0);
@@ -207,12 +204,6 @@ electrical_bus = func() {
     OutPuts.getNode("landing-lights[0]",1).setValue(0.0);
         }
 
-    if ( props.globals.getNode("/controls/lighting/landing-lights[1]").getBoolValue()){
-    OutPuts.getNode("landing-lights[1]",1).setValue(bus_volts * NORM);
-        } else {
-    OutPuts.getNode("landing-lights[1]",1).setValue(0.0);
-        }
-        
     if ( props.globals.getNode("/controls/lighting/cabin-lights").getBoolValue()){
     OutPuts.getNode("cabin-lights",1).setValue(bus_volts);
         } else {

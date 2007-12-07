@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
 <!--
 ************************************************************************
-Dehavallind Beaver
+Dehavallind Beaver - Floats
 July 2004 Syd Adams
 ************************************************************************
 -->
 
-<PropertyList>
+<PropertyList include="dhc2-base.xml">
 <sim>
 
     <description>de Havilland Beaver - Floats</description>
@@ -24,22 +24,11 @@ July 2004 Syd Adams
         <start-in-water type="bool">true</start-in-water> 
     </presets>
 
-    <systems>
-        <electrical>
-            <path></path>
-        </electrical>
-    </systems>
-    <sound>
-        <path>Aircraft/dhc2/dhc2-sound.xml</path>
-    </sound>
-
     <model>
         <path>Aircraft/dhc2/Models/dhc2floats.xml</path>
         <variant type="int">0</variant>
     </model>
 
-    <virtual-cockpit archive="y">true</virtual-cockpit>
-    <allow-toggle-cockpit archive="y">true</allow-toggle-cockpit>
     <hitches>
     <!-- make sure some properties do exist, when the list for multiplayer transfere is defined-->
     <!-- they need to be in the same value, as they are initilized in the FDM, to get the same values after reset
@@ -65,37 +54,6 @@ July 2004 Syd Adams
             <is-slave type="bool">false</is-slave>
         </aerotow>
     </hitches>
-
-    <view>
-        <internal archive="y">true</internal>
-        <config><!-- x/y/z == right/up/back -->
-            <x-offset-m archive="y">-0.28</x-offset-m>
-            <y-offset-m archive="y">0.65</y-offset-m>
-            <z-offset-m archive="y">-0.64</z-offset-m>
-            <pitch-offset-deg>-12</pitch-offset-deg>
-            <default-field-of-view-deg type="double">60.0</default-field-of-view-deg>
-        </config>
-    </view>
-
-    <current-view>
-        <field-of-view>60.0</field-of-view>
-    </current-view>
-
-    <chase-distance-m type="double" archive="y">-18.0</chase-distance-m>
-
-    <flaps>
-        <setting>0.00</setting> <!-- Cruise -->
-        <setting>0.10</setting> <!--  -->
-        <setting>0.20</setting> <!-- Climb -->
-        <setting>0.30</setting> <!--  -->
-        <setting>0.40</setting> <!--  -->
-        <setting>0.50</setting> <!--  -->
-        <setting>0.60</setting> <!--  -->
-        <setting>0.70</setting> <!--  -->
-        <setting>0.80</setting> <!--  -->
-        <setting>0.90</setting> <!--  -->
-        <setting>1.0</setting> <!-- Full -->
-    </flaps>
 
     <help>
         <title>De Havilland "Beaver"</title>
@@ -155,29 +113,49 @@ July 2004 Syd Adams
         <path>Aircraft/dhc2/Models/submodels.xml</path>
     </submodels>
 
-    <weight n="0">
-        <name>Crew</name>
-        <weight-lb>180</weight-lb> 
-        <max-lb>400</max-lb>
-       <min-lb>180</min-lb>
-    </weight>
-
-    <weight n="1">
-        <name>Cargo</name>
-        <weight-lb>700</weight-lb> 
-        <max-lb>1500</max-lb>
-        <min-lb>0</min-lb>      
-    </weight>
-
-    <replay>
-        <disable>1</disable>
-    </replay>
-
-    <multiplay>
-        <chat_display>1</chat_display>
-    </multiplay>
+    <menubar>
+        <default>
+            <menu n="10">
+                <label>Beaver</label>
+                <enabled type="bool">true</enabled>
+                <item>
+                    <label>Autostart</label>
+                    <binding>
+                        <command>property-toggle</command>
+                        <property>sim/model/start-idling</property>
+                    </binding>
+                </item>
+                <item>
+                    <label>Tie Up</label>
+                    <binding>
+                        <command>nasal</command>
+                        <script>dhc2.secure()</script>
+                        <value type="bool">true</value>
+                    </binding>
+                </item>
+                <item>
+                    <label>Untie</label>
+                    <binding>
+                <command>property-assign</command>
+                <property>/sim/hitches/anchor/open</property>
+                <value type="bool">true</value>
+            </binding>
+                </item>
+            </menu>
+        </default>
+    </menubar>
 
 </sim>
+
+<controls>
+    <gear>
+        <water-rudder-down type="double">0</water-rudder-down>
+        <water-rudder-pos type="double">0</water-rudder-pos>
+    </gear>
+    <winch>
+        <place type="bool">false</place>
+    </winch>
+</controls>
 
 <gear>
     <gear n="2">
@@ -187,37 +165,6 @@ July 2004 Syd Adams
         <wake type="bool">false</wake>
     </gear>
 </gear>
-
-<engines>
-    <engine>
-        <rpm type="double">0</rpm>
-        <magnetos>0</magnetos>
-        <running>false</running>
-    </engine>
-</engines>
-
-<controls>
-    <lighting>
-        <instruments-norm>1.0</instruments-norm>
-    </lighting>
-    <fuel>
-        <switch-position type = "int">-1</switch-position>
-    </fuel>
-    <gear>
-        <brake-parking type="double">1.0</brake-parking>
-        <water-rudder-down type="double">0</water-rudder-down>
-        <water-rudder-pos type="double">0</water-rudder-pos>
-    </gear>
-    <winch>
-        <place type="bool">false</place>
-    </winch>
-</controls>
-
-<environment>
-    <turbulence>
-        <use-cloud-turbulence>true</use-cloud-turbulence>
-    </turbulence>
-</environment>
 
 <input>
     <keyboard>
@@ -229,113 +176,6 @@ July 2004 Syd Adams
                 <script>dhc2.water_rudder()</script>
             </binding>
         </key>
-
-        <key n="102">
-            <name>f</name>
-            <desc>fuel tank select</desc>
-            <binding>
-                <command>property-adjust</command>
-                <property>controls/fuel/switch-position</property>
-                <step>1</step>
-                <min>-1</min>
-                <max>3</max>
-                <wrap>1</wrap>
-            </binding>
-        </key>
-
-        <key n="33">
-            <name>!</name>
-            <desc>Toggle Battery Switch</desc>
-            <binding>
-                <command>property-toggle</command>
-                <property>/controls/electric/battery-switch</property>
-            </binding>
-            <binding>
-                <command>property-toggle</command>
-                <property>/sim/sound/switch</property>
-            </binding>
-        </key>
-
-        <key n="64">
-            <name>@</name>
-            <desc>Toggle Alternator Switch</desc>
-            <binding>
-                <command>property-toggle</command>
-                <property>/controls/electric/engine/generator</property>
-            </binding>
-            <binding>
-                <command>property-toggle</command>
-                <property>/sim/sound/switch</property>
-            </binding>
-        </key>
-
-        <key n="32">
-            <name>SPACE</name>
-            <desc>Starter</desc>
-            <binding>
-                <command>nasal</command>
-                <script>dhc2.starter(1)</script>
-            </binding>
-            <mod-up>
-                <binding>
-                    <command>nasal</command>
-                    <script>dhc2.starter(0)</script>
-                </binding>
-            </mod-up>
-        </key>
-
-        <key n="35">
-            <name>#</name>
-            <desc>Toggle Fuel Pump</desc>
-            <binding>
-                <command>property-toggle</command>
-                <property>/controls/engines/engine/fuel-pump</property>
-            </binding>
-            <binding>
-                <command>property-toggle</command>
-                <property>/sim/sound/switch</property>
-            </binding>
-        </key>
-
-        <key n="36">
-            <name>$</name>
-            <desc>Toggle Carb Heat</desc>
-            <binding>
-                <command>property-toggle</command> 
-                <property>/controls/anti-ice/engine/carb-heat</property>
-            </binding>
-            <binding>
-                <command>property-toggle</command>
-                <property>/sim/sound/switch</property>
-            </binding>
-        </key>
-
-        <key n="37">
-            <name>%</name>
-            <desc>Toggle Landing Light</desc>
-            <binding>
-                <command>property-toggle</command>
-                <property>/controls/lighting/landing-lights[0]</property>
-            </binding>
-            <binding>
-                <command>property-toggle</command>
-                <property>/sim/sound/switch</property>
-            </binding>
-        </key>
-
-        <key n="94">
-            <name>^</name>
-            <desc>Toggle Nav Lights</desc>
-            <binding>
-                <command>property-toggle</command>
-                <property>/controls/lighting/nav-lights</property>
-            </binding>
-            <binding>
-                <command>property-toggle</command>
-                <property>/sim/sound/switch</property>
-            </binding>
-        </key>
-
         <key n="23">
             <name>Ctrl-w</name>
             <desc>Throw anchor</desc>
@@ -352,7 +192,6 @@ July 2004 Syd Adams
                 </binding>
             </mod-up>
         </key>
-
         <key n="87">
             <name>W</name>
             <desc>release anchor</desc>
@@ -364,13 +203,5 @@ July 2004 Syd Adams
         </key>
     </keyboard>
 </input>
-
-
-<nasal>
-    <dhc2>
-        <file>Aircraft/dhc2/Nasal/dhc2.nas</file>
-        <file>Aircraft/dhc2/Nasal/Electrical.nas</file>
-    </dhc2>
-</nasal>
 
 </PropertyList>

@@ -1,14 +1,13 @@
 <?xml version="1.0"?>
 <!--
 ************************************************************************
-Dehavallind Beaver
+Dehavallind Beaver - Wheels
 July 2004 Syd Adams
 ************************************************************************
 -->
-<PropertyList>
+<PropertyList include="dhc2-base.xml">
 
 <sim>
-
     <description>de Havilland Beaver - Wheels</description>
     <author>Syd Adams</author>
     <flight-model>yasim</flight-model>
@@ -18,61 +17,12 @@ July 2004 Syd Adams
         <splash-texture>Aircraft/dhc2/dhc-2splashW.rgb</splash-texture>
     </startup>
 
-        <presets>
-        <start-in-water type="bool">false</start-in-water> 
-    </presets>
-
-    <systems>
-        <electrical>
-            <path></path>
-        </electrical>
-    </systems>
-
-    <sound>
-        <path>Aircraft/dhc2/dhc2-sound.xml</path>
-    </sound>
-
-    <model>
+     <model>
         <path>Aircraft/dhc2/Models/dhc2wheels.xml</path>
         <variant type="int">0</variant>
     </model>
 
-    <virtual-cockpit archive="y">true</virtual-cockpit>
-    <allow-toggle-cockpit archive="y">true</allow-toggle-cockpit>
-
-    <view>
-        <internal archive="y">true</internal>
-        <config>
-        <!-- x/y/z == right/up/back -->
-            <x-offset-m archive="y">-0.28</x-offset-m>
-            <y-offset-m archive="y">0.65</y-offset-m>
-            <z-offset-m archive="y">-0.64</z-offset-m>
-            <pitch-offset-deg>-12</pitch-offset-deg>
-            <default-field-of-view-deg type="double">60.0</default-field-of-view-deg>
-        </config>
-    </view>
-
-    <current-view>
-        <field-of-view>60.0</field-of-view>
-    </current-view>
-
-    <chase-distance-m type="double" archive="y">-20.0</chase-distance-m>
-
-    <flaps>
-        <setting>0.00</setting> <!-- Cruise -->
-        <setting>0.10</setting> <!--  -->
-        <setting>0.20</setting> <!-- Climb -->
-        <setting>0.30</setting> <!--  -->
-        <setting>0.40</setting> <!--  -->
-        <setting>0.50</setting> <!--  -->
-        <setting>0.60</setting> <!--  -->
-        <setting>0.70</setting> <!--  -->
-        <setting>0.80</setting> <!--  -->
-        <setting>0.90</setting> <!--  -->
-        <setting>1.0</setting> <!-- Full -->
-    </flaps>
-
-    <help>
+     <help>
         <title>De Havilland "Beaver"</title>
         <line></line>
         <key>
@@ -147,132 +97,42 @@ should fix this somehow-->
         </aerotow>
     </hitches>
 
-    <weight n="0">
-        <name>Crew</name>
-        <weight-lb>180</weight-lb>
-        <max-lb>400</max-lb>
-        <min-lb>180</min-lb>
-    </weight>
-
-    <weight n="1">
-        <name>Cargo</name>
-        <weight-lb>700</weight-lb>
-        <max-lb>1500</max-lb>
-        <min-lb>0</min-lb>
-    </weight>
-
-    <replay>
-        <disable>1</disable>
-    </replay>
-
-    <multiplay>
-        <chat_display>1</chat_display>
-    </multiplay>
+    <menubar>
+        <default>
+            <menu n="10">
+                <label>Beaver</label>
+                <enabled type="bool">true</enabled>
+                <item>
+                    <label>Autostart</label>
+                    <binding>
+                        <command>property-toggle</command>
+                        <property>sim/model/start-idling</property>
+                    </binding>
+                </item>
+                <item>
+                    <label>Open tow-hook</label>
+                    <binding>
+                        <command>property-assign</command>
+                        <property>/sim/hitches/aerotow/open</property>
+                        <value type="bool">true</value>
+                    </binding>
+                </item>
+                <item>
+                    <label>Lock tow-hook</label>
+                    <binding>
+                        <command>property-assign</command>
+                        <property>/sim/hitches/aerotow/open</property>
+                        <value type="bool">false</value>
+                    </binding>
+                </item>
+            </menu>
+        </default>
+    </menubar>
 
 </sim>
 
-<engines>
-    <engine>
-        <rpm type="double">0</rpm>
-        <running>false</running>
-    </engine>
-</engines>
-
-<controls>
-    <lighting>
-        <instruments-norm>1.0</instruments-norm>
-    </lighting>
-    <fuel>
-        <switch-position type = "int">-1</switch-position>
-    </fuel>
-    <gear>
-        <brake-parking type="double">1.0</brake-parking>
-    </gear>
-    <engines>
-        <engine>
-            <magnetos>0</magnetos>
-        </engine>
-    </engines>
-</controls>
-
-<environment>
-    <turbulence>
-        <use-cloud-turbulence>true</use-cloud-turbulence>
-    </turbulence>
-</environment>
-
 <input>
     <keyboard>
-        <key n="102">
-            <name>f</name>
-            <desc>fuel tank select</desc>
-            <binding>
-                <command>nasal</command>
-                <script>dhc2.fuel_switch()</script>
-            </binding>
-        </key>
-        <key n="32">
-            <name>SPACE</name>
-            <desc>Starter</desc>
-            <binding>
-                <command>nasal</command>
-                <script>dhc2.starter(1)</script>
-            </binding>
-            <mod-up>
-                <binding>
-                    <command>nasal</command>
-                    <script>dhc2.starter(0)</script>
-                </binding>
-            </mod-up>
-        </key>
-        <key n="33">
-            <name>!</name>
-            <desc>Toggle Battery Switch</desc>
-            <binding>
-                <command>nasal</command>
-                <script>dhc2.batt_switch()</script>
-            </binding>
-        </key>
-        <key n="64">
-            <name>@</name>
-            <desc>Toggle Alternator Switch</desc>
-            <binding>
-                <command>nasal</command>
-                <script>dhc2.alt_switch()</script>
-            </binding>
-        </key>
-        <key n="35">
-            <name>#</name>
-            <desc>Toggle Fuel Pump</desc>
-            <binding>
-                <command>nasal</command>
-                <script>dhc2.f_pump_switch()</script>
-            </binding>
-        </key>
-        <key n="36">
-            <name>$</name>
-            <desc>Toggle Pitot Heat</desc>
-            <binding>
-                <command>nasal</command>
-                <script>dhc2.pitot_heat_switch()</script>
-            </binding>
-        </key>
-        <key n="37">
-            <name>%</name>
-            <desc>Toggle Landing Light</desc>
-            <binding>
-                <command>nasal</command>
-                <script>dhc2.landing_light_switch()</script>
-            </binding>
-        </key>
-        <key n="94">
-            <name>^</name>
-            <desc>Toggle Nav Lights</desc>
-            <binding>
-                <command>nasal</command>
-                <script>dhc2.nav_light_switch()</script>
-            </binding>
-        </key>
         <key n="79">
             <name>O</name>
             <desc>Open aerotow hook</desc>
@@ -294,11 +154,10 @@ should fix this somehow-->
     </keyboard>
 </input>
 
-<nasal>
-    <dhc2>
-        <file>Aircraft/dhc2/Nasal/dhc2.nas</file>
-        <file>Aircraft/dhc2/Nasal/Electrical.nas</file>
-    </dhc2>
-</nasal>
+<controls>
+    <gear>
+        <tailwheel-lock>0</tailwheel-lock>
+    </gear>
+</controls>
 
 </PropertyList>

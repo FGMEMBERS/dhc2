@@ -34,6 +34,23 @@
         <object-name>Glass</object-name>
     </animation>
 
+    <animation>
+        <type>shader</type>
+        <shader>chrome</shader>
+        <texture>Aircraft/dhc2/Models/chrome.rgb</texture>
+        <object-name>Spinner</object-name>
+        <object-name>Ant</object-name>
+    </animation>
+
+    <animation>
+        <type>shader</type>
+        <shader>chrome</shader>
+        <texture>Aircraft/dhc2/Models/chrome.rgb</texture>
+        <object-name>Throttle.001</object-name>
+        <object-name>PropPitch.001</object-name>
+        <object-name>Mixture.001</object-name>
+    </animation>
+
     <model>
         <name>Airspeed MPH</name>
         <path>Aircraft/dhc2/Instruments/asi.xml</path>
@@ -212,7 +229,7 @@
 
     <model>
         <name>Pilot</name>
-        <path>Aircraft/dhc2/Models/testpilot.xml</path>
+        <path>Models/Aircraft/testpilot.xml</path>
         <offsets>
             <x-m>-0.747</x-m>
             <y-m>-0.291</y-m>
@@ -260,17 +277,6 @@
         <object-name>Fastprop</object-name>
         <object-name>Slowprop</object-name>
         <object-name>SideLogo</object-name>
-    </animation>
-
-    <animation>
-        <type>shader</type>
-        <shader>chrome</shader>
-        <texture>Aircraft/dhc2/Models/chrome.rgb</texture>
-        <object-name>Spinner</object-name>
-        <object-name>Throttle.001</object-name>
-        <object-name>PropPitch.001</object-name>
-        <object-name>Mixture.001</object-name>
-        <object-name>Ant</object-name>
     </animation>
 
     <animation>
