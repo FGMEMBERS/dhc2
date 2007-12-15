@@ -28,7 +28,7 @@
         <shader>chrome</shader>
         <texture>Aircraft/dhc2/Models/chrome1.rgb</texture>
         <object-name>LHFdoor.glass</object-name>
-        <object-name>RLHFdoor.glass</object-name>
+        <object-name>RHFdoor.glass</object-name>
         <object-name>RRglass</object-name>
         <object-name>LRglass</object-name>
         <object-name>Glass</object-name>
