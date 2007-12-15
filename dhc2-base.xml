@@ -1,0 +1,212 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+<sim>
+    <view n="0">
+        <name>Cockpit</name>
+        <type>lookfrom</type>
+        <internal type="bool">true</internal>
+        <config>
+            <x-offset-m type="double">-0.33</x-offset-m>
+            <y-offset-m type="double">0.71</y-offset-m>
+            <z-offset-m type="double">-0.58</z-offset-m>
+            <pitch-offset-deg>-15</pitch-offset-deg>
+            <default-field-of-view-deg type="double">60.0</default-field-of-view-deg>
+        </config>
+    </view>
+
+    <current-view>
+        <field-of-view>60.0</field-of-view>
+    </current-view>
+
+    <systems>
+        <electrical>
+            <path></path>
+        </electrical>
+    </systems>
+    <sound>
+        <path>Aircraft/dhc2/dhc2-sound.xml</path>
+    </sound>
+
+    <hud>
+        <enable3d>false</enable3d>
+    </hud>
+
+    <virtual-cockpit archive="y">true</virtual-cockpit>
+    <allow-toggle-cockpit archive="y">true</allow-toggle-cockpit>
+
+    <flaps>
+        <setting>0.00</setting> <!-- Cruise -->
+        <setting>0.10</setting> <!--  -->
+        <setting>0.20</setting> <!-- Climb -->
+        <setting>0.30</setting> <!--  -->
+        <setting>0.40</setting> <!--  -->
+        <setting>0.50</setting> <!--  -->
+        <setting>0.60</setting> <!--  -->
+        <setting>0.70</setting> <!--  -->
+        <setting>0.80</setting> <!--  -->
+        <setting>0.90</setting> <!--  -->
+        <setting>1.0</setting> <!-- Full -->
+    </flaps>
+
+    <weight n="0">
+        <name>Crew</name>
+        <weight-lb>180</weight-lb> 
+        <max-lb>400</max-lb>
+       <min-lb>180</min-lb>
+    </weight>
+
+    <weight n="1">
+        <name>Cargo</name>
+        <weight-lb>700</weight-lb> 
+        <max-lb>1500</max-lb>
+        <min-lb>0</min-lb>      
+    </weight>
+
+</sim>
+
+<engines>
+    <engine>
+        <rpm type="double">0</rpm>
+        <magnetos>0</magnetos>
+        <running>false</running>
+    </engine>
+</engines>
+
+<controls>
+    <lighting>
+        <instruments-norm>1.0</instruments-norm>
+    </lighting>
+    <fuel>
+        <switch-position type = "int">-1</switch-position>
+    </fuel>
+    <gear>
+        <brake-parking type="double">1.0</brake-parking>
+    </gear>
+</controls>
+
+<environment>
+    <turbulence>
+        <use-cloud-turbulence>true</use-cloud-turbulence>
+    </turbulence>
+</environment>
+
+<input>
+    <keyboard>
+        <key n="102">
+            <name>f</name>
+            <desc>fuel tank select</desc>
+            <binding>
+                <command>property-adjust</command>
+                <property>controls/fuel/switch-position</property>
+                <step>1</step>
+                <min>-1</min>
+                <max>3</max>
+                <wrap>1</wrap>
+            </binding>
+        </key>
+
+        <key n="33">
+            <name>!</name>
+            <desc>Toggle Battery Switch</desc>
+            <binding>
+                <command>property-toggle</command>
+                <property>/controls/electric/battery-switch</property>
+            </binding>
+            <binding>
+                <command>property-toggle</command>
+                <property>/sim/sound/switch</property>
+            </binding>
+        </key>
+
+        <key n="64">
+            <name>@</name>
+            <desc>Toggle Alternator Switch</desc>
+            <binding>
+                <command>property-toggle</command>
+                <property>/controls/electric/engine/generator</property>
+            </binding>
+            <binding>
+                <command>property-toggle</command>
+                <property>/sim/sound/switch</property>
+            </binding>
+        </key>
+
+        <key n="115">
+            <name>s</name>
+            <desc>Starter</desc>
+            <binding>
+                <command>nasal</command>
+                <script>dhc2.starter(1)</script>
+            </binding>
+            <mod-up>
+                <binding>
+                    <command>nasal</command>
+                    <script>dhc2.starter(0)</script>
+                </binding>
+            </mod-up>
+        </key>
+
+        <key n="35">
+            <name>#</name>
+            <desc>Toggle Fuel Pump</desc>
+            <binding>
+                <command>property-toggle</command>
+                <property>/controls/engines/engine/fuel-pump</property>
+            </binding>
+            <binding>
+                <command>property-toggle</command>
+                <property>/sim/sound/switch</property>
+            </binding>
+        </key>
+
+        <key n="36">
+            <name>$</name>
+            <desc>Toggle Carb Heat</desc>
+            <binding>
+                <command>property-toggle</command> 
+                <property>/controls/anti-ice/engine/carb-heat</property>
+            </binding>
+            <binding>
+                <command>property-toggle</command>
+                <property>/sim/sound/switch</property>
+            </binding>
+        </key>
+
+        <key n="37">
+            <name>%</name>
+            <desc>Toggle Landing Light</desc>
+            <binding>
+                <command>property-toggle</command>
+                <property>/controls/lighting/landing-lights[0]</property>
+            </binding>
+            <binding>
+                <command>property-toggle</command>
+                <property>/sim/sound/switch</property>
+            </binding>
+        </key>
+
+        <key n="94">
+            <name>^</name>
+            <desc>Toggle Nav Lights</desc>
+            <binding>
+                <command>property-toggle</command>
+                <property>/controls/lighting/nav-lights</property>
+            </binding>
+            <binding>
+                <command>property-toggle</command>
+                <property>/sim/sound/switch</property>
+            </binding>
+        </key>
+    </keyboard>
+</input>
+
+<nasal>
+    <dhc2>
+        <file>Aircraft/dhc2/Nasal/dhc2.nas</file>
+        <file>Aircraft/dhc2/Nasal/Electrical.nas</file>
+    </dhc2>
+</nasal>
+
+</PropertyList>
