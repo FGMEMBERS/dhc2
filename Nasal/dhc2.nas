@@ -14,6 +14,14 @@ var E_state = props.globals.getNode("/engines/engine",1);
 var E_control = props.globals.getNode("/controls/engines/engine",1);
 var floats = 0;
 
+var view_list =[];
+var view = props.globals.getNode("/sim").getChildren("view");
+    for(var i=0; i<size(view); i+=1){
+        append(view_list,"sim/view["~i~"]/config/default-field-of-view-deg");
+        }
+aircraft.data.add(view_list);
+
+
 var strobe_switch = props.globals.getNode("controls/lighting/strobe", 1);
 aircraft.light.new("/controls/lighting/strobe-state", [0.05, 1.30], strobe_switch);
 
@@ -44,6 +52,7 @@ setlistener("/sim/signals/reinit", func(rset) {
 
 setlistener("/sim/current-view/view-number", func(vw){
     ViewNum = vw.getValue();
+    setprop("sim/current-view/field-of-view",getprop("sim/view["~ViewNum~"]/config/default-field-of-view-deg"));
     if(ViewNum == 0){
         Cvolume.setValue(0.6);
         Ovolume.setValue(0.3);
