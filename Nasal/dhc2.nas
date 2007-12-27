@@ -14,13 +14,6 @@ var E_state = props.globals.getNode("/engines/engine",1);
 var E_control = props.globals.getNode("/controls/engines/engine",1);
 var floats = 0;
 
-var view_list =[];
-var Sview = props.globals.getNode("/sim").getChildren("view");
-foreach (v;Sview) {
-append(view_list,"sim/view["~v.getIndex()~"]/config/default-field-of-view-deg");
-}
-aircraft.data.add(view_list);
-
 
 var strobe_switch = props.globals.getNode("controls/lighting/strobe", 1);
 aircraft.light.new("/controls/lighting/strobe-state", [0.05, 1.30], strobe_switch);
