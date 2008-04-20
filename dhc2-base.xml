@@ -8,11 +8,24 @@
         <type>lookfrom</type>
         <internal type="bool">true</internal>
         <config>
-            <x-offset-m type="double">-0.33</x-offset-m>
-            <y-offset-m type="double">0.71</y-offset-m>
-            <z-offset-m type="double">-0.58</z-offset-m>
+            <x-offset-m type="double">-0.34</x-offset-m>
+            <y-offset-m type="double">0.67</y-offset-m>
+            <z-offset-m type="double">-0.64</z-offset-m>
             <pitch-offset-deg>-15</pitch-offset-deg>
             <default-field-of-view-deg type="double">60.0</default-field-of-view-deg>
+                <limits>
+                <enabled type="bool">true</enabled>
+                <left>
+                  <heading-max-deg type="double">130</heading-max-deg>
+                  <x-offset-max-m type="double">0.22</x-offset-max-m>
+                  <x-offset-threshold-deg type="double">75</x-offset-threshold-deg>
+                </left>
+                <right>
+                    <heading-max-deg type="double">140</heading-max-deg>
+                    <x-offset-max-m type="double">0.2</x-offset-max-m>
+                    <x-offset-threshold-deg type="double">75</x-offset-threshold-deg>
+                </right>
+            </limits>
         </config>
     </view>
 
@@ -83,6 +96,7 @@
     </fuel>
     <gear>
         <brake-parking type="double">1.0</brake-parking>
+        <gear-down type="bool">1.0</gear-down>
     </gear>
 </controls>
 

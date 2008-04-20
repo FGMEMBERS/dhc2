@@ -149,7 +149,6 @@ July 2004 Syd Adams
 
 <controls>
     <gear>
-        <water-rudder-down type="double">0</water-rudder-down>
         <water-rudder-pos type="double">0</water-rudder-pos>
     </gear>
     <winch>

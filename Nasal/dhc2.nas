@@ -14,12 +14,51 @@ var E_state = props.globals.getNode("/engines/engine",1);
 var E_control = props.globals.getNode("/controls/engines/engine",1);
 var floats = 0;
 
-
-var strobe_switch = props.globals.getNode("controls/lighting/strobe", 1);
-aircraft.light.new("/controls/lighting/strobe-state", [0.05, 1.30], strobe_switch);
-
-var beacon_switch = props.globals.getNode("controls/lighting/beacon", 1);
-aircraft.light.new("/controls/lighting/beacon-state", [1.0, 1.0], beacon_switch);
+#Engine sensors class 
+# ie: var Eng = Engine.new(engine number);
+var Engine = {
+    new : func(eng_num){
+        m = { parents : [Engine]};
+        m.fdensity = getprop("consumables/fuel/tank/density-ppg");
+        if(m.fdensity ==nil)m.fdensity=6.72;
+        m.air_temp = props.globals.getNode("environment/temperature-degc",1);
+        m.eng = props.globals.getNode("engines/engine["~eng_num~"]",1);
+        m.running = m.eng.getNode("running",1);
+        m.condition = props.globals.getNode("controls/engines/engine["~eng_num~"]/condition",1);
+        m.cutoff = props.globals.getNode("controls/engines/engine["~eng_num~"]/cutoff",1);
+        m.mixture = props.globals.getNode("controls/engines/engine["~eng_num~"]/mixture",1);
+        m.rpm = m.eng.getNode("n2",1);
+        m.fuel_pph=m.eng.getNode("fuel-flow_pph",1);
+        m.oil_temp=m.eng.getNode("oil-temp-c",1);
+        m.oil_temp.setDoubleValue(m.air_temp.getValue());
+        m.fuel_pph.setDoubleValue(0);
+        m.fuel_gph=m.eng.getNode("fuel-flow-gph",1);
+        m.hpump=props.globals.getNode("systems/hydraulics/pump-psi["~eng_num~"]",1);
+        m.hpump.setDoubleValue(0);
+    return m;
+    },
+#### update ####
+    update : func{
+        me.fuel_pph.setValue(me.fuel_gph.getValue()*me.fdensity);
+        var hpsi =me.rpm.getValue();
+        if(hpsi>60)hpsi = 60;
+        me.hpump.setValue(hpsi);
+        var OT= me.oil_temp.getValue();
+        var rpm = me.rpm.getValue();
+        if(OT < rpm)OT+=0.01;
+        if(OT > rpm)OT-=0.001;
+        me.oil_temp.setValue(OT);
+        },
+#### check fuel cutoff , copy mixture setting to condition for turboprop ####
+    condition_check :  func{
+        if(me.cutoff.getBoolValue()){
+            me.condition.setValue(0);
+            me.running.setBoolValue(0);
+        }else{
+            me.condition.setValue(me.mixture.getValue());
+        }
+    }
+};
 
 setlistener("/sim/signals/fdm-initialized", func {
     Cvolume.setValue(0.6);
@@ -30,10 +69,7 @@ setlistener("/sim/signals/fdm-initialized", func {
     setprop("/consumables/fuel/tank[1]/selected",0);
     setprop("/consumables/fuel/tank[2]/selected",0);
     setprop("/consumables/fuel/tank[0]/selected",0);
-    if(getprop("controls/gear/water-rudder-down") != nil){
-        floats=1;
-        setup_start();
-    }
+    setup_start();
     update();
 });
 
@@ -139,24 +175,31 @@ var fluids_update = func{
     setprop("/engines/engine/oil-pressure-psi",oil_psi);
 }
 
-var setup_start = func{
-    if(getprop("/sim/presets/start-in-water")!= 0){
-        if(getprop("/sim/presets/airport-id")=="KSFO"){
-            setprop("/sim/presets/heading-deg",110);
-            setprop("/sim/presets/latitude-deg",37.6158881);
-            setprop("/sim/presets/longitude-deg",-122.357962);
-            setprop("/position/latitude-deg",37.6158881);
-            setprop("/position/longitude-deg",-122.357962);
-        }
+var set_gear = func{
+    if(getprop("sim/aero")=="dhc2F"){
+        if(getprop("gear/gear[0]/ground-is-solid")){
+        setprop("controls/gear/gear-down",1);
+        setprop("/controls/gear/water-rudder-down",0);
+        }else{
+            setprop("controls/gear/gear-down",0);
+            setprop("/controls/gear/water-rudder-down",1);
+            }
     }
-    if(getprop("/gear/gear/ground-is-solid")){
-        setprop("/controls/gear/gear-down",1);
-        setprop("/controls/winch/place",0);
-        rud_prop.setValue(0);
-    }else{
-        setprop("/controls/gear/gear-down",0);
-        setprop("/controls/winch/place",1);
-        rud_prop.setValue(1);
+}
+
+
+var setup_start = func{
+    if(getprop("sim/aero")=="dhc2F"){
+        if(getprop("/sim/presets/start-in-water")){
+            if(getprop("/sim/presets/airport-id")=="KSFO"){
+                setprop("/sim/presets/heading-deg",110);
+                setprop("/sim/presets/latitude-deg",37.6158881);
+                setprop("/sim/presets/longitude-deg",-122.357962);
+                setprop("/position/latitude-deg",37.6158881);
+                setprop("/position/longitude-deg",-122.357962);
+                }
+            }
+        set_gear();
     }
 }
 
