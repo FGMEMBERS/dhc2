@@ -99,23 +99,26 @@ Alternator = {
     },
 
     get_output_volts : func {
-        if(me.switch.getValue()){
-        var factor = me.rpm_source.getValue() / me.rpm_threshold;
-        if ( factor > 1.0 )factor = 1.0;
-        var out = (me.ideal_volts * factor);
+        var out = 0;
+        if(me.switch.getBoolValue()){
+            var factor = me.rpm_source.getValue() / me.rpm_threshold;
+            if ( factor > 1.0 )factor = 1.0;
+            var out = (me.ideal_volts * factor);
+        }
         me.gen_output.setValue(out);
         return out;
-        }else return 0;
     },
 
     get_output_amps : func {
-        if(me.switch.getValue()){
-        var factor = me.rpm_source.getValue() / me.rpm_threshold;
-        if ( factor > 1.0 ) {
-            factor = 1.0;
+        var ampout =0;
+        if(me.switch.getBoolValue()){
+            var factor = me.rpm_source.getValue() / me.rpm_threshold;
+            if ( factor > 1.0 ) {
+                factor = 1.0;
             }
-        return (me.ideal_amps * factor);
-        }else return 0;
+            ampout = me.ideal_amps * factor;
+        }
+        return ampout;
     }
 };
 
