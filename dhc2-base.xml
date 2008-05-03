@@ -29,6 +29,13 @@
         </config>
     </view>
 
+    <airport>
+        <runways>
+            <start-offset-m>20</start-offset-m>
+        </runways>
+    </airport>
+
+
     <current-view>
         <field-of-view>60.0</field-of-view>
     </current-view>

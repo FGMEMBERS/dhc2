@@ -89,7 +89,7 @@
   <tank x="0" y="0" z="0" capacity="0"/>
   <tank x="0" y="0" z="0" capacity="0"/>
 
-  <ballast x="2.0" y="0.0" z="0.0" mass="300"/>
+  <ballast x="2.0" y="0.0" z="0.0" mass="500"/>
 
   <weight x="0.75" y="0.0" z="-0.5" mass-prop="/sim/weight[0]/weight-lb"/>
   <weight x="-1.0" y="0" z="-0.5" mass-prop="/sim/weight[1]/weight-lb"/>
