@@ -159,12 +159,12 @@
             <desc>Starter</desc>
             <binding>
                 <command>nasal</command>
-                <script>dhc2.starter(1)</script>
+                <script>dhc2.WaspJr.starter_engage(1)</script>
             </binding>
             <mod-up>
                 <binding>
                     <command>nasal</command>
-                    <script>dhc2.starter(0)</script>
+                    <script>dhc2.WaspJr.starter_engage(0)</script>
                 </binding>
             </mod-up>
         </key>
@@ -174,11 +174,11 @@
             <desc>Toggle Fuel Pump</desc>
             <binding>
                 <command>property-toggle</command>
-                <property>/controls/engines/engine/fuel-pump</property>
+                <property>controls/engines/engine/fuel-pump</property>
             </binding>
             <binding>
                 <command>property-toggle</command>
-                <property>/sim/sound/switch</property>
+                <property>sim/sound/switch</property>
             </binding>
         </key>
 

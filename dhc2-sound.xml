@@ -10,10 +10,9 @@
             <property>/engines/engine/cranking</property>
         </condition>
         <volume>
-            <property>/engines/engine/cranking</property>
-            <offset>0.5</offset>
+            <property>sim/sound/DHC2/Ovolume</property>
         </volume>
-        <position>
+    <position>
             <x>-2.0</x>
             <y>0</y>
             <z>0</z>
@@ -33,6 +32,9 @@
             <property>/controls/engines/engine/throttle</property>
             <min>0.5</min>
             <max>1.00</max>
+        </volume>
+        <volume>
+            <property>/sim/sound/DHC2/Ovolume</property>
         </volume>
         <pitch>
             <property>/engines/engine/rpm</property>
@@ -177,7 +179,7 @@
             <factor>-0.000015</factor>
             <offset>1.0</offset>
             <min>0.1</min>
-            <max>1.0</max>
+            <max>0.5</max>
         </volume>
         <volume>
             <property>velocities/airspeed-kt</property>
@@ -295,6 +297,28 @@
         <reference-dist>2.0</reference-dist>
         <max-dist>4.0</max-dist>
     </switch>
+
+    <pump>
+        <name>fuel pump</name>
+        <mode>looped</mode>
+        <path>Aircraft/dhc2/Sound/fuelpump.wav</path>
+        <condition>
+            <greater-than>
+                <property>systems/electrical/outputs/fuel-pump</property>
+                <value>5</value>
+            </greater-than>
+        </condition>
+        <volume>
+            <offset>0.5</offset>
+        </volume>
+        <position>
+            <x>-0.5</x>
+            <y>0</y>
+            <z>0</z>
+        </position>
+        <reference-dist>1.0</reference-dist>
+        <max-dist>2.0</max-dist>
+    </pump>
 
 </fx>
 
