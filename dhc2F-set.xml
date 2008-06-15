@@ -18,12 +18,6 @@ July 2004 Syd Adams
         <splash-texture>Aircraft/dhc2/dhc-2splash.rgb</splash-texture>
     </startup>
 
-<!-- this is to start offshore at KSFO / set to false for runway start -->
-
-    <presets>
-        <start-in-water type="bool">true</start-in-water> 
-    </presets>
-
     <model>
         <path>Aircraft/dhc2/Models/dhc2floats.xml</path>
         <variant type="int">0</variant>
@@ -141,6 +135,13 @@ July 2004 Syd Adams
                 <value type="bool">true</value>
             </binding>
                 </item>
+                <item>
+                    <label>Water rudder toggle</label>
+                    <binding>
+                <command>nasal</command>
+                <script>dhc2.water_rudder()</script>
+            </binding>
+                </item>
             </menu>
         </default>
     </menubar>
@@ -150,6 +151,7 @@ July 2004 Syd Adams
 <controls>
     <gear>
         <water-rudder-pos type="double">0</water-rudder-pos>
+        <water-rudder-down type="double">0</water-rudder-down>
     </gear>
     <winch>
         <place type="bool">false</place>
