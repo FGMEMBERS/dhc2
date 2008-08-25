@@ -19,7 +19,15 @@ July 2004 Syd Adams
 
      <model>
         <path>Aircraft/dhc2/Models/dhc2wheels.xml</path>
-        <variant type="int">0</variant>
+    <model>
+        <path>Aircraft/dhc2/Models/dhc2floats.xml</path>
+            <livery>
+                <file type="string">TPA</file>
+            </livery>
+            <cabin>
+                <file type="string">BA</file>
+            </cabin>
+    </model>
     </model>
 
      <help>
@@ -103,13 +111,6 @@ should fix this somehow-->
                 <label>Beaver</label>
                 <enabled type="bool">true</enabled>
                 <item>
-                    <label>Autostart</label>
-                    <binding>
-                        <command>property-toggle</command>
-                        <property>sim/model/start-idling</property>
-                    </binding>
-                </item>
-                <item>
                     <label>Open tow-hook</label>
                     <binding>
                         <command>property-assign</command>
@@ -125,6 +126,20 @@ should fix this somehow-->
                         <value type="bool">false</value>
                     </binding>
                 </item>
+                <item>
+                    <label>Show/Hide Yokes</label>
+                    <binding>
+                        <command>property-toggle</command>
+                        <property>sim/yokes-visible</property>
+                    </binding>
+                </item>
+                    <item>
+                        <label>Select Livery</label>
+                        <binding>
+                            <command>nasal</command>
+                            <script>aircraft.livery.dialog.toggle()</script>
+                        </binding>
+                    </item>
             </menu>
         </default>
     </menubar>

@@ -1,3 +1,4 @@
+aircraft.livery.init("Aircraft/dhc2/Models/Liveries");
 var pump_on = 0;
 var ViewNum = 0;
 var Cvolume=props.globals.getNode("/sim/sound/DHC2/Cvolume",1);

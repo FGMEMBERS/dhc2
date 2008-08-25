@@ -4,56 +4,66 @@
 
 <path>dhc2F.ac</path>
 
-    <panel>
-        <path>Aircraft/dhc2/Panel/dhc2-panel.xml</path>
-        <bottom-left>
-            <x-m>-1.251</x-m>
-            <y-m>-0.600</y-m>
-            <z-m>0.026</z-m>
-        </bottom-left>
-        <bottom-right>
-            <x-m>-1.251</x-m>
-            <y-m>0.598</y-m>
-            <z-m>0.026</z-m>
-        </bottom-right>
-        <top-left>
-            <x-m>-1.300</x-m>
-            <y-m>-0.600</y-m>
-            <z-m>0.912</z-m>
-        </top-left>
-    </panel>
+    <nasal>
+        <load>
+            var livery_update = aircraft.livery_update.new("Aircraft/dhc2/Models/Liveries", 10);
+        </load>
 
-   <animation>
-        <type>shader</type>
-        <shader>chrome</shader>
-        <texture>Aircraft/dhc2/Models/chrome1.rgb</texture>
-        <object-name>LHFdoor.glass</object-name>
-        <object-name>RHFdoor.glass</object-name>
-        <object-name>RRglass</object-name>
-        <object-name>LRglass</object-name>
-        <object-name>Glass</object-name>
+        <unload>
+            livery_update.stop();
+        </unload>
+    </nasal>
+
+    <animation>
+        <type>material</type>
+        <object-name>Fuselage</object-name>
+        <object-name>Cowling</object-name>
+        <object-name>Cowling.001</object-name>
+        <object-name>Rudder</object-name>
+        <object-name>Elevator</object-name>
+        <object-name>RHaileron</object-name>
+        <object-name>LHaileron</object-name>
+        <object-name>RHflap</object-name>
+        <object-name>LHflap</object-name>
+        <object-name>Wings</object-name>
+        <object-name>LHFdoor</object-name>
+        <object-name>RHFdoor</object-name>
+        <object-name>Reardoor</object-name>
+        <object-name>Floats</object-name>
+        <object-name>LHrudder</object-name>
+        <object-name>RHrudder</object-name>
+        <property-base>sim/model/livery</property-base>
+        <texture-prop>texture</texture-prop>
+        <texture>paint1.png</texture>
     </animation>
 
     <animation>
-        <type>shader</type>
-        <shader>chrome</shader>
-        <texture>Aircraft/dhc2/Models/chrome.rgb</texture>
-        <object-name>Spinner</object-name>
-        <object-name>Ant</object-name>
-    </animation>
-
-    <animation>
-        <type>shader</type>
-        <shader>chrome</shader>
-        <texture>Aircraft/dhc2/Models/chrome.rgb</texture>
-        <object-name>Throttle.001</object-name>
-        <object-name>PropPitch.001</object-name>
-        <object-name>Mixture.001</object-name>
+        <type>material</type>
+        <object-name>LHFdoor.inner</object-name>
+        <object-name>RHFdoor.inner</object-name>
+        <object-name>Reardoor.inner</object-name>
+        <object-name>Cabin</object-name>
+        <object-name>Yoke</object-name>
+        <object-name>Yoke1</object-name>
+        <object-name>Yoke2</object-name>
+        <object-name>Seats</object-name>
+        <object-name>Panel</object-name>
+        <object-name>BattSwitch</object-name>
+        <object-name>StarterSwitch</object-name>
+<object-name>AltSwitch</object-name>
+<object-name>PumpSwitch</object-name>
+<object-name>PitotSwitch</object-name>
+<object-name>Instr-Switch</object-name>
+<object-name>L_lightSwitch</object-name>
+<object-name>N_lightSwitch</object-name>
+        <property-base>sim/model/cabin</property-base>
+        <texture-prop>texture</texture-prop>
+        <texture>cabin.png</texture>
     </animation>
 
     <model>
         <name>Airspeed MPH</name>
-        <path>Aircraft/dhc2/Instruments/asi.xml</path>
+        <path>Aircraft/dhc2/Models/Instruments/asi.xml</path>
         <offsets>
             <x-m>-1.278</x-m>
             <y-m>-0.406</y-m>
@@ -64,7 +74,7 @@
 
     <model>
         <name>Vacuum Gauge</name>
-        <path>Aircraft/dhc2/Instruments/vacuum.xml</path>
+        <path>Aircraft/dhc2/Models/Instruments/vacuum.xml</path>
         <offsets>
             <x-m>-1.277</x-m>
             <y-m>-0.517</y-m>
@@ -75,7 +85,7 @@
 
     <model>
         <name>Atitude Indicator</name>
-        <path>Aircraft/dhc2/Instruments/ai-gauge.xml</path>
+        <path>Aircraft/dhc2/Models/Instruments/ai-gauge.xml</path>
         <offsets>
             <x-m>-1.279</x-m>
             <y-m>-0.295</y-m>
@@ -86,7 +96,7 @@
 
     <model>
         <name>Vertical Speed</name>
-        <path>Aircraft/dhc2/Instruments/vsi-gauge.xml</path>
+        <path>Aircraft/dhc2/Models/Instruments/vsi-gauge.xml</path>
         <offsets>
             <x-m>-1.274</x-m>
             <y-m>-0.184</y-m>
@@ -97,7 +107,7 @@
 
     <model>
         <name>Fuel Gauge</name>
-        <path>Aircraft/dhc2/Instruments/fuel-gauge.xml</path>
+        <path>Aircraft/dhc2/Models/Instruments/fuel-gauge.xml</path>
         <offsets>
             <x-m>-1.274</x-m>
             <y-m>-0.517</y-m>
@@ -108,7 +118,7 @@
 
     <model>
         <name>Heading Gauge</name>
-        <path>Aircraft/dhc2/Instruments/hdg-gauge.xml</path>
+        <path>Aircraft/dhc2/Models/Instruments/rmi.xml</path>
         <offsets>
             <x-m>-1.274</x-m>
             <y-m>-0.406</y-m>
@@ -119,7 +129,7 @@
 
     <model>
         <name>Turn Gauge</name>
-        <path>Aircraft/dhc2/Instruments/turn-gauge.xml</path>
+        <path>Aircraft/dhc2/Models/Instruments/turn-gauge.xml</path>
         <offsets>
             <x-m>-1.274</x-m>
             <y-m>-0.294</y-m>
@@ -130,7 +140,7 @@
 
     <model>
         <name>Fuel Select</name>
-        <path>Aircraft/dhc2/Instruments/fuel-select.xml</path>
+        <path>Aircraft/dhc2/Models/Instruments/fuel-select.xml</path>
         <offsets>
             <x-m>-1.270</x-m>
             <y-m>-0.521</y-m>
@@ -141,7 +151,7 @@
 
     <model>
         <name>Magneto switch</name>
-        <path>Aircraft/dhc2/Instruments/magnetos.xml</path>
+        <path>Aircraft/dhc2/Models/Instruments/magnetos.xml</path>
         <offsets>
             <x-m>-1.270</x-m>
             <y-m>-0.421</y-m>
@@ -152,7 +162,7 @@
 
     <model>
         <name>Altimeter</name>
-        <path>Aircraft/dhc2/Instruments/altimeter.xml</path>
+        <path>Aircraft/dhc2/Models/Instruments/altimeter.xml</path>
         <offsets>
             <x-m>-1.278</x-m>
             <y-m>-0.184</y-m>
@@ -163,7 +173,7 @@
 
     <model>
         <name>Manifold Pressure</name>
-        <path>Aircraft/dhc2/Instruments/man-gauge.xml</path>
+        <path>Aircraft/dhc2/Models/Instruments/man-gauge.xml</path>
         <offsets>
             <x-m>-1.352</x-m>
             <y-m>-0.05</y-m>
@@ -174,7 +184,7 @@
 
     <model>
         <name>RPM</name>
-        <path>Aircraft/dhc2/Instruments/rpm-gauge.xml</path>
+        <path>Aircraft/dhc2/Models/Instruments/rpm-gauge.xml</path>
         <offsets>
             <x-m>-1.352</x-m>
             <y-m>0.05</y-m>
@@ -185,7 +195,7 @@
 
     <model>
         <name>OILTEMP</name>
-        <path>Aircraft/dhc2/Instruments/oiltemp-gauge.xml</path>
+        <path>Aircraft/dhc2/Models/Instruments/oiltemp-gauge.xml</path>
         <offsets>
             <x-m>-1.264</x-m>
             <y-m>-0.048</y-m>
@@ -196,7 +206,7 @@
 
     <model>
         <name>CLOCK</name>
-        <path>Aircraft/dhc2/Instruments/clock.xml</path>
+        <path>Aircraft/dhc2/Models/Instruments/clock.xml</path>
         <offsets>
             <x-m>-1.264</x-m>
             <y-m>0.052</y-m>
@@ -207,7 +217,7 @@
 
     <model>
         <name>CARBTEMP</name>
-        <path>Aircraft/dhc2/Instruments/carbtemp.xml</path>
+        <path>Aircraft/dhc2/Models/Instruments/carbtemp.xml</path>
         <offsets>
             <x-m>-1.264</x-m>
             <y-m>0.052</y-m>
@@ -218,7 +228,7 @@
 
     <model>
         <name>AMMETER</name>
-        <path>Aircraft/dhc2/Instruments/ammeter.xml</path>
+        <path>Aircraft/dhc2/Models/Instruments/ammeter.xml</path>
         <offsets>
             <x-m>-1.264</x-m>
             <y-m>-0.048</y-m>
@@ -226,6 +236,51 @@
             <pitch-deg>0</pitch-deg>
         </offsets>
     </model>
+
+    <model>
+        <name>WTR gear</name>
+        <path>Aircraft/dhc2/Models/Instruments/gear-ctl.xml</path>
+        <offsets>
+            <x-m>-1.273</x-m>
+            <y-m>-0.177</y-m>
+            <z-m>0.124</z-m>
+            <pitch-deg>-3</pitch-deg>
+        </offsets>
+    </model>
+
+    <model>
+        <name>Comm</name>
+        <path>Aircraft/dhc2/Models/Instruments/ky196-comm1.xml</path>
+        <offsets>
+            <x-m>-1.244</x-m>
+            <y-m>0.319</y-m>
+            <z-m>0.350</z-m>
+            <pitch-deg>0</pitch-deg>
+        </offsets>
+    </model>
+
+    <model>
+        <name>Nav</name>
+        <path>Aircraft/dhc2/Models/Instruments/kn53-nav1.xml</path>
+        <offsets>
+            <x-m>-1.244</x-m>
+            <y-m>0.319</y-m>
+            <z-m>0.315</z-m>
+            <pitch-deg>0</pitch-deg>
+        </offsets>
+    </model>
+
+    <model>
+        <name>ADF</name>
+        <path>Aircraft/dhc2/Models/Instruments/kr87.xml</path>
+        <offsets>
+            <x-m>-1.244</x-m>
+            <y-m>0.319</y-m>
+            <z-m>0.280</z-m>
+            <pitch-deg>0</pitch-deg>
+        </offsets>
+    </model>
+
 
     <model>
         <name>Pilot</name>
@@ -269,6 +324,36 @@
             <blue>0.0</blue>
             <factor-prop>/controls/lighting/beacon-state/state</factor-prop>
         </emission>
+    </animation>
+
+   <animation>
+        <type>shader</type>
+        <shader>chrome</shader>
+        <texture>Aircraft/dhc2/Models/chrome1.png</texture>
+        <object-name>LHFdoor.glass</object-name>
+        <object-name>RHFdoor.glass</object-name>
+        <object-name>RRglass</object-name>
+        <object-name>LRglass</object-name>
+        <object-name>Glass</object-name>
+    </animation>
+
+    <animation>
+        <type>shader</type>
+        <shader>chrome</shader>
+        <texture>Aircraft/dhc2/Models/chrome.png</texture>
+        <object-name>Throttle.001</object-name>
+        <object-name>PropPitch.001</object-name>
+        <object-name>Mixture.001</object-name>
+    </animation>
+
+    <animation>
+        <type>select</type>
+        <object-name>Yoke</object-name> 
+        <object-name>Yoke1</object-name>
+        <object-name>Yoke2</object-name>
+        <condition>
+            <property>sim/yokes-visible</property>
+        </condition>
     </animation>
 
     <animation>
@@ -358,6 +443,22 @@
                 <value>501</value>
             </less-than>
         </condition>
+    </animation>
+
+    <animation>
+        <type>spin</type>
+        <object-name>Spinner</object-name>
+        <property>engines/engine/rpm</property>
+        <center>
+            <x-m>2.623</x-m>
+            <y-m>0.0</y-m>
+            <z-m>-0.083</z-m>
+        </center>
+        <axis>
+            <x>-1.0</x>
+            <y>0.0</y>
+            <z>0.0</z>
+        </axis>
     </animation>
 
     <animation>
@@ -496,6 +597,83 @@
     </animation>
 
     <animation>
+        <type>translate</type>
+        <object-name>RHpedal</object-name>
+        <property>controls/flight/rudder</property>
+        <factor>0.025</factor>
+        <axis>
+            <x>-1</x>
+            <y>0</y>
+            <z>0</z>
+        </axis>
+    </animation>
+
+    <animation>
+        <type>translate</type>
+        <object-name>LHpedal</object-name>
+        <property>controls/flight/rudder</property>
+        <factor>0.025</factor>
+        <axis>
+            <x>1</x>
+            <y>0</y>
+            <z>0</z>
+        </axis>
+    </animation>
+
+    <animation>
+        <type>rotate</type>
+        <object-name>Yoke</object-name>
+        <object-name>Yoke1</object-name>
+        <object-name>Yoke2</object-name>
+        <property>controls/flight/elevator</property>
+        <factor>5.0</factor>
+        <center>
+            <x-m>-1.122</x-m>
+            <y-m>0</y-m>
+            <z-m>-0.448</z-m>
+        </center>
+        <axis>
+            <x>0</x>
+            <y>-1</y>
+            <z>0</z>
+        </axis>
+    </animation>
+
+    <animation>
+        <type>rotate</type>
+        <object-name>Yoke1</object-name>
+        <property>controls/flight/aileron</property>
+        <factor>40.0</factor>
+        <center>
+            <x-m>-1.102</x-m>
+            <y-m>-0.351</y-m>
+            <z-m>0.194</z-m>
+        </center>
+        <axis>
+            <x>-1</x>
+            <y>0</y>
+            <z>0</z>
+        </axis>
+    </animation>
+
+    <animation>
+        <type>rotate</type>
+        <object-name>Yoke2</object-name>
+        <property>controls/flight/aileron</property>
+        <factor>40.0</factor>
+        <center>
+            <x-m>-1.141</x-m>
+            <y-m>0.327</y-m>
+            <z-m>0.195</z-m>
+        </center>
+        <axis>
+            <x>-1</x>
+            <y>0</y>
+            <z>0</z>
+        </axis>
+    </animation>
+
+    <animation>
         <type>select</type>
         <object-name>LndLight</object-name>
         <condition>
@@ -505,6 +683,81 @@
             </greater-than>
         </condition>
     </animation>
+
+    <animation>
+        <type>rotate</type>
+        <object-name>RHrope</object-name>
+        <property>velocities/airspeed-kt</property>
+        <interpolation>
+            <entry><ind>0</ind><dep>0</dep></entry>
+            <entry><ind>100</ind><dep>80</dep></entry>
+        </interpolation>
+        <center>
+            <x-m>-0.212</x-m>
+            <y-m>3.510</y-m>
+            <z-m>1.003</z-m>
+        </center>
+        <axis>
+            <x>0.0</x>
+            <y>-1.0</y>
+            <z>0.0</z>
+        </axis>
+    </animation>
+
+    <animation>
+        <type>spin</type>
+        <object-name>RHrope</object-name>
+        <property>velocities/airspeed-kt</property>
+        <factor>3.0</factor>
+        <center>
+            <x-m>-0.212</x-m>
+            <y-m>3.510</y-m>
+            <z-m>1.003</z-m>
+        </center>
+        <axis>
+            <x>0.0</x>
+            <y>0.0</y>
+            <z>1.0</z>
+        </axis>
+    </animation>
+
+    <animation>
+        <type>rotate</type>
+        <object-name>LHrope</object-name>
+        <property>velocities/airspeed-kt</property>
+        <interpolation>
+            <entry><ind>0</ind><dep>0</dep></entry>
+            <entry><ind>100</ind><dep>80</dep></entry>
+        </interpolation>
+        <center>
+            <x-m>-0.212</x-m>
+            <y-m>-3.510</y-m>
+            <z-m>1.003</z-m>
+        </center>
+        <axis>
+            <x>0.0</x>
+            <y>-1.0</y>
+            <z>0.0</z>
+        </axis>
+    </animation>
+
+    <animation>
+        <type>spin</type>
+        <object-name>LHrope</object-name>
+        <property>velocities/airspeed-kt</property>
+        <factor>3.0</factor>
+        <center>
+            <x-m>-0.212</x-m>
+            <y-m>-3.510</y-m>
+            <z-m>1.003</z-m>
+        </center>
+        <axis>
+            <x>0.0</x>
+            <y>0.0</y>
+            <z>1.0</z>
+        </axis>
+    </animation>
+
 
 <!--    INSTRUMENTS    -->
 
@@ -746,6 +999,9 @@
 
     <animation>
         <type>rotate</type>
+        <condition>
+            <property>controls/gear/gear-down</property>
+        </condition>
         <object-name>Ldamper</object-name>
         <object-name>LFwheel</object-name>
         <property>gear/gear[4]/compression-m</property>
@@ -783,7 +1039,30 @@
     </animation>
 
     <animation>
+        <type>translate</type>
+        <object-name>Lstrut.002</object-name>
+        <property>gear/gear[4]/position-norm</property>
+        <interpolation>
+            <entry><ind>0.0</ind><dep>0.115</dep></entry>
+            <entry><ind>1.0</ind><dep>0.0</dep></entry>
+        </interpolation>
+        <center>
+            <x-m>-3.553</x-m>
+            <y-m>1.430</y-m>
+            <z-m>-1.901</z-m>
+        </center>
+        <axis>
+            <x>0.342</x>
+            <y>0</y>
+            <z>0.940</z>
+        </axis>
+    </animation>
+
+    <animation>
         <type>rotate</type>
+        <condition>
+            <property>controls/gear/gear-down</property>
+        </condition>
         <object-name>Rdamper</object-name>
         <object-name>RFwheel</object-name>
         <property>gear/gear[5]/compression-m</property>
@@ -822,6 +1101,26 @@
 
     <animation>
         <type>translate</type>
+        <object-name>Rstrut.002</object-name>
+        <property>gear/gear[5]/position-norm</property>
+        <interpolation>
+            <entry><ind>0.0</ind><dep>0.115</dep></entry>
+            <entry><ind>1.0</ind><dep>0.0</dep></entry>
+        </interpolation>
+        <center>
+            <x-m>-3.553</x-m>
+            <y-m>-1.430</y-m>
+            <z-m>-1.901</z-m>
+        </center>
+        <axis>
+            <x>0.342</x>
+            <y>0</y>
+            <z>0.940</z>
+        </axis>
+    </animation>
+
+    <animation>
+        <type>translate</type>
         <object-name>LRwheel</object-name>
         <property>gear/gear[6]/position-norm</property>
         <interpolation>
@@ -842,6 +1141,9 @@
 
     <animation>
         <type>translate</type>
+        <condition>
+            <property>controls/gear/gear-down</property>
+        </condition>
         <object-name>LRwheel</object-name>
         <property>gear/gear[6]/compression-m</property>
         <factor>1.0</factor>
@@ -879,6 +1181,9 @@
 
     <animation>
         <type>translate</type>
+        <condition>
+            <property>controls/gear/gear-down</property>
+        </condition>
         <object-name>RRwheel</object-name>
         <property>gear/gear[7]/compression-m</property>
         <factor>1.0</factor>
@@ -962,6 +1267,153 @@
             <y>1</y>
             <z>0</z>
         </axis>
+    </animation>
+
+<!-- OSG hotspots-->
+<!-- Switches -->
+
+    <animation>
+        <type>pick</type>
+        <object-name>BattSwitch</object-name>
+        <action>
+            <button>0</button>
+            <repeatable>false</repeatable>
+            <binding>
+                <command>property-toggle</command>
+                <property>/controls/electric/battery-switch</property>
+            </binding>
+            <binding>
+                <command>property-toggle</command>
+                <property>/sim/sound/switch</property>
+            </binding>
+        </action>
+    </animation>
+
+    <animation>
+        <type>pick</type>
+        <object-name>StarterSwitch</object-name>
+        <action>
+            <button>0</button>
+            <repeatable>false</repeatable>
+        <binding>
+            <command>property-assign</command>
+            <property>controls/engines/engine/starter</property>
+            <value>1</value>
+        </binding>
+        <mod-up>
+            <binding>
+                <command>property-assign</command>
+                <property>controls/engines/engine/starter</property>
+                <value>0</value>
+            </binding>
+        </mod-up>
+        </action>
+    </animation>
+
+    <animation>
+        <type>pick</type>
+        <object-name>AltSwitch</object-name>
+        <action>
+            <button>0</button>
+            <repeatable>false</repeatable>
+            <binding>
+                <command>property-toggle</command>
+                <property>/controls/electric/engine/generator</property>
+            </binding>
+            <binding>
+                <command>property-toggle</command>
+                <property>/sim/sound/switch</property>
+            </binding>
+        </action>
+    </animation>
+
+    <animation>
+        <type>pick</type>
+        <object-name>PumpSwitch</object-name>
+        <action>
+            <button>0</button>
+            <repeatable>false</repeatable>
+            <binding>
+                <command>property-toggle</command>
+                <property>/controls/engines/engine/fuel-pump</property>
+            </binding>
+            <binding>
+                <command>property-toggle</command>
+                <property>/sim/sound/switch</property>
+            </binding>
+        </action>
+    </animation>
+
+    <animation>
+        <type>pick</type>
+        <object-name>PitotSwitch</object-name>
+        <action>
+            <button>0</button>
+            <repeatable>false</repeatable>
+            <binding>
+                <command>property-toggle</command> 
+                <property>/controls/anti-ice/engine/carb-heat</property>
+            </binding>
+            <binding>
+                <command>property-toggle</command>
+                <property>/sim/sound/switch</property>
+                </binding>
+        </action>
+    </animation>
+
+    <animation>
+        <type>pick</type>
+        <object-name>Instr-Switch</object-name>
+        <action>
+            <button>0</button>
+            <repeatable>false</repeatable>
+            <binding>
+                <command>property-toggle</command>
+                <property>/controls/lighting/instrument-lights</property>
+            </binding>
+            <binding>
+                <command>property-toggle</command>
+                <property>/sim/sound/switch</property>
+            </binding>
+        </action>
+    </animation>
+
+    <animation>
+        <type>pick</type>
+        <object-name>L_lightSwitch</object-name>
+        <action>
+            <button>0</button>
+            <repeatable>false</repeatable>
+            <binding>
+                <command>property-toggle</command>
+                <property>/controls/lighting/landing-lights[0]</property>
+            </binding>
+            <binding>
+                <command>property-toggle</command>
+                <property>/sim/sound/switch</property>
+            </binding>
+        </action>
+    </animation>
+
+    <animation>
+        <type>pick</type>
+        <object-name>N_lightSwitch</object-name>
+        <action>
+            <button>0</button>
+            <repeatable>false</repeatable>
+            <binding>
+                <command>property-toggle</command>
+                <property>/controls/lighting/nav-lights</property>
+            </binding>
+            <binding>
+                <command>property-toggle</command>
+                <property>/controls/lighting/beacon</property>
+            </binding>
+            <binding>
+                <command>property-toggle</command>
+                <property>/sim/sound/switch</property>
+            </binding>
+        </action>
     </animation>
 
 </PropertyList>

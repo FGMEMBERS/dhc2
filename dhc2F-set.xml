@@ -20,7 +20,12 @@ July 2004 Syd Adams
 
     <model>
         <path>Aircraft/dhc2/Models/dhc2floats.xml</path>
-        <variant type="int">0</variant>
+            <livery>
+                <file type="string">TPA</file>
+            </livery>
+            <cabin>
+                <file type="string">BA</file>
+            </cabin>
     </model>
 
     <hitches>
@@ -102,23 +107,11 @@ July 2004 Syd Adams
         <line>  engage alternator switch</line>
     </help>
 
-    <submodels>
-        <serviceable type="bool">true</serviceable>
-        <path>Aircraft/dhc2/Models/submodels.xml</path>
-    </submodels>
-
     <menubar>
         <default>
             <menu n="10">
                 <label>Beaver</label>
                 <enabled type="bool">true</enabled>
-                <item>
-                    <label>Autostart</label>
-                    <binding>
-                        <command>property-toggle</command>
-                        <property>sim/model/start-idling</property>
-                    </binding>
-                </item>
                 <item>
                     <label>Tie Up</label>
                     <binding>
@@ -142,6 +135,20 @@ July 2004 Syd Adams
                 <script>dhc2.water_rudder()</script>
             </binding>
                 </item>
+                <item>
+                    <label>Show/Hide Yokes</label>
+                    <binding>
+                        <command>property-toggle</command>
+                        <property>sim/yokes-visible</property>
+                    </binding>
+                </item>
+                    <item>
+                        <label>Select Livery</label>
+                        <binding>
+                            <command>nasal</command>
+                            <script>aircraft.livery.dialog.toggle()</script>
+                        </binding>
+                    </item>
             </menu>
         </default>
     </menubar>

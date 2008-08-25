@@ -37,12 +37,12 @@ DATUM : +0.345
     <control-output prop="/surface-positions/flap-pos-norm" control="FLAP0"/>
     <control-output prop="/surface-positions/left-aileron-pos-norm" side="left" control="FLAP1"/>
     <control-output prop="/surface-positions/right-aileron-pos-norm" side="right" control="FLAP1"/>
-    <control-speed transition-time="8" control="FLAP0"/>
+    <control-speed transition-time="15" control="FLAP0"/>
   </wing>
 
   <hstab x="-6.0" y="0.2" z="0.2"  chord="1.2" effectiveness="1.6" taper=".7" length="2.5">
     <stall width="4" aoa="16" peak="1.5"/>
-    <flap0 drag="1.2" end="1" lift="1.5" start="0"/>
+    <flap0 drag="1.2" end="1" lift="1.4" start="0"/>
     <control-input control="FLAP0" axis="/controls/flight/elevator"/>
     <control-input control="FLAP0" axis="/controls/flight/elevator-trim"/>
     <control-output prop="/surface-positions/elevator-pos-norm" control="FLAP0"/>
@@ -51,7 +51,7 @@ DATUM : +0.345
   <vstab x="-5.5" y="0" z="0.2" sweep="15"  chord="3.0" taper=".2"
  effectiveness="2"  length="2.0">
     <stall width="3" aoa="14" peak="1.5"/>
-    <flap0 drag="1.2" end="1" lift="1.6" start="0"/>
+    <flap0 drag="1.2" end="1" lift="1.4" start="0"/>
     <control-input control="FLAP0" axis="/controls/flight/rudder" invert="true"/>
     <control-input control="FLAP0" axis="/controls/flight/rudder-trim" invert="true"/>
     <control-output prop="/surface-positions/rudder-pos-norm" control="FLAP0" min="1" max="-1"/>
