@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+<sim>
+    <model>
+        <livery>
+            <name type="string">Norcanair</name>
+            <texture>paint3.png</texture>
+        </livery>
+        <cabin>
+            <texture>cabin.png</texture>
+        </cabin>
+    </model>
+</sim>
+</PropertyList>
