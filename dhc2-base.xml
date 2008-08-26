@@ -49,6 +49,10 @@
         <path>Aircraft/dhc2/Sound/dhc2-sound.xml</path>
     </sound>
 
+        <instrumentation>
+            <path>Aircraft/dhc2/instrumentation.xml</path>
+        </instrumentation>
+
     <hud>
         <enable3d>false</enable3d>
     </hud>
