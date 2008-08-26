@@ -165,15 +165,6 @@ July 2004 Syd Adams
     </winch>
 </controls>
 
-<gear>
-    <gear n="2">
-        <wake type="bool">false</wake>
-    </gear>
-    <gear n="3">
-        <wake type="bool">false</wake>
-    </gear>
-</gear>
-
 <input>
     <keyboard>
         <key n="108">

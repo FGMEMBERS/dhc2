@@ -371,6 +371,39 @@
 
     <animation>
         <type>select</type>
+        <object-name>LndLight</object-name>
+        <object-name>LndLight1</object-name>
+        <condition>
+            <greater-than>
+                <property>systems/electrical/outputs/landing-lights</property>
+                <value>5</value>
+            </greater-than>
+        </condition>
+    </animation>
+
+    <animation>
+        <type>flash</type>
+        <object-name>LndLight1</object-name>
+        <center>
+            <x-m>-0.811</x-m>
+            <y-m>-3.689</y-m>
+            <z-m>1.094</z-m>
+        </center>
+        <axis>
+            <x>-1</x>
+            <y>0</y>
+            <z>0</z>
+        </axis>
+        <power>2</power>
+        <factor>2</factor>
+        <offset>0</offset>
+        <two-sides type="bool">false</two-sides>
+        <min>0.5</min>
+        <max>1</max>
+    </animation>
+
+    <animation>
+        <type>select</type>
         <object-name>Fastprop</object-name>
         <condition>
             <and>

@@ -9,8 +9,7 @@ var Amps = props.globals.getNode("/systems/electrical/amps",1);
 var EXT  = props.globals.getNode("/controls/electric/external-power",1); 
 var switch_list=[];
 var output_list=[];
-var serv_list=[];
-var servout_list=[];
+var watt_list=[];
 
 strobe_switch = props.globals.getNode("controls/lighting/strobe", 1);
 aircraft.light.new("controls/lighting/strobe-state", [0.05, 1.30], strobe_switch);
@@ -137,72 +136,98 @@ setlistener("/sim/signals/fdm-initialized", func {
 init_switches = func() {
     var tprop=props.globals.getNode("controls/electric/ammeter-switch",1);
     tprop.setBoolValue(1);
-    tprop=props.globals.getNode("controls/cabin/fan",1);
-    tprop.setBoolValue(0);
-    tprop=props.globals.getNode("controls/cabin/heat",1);
-    tprop.setBoolValue(0);
-    tprop=props.globals.getNode("controls/electric/external-power",1);
+    tprop=props.globals.getNode("controls/lighting/instrument-lights",1);
     tprop.setBoolValue(0);
 
-    setprop("controls/lighting/instruments-norm",0.8);
-    setprop("controls/lighting/engines-norm",0.8);
-    setprop("controls/lighting/efis-norm",0.8);
-    setprop("controls/lighting/panel-norm",0.8);
+    setprop("controls/lighting/instrument-lights-norm",0.8);
 
-    append(switch_list,"controls/anti-ice/prop-heat");
-    append(output_list,"prop-heat");
+    append(switch_list,"controls/engines/engine/starter");
+    append(output_list,"starter");
+    append(watt_list,10.0);
+
     append(switch_list,"controls/anti-ice/pitot-heat");
     append(output_list,"pitot-heat");
+    append(watt_list,0.5);
+
     append(switch_list,"controls/lighting/landing-lights");
     append(output_list,"landing-lights");
+    append(watt_list,1.0);
+
+#    append(switch_list,"controls/lighting/instrument-lights");
+#    append(output_list,"instrument-lights");
+#    append(watt_list,0.2);
+
     append(switch_list,"controls/lighting/beacon-state/state");
     append(output_list,"beacon");
+    append(watt_list,0.5);
+
     append(switch_list,"controls/lighting/nav-lights");
     append(output_list,"nav-lights");
-    append(switch_list,"controls/lighting/cabin-lights");
-    append(output_list,"cabin-lights");
-    append(switch_list,"controls/lighting/wing-lights");
-    append(output_list,"wing-lights");
-    append(switch_list,"controls/lighting/recog-lights");
-    append(output_list,"recog-lights");
-    append(switch_list,"controls/lighting/logo-lights");
-    append(output_list,"logo-lights");
+    append(watt_list,0.5);
+
     append(switch_list,"controls/lighting/strobe-state/state");
     append(output_list,"strobe");
-    append(switch_list,"controls/lighting/taxi-lights");
-    append(output_list,"taxi-lights");
+    append(watt_list,0.5);
 
-    append(serv_list,"instrumentation/adf/serviceable");
-    append(servout_list,"adf");
-    append(serv_list,"instrumentation/dme/serviceable");
-    append(servout_list,"dme");
-    append(serv_list,"instrumentation/gps/serviceable");
-    append(servout_list,"gps");
-    append(serv_list,"instrumentation/heading-indicator/serviceable");
-    append(servout_list,"DG");
-    append(serv_list,"instrumentation/transponder/inputs/serviceable");
-    append(servout_list,"transponder");
-#    append(serv_list,"instrumentation/mk-viii/serviceable");
-#    append(servout_list,"mk-viii");
-#    append(serv_list,"instrumentation/tacan/serviceable");
-#    append(servout_list,"tacan");
-    append(serv_list,"instrumentation/turn-indicator/serviceable");
-    append(servout_list,"turn-coordinator");
-    append(serv_list,"instrumentation/comm/serviceable");
-    append(servout_list,"comm");
-    append(serv_list,"instrumentation/comm[1]/serviceable");
-    append(servout_list,"comm[1]");
-    append(serv_list,"instrumentation/nav/serviceable");
-    append(servout_list,"nav");
-    append(serv_list,"instrumentation/nav[1]/serviceable");
-    append(servout_list,"nav[1]");
-#    append(serv_list,"instrumentation/kns-80/serviceable");
-#    append(servout_list,"KNS80");
+    append(switch_list,"controls/engines/engine/fuel-pump");
+    append(output_list,"fuel-pump");
+    append(watt_list,0.5);
 
-    for(var i=0; i<size(serv_list); i+=1) {
-        var tmp = props.globals.getNode(serv_list[i],1);
-        tmp.setBoolValue(1);
-    }
+    append(switch_list,"controls/electric/avionics-switch");
+    append(output_list,"adf");
+    append(watt_list,0.2);
+
+    append(switch_list,"controls/electric/avionics-switch");
+    append(output_list,"dme");
+    append(watt_list,0.2);
+
+    append(switch_list,"controls/electric/avionics-switch");
+    append(output_list,"adf");
+    append(watt_list,0.2);
+
+#    append(switch_list,"controls/electric/avionics-switch");
+#    append(output_list,"gps");
+#    append(watt_list,0.5);
+
+    append(switch_list,"controls/electric/avionics-switch");
+    append(output_list,"adf");
+    append(watt_list,0.2);
+
+    append(switch_list,"controls/electric/avionics-switch");
+    append(output_list,"DG");
+    append(watt_list,0.2);
+
+    append(switch_list,"controls/electric/avionics-switch");
+    append(output_list,"transponder");
+    append(watt_list,0.2);
+
+#    append(switch_list,"controls/electric/avionics-switch");
+#    append(output_list,"mk-viii");
+#    append(watt_list,0.2);
+
+#    append(switch_list,"controls/electric/avionics-switch");
+#    append(output_list,"tacan");
+#    append(watt_list,0.2);
+
+    append(switch_list,"controls/electric/avionics-switch");
+    append(output_list,"turn-coordinator");
+    append(watt_list,0.2);
+
+    append(switch_list,"controls/electric/avionics-switch");
+    append(output_list,"comm");
+    append(watt_list,0.2);
+
+    append(switch_list,"controls/electric/avionics-switch");
+    append(output_list,"comm[1]");
+    append(watt_list,0.2);
+
+    append(switch_list,"controls/electric/avionics-switch");
+    append(output_list,"nav");
+    append(watt_list,0.2);
+
+    append(switch_list,"controls/electric/avionics-switch");
+    append(output_list,"nav[1]");
+    append(watt_list,0.2);
 
     for(var i=0; i<size(switch_list); i+=1) {
         var tmp = props.globals.getNode(switch_list[i],1);
@@ -236,10 +261,8 @@ update_virtual_bus = func( dt ) {
     bus_volts *=PWR;
 
     load += electrical_bus(bus_volts);
-    load += avionics_bus(bus_volts);
 
     ammeter = 0.0;
-#    if ( bus_volts > 1.0 )load += 15.0;
 
     if ( power_source == "battery" ) {
         ammeter = -load;
@@ -266,53 +289,20 @@ electrical_bus = func(bv) {
     var bus_volts = bv;
     var load = 0.0;
     var srvc = 0.0;
-    var starter_volts = 0.0;
 
-    var starter_switch = getprop("controls/engines/engine[0]/starter");
-    var starter_switch1 = getprop("controls/engines/engine[1]/starter"); 
-
-    starter_volts = bus_volts * starter_switch;
-    load += starter_switch *5;
-    starter_volts = bus_volts * starter_switch1;
-    load += starter_switch *5;
-
-    setprop(outPut~"starter",starter_volts); 
 
     for(var i=0; i<size(switch_list); i+=1) {
         var srvc = getprop(switch_list[i]);
-        load +=srvc;
+        load = load + srvc * watt_list[i];
         setprop(outPut~output_list[i],bus_volts * srvc);
     }
-    setprop(outPut~"flaps",bus_volts);
 
-    return load;
-}
+    var DIMMER = bus_volts * getprop("controls/lighting/instrument-lights-norm");
+    var INSTR_SWTCH = getprop("controls/lighting/instrument-lights");
+    DIMMER=DIMMER*INSTR_SWTCH;
 
-#### used in Instruments/source code 
-# adf : dme : encoder : gps : DG : transponder  
-# mk-viii : MRG : tacan : turn-coordinator
-# nav[0] : nav [1] : comm[0] : comm[1]
-####
-
-avionics_bus = func(bv) {
-    var bus_volts = bv;
-    var load = 0.0;
-    var srvc = 0.0;
-INSTR_DIMMER = getprop("controls/lighting/instruments-norm");
-#EFIS_DIMMER = getprop("controls/lighting/efis-norm");
-#ENG_DIMMER = getprop("controls/lighting/engines-norm");
-#PANEL_DIMMER = getprop("controls/lighting/panel-norm");
-var dim =
-setprop(outPut~"instrument-lights",(bus_volts * INSTR_DIMMER));
-setprop(outPut~"instrument-lights-norm",(0.0357 * (bus_volts * INSTR_DIMMER)));
-#setprop(outPut~"eng-lights",(bus_volts * ENG_DIMMER));
-#setprop(outPut~"panel-lights",(bus_volts * PANEL_DIMMER));
-
-    for(var i=0; i<size(serv_list); i+=1) {
-        var srvc = getprop(serv_list[i]);
-        load +=srvc;
-        setprop(outPut~servout_list[i],bus_volts * srvc);
-    }
+    setprop(outPut~"instrument-lights",DIMMER);
+    setprop(outPut~"instrument-lights-norm",DIMMER * 0.0357);
 
     return load;
 }

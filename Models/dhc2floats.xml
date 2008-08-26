@@ -397,9 +397,42 @@
         <condition>
             <greater-than>
                 <property>yasim/cargo</property>
-                <value>0.000</value>
+                <value>500.000</value>
             </greater-than>
         </condition>
+    </animation>
+
+    <animation>
+        <type>select</type>
+        <object-name>LndLight</object-name>
+        <object-name>LndLight1</object-name>
+        <condition>
+            <greater-than>
+                <property>systems/electrical/outputs/landing-lights</property>
+                <value>5</value>
+            </greater-than>
+        </condition>
+    </animation>
+
+    <animation>
+        <type>flash</type>
+        <object-name>LndLight1</object-name>
+        <center>
+            <x-m>-0.811</x-m>
+            <y-m>-3.689</y-m>
+            <z-m>1.094</z-m>
+        </center>
+        <axis>
+            <x>-1</x>
+            <y>0</y>
+            <z>0</z>
+        </axis>
+        <power>2</power>
+        <factor>2</factor>
+        <offset>0</offset>
+        <two-sides type="bool">false</two-sides>
+        <min>0.5</min>
+        <max>2</max>
     </animation>
 
     <animation>
@@ -1280,11 +1313,16 @@
             <repeatable>false</repeatable>
             <binding>
                 <command>property-toggle</command>
-                <property>/controls/electric/battery-switch</property>
+                <property>controls/electric/battery-switch</property>
+            </binding>
+            <binding>
+                <command>property-assign</command>
+                <property>controls/electric/avionics-switch</property>
+                <property>controls/electric/battery-switch</property>
             </binding>
             <binding>
                 <command>property-toggle</command>
-                <property>/sim/sound/switch</property>
+                <property>sim/sound/switch</property>
             </binding>
         </action>
     </animation>
@@ -1318,11 +1356,11 @@
             <repeatable>false</repeatable>
             <binding>
                 <command>property-toggle</command>
-                <property>/controls/electric/engine/generator</property>
+                <property>controls/electric/engine/generator</property>
             </binding>
             <binding>
                 <command>property-toggle</command>
-                <property>/sim/sound/switch</property>
+                <property>sim/sound/switch</property>
             </binding>
         </action>
     </animation>
@@ -1335,11 +1373,11 @@
             <repeatable>false</repeatable>
             <binding>
                 <command>property-toggle</command>
-                <property>/controls/engines/engine/fuel-pump</property>
+                <property>controls/engines/engine/fuel-pump</property>
             </binding>
             <binding>
                 <command>property-toggle</command>
-                <property>/sim/sound/switch</property>
+                <property>sim/sound/switch</property>
             </binding>
         </action>
     </animation>
@@ -1352,11 +1390,11 @@
             <repeatable>false</repeatable>
             <binding>
                 <command>property-toggle</command> 
-                <property>/controls/anti-ice/engine/carb-heat</property>
+                <property>controls/anti-ice/engine/carb-heat</property>
             </binding>
             <binding>
                 <command>property-toggle</command>
-                <property>/sim/sound/switch</property>
+                <property>sim/sound/switch</property>
                 </binding>
         </action>
     </animation>
@@ -1369,11 +1407,11 @@
             <repeatable>false</repeatable>
             <binding>
                 <command>property-toggle</command>
-                <property>/controls/lighting/instrument-lights</property>
+                <property>controls/lighting/instrument-lights</property>
             </binding>
             <binding>
                 <command>property-toggle</command>
-                <property>/sim/sound/switch</property>
+                <property>sim/sound/switch</property>
             </binding>
         </action>
     </animation>
@@ -1386,11 +1424,11 @@
             <repeatable>false</repeatable>
             <binding>
                 <command>property-toggle</command>
-                <property>/controls/lighting/landing-lights[0]</property>
+                <property>controls/lighting/landing-lights</property>
             </binding>
             <binding>
                 <command>property-toggle</command>
-                <property>/sim/sound/switch</property>
+                <property>sim/sound/switch</property>
             </binding>
         </action>
     </animation>
@@ -1403,15 +1441,15 @@
             <repeatable>false</repeatable>
             <binding>
                 <command>property-toggle</command>
-                <property>/controls/lighting/nav-lights</property>
+                <property>controls/lighting/nav-lights</property>
             </binding>
             <binding>
                 <command>property-toggle</command>
-                <property>/controls/lighting/beacon</property>
+                <property>controls/lighting/beacon</property>
             </binding>
             <binding>
                 <command>property-toggle</command>
-                <property>/sim/sound/switch</property>
+                <property>sim/sound/switch</property>
             </binding>
         </action>
     </animation>
