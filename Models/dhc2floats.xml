@@ -984,7 +984,7 @@
         <type>rotate</type>
         <object-name>Mixture</object-name>
         <object-name>Mixture.001</object-name>
-        <property>controls/engines/engine/mixture</property>
+        <property>controls/engines/engine/mixture-lever</property>
         <factor>70</factor>
         <center>
             <x-m>-1.342</x-m>
@@ -1313,11 +1313,6 @@
             <repeatable>false</repeatable>
             <binding>
                 <command>property-toggle</command>
-                <property>controls/electric/battery-switch</property>
-            </binding>
-            <binding>
-                <command>property-assign</command>
-                <property>controls/electric/avionics-switch</property>
                 <property>controls/electric/battery-switch</property>
             </binding>
             <binding>

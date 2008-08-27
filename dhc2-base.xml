@@ -110,6 +110,14 @@
         <brake-parking type="double">1.0</brake-parking>
         <gear-down type="bool">1.0</gear-down>
     </gear>
+    <engines>
+        <engine>
+            <mixture-lever>1.0</mixture-lever>
+        </engine>
+    </engines>
+    <electric>
+        <avionics-switch type="bool">1</avionics-switch>
+    </electric>
 </controls>
 
 <environment>
@@ -120,96 +128,35 @@
 
 <input>
     <keyboard>
-        <key n="102">
-            <name>f</name>
-            <desc>fuel tank select</desc>
+
+        <key n="77">
+            <name>M</name>
+            <desc>Mixture leaner.</desc>
+            <repeatable type="bool">true</repeatable>
             <binding>
                 <command>property-adjust</command>
-                <property>controls/fuel/switch-position</property>
-                <step>1</step>
-                <min>-1</min>
-                <max>3</max>
-                <wrap>1</wrap>
+                <property>controls/engines/engine/mixture-lever</property>
+                <step>-0.05</step>
+                <min>0</min>
+                <max>1</max>
+                <wrap>0</wrap>
             </binding>
         </key>
 
-        <key n="33">
-            <name>!</name>
-            <desc>Toggle Battery Switch</desc>
+        <key n="109">
+            <name>m</name>
+            <desc>Mixture richer.</desc>
+            <repeatable type="bool">true</repeatable>
             <binding>
-                <command>property-toggle</command>
-                <property>/controls/electric/battery-switch</property>
-            </binding>
-            <binding>
-                <command>property-toggle</command>
-                <property>/sim/sound/switch</property>
-            </binding>
-        </key>
-
-        <key n="64">
-            <name>@</name>
-            <desc>Toggle Alternator Switch</desc>
-            <binding>
-                <command>property-toggle</command>
-                <property>/controls/electric/engine/generator</property>
-            </binding>
-            <binding>
-                <command>property-toggle</command>
-                <property>/sim/sound/switch</property>
+                <command>property-adjust</command>
+                <property>controls/engines/engine/mixture-lever</property>
+                <step>0.05</step>
+                <min>0</min>
+                <max>1</max>
+                <wrap>0</wrap>
             </binding>
         </key>
 
-        <key n="35">
-            <name>#</name>
-            <desc>Toggle Fuel Pump</desc>
-            <binding>
-                <command>property-toggle</command>
-                <property>controls/engines/engine/fuel-pump</property>
-            </binding>
-            <binding>
-                <command>property-toggle</command>
-                <property>sim/sound/switch</property>
-            </binding>
-        </key>
-
-        <key n="36">
-            <name>$</name>
-            <desc>Toggle Carb Heat</desc>
-            <binding>
-                <command>property-toggle</command> 
-                <property>/controls/anti-ice/engine/carb-heat</property>
-            </binding>
-            <binding>
-                <command>property-toggle</command>
-                <property>/sim/sound/switch</property>
-            </binding>
-        </key>
-
-        <key n="37">
-            <name>%</name>
-            <desc>Toggle Landing Light</desc>
-            <binding>
-                <command>property-toggle</command>
-                <property>/controls/lighting/landing-lights[0]</property>
-            </binding>
-            <binding>
-                <command>property-toggle</command>
-                <property>/sim/sound/switch</property>
-            </binding>
-        </key>
-
-        <key n="94">
-            <name>^</name>
-            <desc>Toggle Nav Lights</desc>
-            <binding>
-                <command>property-toggle</command>
-                <property>/controls/lighting/nav-lights</property>
-            </binding>
-            <binding>
-                <command>property-toggle</command>
-                <property>/sim/sound/switch</property>
-            </binding>
-        </key>
     </keyboard>
 </input>
 

@@ -29,12 +29,8 @@
             <button>0</button>
             <repeatable>false</repeatable>
             <binding>
-                <command>property-adjust</command>
-                <property>controls/fuel/switch-position</property>
-                <step>-1</step>
-                <min>-1</min>
-                <max>3</max>
-                <wrap>1</wrap>
+                <command>nasal</command>
+                <script>dhc2.WaspJr.fuel_select(-1)</script>
             </binding>
             <binding>
                 <command>property-toggle</command>
@@ -51,12 +47,8 @@
             <button>0</button>
             <repeatable>false</repeatable>
             <binding>
-                <command>property-adjust</command>
-                <property>controls/fuel/switch-position</property>
-                <step>1</step>
-                <min>-1</min>
-                <max>3</max>
-                <wrap>1</wrap>
+                <command>nasal</command>
+                <script>dhc2.WaspJr.fuel_select(1)</script>
             </binding>
             <binding>
                 <command>property-toggle</command>

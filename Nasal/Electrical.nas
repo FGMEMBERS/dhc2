@@ -233,6 +233,7 @@ init_switches = func() {
         var tmp = props.globals.getNode(switch_list[i],1);
         tmp.setBoolValue(0);
     }
+setprop("controls/electric/avionics-switch",1);
 }
 
 update_virtual_bus = func( dt ) {

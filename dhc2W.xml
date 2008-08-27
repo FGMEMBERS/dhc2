@@ -6,29 +6,25 @@ DATUM : +0.345
 -->
 
 <airplane mass="2850">
-  <approach speed="45" aoa="6">
+  <approach speed="50" aoa="6">
     <control-setting axis="/controls/engines/engine[0]/throttle" value="0.2"/>
     <control-setting axis="/controls/engines/engine[0]/mixture" value="1.0"/>
     <control-setting axis="/controls/engines/engine[0]/propeller-pitch" value="1.0"/>
-    <control-setting axis="/controls/flight/flaps" value="0.75"/>
-    <solve-weight idx="0" weight="180"/>
-    <solve-weight idx="1" weight="0"/>
+    <control-setting axis="/controls/flight/flaps" value="0.8"/>
   </approach>
-  <cruise speed="120" alt="15000">
+  <cruise speed="121" alt="15000">
     <control-setting value="1.0" axis="/controls/engines/engine[0]/throttle"/>
     <control-setting value="1.0" axis="/controls/engines/engine[0]/mixture"/>
     <control-setting value="1.0" axis="/controls/engines/engine[0]/propeller-pitch"/>
     <control-setting value="0.0" axis="/controls/flight/flaps"/>
-    <solve-weight idx="0" weight="180"/>
-    <solve-weight idx="1" weight="0"/>
   </cruise>
   <cockpit x="-0.825" y="-0.26" z="0.70"/>
 
  <fuselage width="1.6" ax="2.5" ay="0" az="0" bx="3.7" by="0" bz="0.0" taper="0.75" midpoint="0.25"/>
 
   <wing x="0.0" y="0.6" z="0.6" chord="1.58" taper="1.0"
-  length="6.8" dihedral="4" incidence="2.0" camber="0.035">
-    <stall width="4" aoa="16" peak="1.5"/>
+  length="6.8" dihedral="4" incidence="2.0" camber="0.02">
+    <stall width="4" aoa="15" peak="1.5"/>
     <flap0 drag="1.6" end="0.58" lift="1.5" start="0.02"/>
     <flap1 drag="1.2" end="0.97" lift="1.3" start="0.58"/>
     <control-input control="FLAP0" axis="/controls/flight/flaps"/>
@@ -40,9 +36,9 @@ DATUM : +0.345
     <control-speed transition-time="15" control="FLAP0"/>
   </wing>
 
-  <hstab x="-6.0" y="0.2" z="0.2"  chord="1.2" effectiveness="1.6" taper=".7" length="2.5">
+  <hstab x="-6.0" y="0.2" z="0.2"  chord="1.2" taper=".7" length="2.5">
     <stall width="4" aoa="16" peak="1.5"/>
-    <flap0 drag="1.2" end="1" lift="1.4" start="0"/>
+    <flap0 drag="1.2" end="1" lift="1.5" start="0"/>
     <control-input control="FLAP0" axis="/controls/flight/elevator"/>
     <control-input control="FLAP0" axis="/controls/flight/elevator-trim"/>
     <control-output prop="/surface-positions/elevator-pos-norm" control="FLAP0"/>
@@ -51,14 +47,14 @@ DATUM : +0.345
   <vstab x="-5.5" y="0" z="0.2" sweep="15"  chord="3.0" taper=".2"
  effectiveness="2"  length="2.0">
     <stall width="3" aoa="14" peak="1.5"/>
-    <flap0 drag="1.2" end="1" lift="1.4" start="0"/>
+    <flap0 drag="1.2" end="1" lift="1.3" start="0"/>
     <control-input control="FLAP0" axis="/controls/flight/rudder" invert="true"/>
     <control-input control="FLAP0" axis="/controls/flight/rudder-trim" invert="true"/>
     <control-output prop="/surface-positions/rudder-pos-norm" control="FLAP0" min="1" max="-1"/>
   </vstab>
 
   <!--  Pratt & Whitney R-985 Wasp Junior  -->
-  <propeller moment="20" x="2.0" y="0.0" z="0.0" mass="700" radius="1.2" cruise-power="400" cruise-alt="5000"
+  <propeller moment="30" x="2.0" y="0.0" z="0.0" mass="700" radius="1.2" cruise-power="400" cruise-alt="5000"
    min-rpm="1600" max-rpm="2300" cruise-speed="110" cruise-rpm="2200" fine-stop="0.8" coarse-stop="1.8">
     <piston-engine eng-rpm="2300" alt="0" eng-power="450"
      displacement="985" compression="6" turbo-mul="1.2" wastegate-mp="36.5"/>
@@ -93,7 +89,7 @@ DATUM : +0.345
   <tank x="0" y="0" z="0" capacity="0"/>
   <tank x="0" y="0" z="0" capacity="0"/>
 
-  <ballast x="2.0" y="0.0" z="0.0" mass="660"/>
+  <ballast x="2.0" y="0.0" z="0.0" mass="700"/>
 
   <weight x="0.75" y="0.0" z="-0.5" mass-prop="/sim/weight[0]/weight-lb"/>
   <weight x="-1.0" y="0" z="-0.5" mass-prop="/sim/weight[1]/weight-lb"/>
