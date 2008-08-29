@@ -320,10 +320,10 @@
         <type>material</type>
         <object-name>redlight</object-name>
         <emission>
-            <red>1.0</red>
-            <green>0.1</green>
+            <red>0.035</red>
+            <green>0.002</green>
             <blue>0.0</blue>
-            <factor-prop>/systems/electrical/outputs/nav-lights</factor-prop>
+            <factor-prop>systems/electrical/outputs/nav-lights</factor-prop>
         </emission>
     </animation>
 
@@ -332,8 +332,8 @@
         <object-name>greenlight</object-name>
         <emission>
             <red>0.0</red>
-            <green>1.0</green>
-            <blue>0.2</blue>
+            <green>0.035</green>
+            <blue>0.005</blue>
             <factor-prop>/systems/electrical/outputs/nav-lights</factor-prop>
         </emission>
     </animation>
@@ -577,6 +577,83 @@
             <x>0.0</x>
             <y>0.975</y>
             <z>0.025</z>
+        </axis>
+    </animation>
+
+    <animation>
+        <type>translate</type>
+        <object-name>RHpedal</object-name>
+        <property>controls/flight/rudder</property>
+        <factor>0.025</factor>
+        <axis>
+            <x>-1</x>
+            <y>0</y>
+            <z>0</z>
+        </axis>
+    </animation>
+
+    <animation>
+        <type>translate</type>
+        <object-name>LHpedal</object-name>
+        <property>controls/flight/rudder</property>
+        <factor>0.025</factor>
+        <axis>
+            <x>1</x>
+            <y>0</y>
+            <z>0</z>
+        </axis>
+    </animation>
+
+    <animation>
+        <type>rotate</type>
+        <object-name>Yoke</object-name>
+        <object-name>Yoke1</object-name>
+        <object-name>Yoke2</object-name>
+        <property>controls/flight/elevator</property>
+        <factor>5.0</factor>
+        <center>
+            <x-m>-1.122</x-m>
+            <y-m>0</y-m>
+            <z-m>-0.448</z-m>
+        </center>
+        <axis>
+            <x>0</x>
+            <y>-1</y>
+            <z>0</z>
+        </axis>
+    </animation>
+
+    <animation>
+        <type>rotate</type>
+        <object-name>Yoke1</object-name>
+        <property>controls/flight/aileron</property>
+        <factor>40.0</factor>
+        <center>
+            <x-m>-1.102</x-m>
+            <y-m>-0.351</y-m>
+            <z-m>0.194</z-m>
+        </center>
+        <axis>
+            <x>-1</x>
+            <y>0</y>
+            <z>0</z>
+        </axis>
+    </animation>
+
+    <animation>
+        <type>rotate</type>
+        <object-name>Yoke2</object-name>
+        <property>controls/flight/aileron</property>
+        <factor>40.0</factor>
+        <center>
+            <x-m>-1.141</x-m>
+            <y-m>0.327</y-m>
+            <z-m>0.195</z-m>
+        </center>
+        <axis>
+            <x>-1</x>
+            <y>0</y>
+            <z>0</z>
         </axis>
     </animation>
 

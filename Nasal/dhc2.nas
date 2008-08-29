@@ -96,7 +96,7 @@ setlistener("/sim/current-view/view-number", func(vw){
     ViewNum = vw.getValue();
     if(ViewNum == 0){
         Cvolume.setValue(0.6);
-        Ovolume.setValue(0.3);
+        Ovolume.setValue(0.4);
     }else{
         Cvolume.setValue(0.1);
         Ovolume.setValue(1.0);
