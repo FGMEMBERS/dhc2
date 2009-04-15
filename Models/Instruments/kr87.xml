@@ -15,7 +15,6 @@ Syd Adams
         <object-name>KR87.frq</object-name>
         <object-name>KR87.flt</object-name>
         <object-name>KR87.set</object-name>
-        <object-name>KR87.volume</object-name>
         <emission>
             <red>0.028</red>
             <green>0.014</green>
@@ -113,26 +112,6 @@ Syd Adams
                 </greater-than>
             </and>
         </condition>
-    </animation>
-
-    <animation>
-        <type>rotate</type>
-        <object-name>KR87.volume</object-name>
-        <property>instrumentation/kr-87/inputs/volume</property>
-        <interpolation>
-            <entry><ind>0</ind><dep>0</dep></entry>
-            <entry><ind>1.0</ind><dep>300</dep></entry>
-        </interpolation>
-        <center>
-            <x-m>0.00</x-m>
-            <y-m>0.038</y-m>
-            <z-m>-0.006</z-m>
-        </center>
-        <axis>
-            <x>-1</x>
-            <y>0</y>
-            <z>0</z>
-        </axis>
     </animation>
 
     <animation>

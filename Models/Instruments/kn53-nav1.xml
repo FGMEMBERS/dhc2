@@ -7,7 +7,6 @@
 <animation>
         <type>material</type>
         <object-name>KN53.swap</object-name>
-        <object-name>KN53.vol</object-name>
         <object-name>KN53.knob</object-name>
         <emission>
             <red>0.028</red>
@@ -49,27 +48,7 @@
             </and>
         </condition>
     </animation>
- 
-    <animation>
-        <type>rotate</type>
-        <object-name>KN53.vol</object-name>
-        <property>instrumentation/nav/volume</property>
-        <interpolation>
-            <entry><ind>0</ind><dep>0</dep></entry>
-            <entry><ind>1.0</ind><dep>300</dep></entry>
-        </interpolation>
-        <center>
-            <x-m>0.004</x-m>
-            <y-m>0.038</y-m>
-            <z-m>-0.006</z-m>
-        </center>
-        <axis>
-            <x>-1</x>
-            <y>0</y>
-            <z>0</z>
-        </axis>
-    </animation>
- 
+
 <!--                    FREQUENCY                                       -->
 
     <animation>
