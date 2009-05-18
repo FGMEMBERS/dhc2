@@ -29,16 +29,13 @@
         </config>
     </view>
 
+    <chase-distance-m>-20</chase-distance-m>
+
     <airport>
         <runways>
             <start-offset-m>20</start-offset-m>
         </runways>
     </airport>
-
-
-    <current-view>
-        <field-of-view>60.0</field-of-view>
-    </current-view>
 
     <systems>
         <electrical>
@@ -53,11 +50,6 @@
             <path>Aircraft/dhc2/instrumentation.xml</path>
         </instrumentation>
 
-    <hud>
-        <enable3d>false</enable3d>
-    </hud>
-
-    <virtual-cockpit archive="y">true</virtual-cockpit>
     <allow-toggle-cockpit archive="y">true</allow-toggle-cockpit>
     <yokes-visible type="bool">1</yokes-visible>
 

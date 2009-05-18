@@ -18,16 +18,13 @@ July 2004 Syd Adams
     </startup>
 
      <model>
-        <path>Aircraft/dhc2/Models/dhc2wheels.xml</path>
-    <model>
-        <path>Aircraft/dhc2/Models/dhc2floats.xml</path>
+        <path>Aircraft/dhc2/Models/dhc2.xml</path>
             <livery>
                 <file type="string">TPA</file>
             </livery>
             <cabin>
                 <file type="string">BA</file>
             </cabin>
-    </model>
     </model>
 
      <help>

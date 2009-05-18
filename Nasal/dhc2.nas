@@ -1,7 +1,5 @@
 aircraft.livery.init("Aircraft/dhc2/Models/Liveries");
-var ViewNum = 0;
-var Cvolume=props.globals.getNode("/sim/sound/DHC2/Cvolume",1);
-var Ovolume=props.globals.getNode("/sim/sound/DHC2/Ovolume",1);
+var volume=props.globals.initNode("/sim/sound/volume",0.5);
 var rud_swingtime = 2;  # how long complete movement should last
 var rud_target = 1;
 var rud_prop =props.globals.getNode("/controls/gear/water-rudder-down",0);
@@ -85,23 +83,18 @@ var Engine = {
 var WaspJr = Engine.new(0);
 
 setlistener("/sim/signals/fdm-initialized", func {
-    Cvolume.setValue(0.6);
-    Ovolume.setValue(0.3);
     WaspJr.fuel_select(0);
     if(getprop("sim/aero")=="dhc2F")floats=1;
     settimer(update,1);
 });
 
-setlistener("/sim/current-view/view-number", func(vw){
-    ViewNum = vw.getValue();
-    if(ViewNum == 0){
-        Cvolume.setValue(0.6);
-        Ovolume.setValue(0.4);
+setlistener("/sim/current-view/internal", func(vw){
+    if(vw.getValue()){
+        volume.setValue(0.5);
     }else{
-        Cvolume.setValue(0.1);
-        Ovolume.setValue(1.0);
+        volume.setValue(1.0);
     }
-},0,0);
+},1,0);
 
 var secure = func{
     props.globals.getNode("/controls/winch/place").setBoolValue(1);

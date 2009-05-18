@@ -737,8 +737,9 @@
                 <property>controls/lighting/nav-lights</property>
             </binding>
             <binding>
-                <command>property-toggle</command>
+                <command>property-assign</command>
                 <property>controls/lighting/beacon</property>
+                <property>controls/lighting/nav-lights</property>
             </binding>
             <binding>
                 <command>property-toggle</command>

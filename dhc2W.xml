@@ -24,9 +24,9 @@ DATUM : +0.345
 
   <wing x="0.0" y="0.6" z="0.6" chord="1.58" taper="1.0"
   length="6.8" dihedral="4" incidence="2.0" camber="0.02">
-    <stall width="4" aoa="12" peak="1.5"/>
-    <flap0 drag="1.6" end="0.58" lift="1.5" start="0.02"/>
-    <flap1 drag="1.2" end="0.97" lift="1.3" start="0.58"/>
+    <stall width="8" aoa="12" peak="1.5"/>
+    <flap0 drag="1.5" end="0.58" lift="1.6" start="0.02"/>
+    <flap1 drag="1.2" end="0.97" lift="1.2" start="0.58"/>
     <control-input control="FLAP0" axis="/controls/flight/flaps"/>
     <control-input split="true" control="FLAP1" axis="/controls/flight/aileron"/>
     <control-input split="true" control="FLAP1" axis="/controls/flight/aileron-trim"/>
@@ -36,7 +36,7 @@ DATUM : +0.345
     <control-speed transition-time="15" control="FLAP0"/>
   </wing>
 
-  <hstab x="-6.0" y="0.2" z="0.2"  chord="1.2" taper=".7" length="2.5">
+  <hstab x="-6.0" y="0.2" z="0.2"  chord="1.2" taper=".7" length="2.5" camber="-0.045">
     <stall width="4" aoa="15" peak="1.5"/>
     <flap0 drag="1.2" end="1" lift="1.5" start="0"/>
     <control-input control="FLAP0" axis="/controls/flight/elevator"/>
@@ -89,7 +89,7 @@ DATUM : +0.345
   <tank x="0" y="0" z="0" capacity="0"/>
   <tank x="0" y="0" z="0" capacity="0"/>
 
-  <ballast x="2.0" y="0.0" z="0.0" mass="700"/>
+  <ballast x="2.0" y="0.0" z="0.0" mass="800"/>
 
   <weight x="0.75" y="0.0" z="-0.5" mass-prop="/sim/weight[0]/weight-lb"/>
   <weight x="-1.0" y="0" z="-0.5" mass-prop="/sim/weight[1]/weight-lb"/>

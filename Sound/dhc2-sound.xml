@@ -10,7 +10,7 @@
             <property>engines/engine/cranking</property>
         </condition>
         <volume>
-            <property>sim/sound/DHC2/Ovolume</property>
+            <property>sim/sound/volume</property>
         </volume>
     <position>
             <x>-2.0</x>
@@ -23,22 +23,23 @@
 
     <engine>
         <name>enginerun</name>
-        <mode>looped</mode>
-        <path>Aircraft/dhc2/Sound/waspjr.wav</path>
         <condition>
             <property>engines/engine/running</property>
         </condition>
+        <mode>looped</mode>
+        <path>Aircraft/dhc2/Sound/waspjr.wav</path>
         <volume>
-            <property>controls/engines/engine/throttle</property>
-            <min>0.5</min>
-            <max>1.00</max>
+            <property>engines/engine/mp-inhg</property>
+            <factor>0.02</factor>
+            <min>0.3</min>
+            <max>1.0</max>
         </volume>
         <volume>
-            <property>sim/sound/DHC2/Ovolume</property>
+            <property>sim/sound/volume</property>
         </volume>
         <pitch>
-            <property>engines/engine/rpm</property>
-            <factor>0.0004</factor>
+            <property>engines/engine/mp-inhg</property>
+            <factor>0.03</factor>
             <offset>0.2</offset>
         </pitch>
         <position>
@@ -65,7 +66,7 @@
         </condition>
         <volume>
             <property>velocities/groundspeed-kt</property>
-            <factor>0.4</factor>
+            <factor>0.3</factor>
         </volume>
         <position>
             <x>-1.0</x>
@@ -273,8 +274,8 @@
             <y>0</y>
             <z>0</z>
         </position>
-        <reference-dist>2.0</reference-dist>
-        <max-dist>4.0</max-dist>
+        <reference-dist>0.5</reference-dist>
+        <max-dist>1.0</max-dist>
     </switch>
 
     <switch>
@@ -294,8 +295,8 @@
             <y>0</y>
             <z>0</z>
         </position>
-        <reference-dist>2.0</reference-dist>
-        <max-dist>4.0</max-dist>
+        <reference-dist>0.5</reference-dist>
+        <max-dist>1.0</max-dist>
     </switch>
 
     <pump>
@@ -316,8 +317,8 @@
             <y>0</y>
             <z>0</z>
         </position>
-        <reference-dist>1.0</reference-dist>
-        <max-dist>2.0</max-dist>
+        <reference-dist>0.5</reference-dist>
+        <max-dist>1.0</max-dist>
     </pump>
 
 </fx>

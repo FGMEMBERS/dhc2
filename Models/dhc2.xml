@@ -2,7 +2,7 @@
 
 <PropertyList>
 
-<path>dhc2F.ac</path>
+<path>dhc2.ac</path>
 
     <nasal>
         <load>
@@ -29,9 +29,6 @@
         <object-name>LHFdoor</object-name>
         <object-name>RHFdoor</object-name>
         <object-name>Reardoor</object-name>
-        <object-name>Floats</object-name>
-        <object-name>LHrudder</object-name>
-        <object-name>RHrudder</object-name>
         <property-base>sim/model/livery</property-base>
         <texture-prop>texture</texture-prop>
         <texture>paint1.png</texture>
@@ -48,37 +45,73 @@
         </offsets>
     </model>
 
+    <model>
+        <condition>
+            <equals>
+                <property>sim/aero</property>
+                <value>dhc2F</value>
+            </equals>
+        </condition>
+        <name>Floats</name>
+        <path>Aircraft/dhc2/Models/floats.xml</path>
+        <offsets>
+            <x-m>0</x-m>
+            <y-m>0</y-m>
+            <z-m>0</z-m>
+            <pitch-deg>0</pitch-deg>
+        </offsets>
+    </model>
+
+    <model>
+        <condition>
+            <equals>
+                <property>sim/aero</property>
+                <value>dhc2W</value>
+            </equals>
+        </condition>
+        <name>Wheels</name>
+        <path>Aircraft/dhc2/Models/wheels.xml</path>
+        <offsets>
+            <x-m>0</x-m>
+            <y-m>0</y-m>
+            <z-m>0</z-m>
+            <pitch-deg>0</pitch-deg>
+        </offsets>
+    </model>
+
     <animation>
-        <type>material</type>
+        <condition>
+            <greater-than>
+                <property>systems/electrical/outputs/nav-lights</property>
+                <value>5</value>
+            </greater-than>
+        </condition>
+        <type>select</type>
         <object-name>redlight</object-name>
-        <emission>
-            <red>0.035</red>
-            <green>0.002</green>
-            <blue>0.0</blue>
-            <factor-prop>systems/electrical/outputs/nav-lights</factor-prop>
-        </emission>
-    </animation>
-
-    <animation>
-        <type>material</type>
         <object-name>greenlight</object-name>
-        <emission>
-            <red>0.0</red>
-            <green>0.035</green>
-            <blue>0.005</blue>
-            <factor-prop>/systems/electrical/outputs/nav-lights</factor-prop>
-        </emission>
     </animation>
 
     <animation>
-        <type>material</type>
+        <condition>
+            <greater-than>
+                <property>systems/electrical/outputs/beacon</property>
+                <value>5</value>
+            </greater-than>
+        </condition>
+        <type>select</type>
         <object-name>beacon</object-name>
-        <emission>
-            <red>1.0</red>
-            <green>0.2</green>
-            <blue>0.0</blue>
-            <factor-prop>/controls/lighting/beacon-state/state</factor-prop>
-        </emission>
+    </animation>
+
+    <animation>
+        <type>select</type>
+        <object-name>RHrope</object-name>
+        <object-name>LHrope</object-name>
+        <condition>
+            <equals>
+                <property>sim/aero</property>
+                <value>dhc2F</value>
+            </equals>
+        </condition>
     </animation>
 
    <animation>
@@ -90,20 +123,6 @@
         <object-name>RRglass</object-name>
         <object-name>LRglass</object-name>
         <object-name>Glass</object-name>
-    </animation>
-
-    <animation>
-        <name>LeftFrontGear</name>
-        <object-name>Lstrut.001</object-name>
-        <object-name>Ldamper</object-name>
-        <object-name>LFwheel</object-name>
-    </animation>
-
-    <animation>
-        <name>RightFrontGear</name>
-        <object-name>Rstrut.001</object-name>
-        <object-name>Rdamper</object-name>
-        <object-name>RFwheel</object-name>
     </animation>
 
     <animation>
@@ -428,280 +447,6 @@
             <x>0.0</x>
             <y>0.0</y>
             <z>1.0</z>
-        </axis>
-    </animation>
-
-<!--    Retractable Gear    -->
-
-    <animation>
-        <type>rotate</type>
-        <condition>
-            <property>controls/gear/gear-down</property>
-        </condition>
-        <object-name>Ldamper</object-name>
-        <object-name>LFwheel</object-name>
-        <property>gear/gear[4]/compression-m</property>
-        <factor>400</factor>
-        <center>
-            <x-m>-3.592</x-m>
-            <y-m>1.434</y-m>
-            <z-m>-2.209</z-m>
-        </center>
-        <axis>
-            <x>0</x>
-            <y>-1</y>
-            <z>0</z>
-        </axis>
-    </animation>
-
-    <animation>
-        <type>translate</type>
-        <object-name>LeftFrontGear</object-name>
-        <property>gear/gear[4]/position-norm</property>
-        <interpolation>
-            <entry><ind>0.0</ind><dep>0.320</dep></entry>
-            <entry><ind>1.0</ind><dep>0.0</dep></entry>
-        </interpolation>
-        <center>
-            <x-m>-3.553</x-m>
-            <y-m>1.430</y-m>
-            <z-m>-1.901</z-m>
-        </center>
-        <axis>
-            <x>0.342</x>
-            <y>0</y>
-            <z>0.940</z>
-        </axis>
-    </animation>
-
-    <animation>
-        <type>translate</type>
-        <object-name>Lstrut.002</object-name>
-        <property>gear/gear[4]/position-norm</property>
-        <interpolation>
-            <entry><ind>0.0</ind><dep>0.115</dep></entry>
-            <entry><ind>1.0</ind><dep>0.0</dep></entry>
-        </interpolation>
-        <center>
-            <x-m>-3.553</x-m>
-            <y-m>1.430</y-m>
-            <z-m>-1.901</z-m>
-        </center>
-        <axis>
-            <x>0.342</x>
-            <y>0</y>
-            <z>0.940</z>
-        </axis>
-    </animation>
-
-    <animation>
-        <type>rotate</type>
-        <condition>
-            <property>controls/gear/gear-down</property>
-        </condition>
-        <object-name>Rdamper</object-name>
-        <object-name>RFwheel</object-name>
-        <property>gear/gear[5]/compression-m</property>
-        <factor>400</factor>
-        <center>
-            <x-m>-3.592</x-m>
-            <y-m>-1.434</y-m>
-            <z-m>-2.209</z-m>
-        </center>
-        <axis>
-            <x>0</x>
-            <y>-1</y>
-            <z>0</z>
-        </axis>
-    </animation>
-
-    <animation>
-        <type>translate</type>
-        <object-name>RightFrontGear</object-name>
-        <property>gear/gear[5]/position-norm</property>
-        <interpolation>
-            <entry><ind>0.0</ind><dep>0.320</dep></entry>
-            <entry><ind>1.0</ind><dep>0.0</dep></entry>
-        </interpolation>
-        <center>
-            <x-m>-3.553</x-m>
-            <y-m>-1.430</y-m>
-            <z-m>-1.901</z-m>
-        </center>
-        <axis>
-            <x>0.342</x>
-            <y>0</y>
-            <z>0.940</z>
-        </axis>
-    </animation>
-
-    <animation>
-        <type>translate</type>
-        <object-name>Rstrut.002</object-name>
-        <property>gear/gear[5]/position-norm</property>
-        <interpolation>
-            <entry><ind>0.0</ind><dep>0.115</dep></entry>
-            <entry><ind>1.0</ind><dep>0.0</dep></entry>
-        </interpolation>
-        <center>
-            <x-m>-3.553</x-m>
-            <y-m>-1.430</y-m>
-            <z-m>-1.901</z-m>
-        </center>
-        <axis>
-            <x>0.342</x>
-            <y>0</y>
-            <z>0.940</z>
-        </axis>
-    </animation>
-
-    <animation>
-        <type>translate</type>
-        <object-name>LRwheel</object-name>
-        <property>gear/gear[6]/position-norm</property>
-        <interpolation>
-            <entry><ind>0.0</ind><dep>-0.34</dep></entry>
-            <entry><ind>1.0</ind><dep>0.0</dep></entry>
-        </interpolation>
-        <center>
-            <x-m>0.216</x-m>
-            <y-m>1.33</y-m>
-            <z-m>-2.33</z-m>
-        </center>
-        <axis>
-            <x>0</x>
-            <y>0</y>
-            <z>-1.0</z>
-        </axis>
-    </animation>
-
-    <animation>
-        <type>translate</type>
-        <condition>
-            <property>controls/gear/gear-down</property>
-        </condition>
-        <object-name>LRwheel</object-name>
-        <property>gear/gear[6]/compression-m</property>
-        <factor>1.0</factor>
-        <center>
-            <x-m>0.216</x-m>
-            <y-m>1.33</y-m>
-            <z-m>-2.33</z-m>
-        </center>
-        <axis>
-            <x>0</x>
-            <y>0</y>
-            <z>1.0</z>
-        </axis>
-    </animation>
-
-    <animation>
-        <type>translate</type>
-        <object-name>RRwheel</object-name>
-        <property>gear/gear[7]/position-norm</property>
-        <interpolation>
-            <entry><ind>0.0</ind><dep>-0.34</dep></entry>
-            <entry><ind>1.0</ind><dep>0.0</dep></entry>
-        </interpolation>
-        <center>
-            <x-m>0.216</x-m>
-            <y-m>-1.33</y-m>
-            <z-m>-2.33</z-m>
-        </center>
-        <axis>
-            <x>0</x>
-            <y>0</y>
-            <z>-1.0</z>
-        </axis>
-    </animation>
-
-    <animation>
-        <type>translate</type>
-        <condition>
-            <property>controls/gear/gear-down</property>
-        </condition>
-        <object-name>RRwheel</object-name>
-        <property>gear/gear[7]/compression-m</property>
-        <factor>1.0</factor>
-        <center>
-            <x-m>0.216</x-m>
-            <y-m>-1.33</y-m>
-            <z-m>-2.33</z-m>
-        </center>
-        <axis>
-            <x>0</x>
-            <y>0</y>
-            <z>1.0</z>
-        </axis>
-    </animation>
-
-    <animation>
-        <type>rotate</type>
-        <object-name>RHrudder</object-name>
-        <object-name>RHrudderArm</object-name>
-        <property>controls/flight/rudder</property>
-        <factor>20</factor>
-        <center>
-            <x-m>3.360</x-m>
-            <y-m>1.434</y-m>
-            <z-m>-1.632</z-m>
-        </center>
-        <axis>
-            <x>-0.087</x>
-            <y>0</y>
-            <z>0.996</z>
-        </axis>
-    </animation>
-
-    <animation>
-        <type>rotate</type>
-        <object-name>RHrudder</object-name>
-        <property>controls/gear/water-rudder-down</property>
-        <factor>90</factor>
-        <center>
-            <x-m>3.360</x-m>
-            <y-m>1.434</y-m>
-            <z-m>-1.632</z-m>
-        </center>
-        <axis>
-            <x>0</x>
-            <y>1</y>
-            <z>0</z>
-        </axis>
-    </animation>
-
-    <animation>
-        <type>rotate</type>
-        <object-name>LHrudder</object-name>
-        <object-name>LHrudderArm</object-name>
-        <property>controls/flight/rudder</property>
-        <factor>20</factor>
-        <center>
-            <x-m>3.360</x-m>
-            <y-m>-1.434</y-m>
-            <z-m>-1.632</z-m>
-        </center>
-        <axis>
-            <x>-0.087</x>
-            <y>0</y>
-            <z>0.996</z>
-        </axis>
-    </animation>
-
-    <animation>
-        <type>rotate</type>
-        <object-name>LHrudder</object-name>
-        <property>controls/gear/water-rudder-down</property>
-        <factor>90</factor>
-        <center>
-            <x-m>3.360</x-m>
-            <y-m>-1.434</y-m>
-            <z-m>-1.632</z-m>
-        </center>
-        <axis>
-            <x>0</x>
-            <y>1</y>
-            <z>0</z>
         </axis>
     </animation>
 
