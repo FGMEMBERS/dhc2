@@ -35,11 +35,9 @@
         <type>rotate</type>
         <object-name>slipball</object-name>
         <property>/instrumentation/slip-skid-ball/indicated-slip-skid</property>
-        <min>-1.1</min>
-        <max>1.1</max>
         <interpolation>
-            <entry><ind>-1.1</ind><dep>-7.2</dep></entry>
-            <entry><ind>1.1</ind><dep>7.2</dep></entry>
+            <entry><ind>-1.0</ind><dep>-18.5</dep></entry>
+            <entry><ind>1.0</ind><dep>18.5</dep></entry>
         </interpolation>
         <axis>
             <x>-1.0</x>

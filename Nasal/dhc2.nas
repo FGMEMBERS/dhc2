@@ -119,6 +119,13 @@ var steering = func{
     }
 }
 
+controls.startEngine = func(v = 1) {
+    var vlt = getprop("systems/electrical/volts") or 0;
+    if(vlt < 15) v=0;
+	setprop("controls/engines/engine/starter",v);
+}
+
+
 var update = func {
 WaspJr.update();
    	if(floats ==1){
