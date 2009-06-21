@@ -12,6 +12,7 @@ Syd Adams
         <object-name>KY196A.swap</object-name>
         <object-name>KY196A.vol</object-name>
         <object-name>KY196A.knob</object-name>
+		<object-name>KY196A.channel</object-name>
         <emission>
             <red>0.028</red>
             <green>0.014</green>
@@ -262,24 +263,7 @@ Syd Adams
     
     <animation>
         <type>pick</type>
-        <object-name>KYvol.dn</object-name>
-        <action>
-            <button>0</button>
-            <repeatable>true</repeatable>
-            <binding>
-                <command>property-adjust</command>
-                <property>instrumentation/comm/volume</property>
-                <step>-0.05</step>
-                <min>0</min>
-                <max>1</max>
-                <wrap>0</wrap>
-            </binding>
-        </action>
-    </animation>
-
-    <animation>
-        <type>pick</type>
-        <object-name>KYvol.up</object-name>
+        <object-name>KY196A.vol</object-name>
         <action>
             <button>0</button>
             <repeatable>true</repeatable>
@@ -296,43 +280,56 @@ Syd Adams
 
     <animation>
         <type>pick</type>
-        <object-name>KYFreq.dn</object-name>
-        <action>
-            <button>0</button>
-            <repeatable>true</repeatable>
-            <interval-sec>0.2</interval-sec>
-            <binding>
-                <command>property-adjust</command>
-                <property>instrumentation/comm/frequencies/standby-mhz</property>
-                <step>-0.025</step>
-                <min>118.000</min>
-                <max>136.000</max>
-                <wrap>true</wrap>
-            </binding>
-        </action>
-    </animation>
-    
-    <animation>
-        <type>pick</type>
-        <object-name>KYFreq.dn</object-name>
+        <object-name>KY196A.vol</object-name>
         <action>
             <button>1</button>
             <repeatable>true</repeatable>
-            <interval-sec>0.2</interval-sec>
             <binding>
                 <command>property-adjust</command>
-                <property>instrumentation/comm/frequencies/standby-mhz</property>
-                <step>-1.000</step>
-                <min>118.000</min>
-                <max>136.000</max>
-                <wrap>true</wrap>
+                <property>instrumentation/comm/volume</property>
+                <step>-0.05</step>
+                <min>0</min>
+                <max>1</max>
+                <wrap>0</wrap>
             </binding>
         </action>
     </animation>
-    
+
     <animation>
         <type>pick</type>
-        <object-name>KYFreq.up</object-name>
+        <object-name>KY196A.vol</object-name>
+        <action>
+            <button>3</button>
+            <binding>
+                <command>property-adjust</command>
+                <property>instrumentation/comm/volume</property>
+                <step>0.05</step>
+                <min>0</min>
+                <max>1</max>
+                <wrap>0</wrap>
+            </binding>
+        </action>
+    </animation>
+
+    <animation>
+        <type>pick</type>
+        <object-name>KY196A.vol</object-name>
+        <action>
+            <button>4</button>
+            <binding>
+                <command>property-adjust</command>
+                <property>instrumentation/comm/volume</property>
+                <step>-0.05</step>
+                <min>0</min>
+                <max>1</max>
+                <wrap>0</wrap>
+            </binding>
+        </action>
+    </animation>
+
+    <animation>
+        <type>pick</type>
+        <object-name>KY196A.knob1</object-name>
         <action>
             <button>0</button>
             <repeatable>true</repeatable>
@@ -347,10 +344,10 @@ Syd Adams
             </binding>
         </action>
     </animation>
-    
+
     <animation>
         <type>pick</type>
-        <object-name>KYFreq.up</object-name>
+        <object-name>KY196A.knob1</object-name>
         <action>
             <button>1</button>
             <repeatable>true</repeatable>
@@ -358,7 +355,107 @@ Syd Adams
             <binding>
                 <command>property-adjust</command>
                 <property>instrumentation/comm/frequencies/standby-mhz</property>
+                <step>-0.025</step>
+                <min>118.000</min>
+                <max>136.000</max>
+                <wrap>true</wrap>
+            </binding>
+        </action>
+    </animation>
+
+    <animation>
+        <type>pick</type>
+        <object-name>KY196A.knob1</object-name>
+        <action>
+            <button>3</button>
+            <binding>
+                <command>property-adjust</command>
+                <property>instrumentation/comm/frequencies/standby-mhz</property>
+                <step>0.025</step>
+                <min>118.000</min>
+                <max>136.000</max>
+                <wrap>true</wrap>
+            </binding>
+        </action>
+    </animation>
+
+    <animation>
+        <type>pick</type>
+        <object-name>KY196A.knob1</object-name>
+        <action>
+            <button>4</button>
+            <binding>
+                <command>property-adjust</command>
+                <property>instrumentation/comm/frequencies/standby-mhz</property>
+                <step>-0.025</step>
+                <min>118.000</min>
+                <max>136.000</max>
+                <wrap>true</wrap>
+            </binding>
+        </action>
+    </animation>
+
+    <animation>
+        <type>pick</type>
+        <object-name>KY196A.knob</object-name>
+        <action>
+            <button>0</button>
+            <repeatable>true</repeatable>
+            <interval-sec>0.2</interval-sec>
+            <binding>
+                <command>property-adjust</command>
+                <property>instrumentation/comm/frequencies/standby-mhz</property>
                 <step>1.000</step>
+                <min>118.000</min>
+                <max>136.000</max>
+                <wrap>true</wrap>
+            </binding>
+        </action>
+    </animation>
+
+    <animation>
+        <type>pick</type>
+        <object-name>KY196A.knob</object-name>
+        <action>
+            <button>1</button>
+            <repeatable>true</repeatable>
+            <interval-sec>0.2</interval-sec>
+            <binding>
+                <command>property-adjust</command>
+                <property>instrumentation/comm/frequencies/standby-mhz</property>
+                <step>-1.000</step>
+                <min>118.000</min>
+                <max>136.000</max>
+                <wrap>true</wrap>
+            </binding>
+        </action>
+    </animation>
+
+    <animation>
+        <type>pick</type>
+        <object-name>KY196A.knob</object-name>
+        <action>
+            <button>3</button>
+            <binding>
+                <command>property-adjust</command>
+                <property>instrumentation/comm/frequencies/standby-mhz</property>
+                <step>1.000</step>
+                <min>118.000</min>
+                <max>136.000</max>
+                <wrap>true</wrap>
+            </binding>
+        </action>
+    </animation>
+
+    <animation>
+        <type>pick</type>
+        <object-name>KY196A.knob</object-name>
+        <action>
+            <button>4</button>
+            <binding>
+                <command>property-adjust</command>
+                <property>instrumentation/comm/frequencies/standby-mhz</property>
+                <step>-1.000</step>
                 <min>118.000</min>
                 <max>136.000</max>
                 <wrap>true</wrap>

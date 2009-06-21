@@ -193,6 +193,26 @@
         </axis>
     </animation>
 
+    <animation>
+        <type>rotate</type>
+        <object-name>KN53.vol</object-name>
+        <property>instrumentation/nav/volume</property>
+        <interpolation>
+            <entry><ind>0</ind><dep>0</dep></entry>
+            <entry><ind>1.0</ind><dep>300</dep></entry>
+        </interpolation>
+        <center>
+            <x-m>0.0</x-m>
+            <y-m>0.038</y-m>
+            <z-m>-0.006</z-m>
+        </center>
+        <axis>
+            <x>-1</x>
+            <y>0</y>
+            <z>0</z>
+        </axis>
+    </animation>
+
 <!--    OSG Hotspots    -->
 
     <animation>
@@ -211,14 +231,14 @@
     
     <animation>
         <type>pick</type>
-        <object-name>KNvol.dn</object-name>
+        <object-name>KN53.vol</object-name>
         <action>
             <button>0</button>
             <repeatable>true</repeatable>
             <binding>
                 <command>property-adjust</command>
                 <property>instrumentation/nav/volume</property>
-                <value>-0.05</value>
+                <step>0.05</step>
                 <min>0.0</min>
                 <max>1.0</max>
                 <wrap>false</wrap>
@@ -228,60 +248,56 @@
 
     <animation>
         <type>pick</type>
-        <object-name>KNvol.up</object-name>
-        <action>
-            <button>0</button>
-            <repeatable>true</repeatable>
-            <binding>
-                <command>property-adjust</command>
-                <property>instrumentation/nav/volume</property>
-                <value>0.05</value>
-                <min>0.0</min>
-                <max>1.0</max>
-                <wrap>false</wrap>
-            </binding>
-        </action>
-    </animation>
-
-    <animation>
-        <type>pick</type>
-        <object-name>KNFreq.dn</object-name>
-        <action>
-            <button>0</button>
-            <repeatable>true</repeatable>
-            <interval-sec>0.2</interval-sec>
-            <binding>
-                <command>property-adjust</command>
-                <property>instrumentation/nav/frequencies/standby-mhz</property>
-                <step>-0.05</step>
-                <min>108.00</min>
-                <max>118.00</max>
-                <wrap>true</wrap>
-            </binding>
-        </action>
-    </animation>
-    
-    <animation>
-        <type>pick</type>
-        <object-name>KNFreq.dn</object-name>
+        <object-name>KN53.vol</object-name>
         <action>
             <button>1</button>
             <repeatable>true</repeatable>
-            <interval-sec>0.2</interval-sec>
             <binding>
                 <command>property-adjust</command>
-                <property>instrumentation/nav/frequencies/standby-mhz</property>
-                <step>-1.00</step>
-                <min>108.00</min>
-                <max>118.00</max>
-                <wrap>true</wrap>
+                <property>instrumentation/nav/volume</property>
+                <step>-0.05</step>
+                <min>0.0</min>
+                <max>1.0</max>
+                <wrap>false</wrap>
             </binding>
         </action>
     </animation>
-    
+
     <animation>
         <type>pick</type>
-        <object-name>KNFreq.up</object-name>
+        <object-name>KN53.vol</object-name>
+        <action>
+            <button>3</button>
+            <binding>
+                <command>property-adjust</command>
+                <property>instrumentation/nav/volume</property>
+                <step>0.05</step>
+                <min>0.0</min>
+                <max>1.0</max>
+                <wrap>false</wrap>
+            </binding>
+        </action>
+    </animation>
+
+    <animation>
+        <type>pick</type>
+        <object-name>KN53.vol</object-name>
+        <action>
+            <button>4</button>
+            <binding>
+                <command>property-adjust</command>
+                <property>instrumentation/nav/volume</property>
+                <step>-0.05</step>
+                <min>0.0</min>
+                <max>1.0</max>
+                <wrap>false</wrap>
+            </binding>
+        </action>
+    </animation>
+
+    <animation>
+        <type>pick</type>
+        <object-name>KN53.knob1</object-name>
         <action>
             <button>0</button>
             <repeatable>true</repeatable>
@@ -296,12 +312,62 @@
             </binding>
         </action>
     </animation>
-    
+
     <animation>
         <type>pick</type>
-        <object-name>KNFreq.up</object-name>
+        <object-name>KN53.knob1</object-name>
         <action>
             <button>1</button>
+            <repeatable>true</repeatable>
+            <interval-sec>0.2</interval-sec>
+            <binding>
+                <command>property-adjust</command>
+                <property>instrumentation/nav/frequencies/standby-mhz</property>
+                <step>-0.05</step>
+                <min>108.00</min>
+                <max>118.00</max>
+                <wrap>true</wrap>
+            </binding>
+        </action>
+    </animation>
+
+    <animation>
+        <type>pick</type>
+        <object-name>KN53.knob1</object-name>
+        <action>
+            <button>3</button>
+            <binding>
+                <command>property-adjust</command>
+                <property>instrumentation/nav/frequencies/standby-mhz</property>
+                <step>0.05</step>
+                <min>108.00</min>
+                <max>118.00</max>
+                <wrap>true</wrap>
+            </binding>
+        </action>
+    </animation>
+
+    <animation>
+        <type>pick</type>
+        <object-name>KN53.knob1</object-name>
+        <action>
+            <button>4</button>
+            <binding>
+                <command>property-adjust</command>
+                <property>instrumentation/nav/frequencies/standby-mhz</property>
+                <step>-0.05</step>
+                <min>108.00</min>
+                <max>118.00</max>
+                <wrap>true</wrap>
+            </binding>
+        </action>
+    </animation>
+
+    <animation>
+        <type>pick</type>
+        <object-name>KN53.knob</object-name>
+        <action>
+            <button>0</button>
             <repeatable>true</repeatable>
             <interval-sec>0.2</interval-sec>
             <binding>
@@ -314,5 +380,56 @@
             </binding>
         </action>
     </animation>
+
+    <animation>
+        <type>pick</type>
+        <object-name>KN53.knob</object-name>
+        <action>
+            <button>1</button>
+            <repeatable>true</repeatable>
+            <interval-sec>0.2</interval-sec>
+            <binding>
+                <command>property-adjust</command>
+                <property>instrumentation/nav/frequencies/standby-mhz</property>
+                <step>-1.00</step>
+                <min>108.00</min>
+                <max>118.00</max>
+                <wrap>true</wrap>
+            </binding>
+        </action>
+    </animation>
+
+    <animation>
+        <type>pick</type>
+        <object-name>KN53.knob</object-name>
+        <action>
+            <button>3</button>
+            <binding>
+                <command>property-adjust</command>
+                <property>instrumentation/nav/frequencies/standby-mhz</property>
+                <step>1.00</step>
+                <min>108.00</min>
+                <max>118.00</max>
+                <wrap>true</wrap>
+            </binding>
+        </action>
+    </animation>
+
+    <animation>
+        <type>pick</type>
+        <object-name>KN53.knob</object-name>
+        <action>
+            <button>4</button>
+            <binding>
+                <command>property-adjust</command>
+                <property>instrumentation/nav/frequencies/standby-mhz</property>
+                <step>-1.00</step>
+                <min>108.00</min>
+                <max>118.00</max>
+                <wrap>true</wrap>
+            </binding>
+        </action>
+    </animation>
+
 
 </PropertyList>
