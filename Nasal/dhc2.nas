@@ -33,7 +33,8 @@ var Engine = {
     },
 #### update ####
     update : func{
-        me.mixture.setValue(me.mixture_lever.getValue());
+        var mx =me.mixture_lever.getValue();
+	me.mixture.setValue(mx);
         var hpsi =me.rpm.getValue();
         var fpsi =me.fuel_psi.getValue();
         var oilpsi=hpsi * 0.001;
@@ -45,6 +46,7 @@ var Engine = {
 	var mp=me.mp.getValue() *2;
 	var OT= me.oil_temp.getValue();
 	var cooling=getprop("velocities/airspeed-kt") * 0.5;
+	cooling+=(mx * 10);
 	var tgt=me.ot_target + mp;
 	var tgt-=cooling;
 	if(me.running){
