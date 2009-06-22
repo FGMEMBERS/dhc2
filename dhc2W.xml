@@ -6,11 +6,11 @@ DATUM : +0.345
 -->
 
 <airplane mass="2850">
-  <approach speed="50" aoa="3">
-    <control-setting axis="/controls/engines/engine[0]/throttle" value="0.2"/>
+  <approach speed="50" aoa="6">
+    <control-setting axis="/controls/engines/engine[0]/throttle" value="0.3"/>
     <control-setting axis="/controls/engines/engine[0]/mixture" value="1.0"/>
     <control-setting axis="/controls/engines/engine[0]/propeller-pitch" value="1.0"/>
-    <control-setting axis="/controls/flight/flaps" value="0.8"/>
+    <control-setting axis="/controls/flight/flaps" value="1"/>
   </approach>
   <cruise speed="121" alt="15000">
     <control-setting value="1.0" axis="/controls/engines/engine[0]/throttle"/>
@@ -23,9 +23,9 @@ DATUM : +0.345
  <fuselage width="1.6" ax="2.5" ay="0" az="0" bx="3.7" by="0" bz="0.0" taper="0.75" midpoint="0.25"/>
 
   <wing x="0.0" y="0.6" z="0.6" chord="1.58" taper="1.0"
-  length="6.8" dihedral="4" incidence="2.0" camber="0.02">
-    <stall width="8" aoa="12" peak="1.5"/>
-    <flap0 drag="1.5" end="0.58" lift="1.6" start="0.02"/>
+  length="6.8" dihedral="4" incidence="2.0" camber="0.01">
+    <stall width="8" aoa="15" peak="1.5"/>
+    <flap0 drag="1.5" end="0.58" lift="1.5" start="0.02"/>
     <flap1 drag="1.2" end="0.97" lift="1.2" start="0.58"/>
     <control-input control="FLAP0" axis="/controls/flight/flaps"/>
     <control-input split="true" control="FLAP1" axis="/controls/flight/aileron"/>
@@ -36,9 +36,9 @@ DATUM : +0.345
     <control-speed transition-time="15" control="FLAP0"/>
   </wing>
 
-  <hstab x="-6.0" y="0.2" z="0.2"  chord="1.2" taper=".7" length="2.5" camber="-0.045">
+  <hstab x="-6.0" y="0.2" z="0.2"  chord="1.2" taper=".7" length="2.5" camber="-0.02">
     <stall width="4" aoa="15" peak="1.5"/>
-    <flap0 drag="1.2" end="1" lift="1.5" start="0"/>
+    <flap0 drag="1.2" end="1" lift="1.4" start="0"/>
     <control-input control="FLAP0" axis="/controls/flight/elevator"/>
     <control-input control="FLAP0" axis="/controls/flight/elevator-trim"/>
     <control-output prop="/surface-positions/elevator-pos-norm" control="FLAP0"/>

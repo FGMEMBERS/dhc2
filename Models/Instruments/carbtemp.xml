@@ -19,7 +19,7 @@
     <animation>
         <type>rotate</type>
         <object-name>CARBneedle</object-name>
-        <property>/environment/temperature-degc</property>
+        <property>engines/engine/carb-temp-c</property>
         <interpolation>
             <entry><ind> -30.0</ind><dep>0</dep></entry>
             <entry><ind> 0</ind><dep>110</dep></entry>
