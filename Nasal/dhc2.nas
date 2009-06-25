@@ -1,5 +1,5 @@
 aircraft.livery.init("Aircraft/dhc2/Models/Liveries");
-var volume=props.globals.initNode("/sim/sound/volume",0.5);
+var volume=props.globals.initNode("/sim/sound/volume");
 var rud_swingtime = 2;  # how long complete movement should last
 var rud_target = 1;
 var rud_prop =props.globals.getNode("/controls/gear/water-rudder-down",0);
@@ -12,7 +12,7 @@ var Engine = {
         m = { parents : [Engine]};
 	m.air_temp = props.globals.initNode("environment/temperature-degc");
 	m.oat = m.air_temp.getValue() or 0;
-	m.ot_target=220;
+	m.ot_target=60;
         m.eng = props.globals.initNode("engines/engine["~eng_num~"]");
         m.running = 0;
 	m.mp = m.eng.initNode("mp-inhg");
@@ -43,14 +43,14 @@ var Engine = {
         if(hpsi>60)hpsi = 60;
         me.hpump.setValue(hpsi);
         var rpm = me.rpm.getValue();
-	var mp=me.mp.getValue() *2;
+	var mp=me.mp.getValue();
 	var OT= me.oil_temp.getValue();
-	var cooling=getprop("velocities/airspeed-kt") * 0.5;
-	cooling+=(mx * 10);
+	var cooling=(getprop("velocities/airspeed-kt") * 0.1) *2;
+	cooling+=(mx * 5);
 	var tgt=me.ot_target + mp;
 	var tgt-=cooling;
 	if(me.running){
-		if(OT < tgt) OT+=rpm * 0.0001;
+		if(OT < tgt) OT+=rpm * 0.00001;
 		if(OT > tgt) OT-=cooling * 0.001;
 		}else{
 		if(OT > me.air_temp.getValue()) OT-=0.001; 
@@ -94,6 +94,7 @@ var WaspJr = Engine.new(0);
 
 setlistener("/sim/signals/fdm-initialized", func {
     WaspJr.fuel_select(0);
+    volume.setValue(0.5);
     if(getprop("sim/aero")=="dhc2F")floats=1;
     settimer(update,1);
 });
@@ -104,7 +105,7 @@ setlistener("/sim/current-view/internal", func(vw){
     }else{
         volume.setValue(1.0);
     }
-},1,0);
+},0,0);
 
 var secure = func{
     props.globals.getNode("/controls/winch/place").setBoolValue(1);
@@ -143,4 +144,3 @@ WaspJr.update();
     }
     settimer(update,0);
 }
-

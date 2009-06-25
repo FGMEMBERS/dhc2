@@ -24,8 +24,7 @@
         <property>/engines/engine/oil-temp-c</property>
         <interpolation>
             <entry><ind>0</ind><dep>0</dep></entry>
-            <entry><ind>0.2</ind><dep>0</dep></entry>
-            <entry><ind>330</ind><dep>180</dep></entry>
+            <entry><ind>100</ind><dep>180</dep></entry>
         </interpolation>
         <axis>
             <x>-1</x>
@@ -51,8 +50,8 @@
         </axis>
         <center>
             <x-m>0</x-m>
-            <y-m>-0.002</y-m>
-            <z-m>-0.017</z-m>
+            <y-m>-0.007</y-m>
+            <z-m>-0.015</z-m>
         </center>
     </animation>
 
@@ -68,8 +67,8 @@
         </axis>
         <center>
             <x-m>0</x-m>
-            <y-m>0.004</y-m>
-            <z-m>-0.017</z-m>
+            <y-m>0.007</y-m>
+            <z-m>-0.015</z-m>
         </center>
     </animation>
 

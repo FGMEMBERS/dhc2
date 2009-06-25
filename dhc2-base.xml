@@ -42,8 +42,10 @@
             <path></path>
         </electrical>
     </systems>
-    <sound>
+
+	<sound>
         <path>Aircraft/dhc2/Sound/dhc2-sound.xml</path>
+	<volume>0.5</volume>
     </sound>
 
         <instrumentation>
@@ -75,9 +77,23 @@
     </weight>
 
     <weight n="1">
-        <name>Cargo</name>
-        <weight-lb>700</weight-lb> 
-        <max-lb>1500</max-lb>
+        <name>Frt Pax</name>
+        <weight-lb>360</weight-lb> 
+        <max-lb>500</max-lb>
+        <min-lb>0</min-lb>      
+    </weight>
+
+    <weight n="2">
+        <name>Rr Pax</name>
+        <weight-lb>300</weight-lb> 
+        <max-lb>500</max-lb>
+        <min-lb>0</min-lb>      
+    </weight>
+
+    <weight n="3">
+        <name>Baggage</name>
+        <weight-lb>0</weight-lb> 
+        <max-lb>1000</max-lb>
         <min-lb>0</min-lb>      
     </weight>
 

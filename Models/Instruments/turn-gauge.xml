@@ -36,8 +36,8 @@
         <object-name>slipball</object-name>
         <property>/instrumentation/slip-skid-ball/indicated-slip-skid</property>
         <interpolation>
-            <entry><ind>-1.0</ind><dep>-18.5</dep></entry>
-            <entry><ind>1.0</ind><dep>18.5</dep></entry>
+            <entry><ind>-0.5</ind><dep>-18.5</dep></entry>
+            <entry><ind>0.5</ind><dep>18.5</dep></entry>
         </interpolation>
         <axis>
             <x>-1.0</x>

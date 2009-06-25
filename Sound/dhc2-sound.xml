@@ -30,7 +30,7 @@
         <path>Aircraft/dhc2/Sound/waspjr.wav</path>
         <volume>
             <property>engines/engine/mp-inhg</property>
-            <factor>0.02</factor>
+            <factor>0.028</factor>
             <min>0.3</min>
             <max>1.0</max>
         </volume>
@@ -39,7 +39,7 @@
         </volume>
         <pitch>
             <property>engines/engine/mp-inhg</property>
-            <factor>0.03</factor>
+            <factor>0.025</factor>
             <offset>0.2</offset>
         </pitch>
         <position>
