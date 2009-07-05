@@ -6,7 +6,7 @@
 
     <animation>
         <type>material</type>
-        <object-name>Carbtemp.001</object-name>
+        <object-name>Carbtemp.face</object-name>
         <object-name>CARBneedle</object-name>
         <emission>
             <red>0.5</red>
@@ -21,9 +21,9 @@
         <object-name>CARBneedle</object-name>
         <property>engines/engine/carb-temp-c</property>
         <interpolation>
-            <entry><ind> -30.0</ind><dep>0</dep></entry>
-            <entry><ind> 0</ind><dep>110</dep></entry>
-            <entry><ind>40</ind><dep>260</dep></entry>
+            <entry><ind> -40.0</ind><dep>0</dep></entry>
+            <entry><ind> 0</ind><dep>130</dep></entry>
+            <entry><ind>50</ind><dep>325</dep></entry>
         </interpolation>
         <axis>
             <x>-1</x>

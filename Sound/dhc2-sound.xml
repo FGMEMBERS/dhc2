@@ -66,7 +66,7 @@
         </condition>
         <volume>
             <property>velocities/groundspeed-kt</property>
-            <factor>0.3</factor>
+            <factor>0.2</factor>
         </volume>
         <position>
             <x>-1.0</x>
@@ -84,8 +84,8 @@
         <condition>
             <and>
                 <or>
-                    <property>gear/gear[0]/wow</property>
-                    <property>gear/gear[1]/wow</property>
+                    <property>gear/gear[6]/wow</property>
+                    <property>gear/gear[7]/wow</property>
                 </or>
                 <not>
                     <property>gear/gear[0]/ground-is-solid</property>
@@ -97,7 +97,7 @@
             <offset>0.0</offset>
             <factor>0.02</factor>
             <min>0.0</min>
-            <max>0.5</max>
+            <max>0.3</max>
         </volume>
         <pitch>
             <property>velocities/airspeed-kt</property>

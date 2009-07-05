@@ -97,8 +97,8 @@ DHC-2 Beaver
   <control-speed control="EXTEND" transition-time="2"/>
   </gear>
 
-  <gear x="-0.5" y="1.5" z="-2.57" compression="0.2" spring = "5"
-  sfric = "0.5" dfric=".45" retract-time="2" initial-load="1" damp="10.1">
+  <gear x="-0.5" y="1.5" z="-2.57" compression="0.2" spring = "7"
+  sfric = "0.5" dfric=".45" retract-time="2" initial-load="1" damp="2">
       <control-input control="BRAKE" axis="/controls/gear/brake-parking" />
       <control-input control="BRAKE" axis="/controls/gear/brake-left" />
       <control-input axis="/controls/gear/gear-down" control="EXTEND"/>
@@ -106,8 +106,8 @@ DHC-2 Beaver
       <control-speed control="EXTEND" transition-time="2"/>
   </gear>
 
-  <gear x="-0.5" y="-1.5" z="-2.57" compression="0.2" spring = "5"
-  sfric = "0.5" dfric=".45" retract-time="2" initial-load="1" damp="10.1">
+  <gear x="-0.5" y="-1.5" z="-2.57" compression="0.2" spring = "7"
+  sfric = "0.5" dfric=".45" retract-time="2" initial-load="1" damp="2">
     <control-input control="BRAKE" axis="/controls/gear/brake-parking" />
     <control-input control="BRAKE" axis="/controls/gear/brake-right" />
   <control-input axis="/controls/gear/gear-down" control="EXTEND"/>

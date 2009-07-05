@@ -15,7 +15,7 @@ July 2004 Syd Adams
     <aero>dhc2F</aero>
     <fuel-fraction>0.75</fuel-fraction>
     <startup>
-        <splash-texture>Aircraft/dhc2/dhc-2splash.rgb</splash-texture>
+        <splash-texture>Aircraft/dhc2/dhc-2splash.png</splash-texture>
     </startup>
 
     <model>

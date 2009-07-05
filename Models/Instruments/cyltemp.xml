@@ -2,13 +2,13 @@
 
 <PropertyList>
 
-<path>vac-gauge.ac</path>
+<path>cyltemp.ac</path>
 
     <animation>
         <type>material</type>
-        <object-name>VACface</object-name>
-        <object-name>VACneedle</object-name>
-         <emission>
+        <object-name>CYLtemp</object-name>
+        <object-name>CYLneelde</object-name>
+        <emission>
             <red>0.5</red>
             <green>0.2</green>
             <blue>0.0</blue>
@@ -18,11 +18,11 @@
 
     <animation>
         <type>rotate</type>
-        <object-name>VACneedle</object-name>
-        <property>/systems/vacuum/suction-inhg</property>
+        <object-name>CYLneelde</object-name>
+        <property>engines/engine/cyltemp</property>
         <interpolation>
             <entry><ind>0.0</ind><dep>0.0</dep></entry>
-            <entry><ind>10.0</ind><dep>300.0</dep></entry>
+            <entry><ind>350.0</ind><dep>71.0</dep></entry>
         </interpolation>
         <axis>
             <x>-1</x>
@@ -32,7 +32,7 @@
         <center>
             <x-m>0</x-m>
             <y-m>0</y-m>
-            <z-m>0</z-m>
+            <z-m>-0.025</z-m>
         </center>
     </animation>
 

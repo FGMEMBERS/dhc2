@@ -746,4 +746,134 @@
         </action>
     </animation>
 
+<!-- Trim wheels-->
+
+    <animation>
+        <type>pick</type>
+        <object-name>Elevator.trim</object-name>
+        <action>
+            <button>0</button>
+            <repeatable>true</repeatable>
+            <binding>
+                <command>property-adjust</command>
+                <property>controls/flight/elevator-trim</property>
+		<step>0.01</step>
+		<min>-1</min>
+		<max>1</max>
+	    </binding>
+        </action>
+    </animation>
+
+    <animation>
+        <type>pick</type>
+        <object-name>Elevator.trim</object-name>
+        <action>
+            <button>1</button>
+            <repeatable>true</repeatable>
+            <binding>
+                <command>property-adjust</command>
+                <property>controls/flight/elevator-trim</property>
+		<step>-0.01</step>
+		<min>-1</min>
+		<max>1</max>
+	    </binding>
+        </action>
+    </animation>
+
+    <animation>
+        <type>pick</type>
+        <object-name>Elevator.trim</object-name>
+        <action>
+            <button>3</button>
+            <repeatable>false</repeatable>
+            <binding>
+                <command>property-adjust</command>
+                <property>controls/flight/elevator-trim</property>
+		<step>0.01</step>
+		<min>-1</min>
+		<max>1</max>
+	    </binding>
+        </action>
+    </animation>
+
+    <animation>
+        <type>pick</type>
+        <object-name>Elevator.trim</object-name>
+        <action>
+            <button>4</button>
+            <repeatable>false</repeatable>
+            <binding>
+                <command>property-adjust</command>
+                <property>controls/flight/elevator-trim</property>
+		<step>-0.01</step>
+		<min>-1</min>
+		<max>1</max>
+	    </binding>
+        </action>
+    </animation>
+
+    <animation>
+        <type>pick</type>
+        <object-name>Rudder.trim</object-name>
+        <action>
+            <button>0</button>
+            <repeatable>true</repeatable>
+            <binding>
+                <command>property-adjust</command>
+                <property>controls/flight/rudder-trim</property>
+		<step>0.01</step>
+		<min>-1</min>
+		<max>1</max>
+	    </binding>
+        </action>
+    </animation>
+
+    <animation>
+        <type>pick</type>
+        <object-name>Rudder.trim</object-name>
+        <action>
+            <button>1</button>
+            <repeatable>true</repeatable>
+            <binding>
+                <command>property-adjust</command>
+                <property>controls/flight/rudder-trim</property>
+		<step>-0.01</step>
+		<min>-1</min>
+		<max>1</max>
+	    </binding>
+        </action>
+    </animation>
+
+    <animation>
+        <type>pick</type>
+        <object-name>Rudder.trim</object-name>
+        <action>
+            <button>3</button>
+            <repeatable>false</repeatable>
+            <binding>
+                <command>property-adjust</command>
+                <property>controls/flight/rudder-trim</property>
+		<step>0.01</step>
+		<min>-1</min>
+		<max>1</max>
+	    </binding>
+        </action>
+    </animation>
+
+    <animation>
+        <type>pick</type>
+        <object-name>Rudder.trim</object-name>
+        <action>
+            <button>4</button>
+            <repeatable>false</repeatable>
+            <binding>
+                <command>property-adjust</command>
+                <property>controls/flight/rudder-trim</property>
+		<step>-0.01</step>
+		<min>-1</min>
+		<max>1</max>
+	    </binding>
+        </action>
+    </animation>
+
 </PropertyList>
