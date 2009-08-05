@@ -13,13 +13,13 @@ Econo cruise @5000 : 130 mph (112)
 <airplane mass="2850">
   <approach speed="40" aoa="14">
     <control-setting axis="/controls/engines/engine[0]/throttle" value="0.25"/>
-    <control-setting axis="/controls/engines/engine[0]/mixture" value="1.0"/>
+    <control-setting axis="/engines/engine[0]/mixture" value="1.0"/>
     <control-setting axis="/controls/engines/engine[0]/propeller-pitch" value="1.0"/>
     <control-setting axis="/controls/flight/flaps" value="1"/>
   </approach>
   <cruise speed="141" alt="5000">
     <control-setting value="1.0" axis="/controls/engines/engine[0]/throttle"/>
-    <control-setting value="1.0" axis="/controls/engines/engine[0]/mixture"/>
+    <control-setting value="1.0" axis="/engines/engine[0]/mixture"/>
     <control-setting value="1.0" axis="/controls/engines/engine[0]/propeller-pitch"/>
     <control-setting value="0.0" axis="/controls/flight/flaps"/>
   </cruise>
@@ -76,7 +76,7 @@ Econo cruise @5000 : 130 mph (112)
     <control-input control="THROTTLE" axis="/controls/engines/engine[0]/throttle"/>
     <control-input control="STARTER" axis="/controls/engines/engine[0]/starter"/>
     <control-input control="MAGNETOS" axis="/controls/engines/engine[0]/magnetos"/>
-    <control-input control="MIXTURE" axis="/controls/engines/engine[0]/mixture"/>
+    <control-input control="MIXTURE" axis="/engines/engine[0]/mixture"/>
     <control-input control="ADVANCE" axis="/controls/engines/engine[0]/propeller-pitch"/>
   </propeller>
 
@@ -114,6 +114,4 @@ Econo cruise @5000 : 130 mph (112)
   <tow length="60" weight-per-meter="0.035" elastic-constant="9000" break-force="10000" mp-auto-connect-period="1.0"/>
   <winch max-tow-length="1000" min-tow-length="60" initial-tow-length="60"/>
 </hitch>
-
-
 </airplane>
