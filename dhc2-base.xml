@@ -31,6 +31,12 @@
 
     <chase-distance-m>-20</chase-distance-m>
 
+    <multiplay>
+        <generic>
+            <string alias="/sim/aero"/>
+        </generic>
+    </multiplay>
+
     <airport>
         <runways>
             <start-offset-m>20</start-offset-m>
