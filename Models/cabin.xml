@@ -29,7 +29,7 @@
     </animation>
 
     <model>
-        <name>panel-1</name>
+        <name>panel1</name>
         <path>Aircraft/dhc2/Models/panel1.xml</path>
         <offsets>
             <x-m>0</x-m>

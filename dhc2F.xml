@@ -57,12 +57,12 @@ DHC-2 Beaver
   </vstab>
 
 <!--slipstream effect-->
-  <!--vstab x="-6" y="0" z="0.2" sweep="0"  chord="1.0" taper="1"
+  <vstab x="-6" y="0" z="0.2" sweep="0"  chord="1.0" taper="1"
    length="2.0">
     <stall width="3" aoa="15" peak="1.5"/>
-    <flap0 drag="1.0" end="1" lift="1.2" start="0"/>
+    <flap0 drag="1.0" end="1" lift="1.1" start="0"/>
     <control-input control="FLAP0" axis="/controls/engines/engine[0]/throttle"/>
-  </vstab-->
+  </vstab>
 
 
 <!--  Pratt & Whitney R-985 Wasp Junior  -->

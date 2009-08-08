@@ -63,7 +63,7 @@ Econo cruise @5000 : 130 mph (112)
   <vstab x="-6" y="0" z="0.2" sweep="0"  chord="1.0" taper="1"
    length="2.0">
     <stall width="3" aoa="15" peak="1.5"/>
-    <flap0 drag="1.0" end="1" lift="1.2" start="0"/>
+    <flap0 drag="1.0" end="1" lift="1.1" start="0"/>
     <control-input control="FLAP0" axis="/controls/engines/engine[0]/throttle"/>
   </vstab>
 
@@ -93,7 +93,7 @@ Econo cruise @5000 : 130 mph (112)
   <gear x="-5.79" y="0.0" z="-0.74" compression="0.2" sfric="1" dfric="1">
   <control-input axis="/controls/flight/rudder" control="STEER" square="true" 
  src0="-1.0" src1="1.0"
- dst0="0.5" dst1="-0.5"/>
+ dst0="1" dst1="-1"/>
   </gear>
 
 <!-- Fuel  -->
