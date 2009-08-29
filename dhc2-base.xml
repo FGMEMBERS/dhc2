@@ -3,6 +3,17 @@
 <PropertyList>
 
 <sim>
+
+     <model>
+        <path>Aircraft/dhc2/Models/dhc2.xml</path>
+            <livery>
+                <file type="string">TPA</file>
+            </livery>
+            <cabin>
+                <file type="string">BA</file>
+            </cabin>
+    </model>
+
     <view n="0">
         <name>Cockpit</name>
         <type>lookfrom</type>
@@ -33,7 +44,8 @@
 
     <multiplay>
         <generic>
-            <string alias="/sim/aero"/>
+            <string n="0" alias="/sim/aero"/>
+            <string n="1" alias="/sim/multiplay/callsign"/>
         </generic>
     </multiplay>
 

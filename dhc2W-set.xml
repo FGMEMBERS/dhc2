@@ -17,16 +17,6 @@ July 2004 Syd Adams
         <splash-texture>Aircraft/dhc2/dhc-2splashW.png</splash-texture>
     </startup>
 
-     <model>
-        <path>Aircraft/dhc2/Models/dhc2.xml</path>
-            <livery>
-                <file type="string">TPA</file>
-            </livery>
-            <cabin>
-                <file type="string">BA</file>
-            </cabin>
-    </model>
-
      <help>
         <title>De Havilland "Beaver"</title>
         <line></line>

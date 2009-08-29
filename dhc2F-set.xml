@@ -18,15 +18,6 @@ July 2004 Syd Adams
         <splash-texture>Aircraft/dhc2/dhc-2splash.png</splash-texture>
     </startup>
 
-    <model>
-        <path>Aircraft/dhc2/Models/dhc2.xml</path>
-            <livery>
-                <file type="string">TPA</file>
-            </livery>
-            <cabin>
-                <file type="string">BA</file>
-            </cabin>
-    </model>
 
     <hitches>
     <!-- make sure some properties do exist, when the list for multiplayer transfere is defined-->
