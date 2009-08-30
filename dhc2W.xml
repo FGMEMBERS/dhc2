@@ -28,9 +28,9 @@ Econo cruise @5000 : 130 mph (112)
  <fuselage width="1.6" ax="2.5" ay="0" az="0" bx="3.7" by="0" bz="0.0" taper="0.75" midpoint="0.25"/>
 
   <wing x="0.0" y="0.6" z="0.6" chord="1.5875" taper="1.0"
-  length="6.8" dihedral="4" incidence="2.0" camber="0.01">
+  length="6.8" dihedral="4" incidence="2.0" camber="0.0">
     <stall width="8" aoa="15" peak="1.5"/>
-    <flap0 drag="1.6" end="0.58" lift="1.5" start="0.02"/>
+    <flap0 drag="1.5" end="0.58" lift="1.5" start="0.02"/>
     <flap1 drag="1.2" end="0.97" lift="1.2" start="0.58"/>
     <control-input control="FLAP0" axis="/controls/flight/flaps"/>
     <control-input split="true" control="FLAP1" axis="/controls/flight/aileron"/>
@@ -42,8 +42,8 @@ Econo cruise @5000 : 130 mph (112)
   </wing>
 
   <hstab x="-6.0" y="0.2" z="0.2"  chord="1.2" taper=".7" length="2.5"
-  camber="-0.002">
-    <stall width="5" aoa="15" peak="1.5"/>
+  camber="0.0">
+    <stall width="5" aoa="18" peak="1.5"/>
     <flap0 drag="1.2" end="1" lift="1.7" start="0"/>
     <control-input control="FLAP0" axis="/controls/flight/elevator"/>
     <control-input control="FLAP0" axis="/controls/flight/elevator-trim"/>
@@ -53,7 +53,7 @@ Econo cruise @5000 : 130 mph (112)
   <vstab x="-5.5" y="0" z="0.2" sweep="15"  chord="3.0" taper=".2"
    length="2.0">
     <stall width="3" aoa="15" peak="1.5"/>
-    <flap0 drag="1.1" end="1" lift="1.5" start="0"/>
+    <flap0 drag="1.2" end="1" lift="1.5" start="0"/>
     <control-input control="FLAP0" axis="/controls/flight/rudder" invert="true"/>
     <control-input control="FLAP0" axis="/controls/flight/rudder-trim" invert="true"/>
     <control-output prop="/surface-positions/rudder-pos-norm" control="FLAP0" min="1" max="-1"/>
@@ -95,7 +95,7 @@ Econo cruise @5000 : 130 mph (112)
   <tank x="0" y="0" z="0" capacity="0"/>
   <tank x="0" y="0" z="0" capacity="0"/>
 
-  <ballast x="2.0" y="0.0" z="0.0" mass="800"/>
+  <ballast x="2.0" y="0.0" z="0.0" mass="740"/>
 
   <weight x="0.5278" y="0.0" z="-0.5" mass-prop="/sim/weight[0]/weight-lb"/>
   <weight x="-0.38" y="0" z="-0.5" mass-prop="/sim/weight[1]/weight-lb"/>
