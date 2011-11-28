@@ -6,10 +6,10 @@ July 2004 Syd Adams
 ************************************************************************
 -->
 <PropertyList include="dhc2-base.xml">
-
 <sim>
+
     <description>de Havilland Beaver - Wheels</description>
-    <author>Syd Adams</author>
+    <author>Syd Adams,Tom Haigh (bumpmap)</author>
     <flight-model>yasim</flight-model>
     <aero>dhc2W</aero>
     <fuel-fraction>0.75</fuel-fraction>

@@ -2,7 +2,38 @@
 
 <PropertyList>
 
-<path>floats.ac</path>
+    <path>floats.ac</path>
+
+    <model>
+        <path>Aircraft/dhc2/Models/Effects/left-spray.xml</path>
+        <name>spray-left</name>
+        <offsets>
+            <x-m>-1.0</x-m>
+            <y-m>-1.5</y-m>
+            <z-m>-2.0</z-m>
+        </offsets>
+    </model>
+
+    <model>
+        <path>Aircraft/dhc2/Models/Effects/right-spray.xml</path>
+        <name>spray-right</name>
+        <offsets>
+            <x-m>-1.0</x-m>
+            <y-m>1.5</y-m>
+            <z-m>-2.0</z-m>
+        </offsets>
+    </model>
+
+    <model>
+        <name>Fshadow</name>
+        <path>Aircraft/dhc2/Models/shadowF.xml</path>
+        <offsets>
+            <x-m>0</x-m>
+            <y-m>0</y-m>
+            <z-m>0</z-m>
+            <pitch-deg>0</pitch-deg>
+        </offsets>
+    </model>
 
     <animation>
         <type>material</type>
@@ -37,7 +68,7 @@
         </condition>
         <object-name>Ldamper</object-name>
         <object-name>LFwheel</object-name>
-        <property>gear/gear[4]/compression-m</property>
+        <property>gear/gear[0]/compression-m</property>
         <factor>400</factor>
         <center>
             <x-m>-3.592</x-m>
@@ -54,7 +85,7 @@
     <animation>
         <type>translate</type>
         <object-name>LeftFrontGear</object-name>
-        <property>gear/gear[4]/position-norm</property>
+        <property>gear/gear[0]/position-norm</property>
         <interpolation>
             <entry><ind>0.0</ind><dep>0.320</dep></entry>
             <entry><ind>1.0</ind><dep>0.0</dep></entry>
@@ -74,7 +105,7 @@
     <animation>
         <type>translate</type>
         <object-name>Lstrut.002</object-name>
-        <property>gear/gear[4]/position-norm</property>
+        <property>gear/gear[0]/position-norm</property>
         <interpolation>
             <entry><ind>0.0</ind><dep>0.115</dep></entry>
             <entry><ind>1.0</ind><dep>0.0</dep></entry>
@@ -98,7 +129,7 @@
         </condition>
         <object-name>Rdamper</object-name>
         <object-name>RFwheel</object-name>
-        <property>gear/gear[5]/compression-m</property>
+        <property>gear/gear[1]/compression-m</property>
         <factor>400</factor>
         <center>
             <x-m>-3.592</x-m>
@@ -115,7 +146,7 @@
     <animation>
         <type>translate</type>
         <object-name>RightFrontGear</object-name>
-        <property>gear/gear[5]/position-norm</property>
+        <property>gear/gear[1]/position-norm</property>
         <interpolation>
             <entry><ind>0.0</ind><dep>0.320</dep></entry>
             <entry><ind>1.0</ind><dep>0.0</dep></entry>
@@ -135,7 +166,7 @@
     <animation>
         <type>translate</type>
         <object-name>Rstrut.002</object-name>
-        <property>gear/gear[5]/position-norm</property>
+        <property>gear/gear[1]/position-norm</property>
         <interpolation>
             <entry><ind>0.0</ind><dep>0.115</dep></entry>
             <entry><ind>1.0</ind><dep>0.0</dep></entry>
@@ -155,7 +186,7 @@
     <animation>
         <type>translate</type>
         <object-name>LRwheel</object-name>
-        <property>gear/gear[6]/position-norm</property>
+        <property>gear/gear[2]/position-norm</property>
         <interpolation>
             <entry><ind>0.0</ind><dep>-0.34</dep></entry>
             <entry><ind>1.0</ind><dep>0.0</dep></entry>
@@ -178,7 +209,7 @@
             <property>controls/gear/gear-down</property>
         </condition>
         <object-name>LRwheel</object-name>
-        <property>gear/gear[6]/compression-m</property>
+        <property>gear/gear[2]/compression-m</property>
         <factor>1.0</factor>
         <center>
             <x-m>0.216</x-m>
@@ -195,7 +226,7 @@
     <animation>
         <type>translate</type>
         <object-name>RRwheel</object-name>
-        <property>gear/gear[7]/position-norm</property>
+        <property>gear/gear[3]/position-norm</property>
         <interpolation>
             <entry><ind>0.0</ind><dep>-0.34</dep></entry>
             <entry><ind>1.0</ind><dep>0.0</dep></entry>
@@ -218,7 +249,7 @@
             <property>controls/gear/gear-down</property>
         </condition>
         <object-name>RRwheel</object-name>
-        <property>gear/gear[7]/compression-m</property>
+        <property>gear/gear[3]/compression-m</property>
         <factor>1.0</factor>
         <center>
             <x-m>0.216</x-m>
@@ -236,8 +267,8 @@
         <type>rotate</type>
         <object-name>RHrudder</object-name>
         <object-name>RHrudderArm</object-name>
-        <property>controls/flight/rudder</property>
-        <factor>20</factor>
+        <property>controls/gear/steering</property>
+        <factor>-20</factor>
         <center>
             <x-m>3.360</x-m>
             <y-m>1.434</y-m>
@@ -271,8 +302,8 @@
         <type>rotate</type>
         <object-name>LHrudder</object-name>
         <object-name>LHrudderArm</object-name>
-        <property>controls/flight/rudder</property>
-        <factor>20</factor>
+        <property>controls/gear/steering</property>
+        <factor>-20</factor>
         <center>
             <x-m>3.360</x-m>
             <y-m>-1.434</y-m>

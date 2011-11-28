@@ -11,7 +11,7 @@
         <object-name>nosedn1</object-name>
         <condition>
             <equals>
-                <property>gear/gear[4]/position-norm</property>
+                <property>gear/gear[0]/position-norm</property>
                 <value>1.0</value>
             </equals>
         </condition>
@@ -22,7 +22,7 @@
         <object-name>nosedn2</object-name>
         <condition>
             <equals>
-                <property>gear/gear[5]/position-norm</property>
+                <property>gear/gear[1]/position-norm</property>
                 <value>1.0</value>
             </equals>
         </condition>
@@ -33,7 +33,7 @@
         <object-name>maindn1</object-name>
         <condition>
             <equals>
-                <property>gear/gear[6]/position-norm</property>
+                <property>gear/gear[2]/position-norm</property>
                 <value>1.0</value>
             </equals>
         </condition>
@@ -44,7 +44,7 @@
         <object-name>maindn2</object-name>
         <condition>
             <equals>
-                <property>gear/gear[7]/position-norm</property>
+                <property>gear/gear[3]/position-norm</property>
                 <value>1.0</value>
             </equals>
         </condition>
@@ -57,7 +57,7 @@
         <object-name>noseup1</object-name>
         <condition>
             <equals>
-                <property>gear/gear[4]/position-norm</property>
+                <property>gear/gear[0]/position-norm</property>
                 <value>0</value>
             </equals>
         </condition>
@@ -68,7 +68,7 @@
         <object-name>noseup2</object-name>
         <condition>
             <equals>
-                <property>gear/gear[5]/position-norm</property>
+                <property>gear/gear[1]/position-norm</property>
                 <value>0</value>
             </equals>
         </condition>
@@ -79,7 +79,7 @@
         <object-name>mainup1</object-name>
         <condition>
             <equals>
-                <property>gear/gear[6]/position-norm</property>
+                <property>gear/gear[2]/position-norm</property>
                 <value>0</value>
             </equals>
         </condition>
@@ -90,7 +90,7 @@
         <object-name>mainup2</object-name>
         <condition>
             <equals>
-                <property>gear/gear[7]/position-norm</property>
+                <property>gear/gear[3]/position-norm</property>
                 <value>0</value>
             </equals>
         </condition>
@@ -103,11 +103,11 @@
         <condition>
             <and>
                 <greater-than>
-                    <property>gear/gear[4]/position-norm</property>
+                    <property>gear/gear[0]/position-norm</property>
                     <value>0</value>
                 </greater-than>
                 <less-than>
-                    <property>gear/gear[4]/position-norm</property>
+                    <property>gear/gear[0]/position-norm</property>
                     <value>1.0</value>
                 </less-than>
             </and>

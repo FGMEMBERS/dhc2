@@ -5,12 +5,11 @@ de Havilland Beaver - Floats
 July 2004 Syd Adams
 ************************************************************************
 -->
-
 <PropertyList include="dhc2-base.xml">
 <sim>
 
     <description>de Havilland Beaver - Floats</description>
-    <author>Syd Adams</author>
+    <author>Syd Adams,Tom Haigh (bumpmap)</author>
     <flight-model>yasim</flight-model>
     <aero>dhc2F</aero>
     <fuel-fraction>0.75</fuel-fraction>
@@ -120,13 +119,6 @@ July 2004 Syd Adams
             </binding>
                 </item>
                 <item>
-                    <label>Water rudder toggle</label>
-                    <binding>
-                <command>nasal</command>
-                <script>dhc2.water_rudder()</script>
-            </binding>
-                </item>
-                <item>
                     <label>Show/Hide Yokes</label>
                     <binding>
                         <command>property-toggle</command>
@@ -148,7 +140,7 @@ July 2004 Syd Adams
 
 <controls>
     <gear>
-        <water-rudder-pos type="double">0</water-rudder-pos>
+        <water-rudder type="bool">0</water-rudder>
         <water-rudder-down type="double">0</water-rudder-down>
     </gear>
     <winch>
@@ -162,8 +154,8 @@ July 2004 Syd Adams
             <name>l</name>
             <desc>Toggle water rudders</desc>
             <binding>
-                <command>nasal</command>
-                <script>dhc2.water_rudder()</script>
+                <command>property-toggle</command>
+                <property>controls/gear/water-rudder</property>
             </binding>
         </key>
         <key n="23">
