@@ -130,6 +130,22 @@
             </generic>
         </multiplay>
 
+        <rendering>
+            <shaders>
+                <aircraft>
+                    <reflection>
+                        <quality-level type="int" userarchive="y">1</quality-level>
+                    </reflection>
+                    <lightmap>
+                        <quality-level type="int" userarchive="y">1</quality-level>
+                    </lightmap>
+                    <bumpmap>
+                        <quality-level type="int" userarchive="y">1</quality-level>
+                    </bumpmap>
+                </aircraft>
+            </shaders>
+        </rendering>
+
     </sim>
 
     <engines>
