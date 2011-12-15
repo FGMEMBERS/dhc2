@@ -2,6 +2,7 @@ aircraft.livery.init("Aircraft/dhc2/Models/Liveries");
 var volume=props.globals.initNode("/sim/sound/sim-volume",0.0);
 var idle_volume=props.globals.initNode("/sim/sound/idle-volume",0.0);
 var floats = 0;
+var beacon_light = props.globals.initNode("/controls/lighting/beacon-light", 0.0);
 
 var TireSpeed = {
     new : func(number){
@@ -155,6 +156,16 @@ setlistener("/sim/current-view/internal", func(vw){
         volume.setValue(0.4);
     }else{
         volume.setValue(1.0);
+    }
+},1,0);
+
+setlistener("systems/electrical/outputs/beacon", func(bn){
+    var beacon = bn.getValue()or 0;
+
+    if( beacon > 5){
+        setprop("/controls/lighting/beacon-light", 1);
+    }else{
+        setprop("/controls/lighting/beacon-light", 0);
     }
 },1,0);
 
