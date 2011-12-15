@@ -114,6 +114,15 @@
         <object-name>LHrear.door</object-name>
     </effect>
 
+    <animation>
+        <inherits-from>Aircraft/dhc2/Models/Effects/glass-uber</inherits-from>
+        <object-name>LHFdoor.glass</object-name>
+        <object-name>RHFdoor.glass</object-name>
+        <object-name>RRglass</object-name>
+        <object-name>LRglass</object-name>
+        <object-name>Glass</object-name>
+      </animation>
+
 <!-- wing Reg-->
 
     <text>
@@ -230,7 +239,7 @@
         </condition>
     </animation>
 
-   <animation>
+   <!--<animation>
         <type>shader</type>
         <shader>chrome</shader>
         <texture>Aircraft/dhc2/Models/chrome1.png</texture>
@@ -239,7 +248,7 @@
         <object-name>RRglass</object-name>
         <object-name>LRglass</object-name>
         <object-name>Glass</object-name>
-    </animation>
+    </animation>-->
 
     <animation>
         <type>shader</type>
