@@ -9,7 +9,7 @@
 		<texture n="2">
 			<image>Aircraft/dhc2/Models/Effects/normals.png</image>
 		</texture>
-		
+
 		<!-- Light Map -->
 		<lightmap-enabled type="int">1</lightmap-enabled>
 		<lightmap-multi type="int">0</lightmap-multi>
@@ -69,7 +69,7 @@
 		<binormal type="int">7</binormal>
 	</generate>
 
-	<technique n="10">
+	<technique n="9">
 		<pass>
 			<program>
 				<attribute>

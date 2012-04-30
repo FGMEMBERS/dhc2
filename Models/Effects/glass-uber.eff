@@ -14,7 +14,7 @@
 			<wrap-s>repeat</wrap-s>
 			<wrap-t>repeat</wrap-t>
 		</texture>
-		
+
 		<!-- Reflection -->
 		<reflection-enabled type="int">1</reflection-enabled>
 		<reflect-map-enabled type="int">0</reflect-map-enabled>
@@ -42,7 +42,7 @@
 		<binormal type="int">7</binormal>
 	</generate>
 
-	<technique n="10">
+	<technique n="9">
 		<pass>
 			<program>
 				<attribute>
