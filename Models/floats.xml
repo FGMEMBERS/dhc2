@@ -46,7 +46,7 @@
   </animation>
 
   <effect>
-    <inherits-from>Aircraft/dhc2/Models/Effects/skin-reflect-uber</inherits-from>
+    <inherits-from>Aircraft/dhc2/Models/Effects/skin-reflect</inherits-from>
     <object-name>Floats</object-name>
     <object-name>LHrudder</object-name>
     <object-name>RHrudder</object-name>

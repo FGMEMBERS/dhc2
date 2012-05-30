@@ -1,6 +1,6 @@
 <PropertyList>
-	<name>skin-reflect-uber</name>
-	<inherits-from>/Effects/model-combined</inherits-from>
+	<name>skin-reflect</name>
+	<inherits-from>/Effects/model-combined-deferred</inherits-from>
 
 	<parameters>
 		<!-- Normal Map -->
