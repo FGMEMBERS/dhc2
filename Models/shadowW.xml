@@ -65,6 +65,12 @@
                     <property>sim/multiplay/generic/float[7]</property>
                     <value>1000</value>
                 </less-than>
+                <not>
+                    <and>
+                        <property>sim/rendering/shadows/enabled</property>
+                        <property>sim/rendering/rembrandt/enabled</property>
+                    </and>
+                </not>
             </and>
         </condition>
     </animation>

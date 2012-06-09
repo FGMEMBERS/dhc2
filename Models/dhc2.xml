@@ -18,6 +18,20 @@
         </unload>
     </nasal>
 
+    <!-- Mark transparent surfaces for Rembrandt -->
+    <effect>
+        <inherits-from>Effects/model-transparent</inherits-from>
+        <object-name>Glass</object-name>
+        <object-name>Fastprop</object-name>
+        <object-name>Slowprop</object-name>
+        <object-name>LndLight</object-name>
+        <object-name>LndLight1</object-name>
+        <object-name>LRglass</object-name>
+        <object-name>RRglass</object-name>
+        <object-name>LHFdoor.glass</object-name>
+        <object-name>RHFdoor.glass</object-name>
+    </effect>
+
     <animation>
         <type>material</type>
         <object-name>Fuselage</object-name>
