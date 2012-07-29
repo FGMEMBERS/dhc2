@@ -1,6 +1,6 @@
 <PropertyList>
 	<name>skin-reflect</name>
-	<inherits-from>/Effects/model-combined-deferred</inherits-from>
+	<inherits-from>Effects/model-combined-deferred</inherits-from>
 
 	<parameters>
 		<!-- Normal Map -->
@@ -69,6 +69,20 @@
 		<binormal type="int">7</binormal>
 	</generate>
 
+	<technique n="8">
+		<pass>
+			<program>
+				<attribute>
+					<name>tangent</name>
+					<index>6</index>
+				</attribute>
+				<attribute>
+					<name>binormal</name>
+					<index>7</index>
+				</attribute>
+			</program>
+		</pass>
+	</technique>
 	<technique n="9">
 		<pass>
 			<program>
