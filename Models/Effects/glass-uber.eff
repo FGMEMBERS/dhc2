@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PropertyList>
 	<name>tempestglass-uber</name>
-	<inherits-from>/Effects/model-combined</inherits-from>
+	<inherits-from>/Effects/model-combined-transparent</inherits-from>
 
 	<parameters>
 
@@ -41,6 +41,36 @@
 		<tangent type="int">6</tangent>
 		<binormal type="int">7</binormal>
 	</generate>
+
+	<technique n="4">
+		<pass>
+			<program>
+				<attribute>
+					<name>tangent</name>
+					<index>6</index>
+				</attribute>
+				<attribute>
+					<name>binormal</name>
+					<index>7</index>
+				</attribute>
+			</program>
+		</pass>
+	</technique>
+
+	<technique n="8">
+		<pass>
+			<program>
+				<attribute>
+					<name>tangent</name>
+					<index>6</index>
+				</attribute>
+				<attribute>
+					<name>binormal</name>
+					<index>7</index>
+				</attribute>
+			</program>
+		</pass>
+	</technique>
 
 	<technique n="9">
 		<pass>
