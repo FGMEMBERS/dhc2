@@ -25,6 +25,11 @@
   </model>
 
   <model>
+    <condition>
+            <not>
+                <property>sim/rendering/rembrandt/enabled</property>
+            </not>
+        </condition>
     <name>Fshadow</name>
     <path>Aircraft/dhc2/Models/shadowF.xml</path>
     <offsets>

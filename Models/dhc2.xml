@@ -83,6 +83,20 @@
 
     <model>
         <condition>
+            <property>/sim/rendering/rembrandt/enabled</property>
+        </condition>
+        <name>light</name>
+        <path>Aircraft/dhc2/Models/light.xml</path>
+        <offsets>
+            <x-m>-0.758</x-m>
+            <y-m>-3.688</y-m>
+            <z-m>1.092</z-m>
+            <pitch-deg>-20</pitch-deg>
+        </offsets>
+    </model>
+
+    <model>
+        <condition>
             <equals>
                 <property>sim/aero</property>
                 <value>dhc2W</value>

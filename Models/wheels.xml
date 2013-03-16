@@ -18,6 +18,11 @@
     </animation>
 
     <model>
+        <condition>
+            <not>
+                <property>sim/rendering/rembrandt/enabled</property>
+            </not>
+        </condition>
         <name>Wshadow</name>
         <path>Aircraft/dhc2/Models/shadowW.xml</path>
         <offsets>

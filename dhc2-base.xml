@@ -17,7 +17,7 @@
                     <blue type="double">0.0</blue>
                 </registration>
                 <display-callsign type="bool">1</display-callsign>
-                <shadow-3d type="bool">1</shadow-3d>
+                <shadow-2d type="bool">1</shadow-2d>
         </model>
 
         <view n="0">
