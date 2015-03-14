@@ -1,0 +1,93 @@
+<?xml version="1.0"?>
+
+<system name="fuel">
+
+    <channel name="Fuel flow">
+
+        <switch>
+            <default value="0"/>
+            <test value="-propulsion/engine/fuel-flow-rate-pps">
+            /controls/fuel/switch-position EQ 1
+            propulsion/tank[1]/contents-lbs GE 2
+            propulsion/engine/engine-rpm GE 300
+            propulsion/tank[0]/contents-lbs LT 0.1
+            </test>
+            <output>propulsion/tank[1]/external-flow-rate-pps</output>
+        </switch>
+
+        <switch>
+            <default value="0"/>
+            <test value="-propulsion/engine/fuel-flow-rate-pps">
+            /controls/fuel/switch-position EQ 2
+            propulsion/tank[2]/contents-lbs GE 2
+            propulsion/engine/engine-rpm GE 300
+            propulsion/tank[0]/contents-lbs LT 0.1
+            </test>
+            <output>propulsion/tank[2]/external-flow-rate-pps</output>
+        </switch>
+
+        <switch>
+            <default value="0"/>
+            <test value="-propulsion/engine/fuel-flow-rate-pps">
+            /controls/fuel/switch-position EQ 3
+            propulsion/tank[3]/contents-lbs GE 2
+            propulsion/engine/engine-rpm GE 300
+            propulsion/engine/engine-rpm GE 300
+            propulsion/tank[0]/contents-lbs LT 0.1
+            </test>
+            <output>propulsion/tank[3]/external-flow-rate-pps</output>
+        </switch>
+
+        <summer>
+            <input>-propulsion/tank[1]/external-flow-rate-pps</input>
+            <input>-propulsion/tank[2]/external-flow-rate-pps</input>
+            <input>-propulsion/tank[3]/external-flow-rate-pps</input>
+            <output>propulsion/tank[0]/external-flow-rate-pps</output>
+        </summer> 
+
+    </channel>
+
+    <channel name="Wobble Pump">
+
+        <kinematic name="Pump Lever">
+            <input>/controls/fuel/wobble-pump</input>
+            <traverse>
+                <setting>
+                    <position>0</position>
+                    <time>0</time>
+                </setting>
+                <setting>
+                    <position>1</position>
+                    <time>0.25</time>
+                </setting>
+            </traverse>
+        <output>/controls/fuel/pump-lever-pos</output>
+    </kinematic>
+
+    <pure_gain name="/controls/fuel/pump-psi">
+        <input>/controls/fuel/wobble-pump</input>
+        <gain>/controls/fuel/switch-position</gain>
+        <clipto>
+            <min>0.00</min>
+            <max>0.0004</max>
+        </clipto>
+    </pure_gain> 
+
+        <summer>
+            <input>/controls/fuel/pump-psi</input>
+            <input>propulsion/tank[0]/contents-lbs</input>
+            <output>propulsion/tank[0]/contents-lbs</output>
+        </summer> 
+
+
+        <switch>
+            <default value="/controls/fuel/wobble-pump"/>
+            <test value="0">
+            /controls/fuel/pump-lever-pos GE 0.95
+            </test>
+            <output>/controls/fuel/wobble-pump</output>
+        </switch>
+
+  </channel>
+
+</system>

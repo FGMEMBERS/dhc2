@@ -19,32 +19,32 @@
      <z>0</z>
    </direction>
    <ambient>
-     <r>1</r>
-     <g>1</g>
-     <b>1</b>
+     <r>5</r>
+     <g>5</g>
+     <b>5</b>
      <a>1.0</a>
    </ambient>
    <diffuse>
-     <r>1</r>
-     <g>1</g>
-     <b>1</b>
+     <r>5</r>
+     <g>5</g>
+     <b>5</b>
      <a>1.0</a>
    </diffuse>
    <specular>
-     <r>0.5</r>
-     <g>0.5</g>
-     <b>0.5</b>
+     <r>0.7</r>
+     <g>0.7</g>
+     <b>0.7</b>
      <a>1.0</a>
    </specular>
    <attenuation>
-     <c>1.0</c>
-     <l>0.002</l>
-     <q>0.00005</q>
+     <c>2</c>
+    <l>0.002</l>
+    <q>0.0025</q>
    </attenuation>
    <exponent>30.0</exponent>
-   <cutoff>350</cutoff>
-   <near-m>0.1</near-m>
-   <far-m>400</far-m>
+   <cutoff>500</cutoff>
+   <near-m>0.5</near-m>
+   <far-m>500</far-m>
  </animation>
 
 <animation>
@@ -54,11 +54,9 @@
       <and>
          <greater-than>
             <property>/sim/rendering/shaders/lights</property>
-            <value>3.0</value>
+            <value>0.0</value>
          </greater-than>
-         <or>
-            <property>systems/electrical/outputs/landing-lights</property>
-        </or>
+         <property>systems/electrical/outputs/landing-lights</property>
       </and>
    </condition>
 </animation>

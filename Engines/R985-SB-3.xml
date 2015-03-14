@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<!--
+  File:     R985-SB-3.xml
+  Author:   Aero-Matic v 0.82
+
+  Inputs:
+    name:           R985-SB-3
+    type:           piston
+    power:          450 hp
+    augmented?      no
+    injected?       no
+-->
+
+<piston_engine name="R985-SB-3">
+  <minmp unit="INHG">10.0</minmp>
+  <maxmp unit="INHG">29.5</maxmp>
+  <displacement unit="IN3">985.00 </displacement>
+  <maxhp>450.00 </maxhp>
+  <cycles>4.0 </cycles>
+  <idlerpm>300.0 </idlerpm>
+  <maxrpm>2300.0</maxrpm>
+  <sparkfaildrop>0.12</sparkfaildrop>
+  <volumetric-efficiency>0.85</volumetric-efficiency>
+  <air-intake-impedance-factor>0.7</air-intake-impedance-factor>
+<!-- Optional items that affect engine performance -->
+ <!-- Defining <bsfc> over-rides the built-in horsepower calculations -->
+ <!--<bsfc>           0.45 </bsfc>-->
+ <stroke unit="IN">  5.18 </stroke>
+ <bore unit="IN">   5.18 </bore>
+ <cylinders>9.0</cylinders>
+ <compression-ratio>6.0</compression-ratio>
+ <numboostspeeds>1</numboostspeeds>
+ <ratedboost1 unit="INHG">7</ratedboost1>
+  <ratedpower1 unit="HP">450</ratedpower1>
+  <ratedrpm1>2300</ratedrpm1>
+  <ratedaltitude1 unit="FT">5000</ratedaltitude1>
+  <takeoffboost unit="INHG">7.5</takeoffboost>
+ <man-press-lag>0.3</man-press-lag>
+  <boost-loss-factor>1.01</boost-loss-factor>
+</piston_engine>

@@ -3,14 +3,14 @@
 <PropertyList>
 <fx>
     <crank>
-        <name>cranking</name>
+        <name>cranking ext</name>
         <mode>looped</mode>
         <path>Aircraft/dhc2/Sound/starter.wav</path>
         <condition>
             <property>engines/engine/cranking</property>
         </condition>
         <volume>
-            <property>sim/sound/sim-volume</property>
+            <property>sim/sound/Nvolume</property>
         </volume>
         <pitch>
             <property>engines/engine/rpm</property>
@@ -24,8 +24,8 @@
             <y>0</y>
             <z>0</z>
         </position>
-        <reference-dist>10.0</reference-dist>
-        <max-dist>20.0</max-dist>
+        <reference-dist>1</reference-dist>
+        <max-dist>50.0</max-dist>
     </crank>
 
     <engine>
@@ -36,15 +36,15 @@
         <mode>once</mode>
         <path>Aircraft/dhc2/Sound/startup.wav</path>
         <volume>
-            <property>sim/sound/sim-volume</property>
+            <property>sim/sound/Nvolume</property>
         </volume>
         <position>
             <x>-2.0</x>
             <y>0</y>
             <z>0</z>
         </position>
-        <reference-dist>50.0</reference-dist>
-        <max-dist>100.0</max-dist>
+        <reference-dist>1.0</reference-dist>
+        <max-dist>50.0</max-dist>
     </engine>
 
     <engine>
@@ -55,10 +55,7 @@
         <mode>looped</mode>
         <path>Aircraft/dhc2/Sound/idle.wav</path>
         <volume>
-            <property>sim/sound/idle-volume</property>
-        </volume>
-        <volume>
-            <property>sim/sound/sim-volume</property>
+            <property>sim/sound/Nvolume</property>
         </volume>
         <pitch>
             <property>engines/engine/rpm</property>
@@ -70,8 +67,8 @@
             <y>0</y>
             <z>0</z>
         </position>
-        <reference-dist>50.0</reference-dist>
-        <max-dist>100.0</max-dist>
+        <reference-dist>1</reference-dist>
+        <max-dist>50.0</max-dist>
     </engine>
 
     <engine>
@@ -82,17 +79,17 @@
         <mode>looped</mode>
         <path>Aircraft/dhc2/Sound/r985.wav</path>
         <volume>
-            <property>engines/engine/mp-inhg</property>
-            <factor>0.027</factor>
+            <property>engines/engine/rpm</property>
+            <factor>0.0004</factor>
             <min>0.2</min>
             <max>1</max>
         </volume>
         <volume>
-            <property>sim/sound/sim-volume</property>
+            <property>sim/sound/Nvolume</property>
         </volume>
         <pitch>
-            <property>engines/engine/mp-inhg</property>
-            <factor>0.027</factor>
+            <property>engines/engine/rpm</property>
+            <factor>0.0004</factor>
             <offset>0</offset>
             <min>0.3</min>
             <max>1</max>
@@ -102,8 +99,8 @@
             <y>0</y>
             <z>0</z>
         </position>
-        <reference-dist>100.0</reference-dist>
-        <max-dist>200.0</max-dist>
+        <reference-dist>1.0</reference-dist>
+        <max-dist>1000.0</max-dist>
     </engine>
 
     <doors>
@@ -124,8 +121,8 @@
             <y>-0.6</y>
             <z>0</z>
         </position>
-        <reference-dist>1.0</reference-dist>
-        <max-dist>2.0</max-dist>
+        <reference-dist>0.1</reference-dist>
+        <max-dist>5.0</max-dist>
     </doors>
 
     <doors>
@@ -146,8 +143,8 @@
             <y>0.6</y>
             <z>0</z>
         </position>
-        <reference-dist>1.0</reference-dist>
-        <max-dist>2.0</max-dist>
+        <reference-dist>0.1</reference-dist>
+        <max-dist>5.0</max-dist>
     </doors>
 
     <doors>
@@ -168,8 +165,8 @@
             <y>-0.6</y>
             <z>0</z>
         </position>
-        <reference-dist>1.0</reference-dist>
-        <max-dist>2.0</max-dist>
+        <reference-dist>0.1</reference-dist>
+        <max-dist>5.0</max-dist>
     </doors>
 
     <doors>
@@ -190,8 +187,8 @@
             <y>0.6</y>
             <z>0</z>
         </position>
-        <reference-dist>1.0</reference-dist>
-        <max-dist>2.0</max-dist>
+        <reference-dist>0.1</reference-dist>
+        <max-dist>5.0</max-dist>
     </doors>
 
     <rumble>
@@ -216,8 +213,8 @@
             <y>0</y>
             <z>-2</z>
         </position>
-        <reference-dist>10.0</reference-dist>
-        <max-dist>20.0</max-dist>
+        <reference-dist>5.0</reference-dist>
+        <max-dist>150.0</max-dist>
     </rumble>
 
     <splash>
@@ -254,7 +251,7 @@
             <z>-2</z>
         </position>
         <reference-dist>10.0</reference-dist>
-        <max-dist>20.0</max-dist>
+        <max-dist>200.0</max-dist>
     </splash>
 
     <squeal>
@@ -292,8 +289,8 @@
             <y>0</y>
             <z>-2</z>
         </position>
-        <reference-dist>10.0</reference-dist>
-        <max-dist>20.0</max-dist>
+        <reference-dist>1.0</reference-dist>
+        <max-dist>50.0</max-dist>
     </squeal>
 
     <flap>
@@ -303,7 +300,7 @@
         <path>Aircraft/dhc2/Sound/flaplever.wav</path>
         <property>surface-positions/flap-pos-norm</property>
         <volume>
-            <property>sim/sound/sim-volume</property>
+            <property>sim/sound/volume</property>
         </volume>
         <position>
             <x>1.0</x>
@@ -394,6 +391,27 @@
         <max-dist>4.0</max-dist>
     </gear>
 
+    <gyro>
+            <name>turn-ind</name>
+            <type>avionics</type>
+            <mode>looped</mode>
+            <path>Aircraft/dhc2/Sound/gyro.wav</path>
+            <property>instrumentation/turn-indicator/spin</property>
+            <volume>
+                <property>sim/sound/avionics/volume</property>
+                <factor>0.5</factor>
+            </volume>
+            <pitch>
+                <property>instrumentation/turn-indicator/spin</property>
+                <offset>0.0</offset>
+            </pitch>
+            <position>
+                <x>-1</x>
+                <y>0</y>
+                <z>0.0</z>
+            </position>
+        </gyro>
+
  <!--                  Toggle Switches                  -->     
 
     <switch>
@@ -418,18 +436,13 @@
         </condition>
     </switch>
 
-    <pump>
-        <name>fuel pump</name>
+    <lever>
+        <name>lever</name>
         <type>avionics</type>
-        <mode>looped</mode>
-        <path>Aircraft/dhc2/Sound/fuelpump.wav</path>
-        <condition>
-            <greater-than>
-                <property>systems/electrical/outputs/fuel-pump</property>
-                <value>5</value>
-            </greater-than>
-        </condition>
-    </pump>
+        <mode>once</mode>
+        <property>/controls/fuel/pump-lever-pos</property>
+        <path>Aircraft/dhc2/Sound/wobble.wav</path>
+    </lever>
 
 </fx>
 

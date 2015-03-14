@@ -5,11 +5,10 @@
     <model>
         <livery>
             <name type="string">Army</name>
-            <texture>paint4.png</texture>
+            <texture>Liveries/ARMY.png</texture>
+            <amb type="float">0.1</amb>
+            <refl type="float">-0.95</refl>
         </livery>
-        <cabin>
-            <texture>cabin1.png</texture>
-        </cabin>
         <registration>
             <red>0.1</red>
             <green>0.2</green>

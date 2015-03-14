@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+
+<system name="floats">
+
+<channel name="float friction">
+        <switch>
+            <default value="0.001"/>
+            <test logic="AND" value="1">
+            contact/unit[4]/solid EQ 1
+            </test>
+            <output>contact/unit[4]/dynamic_friction_coeff</output>
+        </switch>
+
+        <switch>
+            <default value="0.001"/>
+            <test logic="AND" value="1">
+            contact/unit[5]/solid EQ 1
+            </test>
+            <output>contact/unit[5]/dynamic_friction_coeff</output>
+        </switch>
+
+        <switch>
+            <default value="0.001"/>
+            <test logic="AND" value="1">
+            contact/unit[6]/solid EQ 1
+            </test>
+            <output>contact/unit[6]/dynamic_friction_coeff</output>
+        </switch>
+
+        <switch>
+            <default value="0.01"/>
+            <test logic="AND" value="1">
+            contact/unit[6]/solid EQ 1
+            </test>
+            <output>contact/unit[6]/dynamic_friction_coeff</output>
+        </switch>
+</channel>
+
+</system>

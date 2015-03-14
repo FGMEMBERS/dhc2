@@ -5,11 +5,10 @@
     <model>
         <livery>
             <name type="string">Norcanair</name>
-            <texture>paint3.png</texture>
+            <texture>Liveries/NCA.png</texture>
+            <amb type="float">0.1</amb>
+            <refl type="float">-0.1</refl>
         </livery>
-        <cabin>
-            <texture>cabin.png</texture>
-        </cabin>
         <registration>
             <red>0.8</red>
             <green>0.8</green>

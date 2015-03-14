@@ -15,7 +15,7 @@
         </offsets>
 
         <condition>
-            <property>engines/engine/smoke</property>
+            <property>engines/engine/firing</property>
         </condition>
 
         <attach>world</attach>
