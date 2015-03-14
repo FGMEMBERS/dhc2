@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+<sim>
+    <model>
+        <livery>
+            <name type="string">Default</name>
+            <texture>default.png</texture>
+            <amb>0.1</amb>
+            <refl>-0.2</refl>
+        </livery>
+        <registration>
+            <red>0.1</red>
+            <green>0.1</green>
+            <blue>0.1</blue>
+        </registration>
+        <display-callsign>1</display-callsign>
+    </model>
+</sim>
+</PropertyList>
