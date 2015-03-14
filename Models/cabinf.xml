@@ -2242,6 +2242,16 @@
         <action>
             <button>0</button>
             <binding>
+                <condition>
+                    <and>
+                        <not>
+                            <property>gear/gear[2]/wow</property>
+                        </not>
+                        <not>
+                            <property>gear/gear[3]/wow</property>
+                        </not>
+                    </and>
+                </condition>
                 <command>property-toggle</command>
                 <property>controls/gear/gear-down</property>
             </binding>
