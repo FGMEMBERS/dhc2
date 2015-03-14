@@ -59,21 +59,18 @@
             <Nvolume type="double">1</Nvolume>
         </sound>
 
-    <model>
-        <yokes-visible type="bool">0</yokes-visible>
-    </model>
+        <model>
+            <yokes-visible type="bool">0</yokes-visible>
+        </model>
         <allow-toggle-cockpit archive="y">true</allow-toggle-cockpit>
 
+        <checklists include="Systems/checklist.xml"/>
 
-
-
-       <checklists include="Systems/checklist.xml"/>
-
-     <help>
-        <title>De Havilland "Beaver"</title>
-        <line></line>
-        <line>see CHECKLIST in menu</line>
-    </help>
+        <help>
+            <title>De Havilland "Beaver"</title>
+            <line></line>
+            <line>see CHECKLIST in menu</line>
+        </help>
 
         <multiplay>
             <generic>
@@ -161,59 +158,97 @@
     <input>
         <keyboard>
             <key n="126">
-            <name>~</name>
-            <desc>Wobble pump</desc>
-            <binding>
-                <command>property-assign</command>
-                <property>/controls/fuel/wobble-pump</property>
-                <value>1</value>
-            </binding>
+                <name>~</name>
+                <desc>Wobble pump</desc>
+                <binding>
+                    <command>property-assign</command>
+                    <property>/controls/fuel/wobble-pump</property>
+                    <value>1</value>
+                </binding>
             </key>
             <key n="268">
-            <name>radio</name>
-            <binding>
-                <command>nasal</command>
-                <script>dialogs.Radio.open()</script>
-            </binding>
-        </key>
-        <key n="115">
-            <name>s</name>
-            <desc>Fire Starter</desc>
-            <binding>
-                <command>property-assign</command>
-                <property>controls/electric/starter-switch</property>
-                <value>1</value>
-            </binding>
-            <mod-up>
+                <name>radio</name>
+                <binding>
+                    <command>nasal</command>
+                    <script>dialogs.Radio.open()</script>
+                </binding>
+            </key>
+            <key n="115">
+                <name>s</name>
+                <desc>Fire Starter</desc>
                 <binding>
                     <command>property-assign</command>
                     <property>controls/electric/starter-switch</property>
+                    <value>1</value>
+                </binding>
+                <mod-up>
+                    <binding>
+                        <command>property-assign</command>
+                        <property>controls/electric/starter-switch</property>
+                        <value>0</value>
+                    </binding>
+                </mod-up>
+            </key>
+            <key n="91">
+                <name>[</name>
+                <desc>Decrease flaps</desc>
+                <binding>
+                    <command>property-adjust</command>
+                    <property>/controls/flight/flaps</property>
+                    <step type="double">-0.083333</step>
+                    <min>0</min>
+                    <max>1.0</max>
+                </binding>
+            </key>
+            <key n="93">
+                <name>]</name>
+                <desc>Increase flaps</desc>
+                <binding>
+                    <command>property-adjust</command>
+                    <property>/controls/flight/flaps</property>
+                    <step type="double">0.083333</step>
+                    <min>0</min>
+                    <max>1.0</max>
+                </binding>
+            </key>
+            <key n="71">
+                <name>G</name>
+                <desc>Gear down</desc>
+                <binding>
+                    <condition>
+                        <and>
+                            <not>
+                                <property>gear/gear[2]/wow</property>
+                            </not>
+                            <not>
+                                <property>gear/gear[3]/wow</property>
+                            </not>
+                        </and>
+                    </condition>
+                    <command>property-assign</command>
+                    <property>controls/gear/gear-down</property>
+                    <value>1</value>
+                </binding>
+            </key>
+            <key n="103">
+                <name>g</name>
+                <desc>Gear Up</desc>
+                <binding>
+                    <condition>
+                        <and>
+                            <not>
+                                <property>gear/gear[2]/wow</property>
+                            </not>
+                            <not>
+                                <property>gear/gear[3]/wow</property>
+                            </not>
+                        </and>
+                    </condition>
+                    <command>property-assign</command>
+                    <property>controls/gear/gear-down</property>
                     <value>0</value>
                 </binding>
-            </mod-up>
-        </key>
-        <key n="91">
-            <name>[</name>
-            <desc>Decrease flaps</desc>
-            <binding>
-                <command>property-adjust</command>
-                <property>/controls/flight/flaps</property>
-                <step type="double">-0.083333</step>
-                <min>0</min>
-                <max>1.0</max>
-            </binding>
-        </key>
-        <key n="93">
-            <name>]</name>
-            <desc>Increase flaps</desc>
-            <binding>
-                <command>property-adjust</command>
-                <property>/controls/flight/flaps</property>
-                <step type="double">0.083333</step>
-                <min>0</min>
-                <max>1.0</max>
-            </binding>
-        </key>
+            </key>
         </keyboard>
     </input>
 
@@ -222,8 +257,6 @@
             <power-btn type="bool">1</power-btn>
             <volume>1</volume>
         </comm>
-        <nav>
-        </nav>
     </instrumentation>
 
     <nasal>
