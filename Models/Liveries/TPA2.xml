@@ -5,7 +5,9 @@
     <model>
         <livery>
             <name type="string">Trans Provincial Airlines (2)</name>
-            <texture>paint2.png</texture>
+            <texture>Liveries/TPA2.png</texture>
+            <amb type="float">0.1</amb>
+            <refl type="float">-0.2</refl>
         </livery>
         <cabin>
             <texture>cabin.png</texture>

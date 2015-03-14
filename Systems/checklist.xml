@@ -1,0 +1,74 @@
+<PropertyList>
+    <checklist>  
+        <title>Beaver Start-Up</title>
+        <item>
+            <name>Park Brake</name>
+            <value>ON</value>
+        </item>
+        <item>
+            <name>Generator switch</name>
+            <value>ON</value>
+        </item>
+        <item>
+            <name>Master Switch</name>
+            <value>ON</value>
+        </item>
+            <item>
+            <name>Fuel Quantity</name>
+            <value>CHECK</value>
+        </item>
+        <item>
+            <name>Altimeter / Clock</name>
+            <value>SET</value>
+        </item>
+        <item>
+            <name>Light switches</name>
+            <value>AS REQUIRED</value>
+        </item>
+        <item>
+            <name>Throttle</name>
+            <value>1/4 inch OPEN</value>
+        </item>
+        <item>
+            <name>Prop Lever</name>
+            <value>INCREASE</value>
+        </item>
+        <item>
+            <name>Mixture Lever</name>
+            <value>FULL RICH</value>
+        </item>
+        <item>
+            <name>Carb Heat</name>
+            <value>COLD</value>
+        </item>
+        <item>
+            <name>Emergency Cutoff</name>
+            <value>OPEN</value>
+        </item>
+        <item>
+            <name>Fuel Selector</name>
+            <value>Fullest Tank</value>
+        </item>
+        <item>
+            <name>Wobble Pump Lever</name>
+            <value>Pump to bring fuel pressue to 5 PSI</value>
+        </item>
+        <item>
+            <name>Magnetos</name>
+            <value>BOTH</value>
+        </item>
+        <item>
+            <name>Starter </name>
+            <value>Hold on until ignition</value>
+        </item>
+        <item>
+            <name>Directional Gyro</name>
+            <value>Set to match magnetic compass</value>
+        </item>
+        <item>
+            <name>Wing Tank Selector</name>
+            <value>AS REQUIRED</value>
+        </item>
+    </checklist>
+
+</PropertyList>

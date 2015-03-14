@@ -3,22 +3,13 @@
 <PropertyList>
 
     <sim>
-        <model>
-            <path>Aircraft/dhc2/Models/dhc2.xml</path>
-                <livery>
-                    <file type="string">TPA</file>
-                </livery>
-                <cabin>
-                    <file type="string">BA</file>
-                </cabin>
-                <registration>
-                    <red type="double">0.0</red>
-                    <green type="double">0.0</green>
-                    <blue type="double">0.0</blue>
-                </registration>
-                <display-callsign type="bool">1</display-callsign>
-                <shadow-2d type="bool">1</shadow-2d>
-        </model>
+
+        <rating>
+            <FDM type="int">3</FDM>
+            <systems type="int">2</systems>
+            <cockpit type="int">4</cockpit>
+            <model type="int">4</model>
+        </rating>
 
         <view n="0">
             <name>Cockpit</name>
@@ -26,20 +17,20 @@
             <internal type="bool">true</internal>
             <config>
                 <x-offset-m type="double">-0.34</x-offset-m>
-                <y-offset-m type="double">0.67</y-offset-m>
+                <y-offset-m type="double">0.69</y-offset-m>
                 <z-offset-m type="double">-0.64</z-offset-m>
                 <pitch-offset-deg>-15</pitch-offset-deg>
-                <default-field-of-view-deg type="double">60.0</default-field-of-view-deg>
+                <default-field-of-view-deg type="double">65.0</default-field-of-view-deg>
                 <limits>
                     <enabled type="bool">true</enabled>
                     <left>
-                        <heading-max-deg type="double">130</heading-max-deg>
-                        <x-offset-max-m type="double">0.22</x-offset-max-m>
+                        <heading-max-deg type="double">90</heading-max-deg>
+                        <x-offset-max-m type="double">0.10</x-offset-max-m>
                         <x-offset-threshold-deg type="double">75</x-offset-threshold-deg>
                     </left>
                     <right>
-                        <heading-max-deg type="double">140</heading-max-deg>
-                        <x-offset-max-m type="double">0.2</x-offset-max-m>
+                        <heading-max-deg type="double">180</heading-max-deg>
+                        <x-offset-max-m type="double">0.22</x-offset-max-m>
                         <x-offset-threshold-deg type="double">75</x-offset-threshold-deg>
                     </right>
                 </limits>
@@ -58,61 +49,31 @@
             <electrical>
                 <path></path>
             </electrical>
+            <autopilot>
+                <path>Aircraft/dhc2/Systems/copilot.xml</path>
+            </autopilot>
         </systems>
 
         <sound>
             <path>Aircraft/dhc2/Sound/dhc2-sound.xml</path>
-            <volume>0.5</volume>
+            <Nvolume type="double">1</Nvolume>
         </sound>
 
-        <instrumentation>
-            <path>Aircraft/dhc2/instrumentation.xml</path>
-        </instrumentation>
-
-        <allow-toggle-cockpit archive="y">true</allow-toggle-cockpit>
+    <model>
         <yokes-visible type="bool">0</yokes-visible>
+    </model>
+        <allow-toggle-cockpit archive="y">true</allow-toggle-cockpit>
 
-        <flaps>
-            <setting>0.00</setting> <!-- Cruise -->
-            <setting>0.10</setting> <!--  -->
-            <setting>0.20</setting> <!-- Climb -->
-            <setting>0.30</setting> <!--  -->
-            <setting>0.40</setting> <!--  -->
-            <setting>0.50</setting> <!--  -->
-            <setting>0.60</setting> <!--  -->
-            <setting>0.70</setting> <!--  -->
-            <setting>0.80</setting> <!--  -->
-            <setting>0.90</setting> <!--  -->
-            <setting>1.0</setting> <!-- Full -->
-        </flaps>
 
-        <weight n="0">
-            <name>Crew</name>
-            <weight-lb>180</weight-lb> 
-            <max-lb>400</max-lb>
-            <min-lb>180</min-lb>
-        </weight>
 
-        <weight n="1">
-            <name>Frt Pax</name>
-            <weight-lb>360</weight-lb> 
-            <max-lb>500</max-lb>
-            <min-lb>0</min-lb>      
-        </weight>
 
-        <weight n="2">
-            <name>Rr Pax</name>
-            <weight-lb>300</weight-lb> 
-            <max-lb>500</max-lb>
-            <min-lb>0</min-lb>      
-        </weight>
+       <checklists include="Systems/checklist.xml"/>
 
-        <weight n="3">
-            <name>Baggage</name>
-            <weight-lb>0</weight-lb> 
-            <max-lb>1000</max-lb>
-            <min-lb>0</min-lb>      
-        </weight>
+     <help>
+        <title>De Havilland "Beaver"</title>
+        <line></line>
+        <line>see CHECKLIST in menu</line>
+    </help>
 
         <multiplay>
             <generic>
@@ -129,54 +90,140 @@
                 <int n="0" alias="/sim/model/display-callsign"/>
             </generic>
         </multiplay>
-
     </sim>
 
-    <engines>
-        <engine>
-            <rpm type="double">0</rpm>
-            <magnetos>0</magnetos>
-            <running>false</running>
-        </engine>
-    </engines>
-
     <controls>
-        <lighting>
-            <instruments-norm>1.0</instruments-norm>
-        </lighting>
         <fuel>
-            <switch-position type = "int">-1</switch-position>
+            <switch-position type="int">0</switch-position>
+            <wing-tank-position type="int">0</wing-tank-position>
+            <wobble-pump type="int">0</wobble-pump>
+            <pump-lever-pos type="double">0.0</pump-lever-pos>
         </fuel>
-        <gear>
-            <brake-parking type="double">1.0</brake-parking>
-            <gear-down type="bool">1.0</gear-down>
-        </gear>
         <engines>
             <engine>
-                <mixture>1.0</mixture>
+                <carb-heat-lever type="double">0</carb-heat-lever>
+                <cutoff-lever type="double">1</cutoff-lever>
+                <oil-dilution type="bool">0</oil-dilution>
             </engine>
         </engines>
         <electric>
-            <avionics-switch type="bool">1</avionics-switch>
+            <battery-switch type="bool">0</battery-switch>
+            <starter-switch type="bool">0</starter-switch>
+            <engine>
+                <generator>0</generator>
+            </engine>
         </electric>
+        <lighting>
+            <cabin-light type="bool">0</cabin-light>
+            <cockpit-light type="bool">0</cockpit-light>
+            <nav-lights>0</nav-lights>
+            <instrument-lights>0</instrument-lights>
+            <landing-lights>0</landing-lights>
+        </lighting>
+        <gear>
+            <brake-parking>1</brake-parking>
+        </gear>
+        <flight>
+            <auto-coordination archive="y">1</auto-coordination>
+        </flight>
         <doors>
             <open n="0" type="bool">0</open>
             <open n="1" type="bool">0</open>
             <open n="2" type="bool">0</open>
             <open n="3" type="bool">0</open>
-            <position-norm n="0" type="double">0</position-norm>
-            <position-norm n="1" type="double">0</position-norm>
-            <position-norm n="2" type="double">0</position-norm>
-            <position-norm n="3" type="double">0</position-norm>
         </doors>
     </controls>
 
+    <consumables>
+        <fuel>
+            <tank n="0">
+                <name>Fuel PSI</name>
+                <hidden type="bool">1</hidden>
+            </tank>
+            <tank n="1">
+                <name>Front</name>
+            </tank>
+            <tank n="2">
+                <name>Center</name>
+            </tank>
+            <tank n="3">
+                <name>Rear</name>
+            </tank>
+            <tank n="4">
+                <name>L Wingtip</name>
+            </tank>
+            <tank n="5">
+                <name>R Wingtip</name>
+            </tank>
+        </fuel>
+    </consumables>
+
+    <input>
+        <keyboard>
+            <key n="126">
+            <name>~</name>
+            <desc>Wobble pump</desc>
+            <binding>
+                <command>property-assign</command>
+                <property>/controls/fuel/wobble-pump</property>
+                <value>1</value>
+            </binding>
+            </key>
+            <key n="268">
+            <name>radio</name>
+            <binding>
+                <command>nasal</command>
+                <script>dialogs.Radio.open()</script>
+            </binding>
+        </key>
+        <key n="115">
+            <name>s</name>
+            <desc>Fire Starter</desc>
+            <binding>
+                <command>property-assign</command>
+                <property>controls/electric/starter-switch</property>
+                <value>1</value>
+            </binding>
+            <mod-up>
+                <binding>
+                    <command>property-assign</command>
+                    <property>controls/electric/starter-switch</property>
+                    <value>0</value>
+                </binding>
+            </mod-up>
+        </key>
+        <key n="91">
+            <name>[</name>
+            <desc>Decrease flaps</desc>
+            <binding>
+                <command>property-adjust</command>
+                <property>/controls/flight/flaps</property>
+                <step type="double">-0.083333</step>
+                <min>0</min>
+                <max>1.0</max>
+            </binding>
+        </key>
+        <key n="93">
+            <name>]</name>
+            <desc>Increase flaps</desc>
+            <binding>
+                <command>property-adjust</command>
+                <property>/controls/flight/flaps</property>
+                <step type="double">0.083333</step>
+                <min>0</min>
+                <max>1.0</max>
+            </binding>
+        </key>
+        </keyboard>
+    </input>
+
     <instrumentation>
-        <kr-87>
-            <inputs>
-                <volume>0.05</volume>
-            </inputs>
-        </kr-87>
+        <comm>
+            <power-btn type="bool">1</power-btn>
+            <volume>1</volume>
+        </comm>
+        <nav>
+        </nav>
     </instrumentation>
 
     <nasal>
@@ -184,6 +231,9 @@
             <file>Aircraft/dhc2/Nasal/dhc2.nas</file>
             <file>Aircraft/dhc2/Nasal/Electrical.nas</file>
         </dhc2>
+        <dialogs>
+            <file>Aircraft/dhc2/Nasal/dialogs.nas</file>
+        </dialogs>
     </nasal>
 
 </PropertyList>

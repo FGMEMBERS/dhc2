@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<PropertyList>
+    <!-- No autopilot so use copilot for relief-->
+    <name>autopilot-dlg</name>
+    <layout>vbox</layout>
+
+    <group>
+         <layout>hbox</layout>
+        <text>
+            <label>CoPilot</label>
+        </text>
+        <button>
+            <row>0</row>
+            <col>1</col>
+            <legend>X</legend>
+            <default>true</default>
+            <key>Esc</key>
+            <binding>
+                <command>dialog-close</command>
+            </binding>
+        </button>
+    </group>
+
+    <group>
+        <layout>vbox</layout>
+
+        <button>
+            <legend>CP has control</legend>
+            <property>/controls/autoflight/autopilot/engage</property>
+                    <live>true</live>
+                    <binding>
+                        <command>dialog-apply</command>
+                    </binding>
+        </button>
+
+    </group>
+</PropertyList>

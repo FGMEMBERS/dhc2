@@ -16,10 +16,13 @@
 
         <condition>
             <and>
-                <property>/gear/gear[7]/wow</property>
+                <or>
+                    <property>/gear/gear[5]/wow</property>
+                    <property>/gear/gear[7]/wow</property>
+                </or>
                 <greater-than>
-                    <property>velocities/airspeed-kt</property>
-                    <value>20</value>
+                    <property>velocities/groundspeed-kt</property>
+                    <value>10</value>
                 </greater-than>
             </and>
         </condition>
