@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+<sim>
+    <model>
+        <livery>
+            <name type="string">South Arabian Air Force</name>
+            <texture>Liveries/SAAF.png</texture>
+        </livery>
+        <cabin>
+            <texture>cabin1.png</texture>
+        </cabin>
+    </model>
+</sim>
+</PropertyList>

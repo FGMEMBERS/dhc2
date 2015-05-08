@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+<sim>
+    <model>
+        <livery>
+            <name type="string">Royal Australian Air Force - A95-204</name>
+            <texture>Liveries/A95-204.png</texture>
+        </livery>
+        <cabin>
+            <texture>Liveries/cabin.png</texture>
+        </cabin>
+    </model>
+</sim>
+</PropertyList>

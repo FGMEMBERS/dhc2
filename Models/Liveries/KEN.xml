@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+<sim>
+    <model>
+        <livery>
+            <name type="string">Kenmore Air (N9766Z)</name>
+            <texture>Liveries/KEN.png</texture>
+        </livery>
+        <cabin>
+            <texture>Liveries/cabin.png</texture>
+        </cabin>
+    </model>
+</sim>
+</PropertyList>

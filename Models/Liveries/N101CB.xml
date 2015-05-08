@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+<sim>
+    <model>
+        <livery>
+            <name type="string">N101CB</name>
+            <texture>Liveries/N101CB.png</texture>
+        </livery>
+        <cabin>
+            <texture>Liveries/cabin.png</texture>
+        </cabin>
+    </model>
+</sim>
+</PropertyList>

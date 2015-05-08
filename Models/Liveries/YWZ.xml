@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+<sim>
+    <model>
+        <livery>
+            <name type="string">West Coast Air</name>
+            <texture>Liveries/YWZ.png</texture>
+        </livery>
+        <cabin>
+            <texture>Liveries/cabin.png</texture>
+        </cabin>
+    </model>
+</sim>
+</PropertyList>
