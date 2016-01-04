@@ -16,7 +16,8 @@ July 2004 Syd Adams
     <startup>
         <splash-texture>Aircraft/dhc2/dhc-2splash.png</splash-texture>
     </startup>
-
+    <variant-of>dhc2W</variant-of>
+    
         <model>
             <path>Aircraft/dhc2/Models/dhc2floats.xml</path>
                 <livery>
@@ -68,7 +69,7 @@ July 2004 Syd Adams
 
     <help>
         <title>De Havilland "Beaver"</title>
-        <line></line> 
+        <line></line>
         <key>
             <name>l</name>
             <desc>toggle water rudders</desc>
