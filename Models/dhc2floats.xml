@@ -744,8 +744,8 @@
     <type>rotate</type>
     <object-name>RHrudder</object-name>
     <object-name>RHrudderArm</object-name>
-    <property>controls/gear/steering</property>
-    <factor>-25</factor>
+    <property>surface-positions/rudder-pos-norm</property>
+    <factor>25</factor>
     <center>
       <x-m>3.360</x-m>
       <y-m>1.434</y-m>
@@ -779,8 +779,8 @@
     <type>rotate</type>
     <object-name>LHrudder</object-name>
     <object-name>LHrudderArm</object-name>
-    <property>controls/gear/steering</property>
-    <factor>-20</factor>
+    <property>surface-positions/rudder-pos-norm</property>
+    <factor>25</factor>
     <center>
       <x-m>3.360</x-m>
       <y-m>-1.434</y-m>
