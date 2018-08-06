@@ -11,6 +11,27 @@
             <model type="int">4</model>
         </rating>
 
+        <tags>
+            <tag>transport</tag>
+            <tag>bush-plane</tag>
+            <tag>1940s</tag>
+            <tag>1950s</tag>
+            <tag>1960s</tag>
+            <tag>amphibious</tag>
+            <tag>castering-wheel</tag>
+            <tag>fixed-gear</tag>
+            <tag>high-wing</tag>
+            <tag>stol</tag>
+            <tag>tail-dragger</tag>
+            <tag>propeller</tag>
+            <tag>piston</tag>
+            <tag>radial</tag>
+            <tag>single-engine</tag>
+            <tag>supercharged</tag>
+            <tag>variable-pitch</tag>
+            <tag>tow</tag> <!-- yes, we can tow gliders -->
+        </tags>
+
         <view n="0">
             <name>Cockpit</name>
             <type>lookfrom</type>
@@ -60,7 +81,7 @@
         </sound>
 
         <model>
-            <yokes-visible type="bool">0</yokes-visible>
+            <yokes-visible type="bool" archive="y">1</yokes-visible>
         </model>
         <allow-toggle-cockpit archive="y">true</allow-toggle-cockpit>
 
