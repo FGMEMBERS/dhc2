@@ -11,6 +11,19 @@
             <model type="int">4</model>
         </rating>
 
+        <long-description>
+          As the saying goes, nothing can replace a Beaver, except
+          another Beaver.  This quintessential bush plane was produced
+          between 1947 and 1967 and still flies today, notably in its
+          native Canada and in Alaska.  More than half a century after
+          production ceased, existing airframes are still being
+          refurbished and lovingly rebuilt at great expense.  Some
+          examples have been re-engined with turbines but this model
+          represents the original Wasp Junior radial piston engine.
+          You can choose floats or wheels and you can tow gliders over
+          multiplayer with this aircraft.
+        </long-description>
+
         <tags>
             <tag>transport</tag>
             <tag>bush-plane</tag>
