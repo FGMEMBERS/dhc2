@@ -6,6 +6,18 @@
             <value>ON</value>
         </item>
         <item>
+          <name>Tail Wheel Lock (wheels version only)</name>
+          <value>ON</value>
+          <condition>
+            <property>/controls/gear/tailwheel-lock</property>
+          </condition>
+          <binding>
+            <command>property-assign</command>
+            <property>/controls/gear/tailwheel-lock</property>
+            <value>1</value>
+          </binding>
+        </item>
+        <item>
             <name>Generator switch</name>
             <value>ON</value>
         </item>

@@ -3,6 +3,7 @@
 <PropertyList>
 
     <sim>
+        <aircraft-version>2.3.0</aircraft-version>
 
         <rating>
             <FDM type="int">3</FDM>
@@ -12,7 +13,7 @@
         </rating>
 
         <long-description>
-          As the saying goes, nothing can replace a Beaver, except
+          As the saying goes, nothing can replace a Beaver except
           another Beaver.  This quintessential bush plane was produced
           between 1947 and 1967 and still flies today, notably in its
           native Canada and in Alaska.  More than half a century after
@@ -99,12 +100,6 @@
         <allow-toggle-cockpit archive="y">true</allow-toggle-cockpit>
 
         <checklists include="Systems/checklist.xml"/>
-
-        <help>
-            <title>De Havilland "Beaver"</title>
-            <line></line>
-            <line>see CHECKLIST in menu</line>
-        </help>
 
         <multiplay>
             <generic>
