@@ -28,3 +28,31 @@ var check_doors = func{
     }
     settimer(check_doors,0);
 }
+
+# For use by start-up checklist. We run starter until engine starts or a
+# timeout expires.
+#
+var run_starter = func() {
+    printf("run_starter()...");
+    var timer = nil;
+    var listener = nil;
+    done = func() {
+        timer.stop();
+        removelistener(listener);
+        setprop("/controls/electric/starter-switch", 0);
+    }
+    callback_running = func() {
+        if (getprop("/engines/engine/running") == 1) {
+            printf("run_starter(): engine is running");
+            done();
+        }
+    };
+    callback_timeout = func() {
+        printf("run_starter(): timeout");
+        done();
+    }
+    timer = maketimer(15, callback_timeout);
+    listener = setlistener("/engines/engine/running", callback_running);
+    timer.start();
+    setprop("/controls/electric/starter-switch", 1);
+}

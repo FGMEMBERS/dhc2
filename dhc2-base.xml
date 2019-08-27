@@ -291,8 +291,10 @@
     <nasal>
         <dhc2>
             <file>Aircraft/dhc2/Nasal/dhc2.nas</file>
-            <file>Aircraft/dhc2/Nasal/Electrical.nas</file>
         </dhc2>
+        <Electrical>
+            <file>Aircraft/dhc2/Nasal/Electrical.nas</file>
+        </Electrical>
         <dialogs>
             <file>Aircraft/dhc2/Nasal/dialogs.nas</file>
         </dialogs>
