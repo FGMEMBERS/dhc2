@@ -4,18 +4,65 @@
         <item>
             <name>Park Brake</name>
             <value>ON</value>
+            <condition>
+                <property>/controls/gear/brake-parking</property>
+            </condition>
+          <binding>
+            <command>property-assign</command>
+            <property>/controls/gear/brake-parking</property>
+            <value>1</value>
+          </binding>
+        </item>
+        <item>
+          <name>Tail Wheel Lock (wheels version only)</name>
+          <value>ON</value>
+          <condition>
+            <property>/controls/gear/tailwheel-lock</property>
+          </condition>
+          <binding>
+            <command>property-assign</command>
+            <property>/controls/gear/tailwheel-lock</property>
+            <value>1</value>
+          </binding>
         </item>
         <item>
             <name>Generator switch</name>
             <value>ON</value>
+            <condition>
+                <property>/controls/electric/engine/generator</property>
+            </condition>
+          <binding>
+            <command>property-assign</command>
+            <property>/controls/electric/engine/generator</property>
+            <value>1</value>
+          </binding>
         </item>
         <item>
             <name>Master Switch</name>
             <value>ON</value>
+            <condition>
+                <property>/controls/electric/battery-switch</property>
+            </condition>
+          <binding>
+            <command>property-assign</command>
+            <property>/controls/electric/battery-switch</property>
+            <value>1</value>
+          </binding>
         </item>
             <item>
             <name>Fuel Quantity</name>
-            <value>CHECK</value>
+            <value>Centre tank full</value>
+            <condition>
+                <greater-than>
+                    <property>/consumables/fuel/tank[2]/level-norm</property>
+                    <value>0.95</value>
+                </greater-than>
+            </condition>
+          <binding>
+            <command>property-assign</command>
+            <property>/consumables/fuel/tank[2]/level-norm</property>
+            <value>1</value>
+          </binding>
         </item>
         <item>
             <name>Altimeter / Clock</name>
@@ -27,39 +74,138 @@
         </item>
         <item>
             <name>Throttle</name>
-            <value>1/4 inch OPEN</value>
+            <value>1/4 inch OPEN (3-5%)</value>
+            <condition>
+                <and>
+                    <greater-than>
+                        <property>/controls/engines/engine/throttle</property>
+                        <value>0.029</value>
+                    </greater-than>
+                    <less-than>
+                        <property>/controls/engines/engine/throttle</property>
+                        <value>0.051</value>
+                    </less-than>
+                </and>
+            </condition>
+          <binding>
+            <command>property-assign</command>
+            <property>/controls/engines/engine/throttle</property>
+            <value>0.04</value>
+          </binding>
         </item>
         <item>
             <name>Prop Lever</name>
             <value>INCREASE</value>
+            <condition>
+                <equals>
+                    <property>/controls/engines/engine/propeller-pitch</property>
+                    <value>1</value>
+                </equals>
+            </condition>
+          <binding>
+            <command>property-assign</command>
+            <property>/controls/engines/engine/propeller-pitch</property>
+            <value>1</value>
+          </binding>
         </item>
         <item>
             <name>Mixture Lever</name>
             <value>FULL RICH</value>
+            <condition>
+                <equals>
+                    <property>/controls/engines/engine/mixture</property>
+                    <value>1</value>
+                </equals>
+            </condition>
+          <binding>
+            <command>property-assign</command>
+            <property>/controls/engines/engine/mixture</property>
+            <value>1</value>
+          </binding>
         </item>
         <item>
             <name>Carb Heat</name>
             <value>COLD</value>
+            <condition>
+                <equals>
+                    <property>/controls/engines/engine/carb-heat-lever</property>
+                    <value>0</value>
+                </equals>
+            </condition>
+          <binding>
+            <command>property-assign</command>
+            <property>/controls/engines/engine/carb-heat-lever</property>
+            <value>0</value>
+          </binding>
         </item>
         <item>
             <name>Emergency Cutoff</name>
             <value>OPEN</value>
+            <condition>
+                <property>/controls/engines/engine/cutoff-lever</property>
+            </condition>
+          <binding>
+            <command>property-assign</command>
+            <property>/controls/engines/engine/cutoff-lever</property>
+            <value>1</value>
+          </binding>
         </item>
         <item>
             <name>Fuel Selector</name>
-            <value>Fullest Tank</value>
+            <value>Centre Tank</value>
+            <condition>
+                <equals>
+                    <property>/controls/fuel/switch-position</property>
+                    <value>2</value>
+                </equals>
+            </condition>
+          <binding>
+            <command>property-assign</command>
+            <property>/controls/fuel/switch-position</property>
+            <value>2</value>
+          </binding>
         </item>
         <item>
             <name>Wobble Pump Lever</name>
             <value>Pump to bring fuel pressue to 5 PSI</value>
+            <condition>
+                <equals>
+                    <property>/consumables/fuel/tank/level-norm</property>
+                    <value>1</value>
+                </equals>
+            </condition>
+          <binding>
+            <command>property-assign</command>
+            <property>/controls/fuel/wobble-pump</property>
+            <value>1</value>
+          </binding>
         </item>
         <item>
             <name>Magnetos</name>
             <value>BOTH</value>
+            <condition>
+                <equals>
+                    <property>/controls/engines/engine/magnetos</property>
+                    <value>3</value>
+                </equals>
+            </condition>
+          <binding>
+            <command>property-assign</command>
+            <property>/controls/engines/engine/magnetos</property>
+            <value>3</value>
+          </binding>
         </item>
         <item>
             <name>Starter </name>
             <value>Hold on until ignition</value>
+            <condition>
+                <property>/engines/engine/running</property>
+            </condition>
+            <binding>
+                <command>nasal</command>
+                <!--<script>printf("dhc2 is: %s", view.str(dhc2))</script>-->
+                <script>dhc2.run_starter()</script>
+          </binding>
         </item>
         <item>
             <name>Directional Gyro</name>

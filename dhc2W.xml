@@ -185,7 +185,7 @@
    <rolling_friction> 0.02 </rolling_friction>
    <spring_coeff unit="LBS/FT">2100.00</spring_coeff>
    <damping_coeff unit="LBS/FT/SEC">550.00</damping_coeff>
-   <max_steer unit="DEG">-25</max_steer>
+   <max_steer unit="DEG">360.00</max_steer>
    <brake_group>NONE</brake_group>
    <retractable>0</retractable>
   </contact>
@@ -565,6 +565,25 @@
 
   </channel>
 
+  <channel name="Tail Wheel">
+    <switch name="fcs/tail-wheel-lock">
+      <test value="0">fcs/tail-wheel-lock-cmd-norm NE 0</test>
+      <default value="1"/>
+      <output>gear/unit[2]/castered</output>
+    </switch>
+    <fcs_function name="fcs/tail-wheel-locked-deg">
+      <!-- by default, when the tail wheel is locked, rudder controls its position between -360 and 360 degrees.  We want to lock
+           it instead. -->
+       <function>
+          <product>
+            <property> fcs/rudder-pos-norm </property>
+            <value>0.0</value>
+          </product>
+       </function>
+       <output>fcs/steer-pos-deg[2]</output>
+    </fcs_function>
+  </channel>
+
  </flight_control>
 
  <aerodynamics>
@@ -913,6 +932,18 @@
  </aerodynamics>
 
  <external_reactions>
+   <force name="aerotow" frame="BODY" unit="LBS">
+     <location unit="M">
+       <x>6.1976</x> <!-- like the tailwheel -->
+       <y>0.0</y>
+       <z>0.0</z>
+     </location>
+     <direction>
+       <x>0.0</x>
+       <y>0.0</y>
+       <z>0.0</z>
+     </direction>
+   </force>
  </external_reactions>
 
 </fdm_config>

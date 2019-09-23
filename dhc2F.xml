@@ -1003,7 +1003,7 @@
             </tableData>
           </table>
            <property>fcs/rudder-pos-rad</property>
-           <property>/controls/test</property>
+           <value>-10000</value> <!-- water has much more resistance than air -->
        </product>
     </function>
 

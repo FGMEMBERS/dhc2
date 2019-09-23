@@ -34,6 +34,27 @@ July 2004 Syd Adams
                 <display-callsign type="bool">1</display-callsign>
         </model>
 
+        <hitches>
+          <!-- See $FGDATA/Nasal/towing/hitch.nas for explanation -->
+          <aerotow>
+            <force_name_jsbsim type="string">aerotow</force_name_jsbsim>
+            <force-is-calculated-by-other type="bool">true</force-is-calculated-by-other>
+            <mp-auto-connect-period type="float">1.0</mp-auto-connect-period>
+          </aerotow>
+        </hitches>
+
+        <help>
+          <title>De Havilland Canada DHC-2 "Beaver" (wheels)</title>
+          <key>
+            <name>O</name>
+            <desc>Open aerotow hook</desc>
+            <name>l</name>
+            <desc>Lock/unlock the castering tailwheel</desc>
+          </key>
+          <line>For startup, see Help > Aircraft Checklists.</line>
+          <line>Steer with differential braking with the tail wheel unlocked.  Lock the tail wheel before takeoff.</line>
+          <line>Before towing a glider, ask the glider pilot to adjust the elasticity of the rope to 1000 N or less.</line>
+        </help>
 
         <instrumentation>
             <path>Aircraft/dhc2/Systems/sys2.xml</path>
@@ -63,11 +84,11 @@ July 2004 Syd Adams
     </menubar>
     </sim>
 
-
-<controls>
-    <Mtest type="double">1.0</Mtest>
-</controls>
-
+    <controls>
+      <gear>
+        <tailwheel-lock n="0" alias="/fdm/jsbsim/fcs/tail-wheel-lock-cmd-norm"/>
+      </gear>
+    </controls>
 
     <payload>
         <weight n="0">
@@ -102,4 +123,17 @@ July 2004 Syd Adams
         </weight>
     </payload>
 
+  <input>
+    <keyboard>
+      <!-- Aerotow support copied from $FGDATA/Nasal/towing/hitch.nas -->
+      <key n="79">
+        <name>O</name>
+        <desc>Open aerotow-hook</desc>
+        <binding>
+          <command>nasal</command>
+          <script>towing.releaseHitch("aerotow")</script>
+        </binding>
+      </key>
+    </keyboard>
+  </input>
 </PropertyList>
